@@ -1,0 +1,236 @@
+$ <python> -m unittest discover -s tests -v
+cwd=<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training
+rc=0 seconds=86.19
+--- stdout ---
+[base-coat] lineart auto colour=[0.98431, 0.98431, 0.98431]
+[base-coat] raster coverage=0.9960 overlap/fg=0.0431 over2=0 max_count=2 report(cov=0.99598, ovl=0.04313)
+[gradient-safety] custom max-delta=0.05: accepted=593 rejected_delta=147 rejected_oob=0
+[gradient-safety] gate=off gradients=738 unsafe(d_end>0.120)=88 max=0.6548
+[gradient-safety] A/B legacy-geometry render: stray_px gate_off=317 gate_on=377; far>3px false-colour ratio gate_off=0.0000 gate_on=0.0011 (gate_off gradients=734, rejected-with-gate-on=98)
+[gradient-safety] v1.36 default geometry: stray_px gate_off=859 gate_on=1431; stray_frac off=0.0699 on=0.1165
+[gradient-safety] gate=0.120 step_diag=True gradients=633 clipped=0 max_d_end=0.1191 unsafe=0 rejected(delta/edge/oob)=89/26/0
+[gradient-safety] stray_color_px reported=1431 recomputed=1436 fg_px=12288 (float-vs-8bit tolerance 61)
+[human-paint] flow on: report flow=0.6298 axis=0.5573 self_flow=0.7519
+[human-paint] axis_aligned on=0.5573 off=0.7761
+[human-paint] region order: y_spearman=-0.0973 adjacent=14.14px region_run=0.8043 | scan: y_spearman=0.6370 adjacent=18.56px region_run=0.3551
+[human-paint] real image axis_aligned=0.2604 flow_orientation=0.9129 self_axis=0.2604 image=Sunflowers_user.jpg
+[human-paint] wash coverage=0.9960 overlap_fg=0.0431 max_count=2 report(cov=0.99598, ovl=0.04313)
+[human-paint] wash base axis_aligned=0.0000 entropy=0.0770 strokes=21
+[gate-unit] smooth-ramp candidates=25 accepted=0 max_delta=0.0000
+[silhouette] off: formal=66 overshoot>2px=36 max=9.87px outside_px=2279
+[silhouette] on: formal=31 overshoot>2px=0 max=-0.25px outside_px=0
+[silhouette] report overshoot 9.87px -> 0.00px clipped=12 dropped=35
+[silhouette] quality @256: off psnr=27.202 ssim=0.9546 | on psnr=29.208 ssim=0.9706
+[silhouette] fallback: on=True area_frac=1.0 fallback=True
+[texture-flat] unit flat-side ratio=1.0000 candidates=5828 flat_frac=0.4922
+[texture-flat] ref_std gate: strokes=200 textured-side ratio=1.0000
+
+--- stderr ---
+test_angle_90_is_vertical (test_base_coat.TestBaseCoatAngle.test_angle_90_is_vertical) ... ok
+test_base_mode_choices (test_base_coat.TestBaseCoatInterface.test_base_mode_choices) ... ok
+test_frozen_base_defaults (test_base_coat.TestBaseCoatInterface.test_frozen_base_defaults) ... ok
+test_frozen_err_pct_defaults (test_base_coat.TestBaseCoatInterface.test_frozen_err_pct_defaults) ... ok
+test_help_lists_new_options (test_base_coat.TestBaseCoatInterface.test_help_lists_new_options) ... ok
+test_hex_rrggbb (test_base_coat.TestBaseColorParsing.test_hex_rrggbb) ... ok
+test_rgb_0_255 (test_base_coat.TestBaseColorParsing.test_rgb_0_255) ... ok
+test_cap_adjusts_and_preserves_base (test_base_coat.TestHardCap.test_cap_adjusts_and_preserves_base) ... ok
+test_quantized_legacy_multi_colour (test_base_coat.TestLegacyModes.test_quantized_legacy_multi_colour) ... ok
+test_source_legacy_smoke (test_base_coat.TestLegacyModes.test_source_legacy_smoke) ... ok
+test_lineart_none_mode (test_base_coat.TestLineArtSmoke.test_lineart_none_mode) ... ok
+test_lineart_toned_auto_colour_is_near_white (test_base_coat.TestLineArtSmoke.test_lineart_toned_auto_colour_is_near_white) ... ok
+test_none_mode_has_no_underpainting (test_base_coat.TestNoBase.test_none_mode_has_no_underpainting) ... ok
+test_base_only_render_is_flat (test_base_coat.TestTonedDefault.test_base_only_render_is_flat) ... ok
+test_default_mode_is_toned (test_base_coat.TestTonedDefault.test_default_mode_is_toned) ... ok
+test_default_recipe_still_paints (test_base_coat.TestTonedDefault.test_default_recipe_still_paints) ... ok
+test_report_coat_geometry (test_base_coat.TestTonedDefault.test_report_coat_geometry) ... ok
+test_single_coat_coverage_and_overlap (test_base_coat.TestTonedDefault.test_single_coat_coverage_and_overlap) ... ok
+test_single_pure_colour_no_gradient (test_base_coat.TestTonedDefault.test_single_pure_colour_no_gradient) ... ok
+test_detail_underpainting_strokes_are_dropped (test_contracts.TestDetailFilterContract.test_detail_underpainting_strokes_are_dropped) ... ok
+test_assets_declared_and_exist (test_contracts.TestDocumentation.test_assets_declared_and_exist) ... ok
+test_references_declared_and_exist (test_contracts.TestDocumentation.test_references_declared_and_exist) ... ok
+test_required_sections_present (test_contracts.TestDocumentation.test_required_sections_present) ... ok
+test_scripts_declared_and_exist (test_contracts.TestDocumentation.test_scripts_declared_and_exist) ... ok
+test_skill_md_declared_and_exists (test_contracts.TestDocumentation.test_skill_md_declared_and_exists) ... ok
+test_tests_dir_declared_if_tree_updated (test_contracts.TestDocumentation.test_tests_dir_declared_if_tree_updated)
+Once fixer-docs adds ``tests/`` to the tree, declarations must be real. ... ok
+test_all_text_files_are_strict_utf8 (test_contracts.TestEncodingAndPaths.test_all_text_files_are_strict_utf8) ... ok
+test_scripts_have_no_hardcoded_absolute_paths (test_contracts.TestEncodingAndPaths.test_scripts_have_no_hardcoded_absolute_paths) ... ok
+test_every_script_compiles (test_contracts.TestHelpAndCompile.test_every_script_compiles) ... ok
+test_every_script_help_exits_zero (test_contracts.TestHelpAndCompile.test_every_script_help_exits_zero) ... ok
+test_base_coat_interface_frozen (test_contracts.TestLayeredBaseInterface.test_base_coat_interface_frozen)
+v1.35 human-like underpainting: toned default, colour + coat geometry. ... ok
+test_base_coat_options_documented (test_contracts.TestLayeredBaseInterface.test_base_coat_options_documented)
+v1.35 underpainting flags should reach SKILL.md / references. ... ok
+test_core_defaults_frozen (test_contracts.TestLayeredBaseInterface.test_core_defaults_frozen) ... ok
+test_documented_gate_numbers_match_defaults_if_mentioned (test_contracts.TestLayeredBaseInterface.test_documented_gate_numbers_match_defaults_if_mentioned) ... ok
+test_documented_tile_and_palette_numbers_match_defaults (test_contracts.TestLayeredBaseInterface.test_documented_tile_and_palette_numbers_match_defaults)
+SKILL.md §16.991 declares 64/32/16px tiles and K=6/8/8 palettes. ... ok
+test_gpu_render_interface_frozen (test_contracts.TestLayeredBaseInterface.test_gpu_render_interface_frozen)
+v1.38: gpu_render.py CLI contract (device/supersample/...). ... ok
+test_gpu_render_options_documented (test_contracts.TestLayeredBaseInterface.test_gpu_render_options_documented)
+v1.38 flags should reach SKILL.md / references (fixer-docs v1.38). ... ok
+test_gradient_gate_interface_frozen (test_contracts.TestLayeredBaseInterface.test_gradient_gate_interface_frozen) ... ok
+test_human_paint_interface_frozen (test_contracts.TestLayeredBaseInterface.test_human_paint_interface_frozen)
+v1.36: wash ground default, form-following flow and region order. ... ok
+test_human_paint_options_documented (test_contracts.TestLayeredBaseInterface.test_human_paint_options_documented)
+v1.36 flags should reach SKILL.md / references (fixer-docs v1.36). ... ok
+test_new_gradient_options_documented (test_contracts.TestLayeredBaseInterface.test_new_gradient_options_documented)
+v1.33 gate flags should reach SKILL.md / references (fixer-docs task). ... ok
+test_silhouette_interface_frozen (test_contracts.TestLayeredBaseInterface.test_silhouette_interface_frozen)
+v1.37: silhouette-aware generation interface. ... ok
+test_silhouette_options_documented (test_contracts.TestLayeredBaseInterface.test_silhouette_options_documented)
+v1.37 flags should reach SKILL.md / references (fixer-docs v1.37). ... ok
+test_texture_flat_interface_frozen (test_contracts.TestLayeredBaseInterface.test_texture_flat_interface_frozen)
+v1.34 opt-in texture-flat flags + the v1.34 pass1 additions. ... ok
+test_texture_flat_options_documented (test_contracts.TestLayeredBaseInterface.test_texture_flat_options_documented)
+v1.34 opt-in flags should reach SKILL.md / references (fixer-docs v1.34). ... ok
+test_cpu_render_ok (test_gpu_render.TestCPUDevice.test_cpu_render_ok) ... ok
+test_cpu_timing_json (test_gpu_render.TestCPUDevice.test_cpu_timing_json) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:367: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  data = json.load(open(self.timing, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_fdraw_renders (test_gpu_render.TestFdrawInputPath.test_fdraw_renders) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_frozen_gpu_defaults (test_gpu_render.TestGPUInterface.test_frozen_gpu_defaults) ... ok
+test_help_lists_inputs_and_options (test_gpu_render.TestGPUInterface.test_help_lists_inputs_and_options) ... ok
+test_inputs_are_mutually_exclusive (test_gpu_render.TestGPUInterface.test_inputs_are_mutually_exclusive) ... ok
+test_no_gl_exit_code_and_clear_message (test_gpu_render.TestGPUInterface.test_no_gl_exit_code_and_clear_message)
+Without PyOpenGL/GL: render exits 3, --help still works. ... ok
+test_alpha_doc_exits_5_with_clear_message (test_gpu_render.TestGPURefusesTranslucentDocs.test_alpha_doc_exits_5_with_clear_message) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_cpu_still_renders_alpha_doc (test_gpu_render.TestGPURefusesTranslucentDocs.test_cpu_still_renders_alpha_doc) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_gpu_matches_cpu (test_gpu_render.TestGPURenderQuality.test_gpu_matches_cpu) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_gpu_timing_json (test_gpu_render.TestGPURenderQuality.test_gpu_timing_json) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_strokes_input_path (test_gpu_render.TestGPURenderQuality.test_strokes_input_path) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_supersample_and_resolution (test_gpu_render.TestGPURenderQuality.test_supersample_and_resolution) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_forced_cpu_fallback (test_gpu_render.TestNodeGpuFallback.test_forced_cpu_fallback) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_gpu_path_succeeds (test_gpu_render.TestNodeGpuFallback.test_gpu_path_succeeds) ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+test_translucent_fdraw_falls_back_to_cpu (test_gpu_render.TestNodeGpuFallback.test_translucent_fdraw_falls_back_to_cpu)
+A .fdraw with alpha<1 makes GPU render exit 5 -> node falls back. ... skipped 'GPU render tests need RUN_GPU=1 and a GL-capable python (OpenGL importable: False, gpu_render.py present: True)'
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:171: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  content = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:171: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  content = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:522: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  text = open(cls.nodes, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_package_version_compatible (test_gpu_render.TestNodePackageContract.test_package_version_compatible) ... ok
+test_render_widget_count_still_one (test_gpu_render.TestNodePackageContract.test_render_widget_count_still_one) ... ok
+test_workflows_render_widgets_unchanged (test_gpu_render.TestNodePackageContract.test_workflows_render_widgets_unchanged) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_T2I_Krea2_fdraw_API.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_T2I_Krea2_fdraw_UI.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_fdraw_to_fourier_video_API.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_fdraw_to_fourier_video_UI.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_custom_max_delta_is_enforced (test_gradient_safety.TestCustomThresholds.test_custom_max_delta_is_enforced) ... ok
+test_gate_off_keeps_unsafe_gradient_strokes (test_gradient_safety.TestGradientGateOff.test_gate_off_keeps_unsafe_gradient_strokes) ... ok
+test_cross_boundary_stray_color_ab (test_gradient_safety.TestGradientGateOn.test_cross_boundary_stray_color_ab) ... ok
+test_gate_only_changes_colour_not_early_geometry (test_gradient_safety.TestGradientGateOn.test_gate_only_changes_colour_not_early_geometry)
+Pass1+pass2 strokes must be geometrically identical gate on/off. ... ok
+test_no_unsafe_gradient_strokes (test_gradient_safety.TestGradientGateOn.test_no_unsafe_gradient_strokes) ... ok
+test_report_has_defect_metrics (test_gradient_safety.TestGradientGateOn.test_report_has_defect_metrics) ... ok
+test_run_is_deterministic (test_gradient_safety.TestGradientGateOn.test_run_is_deterministic) ... ok
+test_default_run_budget_and_quality (test_human_paint.TestDefaultRecipeBudget.test_default_run_budget_and_quality) ... ok
+test_default_flow_on_metrics (test_human_paint.TestFlowStrokes.test_default_flow_on_metrics) ... ok
+test_flow_off_still_works (test_human_paint.TestFlowStrokes.test_flow_off_still_works) ... ok
+test_flow_on_reduces_axis_alignment_vs_off (test_human_paint.TestFlowStrokes.test_flow_on_reduces_axis_alignment_vs_off) ... ok
+test_small_budget_thins_formal_layers_only (test_human_paint.TestHardCapUnchanged.test_small_budget_thins_formal_layers_only) ... ok
+test_choices_and_legacy_auto (test_human_paint.TestHumanPaintInterface.test_choices_and_legacy_auto) ... ok
+test_frozen_human_paint_defaults (test_human_paint.TestHumanPaintInterface.test_frozen_human_paint_defaults) ... ok
+test_help_lists_new_options (test_human_paint.TestHumanPaintInterface.test_help_lists_new_options) ... ok
+test_legacy_base_mode_auto_falls_back (test_human_paint.TestPaintOrder.test_legacy_base_mode_auto_falls_back) ... ok
+test_legacy_order_is_generation_order (test_human_paint.TestPaintOrder.test_legacy_order_is_generation_order) ... ok
+test_region_order_is_spatial_not_y_scan (test_human_paint.TestPaintOrder.test_region_order_is_spatial_not_y_scan) ... ok
+test_self_computed_order_metrics_agree (test_human_paint.TestPaintOrder.test_self_computed_order_metrics_agree) ... ok
+test_real_image_flow_and_axis (test_human_paint.TestRealImageFlow.test_real_image_flow_and_axis) ... ok
+test_default_ground_is_wash (test_human_paint.TestWashBase.test_default_ground_is_wash) ... ok
+test_rows_pattern_is_kept_as_legacy_option (test_human_paint.TestWashBase.test_rows_pattern_is_kept_as_legacy_option) ... ok
+test_wash_coverage_and_overlap (test_human_paint.TestWashBase.test_wash_coverage_and_overlap) ... ok
+test_wash_is_not_a_row_scan (test_human_paint.TestWashBase.test_wash_is_not_a_row_scan) ... ok
+test_wash_single_flat_colour_no_gradient (test_human_paint.TestWashBase.test_wash_single_flat_colour_no_gradient) ... ok
+test_outputs_exist_and_finite_metrics (test_layered_base.TestCLISmoke.test_outputs_exist_and_finite_metrics) ... ok
+test_report_schema_and_pass_accounting (test_layered_base.TestCLISmoke.test_report_schema_and_pass_accounting) ... ok
+test_strokes_invariants_and_no_gradient (test_layered_base.TestCLISmoke.test_strokes_invariants_and_no_gradient) ... ok
+test_edge_map_rejects_all_crossing_strokes (test_layered_base.TestGradientGateUnit.test_edge_map_rejects_all_crossing_strokes) ... ok
+test_gate_off_preserves_geometry (test_layered_base.TestGradientGateUnit.test_gate_off_preserves_geometry) ... ok
+test_gate_off_restores_unsafe_gradients (test_layered_base.TestGradientGateUnit.test_gate_off_restores_unsafe_gradients) ... ok
+test_gate_on_only_accepts_safe_deltas (test_layered_base.TestGradientGateUnit.test_gate_on_only_accepts_safe_deltas) ... ok
+test_out_of_foreground_samples_are_rejected (test_layered_base.TestGradientGateUnit.test_out_of_foreground_samples_are_rejected) ... ok
+test_smooth_ramp_with_large_delta_is_rejected (test_layered_base.TestGradientGateUnit.test_smooth_ramp_with_large_delta_is_rejected)
+Strict contract: a smooth ramp must NOT bypass ``--gradient-max-delta``. ... ok
+test_local_palette_map_shape_and_range (test_layered_base.TestPaletteMaps.test_local_palette_map_shape_and_range) ... ok
+test_palette_map_shape_and_range (test_layered_base.TestPaletteMaps.test_palette_map_shape_and_range) ... ok
+test_load_default_drops_underpainting_kinds (test_layered_base.TestSaveLoadRoundtrip.test_load_default_drops_underpainting_kinds) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>
+  json.dump(payload, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:110: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  for s in json.load(open(path, encoding="utf-8")):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_load_roundtrip_arrays_and_precision (test_layered_base.TestSaveLoadRoundtrip.test_load_roundtrip_arrays_and_precision) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>
+  json.dump(payload, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:110: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  for s in json.load(open(path, encoding="utf-8")):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_save_writes_rounded_json (test_layered_base.TestSaveLoadRoundtrip.test_save_writes_rounded_json) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>
+  json.dump(payload, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_layered_base.py:88: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  payload = json.load(open(path, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_counts_and_fraction (test_layered_base.TestStrayColorMetric.test_counts_and_fraction) ... ok
+test_count_and_stroke_field_ranges (test_layered_base.TestTilePass.test_count_and_stroke_field_ranges) ... ok
+test_fg_gates_generation (test_layered_base.TestTilePass.test_fg_gates_generation) ... ok
+test_mask_gates_generation (test_layered_base.TestTilePass.test_mask_gates_generation) ... ok
+test_auto_off_for_legacy_mode (test_silhouette.TestAutoSemantics.test_auto_off_for_legacy_mode) ... ok
+test_auto_off_without_white_background (test_silhouette.TestAutoSemantics.test_auto_off_without_white_background) ... ok
+test_auto_on_for_v136_style_white_background (test_silhouette.TestAutoSemantics.test_auto_on_for_v136_style_white_background) ... ok
+test_explicit_off_equals_auto_disabled_render (test_silhouette.TestAutoSemantics.test_explicit_off_equals_auto_disabled_render) ... ok
+test_frozen_silhouette_defaults (test_silhouette.TestSilhouetteInterface.test_frozen_silhouette_defaults) ... ok
+test_help_lists_new_options (test_silhouette.TestSilhouetteInterface.test_help_lists_new_options) ... ok
+test_off_actually_overshoots (test_silhouette.TestSilhouetteOff.test_off_actually_overshoots) ... ok
+test_off_reports_no_clipping (test_silhouette.TestSilhouetteOff.test_off_reports_no_clipping) ... ok
+test_base_ground_untouched (test_silhouette.TestSilhouetteOn.test_base_ground_untouched) ... ok
+test_geometry_has_no_overshoot (test_silhouette.TestSilhouetteOn.test_geometry_has_no_overshoot) ... ok
+test_report_contract (test_silhouette.TestSilhouetteOn.test_report_contract) ... ok
+test_report_stats_prove_generation_time_clipping (test_silhouette.TestSilhouetteOn.test_report_stats_prove_generation_time_clipping) ... ok
+test_quality_and_budget (test_silhouette.TestSilhouetteQuality.test_quality_and_budget) ... ok
+test_silhouette_area_fallback_is_reported (test_silhouette.TestThinFeatureProtection.test_silhouette_area_fallback_is_reported) ... ok
+test_thin_strip_does_not_crash (test_silhouette.TestThinFeatureProtection.test_thin_strip_does_not_crash) ... ok
+test_gate_off_real_image_has_unsafe_gradients (test_slow_real_image.TestRealImageGradientGate.test_gate_off_real_image_has_unsafe_gradients) ... skipped 'slow real-image test; set RUN_SLOW=1 to enable'
+test_gate_on_real_image (test_slow_real_image.TestRealImageGradientGate.test_gate_on_real_image) ... skipped 'slow real-image test; set RUN_SLOW=1 to enable'
+test_texture_flat_real_image (test_slow_real_image.TestRealImageTextureFlat.test_texture_flat_real_image) ... skipped 'slow real-image test; set RUN_SLOW=1 to enable'
+test_total_stroke_cap_and_warning (test_texture_flat.TestTextureFlatCLIBudget.test_total_stroke_cap_and_warning) ... ok
+test_default_off_emits_no_texture_strokes (test_texture_flat.TestTextureFlatCLIDefaultOff.test_default_off_emits_no_texture_strokes) ... ok
+test_report_fields_and_param_echo (test_texture_flat.TestTextureFlatCLIOn.test_report_fields_and_param_echo) ... ok
+test_texture_strokes_geometry_and_fields (test_texture_flat.TestTextureFlatCLIOn.test_texture_strokes_geometry_and_fields) ... ok
+test_recipe_report (test_texture_flat.TestTextureFlatCLIRecipe.test_recipe_report) ... ok
+test_frozen_texture_flat_defaults (test_texture_flat.TestTextureFlatInterface.test_frozen_texture_flat_defaults) ... ok
+test_frozen_v134_base_defaults (test_texture_flat.TestTextureFlatInterface.test_frozen_v134_base_defaults) ... ok
+test_help_lists_texture_flat_options (test_texture_flat.TestTextureFlatInterface.test_help_lists_texture_flat_options) ... ok
+test_auto_count_scales_with_canvas_area (test_texture_flat.TestTextureFlatUnit.test_auto_count_scales_with_canvas_area) ... ok
+test_deterministic_for_same_seed (test_texture_flat.TestTextureFlatUnit.test_deterministic_for_same_seed) ... ok
+test_emits_requested_strokes_and_info (test_texture_flat.TestTextureFlatUnit.test_emits_requested_strokes_and_info) ... ok
+test_hard_cap_is_enforced (test_texture_flat.TestTextureFlatUnit.test_hard_cap_is_enforced) ... ok
+test_only_locally_flat_areas_are_painted (test_texture_flat.TestTextureFlatUnit.test_only_locally_flat_areas_are_painted)
+Flat left / noisy right render -> >=70% of strokes on the flat side. ... ok
+test_ref_std_gate_restricts_to_textured_reference (test_texture_flat.TestTextureFlatUnit.test_ref_std_gate_restricts_to_textured_reference) ... ok
+test_scaled_geometry_matches_defaults (test_texture_flat.TestTextureFlatUnit.test_scaled_geometry_matches_defaults) ... ok
+test_stroke_fields (test_texture_flat.TestTextureFlatUnit.test_stroke_fields) ... ok
+test_zero_budget_returns_nothing (test_texture_flat.TestTextureFlatUnit.test_zero_budget_returns_nothing) ... ok
+
+----------------------------------------------------------------------
+Ran 142 tests in 84.241s
+
+OK (skipped=13)
+

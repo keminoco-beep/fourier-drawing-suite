@@ -1,0 +1,18 @@
+{
+ "case": "T9c_alpha",
+ "checks": {
+  "A5": "build 成功或明确拒绝；不崩溃"
+ },
+ "class_expected": "any",
+ "expected": {
+  "alpha_threshold": 128,
+  "convert": true
+ },
+ "file": "T9c_alpha.png",
+ "purpose": "T9/A5：带 alpha 的 PNG —— 按 alpha 阈值合成，不崩溃；source.mode 记录 RGBA",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\gpu_render.py --strokes <workspace>\work\release_test\fixtures\alpha_doc.json --out <workspace>\work\release_test\tmp\alpha_cpu.png --resolution 256 --device cpu
+cwd=None
+rc=0 seconds=0.65
+--- stdout ---
+{"ok": true, "out": "<path> skill\\work\\release_test\\tmp\\alpha_cpu.png", "timing": {"device": "cpu", "input": "strokes", "load_s": 0.0, "render_s": 0.328, "total_s": 0.328}}
+
+--- stderr ---
+

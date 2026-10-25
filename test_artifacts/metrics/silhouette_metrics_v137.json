@@ -1,0 +1,117 @@
+{
+ "canvas": [
+  1253,
+  1280
+ ],
+ "old": {
+  "strokes": 38737,
+  "overshoot_vs_fg": {
+   "strokes": 38737,
+   "gt_0_5px": 5677,
+   "gt_2px": 3223,
+   "max_px": 16.97
+  },
+  "overshoot_vs_sil": {
+   "strokes": 38737,
+   "gt_0_5px": 7190,
+   "gt_2px": 4173,
+   "max_px": 16.97
+  },
+  "pollution": {
+   "painted_outside_char_px": 56821,
+   "painted_outside_char_frac": 0.035428
+  },
+  "psnr": 25.8273,
+  "ssim": 0.88795,
+  "seconds": 49.5,
+  "fill_count": 0,
+  "overshoot_by_kind_fg": {
+   "base_toned": {
+    "strokes": 54,
+    "gt_0_5px": 41,
+    "gt_2px": 41,
+    "max_px": 16.97
+   },
+   "other": {
+    "strokes": 38683,
+    "gt_0_5px": 5636,
+    "gt_2px": 3182,
+    "max_px": 10.0
+   }
+  },
+  "pollution_detail": {
+   "outside_char_px": 56821,
+   "outside_char_frac": 0.035428,
+   "outside_char2_px": 56821,
+   "outside_sil_px": 13325,
+   "outside_fg_px": 0,
+   "beyond_feather_zone_px": 13325
+  }
+ },
+ "new": {
+  "strokes": 34107,
+  "overshoot_vs_fg": {
+   "strokes": 34107,
+   "gt_0_5px": 41,
+   "gt_2px": 41,
+   "max_px": 16.97
+  },
+  "overshoot_vs_sil": {
+   "strokes": 34107,
+   "gt_0_5px": 42,
+   "gt_2px": 41,
+   "max_px": 16.97
+  },
+  "pollution": {
+   "painted_outside_char_px": 40976,
+   "painted_outside_char_frac": 0.025549
+  },
+  "psnr": 25.3655,
+  "ssim": 0.88562,
+  "seconds": 63.4,
+  "fill_count": 0,
+  "silhouette_on": true,
+  "silhouette_area_frac": 0.97682,
+  "silhouette_clipped_strokes": 3893,
+  "silhouette_points_trimmed": 2013,
+  "silhouette_dropped_strokes": 4630,
+  "silhouette_overshoot_before_max_px": 9.999,
+  "silhouette_overshoot_after_max_px": 0.0,
+  "white_background_frac": 0.56361,
+  "capped_100k": false,
+  "base_strokes": 54,
+  "overshoot_by_kind_fg": {
+   "base_toned": {
+    "strokes": 54,
+    "gt_0_5px": 41,
+    "gt_2px": 41,
+    "max_px": 16.97
+   },
+   "other": {
+    "strokes": 34053,
+    "gt_0_5px": 0,
+    "gt_2px": 0,
+    "max_px": 0.25
+   }
+  },
+  "pollution_detail": {
+   "outside_char_px": 40976,
+   "outside_char_frac": 0.025549,
+   "outside_char2_px": 40976,
+   "outside_sil_px": 0,
+   "outside_fg_px": 0,
+   "beyond_feather_zone_px": 0
+  }
+ },
+ "hi_res_png": "<workspace>\\work\\silhouette\\chibi_fix_R2048.png",
+ "edge_cmp_png": "<workspace>\\work\\silhouette\\edge_before_after_4x.png",
+ "contact_sheet_png": "<workspace>\\work\\silhouette\\contact_sheet_fix.png",
+ "run_png": "<workspace>\\work\\silhouette\\run_fix\\layered_base_R1280.png",
+ "strokes": "<workspace>\\work\\silhouette\\run_fix\\layered_base_strokes.json",
+ "masks": {
+  "fg_frac": 0.43639,
+  "sil_frac": 0.42627,
+  "char_frac": 0.38487,
+  "char2_frac": 0.38487
+ }
+}

@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\work\release_test\_node_video.py <workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\custom_nodes\ComfyUI-FDP-T2I\nodes.py <workspace>\work\release_test\tmp\chain\doc.fdraw <workspace>\work\release_test\tmp\video 512x512 512 2
+cwd=None
+rc=0 seconds=63.28
+--- stdout ---
+{"ok": true, "version": "3.1.0", "seconds": 62.5, "mp4": "<path> skill\\work\\release_test\\tmp\\video\\fourier_2s.mp4", "poster_shape": [1, 1638, 2048, 3], "log": ""}
+
+--- stderr ---
+

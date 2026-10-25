@@ -1,0 +1,19 @@
+{
+  "schema": "fdsl/2",
+  "name": "hand_rings",
+  "canvas": {"w": 512, "h": 512, "bg": "#f5f0e6"},
+  "render_contract": {"resolution": 256, "epsilon_px": 0.5},
+  "palette": {"ink": "#26262e", "gold": "#c99a3f", "cream": "#fbf5e6"},
+  "layers": [
+    {"id": "bg", "name": "background"},
+    {"id": "rings", "name": "rings"},
+    {"id": "star", "name": "star"}
+  ],
+  "elements": [
+    {"type": "fill", "layer": "bg", "gen": "circle", "at": [256, 256], "r": 236, "color": "cream"},
+    {"type": "gen", "gen": "circle", "layer": "rings", "at": [256, 256], "r": 210, "width": 9, "color": "gold", "brush": "ink_gpen"},
+    {"type": "gen", "gen": "circle", "layer": "rings", "at": [256, 256], "r": 180, "width": 5, "color": "ink", "brush": "ink_fineliner"},
+    {"type": "fill", "layer": "rings", "gen": "circle", "at": [256, 256], "r": 42, "color": "gold"},
+    {"type": "gen", "gen": "star", "layer": "star", "at": [256, 256], "r": 120, "ri": 48, "n": 7, "rot": 0, "width": 4, "color": "ink", "brush": "ink_fineliner"}
+  ]
+}

@@ -1,0 +1,67 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe -m unittest tests.test_gpu_render -v
+cwd=<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training
+rc=0 seconds=21.05
+--- stdout ---
+[gpu] synthetic 256px GPU vs CPU PSNR=62.29 SSIM=1.0000
+
+--- stderr ---
+test_cpu_render_ok (tests.test_gpu_render.TestCPUDevice.test_cpu_render_ok) ... ok
+test_cpu_timing_json (tests.test_gpu_render.TestCPUDevice.test_cpu_timing_json) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:367: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  data = json.load(open(self.timing, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_fdraw_renders (tests.test_gpu_render.TestFdrawInputPath.test_fdraw_renders) ... ok
+test_frozen_gpu_defaults (tests.test_gpu_render.TestGPUInterface.test_frozen_gpu_defaults) ... ok
+test_help_lists_inputs_and_options (tests.test_gpu_render.TestGPUInterface.test_help_lists_inputs_and_options) ... ok
+test_inputs_are_mutually_exclusive (tests.test_gpu_render.TestGPUInterface.test_inputs_are_mutually_exclusive) ... ok
+test_no_gl_exit_code_and_clear_message (tests.test_gpu_render.TestGPUInterface.test_no_gl_exit_code_and_clear_message)
+Without PyOpenGL/GL: render exits 3, --help still works. ... skipped 'GL is available in this interpreter'
+test_alpha_doc_exits_5_with_clear_message (tests.test_gpu_render.TestGPURefusesTranslucentDocs.test_alpha_doc_exits_5_with_clear_message) ... ok
+test_cpu_still_renders_alpha_doc (tests.test_gpu_render.TestGPURefusesTranslucentDocs.test_cpu_still_renders_alpha_doc) ... ok
+test_gpu_matches_cpu (tests.test_gpu_render.TestGPURenderQuality.test_gpu_matches_cpu) ... ok
+test_gpu_timing_json (tests.test_gpu_render.TestGPURenderQuality.test_gpu_timing_json) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:419: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  data = json.load(open(self.timing, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_strokes_input_path (tests.test_gpu_render.TestGPURenderQuality.test_strokes_input_path) ... ok
+test_supersample_and_resolution (tests.test_gpu_render.TestGPURenderQuality.test_supersample_and_resolution) ... ok
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:171: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  content = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:171: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  content = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_forced_cpu_fallback (tests.test_gpu_render.TestNodeGpuFallback.test_forced_cpu_fallback) ... ok
+test_gpu_path_succeeds (tests.test_gpu_render.TestNodeGpuFallback.test_gpu_path_succeeds) ... ok
+test_translucent_fdraw_falls_back_to_cpu (tests.test_gpu_render.TestNodeGpuFallback.test_translucent_fdraw_falls_back_to_cpu)
+A .fdraw with alpha<1 makes GPU render exit 5 -> node falls back. ... ok
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:171: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  content = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:171: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  content = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:522: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  text = open(cls.nodes, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+test_package_version_compatible (tests.test_gpu_render.TestNodePackageContract.test_package_version_compatible) ... ok
+test_render_widget_count_still_one (tests.test_gpu_render.TestNodePackageContract.test_render_widget_count_still_one) ... ok
+test_workflows_render_widgets_unchanged (tests.test_gpu_render.TestNodePackageContract.test_workflows_render_widgets_unchanged) ... <workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_T2I_Krea2_fdraw_API.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_T2I_Krea2_fdraw_UI.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_fdraw_to_fourier_video_API.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\work\release_test\tmp\test_candidate\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\work\\release_test\\tmp\\test_candidate\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\workflows\\FDP_fdraw_to_fourier_video_UI.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 20.329s
+
+OK (skipped=1)
+

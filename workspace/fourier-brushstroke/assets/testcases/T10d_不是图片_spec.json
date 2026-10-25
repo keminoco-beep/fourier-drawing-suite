@@ -1,0 +1,15 @@
+{
+ "case": "T10d_不是图片",
+ "checks": {
+  "A5": "拒绝且原因明确"
+ },
+ "class_expected": "invalid_format",
+ "expected_error": [
+  "E_INPUT_FORMAT",
+  "E_INPUT_MODE"
+ ],
+ "file": "T10d_不是图片.txt",
+ "purpose": "A5：不支持的格式 —— 必须拒绝 E_INPUT_FORMAT/E_INPUT_MODE 并列出支持格式",
+ "schema": "fbs-fixture/2",
+ "size": null
+}

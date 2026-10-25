@@ -1,0 +1,37 @@
+{
+ "1": {
+  "class_type": "FDPT2IRunDir",
+  "inputs": {}
+ },
+ "2": {
+  "class_type": "FDPT2IFdrawPath",
+  "inputs": {
+   "fdraw_path": "<workspace>\\poc\\t2i\\out_e2e_20261021\\C_krea2_s42\\C_krea2_s42_icon.fdraw"
+  }
+ },
+ "3": {
+  "class_type": "FDPT2IFourierVideo",
+  "inputs": {
+   "fdraw_path": [
+    "2",
+    0
+   ],
+   "run_dir": [
+    "1",
+    0
+   ],
+   "size": "2160x2160",
+   "circles": 16384,
+   "duration_s": 30.0
+  }
+ },
+ "4": {
+  "class_type": "PreviewImage",
+  "inputs": {
+   "images": [
+    "3",
+    1
+   ]
+  }
+ }
+}

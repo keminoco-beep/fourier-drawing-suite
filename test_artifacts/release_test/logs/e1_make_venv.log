@@ -1,0 +1,7 @@
+$ <python> -m venv <workspace>\work\release_test\tmp\empty_venv
+cwd=None
+rc=0 seconds=8.77
+--- stdout ---
+
+--- stderr ---
+

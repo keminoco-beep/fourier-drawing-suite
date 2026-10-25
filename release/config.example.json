@@ -1,0 +1,6 @@
+{
+  "_comment": "复制为节点目录下的 fdp_config.json（或由 release/install.py 自动生成）。",
+  "_resolution_order": "FDP_WORKSPACE env > fdp_config.json workspace > release-layout auto-detect",
+  "workspace": "",
+  "python": ""
+}

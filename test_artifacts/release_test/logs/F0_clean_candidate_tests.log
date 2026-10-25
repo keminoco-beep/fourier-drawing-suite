@@ -1,0 +1,71 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe -m unittest discover -s tests
+cwd=<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training
+rc=0 seconds=67.74
+--- stdout ---
+[base-coat] raster coverage=0.9960 overlap/fg=0.0431 over2=0 max_count=2 report(cov=0.99598, ovl=0.04313)
+[gradient-safety] custom max-delta=0.05: accepted=593 rejected_delta=147 rejected_oob=0
+[gradient-safety] gate=off gradients=738 unsafe(d_end>0.120)=88 max=0.6548
+[gradient-safety] A/B legacy-geometry render: stray_px gate_off=317 gate_on=377; far>3px false-colour ratio gate_off=0.0000 gate_on=0.0011 (gate_off gradients=734, rejected-with-gate-on=98)
+[gradient-safety] v1.36 default geometry: stray_px gate_off=859 gate_on=1431; stray_frac off=0.0699 on=0.1165
+[gradient-safety] gate=0.120 step_diag=True gradients=633 clipped=0 max_d_end=0.1191 unsafe=0 rejected(delta/edge/oob)=89/26/0
+[gradient-safety] stray_color_px reported=1431 recomputed=1436 fg_px=12288 (float-vs-8bit tolerance 61)
+[human-paint] flow on: report flow=0.6298 axis=0.5573 self_flow=0.7519
+[human-paint] axis_aligned on=0.5573 off=0.7761
+[human-paint] region order: y_spearman=-0.1000 adjacent=14.14px region_run=0.8043 | scan: y_spearman=0.6367 adjacent=18.56px region_run=0.3551
+[human-paint] wash coverage=0.9960 overlap_fg=0.0431 max_count=2 report(cov=0.99598, ovl=0.04313)
+[human-paint] wash base axis_aligned=0.0000 entropy=0.0770 strokes=21
+[gate-unit] smooth-ramp candidates=25 accepted=0 max_delta=0.0000
+[silhouette] off: formal=66 overshoot>2px=36 max=9.87px outside_px=2279
+[silhouette] on: formal=31 overshoot>2px=0 max=-0.25px outside_px=0
+[silhouette] report overshoot 9.87px -> 0.00px clipped=12 dropped=35
+[silhouette] quality @256: off psnr=27.202 ssim=0.9546 | on psnr=29.208 ssim=0.9706
+[silhouette] fallback: on=True area_frac=1.0 fallback=True
+[texture-flat] unit flat-side ratio=1.0000 candidates=5828 flat_frac=0.4922
+[texture-flat] ref_std gate: strokes=200 textured-side ratio=1.0000
+
+--- stderr ---
+..........s..................................<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:367: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  data = json.load(open(self.timing, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.s...ssssssssss<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:171: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\release\\fourier-drawing-suite-v1.0.0\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  content = open(path, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:522: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\release\\fourier-drawing-suite-v1.0.0\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\nodes.py' mode='r' encoding='utf-8'>
+  text = open(cls.nodes, encoding="utf-8").read()
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+..<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\release\\fourier-drawing-suite-v1.0.0\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\workflows\\FDP_T2I_Krea2_fdraw_API.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\release\\fourier-drawing-suite-v1.0.0\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\workflows\\FDP_T2I_Krea2_fdraw_UI.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\release\\fourier-drawing-suite-v1.0.0\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\workflows\\FDP_fdraw_to_fourier_video_API.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\release\\fourier-drawing-suite-v1.0.0\\workspace\\fourier-prompt\\comfyui\\ComfyUI-FDP-T2I\\workflows\\FDP_fdraw_to_fourier_video_UI.json' mode='r' encoding='utf-8'>
+  data = json.load(open(os.path.join(wfdir, name), encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+....................s................<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>
+  json.dump(payload, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:110: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  for s in json.load(open(path, encoding="utf-8")):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>
+  json.dump(payload, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:110: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  for s in json.load(open(path, encoding="utf-8")):
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+.<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>
+  json.dump(payload, open(path, "w", encoding="utf-8"), ensure_ascii=False)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\tests\test_layered_base.py:88: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>
+  payload = json.load(open(path, encoding="utf-8"))
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+....................sss.................
+----------------------------------------------------------------------
+Ran 139 tests in 66.236s
+
+OK (skipped=16)
+

@@ -1,0 +1,11 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\release\install.py --comfyui <workspace>\work\release_test\tmp\fake_comfyui_dry --workspace <workspace>\release\fourier-drawing-suite-v1.0.0\workspace --python <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe --dry-run
+cwd=None
+rc=0 seconds=0.18
+--- stdout ---
+[install] 安装计划：
+  - 复制节点包：<workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\custom_nodes\ComfyUI-FDP-T2I -> <workspace>\work\release_test\tmp\fake_comfyui_dry\custom_nodes\ComfyUI-FDP-T2I
+  - 写入配置：<workspace>\work\release_test\tmp\fake_comfyui_dry\custom_nodes\ComfyUI-FDP-T2I\fdp_config.json = {"workspace": "<workspace>\release\fourier-drawing-suite-v1.0.0\workspace", "python": "<comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe"}
+[install] --dry-run：未写入任何文件。
+
+--- stderr ---
+

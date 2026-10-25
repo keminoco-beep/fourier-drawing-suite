@@ -1,0 +1,193 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 3,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "FDPCompileFDSL",
+      "pos": [
+        40,
+        80
+      ],
+      "size": [
+        380,
+        360
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fdsl",
+          "type": "FDSL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fdraw",
+          "type": "FDRAW",
+          "links": [
+            1,
+            3
+          ]
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPCompileFDSL"
+      },
+      "widgets_values": [
+        "{\"schema\": \"fdsl/2.1\", \"name\": \"comfy-demo\", \"canvas\": {\"width\": 128, \"height\": 128, \"background\": [250, 248, 242]}, \"palette\": {\"ink\": \"#202630\", \"gold\": \"#d8a83e\", \"red\": \"#b23b3b\"}, \"layers\": [{\"id\": 0, \"name\": \"ink\"}], \"elements\": [{\"kind\": \"fourier_gen\", \"gen\": \"circle\", \"layer\": 0, \"id\": \"c1\", \"transform\": {\"center\": [64, 64], \"scale\": 0.6}, \"params\": {\"r\": 1.0}, \"brush\": {\"preset\": \"ink_gpen\", \"width\": 2.0, \"color\": \"ink\"}}, {\"kind\": \"stroke\", \"layer\": 0, \"points\": [[20, 108], [108, 20]], \"brush\": {\"preset\": \"ink_fineliner\", \"width\": 1.5, \"color\": \"red\"}}], \"constraints\": {\"max_elements\": 400, \"single_line\": false}}",
+        256,
+        true,
+        false
+      ]
+    },
+    {
+      "id": 2,
+      "type": "FDPRenderFdraw",
+      "pos": [
+        470,
+        80
+      ],
+      "size": [
+        300,
+        180
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fdraw",
+          "type": "FDRAW",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPRenderFdraw"
+      },
+      "widgets_values": [
+        0,
+        "fast",
+        "auto",
+        2,
+        0.0
+      ]
+    },
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": [
+        820,
+        80
+      ],
+      "size": [
+        300,
+        300
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "FDPSaveFdraw",
+      "pos": [
+        470,
+        330
+      ],
+      "size": [
+        300,
+        110
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fdraw",
+          "type": "FDRAW",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "path",
+          "type": "STRING",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPSaveFdraw"
+      },
+      "widgets_values": [
+        "fdraw/scene"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "FDRAW"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      1,
+      0,
+      4,
+      0,
+      "FDRAW"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0,
+      "offset": [
+        0,
+        0
+      ]
+    }
+  },
+  "version": 0.4
+}

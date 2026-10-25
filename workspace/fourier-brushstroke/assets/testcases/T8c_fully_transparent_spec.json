@@ -1,0 +1,15 @@
+{
+ "case": "T8c_fully_transparent",
+ "checks": {
+  "A5": "拒绝码=E_INPUT_TRANSPARENT"
+ },
+ "class_expected": "empty",
+ "expected_error": "E_INPUT_TRANSPARENT",
+ "file": "T8c_fully_transparent.png",
+ "purpose": "T8/A5：全透明图 —— 必须拒绝 E_INPUT_TRANSPARENT（图像无可见内容）",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

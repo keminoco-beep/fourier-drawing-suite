@@ -1,0 +1,46 @@
+{
+  "schema": "fdsl/2.1",
+  "name": "demo_simple_shapes",
+  "description": "Font-free smoke plan: two generated fills and one brush stroke.",
+  "canvas": {"width": 320, "height": 320, "background": [246, 244, 238]},
+  "palette": {
+    "ink": "#20242e",
+    "gold": "#e2b65c",
+    "blue": "#3f6d8c"
+  },
+  "layers": [
+    {"id": 0, "name": "shapes", "order": 0},
+    {"id": 1, "name": "ink", "order": 1}
+  ],
+  "elements": [
+    {
+      "kind": "fourier_gen",
+      "id": "e1",
+      "gen": "circle",
+      "layer": 0,
+      "params": {"at": [104, 132], "r": 68},
+      "brush": {"preset": "basic_round_hard", "color": "gold", "alpha": 1.0}
+    },
+    {
+      "kind": "fourier_gen",
+      "id": "e2",
+      "gen": "star",
+      "layer": 0,
+      "params": {"at": [214, 192], "r": 62, "ri": 26, "n": 6, "rot": -90},
+      "brush": {"preset": "basic_round_hard", "color": "blue", "alpha": 0.9}
+    },
+    {
+      "kind": "stroke",
+      "id": "e3",
+      "layer": 1,
+      "points": [[36, 258], [86, 226], [146, 244], [206, 220], [284, 244]],
+      "brush": {
+        "preset": "ink_gpen",
+        "width": [[0, 1.0], [0.5, 5.0], [1, 1.0]],
+        "color": "ink",
+        "alpha": 0.95
+      }
+    }
+  ],
+  "constraints": {"max_elements": 400}
+}

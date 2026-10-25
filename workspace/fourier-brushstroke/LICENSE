@@ -1,0 +1,40 @@
+# LICENSE — Proprietary / All Rights Reserved
+
+Copyright (c) 2026 The Project Owner. All rights reserved.
+
+## 中文（权威）
+
+本项目（包括但不限于 `fourier-brushstroke/`、`fourier-prompt/`、渲染端程序、ComfyUI 节点、
+文档、格式规范、示例与资产，合称“本软件”）为**专有闭源软件**。
+
+未经版权人事先书面许可，任何人不得：
+
+1. 复制、发布、分发、出租、出售、再许可本软件或其任何部分；
+2. 修改、翻译、反向工程、反编译、反汇编本软件（法律强制允许的情形除外）；
+3. 将本软件或其衍生物用于商业目的；
+4. 移除或更改本软件中的版权、许可或其他权利声明。
+
+本软件按“现状”提供，不附带任何明示或默示担保，包括但不限于适销性、特定用途适用性
+及不侵权担保。在任何情况下，版权人均不对因使用或无法使用本软件而产生的任何索赔、
+损害或其他责任承担责任。
+
+**第三方组件**：本项目可能包含或依赖按各自许可分发的第三方资产（例如 OFL 字体、
+numpy/Pillow 等），这些组件不适用上述专有条款，其许可与声明见
+`THIRD_PARTY_NOTICES.md`（如存在）及各资产随附的 LICENSE 文件。
+
+**参考项目**：`refs/Daub/`、`refs/DaubPlanner/` 为外部参考仓库（各自为非商业许可），
+仅用于本工作区内的学习与工程方法研究，**不随本产品分发**，也不属于本软件的授权范围。
+
+## English (non-authoritative summary)
+
+This project is proprietary and closed-source. All rights reserved. No permission is granted
+to copy, modify, distribute, sublicense, or use this software commercially without the prior
+written consent of the copyright holder. The software is provided "AS IS", without warranty
+of any kind, and the copyright holder is not liable for any damages arising from its use.
+Third-party components remain under their own licenses; see `THIRD_PARTY_NOTICES.md` and the
+license files shipped with those assets. The external reference repositories under `refs/`
+are not part of this product and are not distributed with it.
+
+---
+
+*项目所有者：待填写（个人/公司名称）* ｜ *联系：待填写*

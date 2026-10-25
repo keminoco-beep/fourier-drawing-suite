@@ -1,0 +1,21 @@
+{
+ "case": "T8b_solid_white",
+ "checks": {
+  "A5": "不崩溃且给出 W_SOLID_COLOR/空笔画"
+ },
+ "class_expected": "solid",
+ "expected": {
+  "handling": "warn_or_build",
+  "strokes": 0,
+  "warning_codes": [
+   "W_SOLID_COLOR"
+  ]
+ },
+ "file": "T8b_solid_white.png",
+ "purpose": "T8/A5：纯白图（无墨迹）—— 必须输出空笔画 + W_SOLID_COLOR 告警，不崩溃",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

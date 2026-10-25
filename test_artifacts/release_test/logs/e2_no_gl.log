@@ -1,0 +1,8 @@
+$ <python> <workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\gpu_render.py --strokes <workspace>\work\release_test\fixtures\synth_strokes.json --out <workspace>\work\release_test\tmp\nogl.png --resolution 256 --device gl
+cwd=None
+rc=3 seconds=0.31
+--- stdout ---
+
+--- stderr ---
+[gpu_render] GPU 渲染不可用（PyOpenGL/glfw 缺失: No module named 'glfw'）；请用 --device cpu 或回退 CPU
+

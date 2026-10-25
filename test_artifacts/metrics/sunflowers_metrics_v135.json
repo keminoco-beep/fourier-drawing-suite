@@ -1,0 +1,148 @@
+{
+ "toned": {
+  "report": {
+   "strokes_out": 89205,
+   "pass1_full": 77,
+   "pass2_local": 8697,
+   "pass3_local": 37762,
+   "pass4_local": 23373,
+   "base_color_mode": "toned",
+   "base_color": [
+    0.81176,
+    0.76863,
+    0.26275
+   ],
+   "base_strokes": 77,
+   "base_coverage": 1.0,
+   "base_overlap_frac": 0.0,
+   "base_color_std": 0.0,
+   "psnr": 21.8316,
+   "ssim": 0.60809,
+   "seconds": 101.3
+  },
+  "full_psnr": 21.7959,
+  "full_ssim": 0.60797,
+  "content_psnr": 24.5205,
+  "content_ssim": 0.51072,
+  "A": {
+   "grad_x": 0.0149,
+   "grad_y": 0.0099,
+   "std_rgb": [
+    0.1238,
+    0.1399,
+    0.07
+   ],
+   "std_mean": 0.1112,
+   "uniq16": 178,
+   "uniq32": 784,
+   "flat_frac_0.005": 0.3529324519027036,
+   "flat_frac_0.01": 0.5784918213407916,
+   "flat_frac_0.02": 0.7877574370709383,
+   "flat_blocks_n": 51,
+   "flat_blocks_area_median": 85.0,
+   "flat_blocks_area_max": 42160,
+   "flat_frac_largest_block": 0.4466480210187304,
+   "run_len_x": 4.84,
+   "run_len_y": 6.73,
+   "edge_p95": 0.08860720407927289,
+   "edge_p99": 0.18570892386959903,
+   "edge_mean": 0.021389445225220013,
+   "entropy16": 4.972,
+   "top10_cov": 0.634,
+   "boundary_density": 0.478621069582168,
+   "bstep_p90": 0.10588235294117643,
+   "bstep_p95": 0.14901960784313717
+  },
+  "vs_ref_A": {
+   "psnr_roi": 24.309,
+   "mae_roi": 0.04036,
+   "mean_rgb_shift": [
+    -0.0049,
+    -0.0041,
+    -0.0021
+   ]
+  }
+ },
+ "toned_texture": {
+  "report": {
+   "strokes_out": 99905,
+   "texture_flat_strokes": 10700,
+   "texture_flat_candidates": 88243,
+   "base_color_mode": "toned",
+   "base_strokes": 77,
+   "base_coverage": 1.0,
+   "base_overlap_frac": 0.0,
+   "base_overlap_canvas_frac": 0.0,
+   "base_color_std": 0.0,
+   "psnr": 21.8493,
+   "ssim": 0.61065,
+   "seconds": 149.7
+  },
+  "full_psnr": 21.8122,
+  "full_ssim": 0.61052,
+  "content_psnr": 24.5669,
+  "content_ssim": 0.51407,
+  "A": {
+   "grad_x": 0.0154,
+   "grad_y": 0.011,
+   "std_rgb": [
+    0.1246,
+    0.1408,
+    0.0715
+   ],
+   "std_mean": 0.1123,
+   "uniq16": 192,
+   "uniq32": 838,
+   "flat_frac_0.005": 0.2985528434613103,
+   "flat_frac_0.01": 0.5085812356979404,
+   "flat_frac_0.02": 0.748898211712857,
+   "flat_blocks_n": 44,
+   "flat_blocks_area_median": 88.0,
+   "flat_blocks_area_max": 26045,
+   "flat_frac_largest_block": 0.2759238071022968,
+   "run_len_x": 4.63,
+   "run_len_y": 6.05,
+   "edge_p95": 0.09014018547896319,
+   "edge_p99": 0.18423396996830615,
+   "edge_mean": 0.02285164748382578,
+   "entropy16": 5.167,
+   "top10_cov": 0.6067,
+   "boundary_density": 0.5008793118060852,
+   "bstep_p90": 0.10196078431372546,
+   "bstep_p95": 0.1450980392156862
+  },
+  "vs_ref_A": {
+   "psnr_roi": 24.321,
+   "mae_roi": 0.04056,
+   "mean_rgb_shift": [
+    -0.006,
+    -0.0048,
+    -0.0016
+   ]
+  }
+ },
+ "reference_numbers": {
+  "v1.33_after": {
+   "full_psnr": 23.0791,
+   "full_ssim": 0.61572,
+   "content_psnr": 24.4302,
+   "content_ssim": 0.53653,
+   "A_psnr": 24.0588,
+   "A_blocks": 103,
+   "A_flat": 0.491,
+   "A_grad_x": 0.0156,
+   "A_uniq16": 183
+  },
+  "v1.34_final": {
+   "full_psnr": 24.3322,
+   "full_ssim": 0.62533,
+   "content_psnr": 24.8173,
+   "content_ssim": 0.54451,
+   "A_psnr": 24.7211,
+   "A_blocks": 74,
+   "A_flat": 0.437,
+   "A_grad_x": 0.0156,
+   "A_uniq16": 195
+  }
+ }
+}

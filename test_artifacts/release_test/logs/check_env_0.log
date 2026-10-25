@@ -1,0 +1,24 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\release\check_env.py
+cwd=<workspace>\release\fourier-drawing-suite-v1.0.0\release
+rc=0 seconds=1.17
+--- stdout ---
+=================================================================================
+ComfyUI-FDP-T2I environment check  (PASS=10 WARN=1 FAIL=0)
+=================================================================================
+[PASS] workspace 解析         <workspace>\release\fourier-drawing-suite-v1.0.0\workspace（release 布局 <root>/workspace）
+[PASS] v1.36 绘制脚本           2 个入口文件存在
+[PASS] fourier-brushstroke  2 个入口文件存在
+[PASS] fourier-prompt       2 个入口文件存在
+[PASS] ComfyUI 节点包          <workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\custom_nodes\ComfyUI-FDP-T2I（release 布局）
+[PASS] 节点版本                 PACKAGE_VERSION=3.1.0
+[WARN] fdp_config.json      节点目录没有 fdp_config.json
+        -> 运行 python release/install.py 生成（或设置 FDP_WORKSPACE）
+[PASS] python 核心依赖          <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe（当前解释器）numpy/scipy/Pillow 就绪
+[PASS] OpenGL 上下文（GPU 渲染）   NVIDIA GeForce RTX 4070 Ti SUPER/PCIe/SSE2
+[PASS] workflow JSON        9 个可解析的 workflow 文件
+[PASS] 源码不含本机绝对路径           已扫描 skills / fourier-* / 节点包
+---------------------------------------------------------------------------------
+结果：PASS（有 WARN；GPU/视频等功能可能不可用，其它功能正常）
+
+--- stderr ---
+

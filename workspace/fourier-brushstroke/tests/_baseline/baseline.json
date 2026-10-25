@@ -1,0 +1,317 @@
+{
+ "cases": [
+  {
+   "build_seconds": 0.207,
+   "cfg": {},
+   "doc_sha256": "30007101a25a4218b1205e8def5f597dbf97ca9eeb09ae89e3cb5df80dd4ff81",
+   "fbs_bytes": 8543,
+   "fbs_content_sha256": "bc4c3ba75ff0012fcadcdc765d56bb87b7774bee02ea7f5aaaec4b70040bc935",
+   "fbs_file_bytes": 8544,
+   "fft_passes": 1,
+   "fill_soft_px": 0.5,
+   "image": "T1_signature.png",
+   "image_class": "lineart",
+   "method": "hybrid_medial_contour",
+   "name": "T1_signature@R256",
+   "png_sha256": "a02ea7f823cb4f044adbdac742330890f2cc76fcc8a58bb7933d6bca303e77cc",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 1,
+   "style_count": 1,
+   "warning_codes": []
+  },
+  {
+   "build_seconds": 0.394,
+   "cfg": {},
+   "doc_sha256": "faa3b4fd241732e22840b0a08976bddf8cb3eb3e7a3f81f598083a32ca6c8d8b",
+   "fbs_bytes": 236697,
+   "fbs_content_sha256": "46fdb161a892dfffea9a6f6c7de4a0ecf6df37a6291c2895ec01c04ec5c0fe9f",
+   "fbs_file_bytes": 236698,
+   "fft_passes": 7,
+   "fill_soft_px": 0.5,
+   "image": "T2_icon.png",
+   "image_class": "flat_art",
+   "method": "hybrid_medial_contour",
+   "name": "T2_icon@R256",
+   "png_sha256": "29e4d1054c70307a620dfe77ae4073962ce49bfa17b9ca12af6fa79269082fb5",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 7,
+   "style_count": 7,
+   "warning_codes": []
+  },
+  {
+   "build_seconds": 0.461,
+   "cfg": {},
+   "doc_sha256": "f1416b3517e59f7076c9364e721d3dac7c1f14c715e49ce821c84ec4d5ac98bf",
+   "fbs_bytes": 336354,
+   "fbs_content_sha256": "eff7f0b5cc1c0aee6f0ecdce162433714e0780ec17e16d8e845000e7d46f4096",
+   "fbs_file_bytes": 336355,
+   "fft_passes": 14,
+   "fill_soft_px": 0.5,
+   "image": "T3_flat_illustration.png",
+   "image_class": "flat_art",
+   "method": "hybrid_medial_contour",
+   "name": "T3_flat_illustration@R256",
+   "png_sha256": "e143d3d7b3440d3f827447cbd9d1da4d32e0edcaf7c2eb369a65252fb45aaac3",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 14,
+   "style_count": 13,
+   "warning_codes": []
+  },
+  {
+   "build_seconds": 0.247,
+   "cfg": {},
+   "doc_sha256": "70e08de3f2241ac93c1d090910cc756e81d69fbffce307524c9eee17456ab0da",
+   "fbs_bytes": 12168,
+   "fbs_content_sha256": "0e6cde8c7d26216f65545f72f4644e6116b7b406a113ce404d62d3ac6ea5156d",
+   "fbs_file_bytes": 12169,
+   "fft_passes": 2,
+   "fill_soft_px": 0.5,
+   "image": "T4_taper_thick_to_thin.png",
+   "image_class": "lineart",
+   "method": "hybrid_medial_contour",
+   "name": "T4_taper@R256",
+   "png_sha256": "df1eb351eb0c0ffd4ff465101f2acd595ed389d7b7f9bdb6ae2e0f34816f0ed2",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 2,
+   "style_count": 2,
+   "warning_codes": []
+  },
+  {
+   "build_seconds": 0.384,
+   "cfg": {},
+   "doc_sha256": "09911669c68233828d167fc7d39002622640d79fa376c81d4dd1e5a67c59a5bc",
+   "fbs_bytes": 112587,
+   "fbs_content_sha256": "9a4175961be1c0fa3bbe718dd222fe37cc1e15e99c65b1267be6f1eb416bd868",
+   "fbs_file_bytes": 112588,
+   "fft_passes": 7,
+   "fill_soft_px": 0.5,
+   "image": "T5_sharp_corners.png",
+   "image_class": "lineart",
+   "method": "hybrid_medial_contour",
+   "name": "T5_sharp_corners@R256",
+   "png_sha256": "e516dfdb9133c89858e195dad4aa320d68023d87f8691dc92124c3b3f4570b28",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 7,
+   "style_count": 5,
+   "warning_codes": [
+    "W_GAP_BRIDGED"
+   ]
+  },
+  {
+   "build_seconds": 0.548,
+   "cfg": {},
+   "doc_sha256": "90a6f8d44ad60b120b2dfcf4f9464ba44be75a9866ed58ce5e01019a50b00e11",
+   "fbs_bytes": 73044,
+   "fbs_content_sha256": "1ba1c012870921476f20c90e9c4c62995ffa876d7410730352f115dd0cea2307",
+   "fbs_file_bytes": 73045,
+   "fft_passes": 20,
+   "fill_soft_px": 0.5,
+   "image": "T12_color_gradient.png",
+   "image_class": "lineart",
+   "method": "hybrid_medial_contour",
+   "name": "T12_color_gradient@R256",
+   "png_sha256": "6fab3cf76a693058ee962d48566cddf09ee8cac7b79a64f23380f4290cced528",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 20,
+   "style_count": 19,
+   "warning_codes": [
+    "W_SHORT_BRANCHES"
+   ]
+  },
+  {
+   "build_seconds": 0.214,
+   "cfg": {},
+   "doc_sha256": "3fe028e79e3ed7ac57e37b592311c611942e003ef3e9a312210efbd56654d083",
+   "fbs_bytes": 9592,
+   "fbs_content_sha256": "2e41534c01583ce175325efc8fab58fa34bd131c347f16dbf3b446fb7a63c27d",
+   "fbs_file_bytes": 9593,
+   "fft_passes": 2,
+   "fill_soft_px": 0.5,
+   "image": "T13_step_intervals.png",
+   "image_class": "lineart",
+   "method": "hybrid_medial_contour",
+   "name": "T13_step_intervals@R256",
+   "png_sha256": "6fd4f08c89a370d1bde190ab69b68de9bb8b3c2545cc8c01b6a6b9dc3062d408",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 2,
+   "style_count": 2,
+   "warning_codes": [
+    "W_GAP_BRIDGED"
+   ]
+  }
+ ],
+ "command": "python tests/_baseline/freeze_baseline.py",
+ "created": "2026-10-20T07:05:09+0800",
+ "elapsed_seconds": 31.45,
+ "env": {
+  "numpy": "2.5.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.14",
+  "skill_root": "<workspace>\\fourier-brushstroke",
+  "testcases": "<workspace>\\fourier-brushstroke\\assets\\testcases"
+ },
+ "extras": [
+  {
+   "build_seconds": 0.197,
+   "cfg": {},
+   "doc_sha256": "3f5fcaf469b17b8fc29f155a84d79f9750f8b3ae92e1cd27d3de316e51a58266",
+   "fbs_bytes": 9439,
+   "fbs_content_sha256": "134c22fbbdc97858a14daf511562da0bc169670cbf20d587f1a22213d3e3c337",
+   "fbs_file_bytes": 9440,
+   "fft_passes": 1,
+   "fill_soft_px": 0.5,
+   "image": "T1_signature.png",
+   "image_class": "lineart",
+   "method": "hybrid_medial_contour",
+   "name": "T1_signature@R512",
+   "png_sha256": "e960cf3b3e5a3bd5c436abd571722c3bcc0cc6a4f62c688b48da35d25e42d8c7",
+   "png_shape": [
+    512,
+    512,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 512,
+   "stroke_count": 1,
+   "style_count": 1,
+   "warning_codes": []
+  },
+  {
+   "build_seconds": 4.546,
+   "cfg": {
+    "mesh": true
+   },
+   "doc_sha256": "70b8228ce65b732086ebfb52cfbdf904805e4b066ca93a1a195dc0b99a5314ee",
+   "fbs_bytes": 2657845,
+   "fbs_content_sha256": "13dcb18cb4d94c625dc33a935703cf2d7db7c6d439add947a7a9c1bd217c8dcc",
+   "fbs_file_bytes": 2657846,
+   "fft_passes": 1783,
+   "fill_soft_px": 0.0,
+   "image": "T2_icon.png",
+   "image_class": "flat_art",
+   "method": "adaptive_gradient_mesh",
+   "name": "T2_icon@R256+mesh",
+   "png_sha256": "5c571d85852e2226cca1b1a2318132c50963872126e89b11fead182ef5300a60",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 1783,
+   "style_count": 158,
+   "warning_codes": [
+    "W_MESH_ACTIVE"
+   ]
+  },
+  {
+   "build_seconds": 2.288,
+   "cfg": {
+    "brush_strokes": 300,
+    "painterly": true
+   },
+   "doc_sha256": "28780bd89c6816c28895a082f5d8eaf3943485f03d981c6359cc0f5c43b7a040",
+   "fbs_bytes": 514372,
+   "fbs_content_sha256": "327dfd1fbc01437818820ec8628e9b1004ff269f37df8984544cb25e496c4671",
+   "fbs_file_bytes": 514373,
+   "fft_passes": 300,
+   "fill_soft_px": 0.5,
+   "image": "T1_signature.png",
+   "image_class": "lineart",
+   "method": "painterly_brush_strokes",
+   "name": "T1_signature@R256+painterly",
+   "png_sha256": "cb740b361fb462b5aaf52cff81bfb28cb5b6ee29b3ebeac83d5534cec4ef3425",
+   "png_shape": [
+    256,
+    256,
+    3
+   ],
+   "repro": {
+    "doc": true,
+    "png": true
+   },
+   "resolution": 256,
+   "stroke_count": 300,
+   "style_count": 289,
+   "warning_codes": [
+    "W_PAINTERLY_LAYER",
+    "W_PAINTERLY_LAYER",
+    "W_PAINTERLY_LAYER",
+    "W_PAINTERLY_LAYER",
+    "W_PAINTERLY_LAYER",
+    "W_PAINTERLY_ACTIVE"
+   ]
+  }
+ ],
+ "schema": "fbs-build-baseline/1"
+}

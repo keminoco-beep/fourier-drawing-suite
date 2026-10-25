@@ -1,0 +1,56 @@
+{
+  "schema": "fdsl/2.1",
+  "name": "wpk_text_two_lines",
+  "description": "WP-K outline-mode text sample: Chinese + English + digits, explicit two lines, plus a plan-level texts[] entry.",
+  "canvas": {"width": 384, "height": 256, "background": [250, 248, 242]},
+  "palette": {"ink": "#1e2430", "accent": "#c04030"},
+  "layers": [{"id": 0, "name": "type"}],
+  "elements": [
+    {
+      "kind": "text",
+      "id": "e1",
+      "layer": 0,
+      "as": "outline",
+      "text": "你好，Fourier! 2026\nOutline 字体烘焙",
+      "font": {
+        "id": "source_han_sans_sc",
+        "size_px": 32,
+        "color": "ink",
+        "align": "center",
+        "line_gap": 1.25
+      },
+      "box": [16, 28, 352, 150]
+    },
+    {
+      "kind": "text",
+      "id": "e2",
+      "layer": 0,
+      "as": "outline",
+      "text": "Second layer text 42",
+      "font": {
+        "id": "source_han_sans_sc",
+        "size_px": 24,
+        "color": "accent",
+        "align": "left"
+      },
+      "box": [20, 186, 344, 40]
+    }
+  ],
+  "texts": [
+    {
+      "id": "t1",
+      "as": "outline",
+      "layer": 0,
+      "text": "outline -> fill",
+      "font": {
+        "id": "source_han_sans_sc",
+        "size_px": 20,
+        "color": "ink",
+        "align": "right",
+        "alpha": 0.85
+      },
+      "box": [20, 226, 344, 24]
+    }
+  ],
+  "constraints": {"max_elements": 400}
+}

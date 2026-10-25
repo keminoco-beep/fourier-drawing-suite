@@ -1,0 +1,21 @@
+{
+ "case": "T8a_solid_black",
+ "checks": {
+  "A5": "不崩溃且给出 W_SOLID_COLOR 或明确拒绝"
+ },
+ "class_expected": "solid",
+ "expected": {
+  "handling": "warn_or_build",
+  "must_not": "crash_or_silent_empty",
+  "warning_codes": [
+   "W_SOLID_COLOR"
+  ]
+ },
+ "file": "T8a_solid_black.png",
+ "purpose": "T8/A5：纯黑图（纯色/无中轴）—— 必须走专门路径 + W_SOLID_COLOR 告警，不崩溃",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

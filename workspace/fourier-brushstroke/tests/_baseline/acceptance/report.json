@@ -1,0 +1,592 @@
+{
+ "schema": "fbs-acceptance/2",
+ "generated": "2026-10-20T07:07:15+08:00",
+ "quick": true,
+ "skip_video": true,
+ "env": {
+  "python": "3.13.14",
+  "executable": "<python>",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.5.4",
+  "pillow": "12.3.0",
+  "metrics_version": "2.0",
+  "skill_root": "<workspace>\\fourier-brushstroke",
+  "cwd": "<workspace>\\fourier-brushstroke\\scripts"
+ },
+ "code_snapshot": {
+  "digest": "101067ac3e4e9b36",
+  "files": {
+   "scripts/fbs.py": {
+    "sha256_16": "bd1117f5c90d4a1e",
+    "mtime": "2026-10-18T13:47:21+08:00",
+    "bytes": 27189
+   },
+   "scripts/run_acceptance.py": {
+    "sha256_16": "44e6386ef593d1ba",
+    "mtime": "2026-10-18T04:39:14+08:00",
+    "bytes": 153431
+   },
+   "tests/gen_fixtures.py": {
+    "sha256_16": "7b3653007cea28e9",
+    "mtime": "2026-10-18T04:01:08+08:00",
+    "bytes": 40097
+   },
+   "scripts/fbs_core/__init__.py": {
+    "sha256_16": "269295436a9041c4",
+    "mtime": "2026-10-18T03:42:35+08:00",
+    "bytes": 139
+   },
+   "scripts/fbs_core/attribute.py": {
+    "sha256_16": "98a55cb2c03353a8",
+    "mtime": "2026-10-18T14:21:02+08:00",
+    "bytes": 7841
+   },
+   "scripts/fbs_core/brush.py": {
+    "sha256_16": "1fc8030a08682f62",
+    "mtime": "2026-10-18T14:20:50+08:00",
+    "bytes": 24788
+   },
+   "scripts/fbs_core/brushfit.py": {
+    "sha256_16": "95ac6307baa6dcb2",
+    "mtime": "2026-10-18T14:45:25+08:00",
+    "bytes": 12807
+   },
+   "scripts/fbs_core/brushlib.py": {
+    "sha256_16": "6c59d805bcc360dc",
+    "mtime": "2026-10-18T14:45:25+08:00",
+    "bytes": 9846
+   },
+   "scripts/fbs_core/config.py": {
+    "sha256_16": "3c8e7e364f20d3c4",
+    "mtime": "2026-10-18T13:44:03+08:00",
+    "bytes": 7159
+   },
+   "scripts/fbs_core/coverage.py": {
+    "sha256_16": "b6caf01ca800f324",
+    "mtime": "2026-10-18T12:15:06+08:00",
+    "bytes": 48939
+   },
+   "scripts/fbs_core/decompose.py": {
+    "sha256_16": "c12f79da8e31ccb1",
+    "mtime": "2026-10-18T12:04:42+08:00",
+    "bytes": 95556
+   },
+   "scripts/fbs_core/document.py": {
+    "sha256_16": "affaa612655a21cb",
+    "mtime": "2026-10-20T07:05:40+08:00",
+    "bytes": 19921
+   },
+   "scripts/fbs_core/finelines.py": {
+    "sha256_16": "2db3ecb8b7ddf848",
+    "mtime": "2026-10-19T14:05:22+08:00",
+    "bytes": 9610
+   },
+   "scripts/fbs_core/fourier.py": {
+    "sha256_16": "c471aa726645f156",
+    "mtime": "2026-10-18T04:04:37+08:00",
+    "bytes": 24103
+   },
+   "scripts/fbs_core/gpueval.py": {
+    "sha256_16": "ed6858decbad9d87",
+    "mtime": "2026-10-19T03:12:42+08:00",
+    "bytes": 6038
+   },
+   "scripts/fbs_core/io_format.py": {
+    "sha256_16": "fe70f23dd09f707d",
+    "mtime": "2026-10-18T08:48:56+08:00",
+    "bytes": 20259
+   },
+   "scripts/fbs_core/mesh.py": {
+    "sha256_16": "5bf458228c320d6a",
+    "mtime": "2026-10-18T12:48:18+08:00",
+    "bytes": 11478
+   },
+   "scripts/fbs_core/metrics.py": {
+    "sha256_16": "f2aeba395c790c8a",
+    "mtime": "2026-10-18T06:20:14+08:00",
+    "bytes": 34292
+   },
+   "scripts/fbs_core/onestroke.py": {
+    "sha256_16": "b961f24c624dbda1",
+    "mtime": "2026-10-18T08:49:33+08:00",
+    "bytes": 58045
+   },
+   "scripts/fbs_core/parallel_eval.py": {
+    "sha256_16": "38f60e1b6389b13a",
+    "mtime": "2026-10-19T00:57:22+08:00",
+    "bytes": 3728
+   },
+   "scripts/fbs_core/preprocess.py": {
+    "sha256_16": "10fe68d34ffd195b",
+    "mtime": "2026-10-18T13:47:28+08:00",
+    "bytes": 20725
+   },
+   "scripts/fbs_core/render.py": {
+    "sha256_16": "7884d23661ca7c3a",
+    "mtime": "2026-10-18T14:20:50+08:00",
+    "bytes": 63244
+   },
+   "scripts/fbs_core/shapelib.py": {
+    "sha256_16": "07df4d94152fb555",
+    "mtime": "2026-10-18T14:20:20+08:00",
+    "bytes": 1535
+   },
+   "scripts/fbs_core/stroke_rl.py": {
+    "sha256_16": "f595d88f428ff303",
+    "mtime": "2026-10-18T16:42:06+08:00",
+    "bytes": 10153
+   },
+   "scripts/fbs_core/stroke_rl_render.py": {
+    "sha256_16": "29931e76a683fedd",
+    "mtime": "2026-10-18T17:35:09+08:00",
+    "bytes": 20114
+   },
+   "scripts/fbs_core/structdoc.py": {
+    "sha256_16": "38460116b3b8e3ca",
+    "mtime": "2026-10-18T15:34:22+08:00",
+    "bytes": 4106
+   },
+   "scripts/fbs_core/structpaint.py": {
+    "sha256_16": "3f780289895a2ff2",
+    "mtime": "2026-10-19T09:47:34+08:00",
+    "bytes": 48900
+   },
+   "scripts/fbs_core/survey.py": {
+    "sha256_16": "e4dd8cf60a2837f5",
+    "mtime": "2026-10-18T16:54:43+08:00",
+    "bytes": 8191
+   },
+   "scripts/fbs_core/timeline.py": {
+    "sha256_16": "03d3f967d7a4a6c1",
+    "mtime": "2026-10-18T14:02:59+08:00",
+    "bytes": 5552
+   },
+   "scripts/fbs_core/trainloop.py": {
+    "sha256_16": "46c38df53d3a8999",
+    "mtime": "2026-10-19T14:05:39+08:00",
+    "bytes": 32022
+   },
+   "scripts/fbs_core/util.py": {
+    "sha256_16": "015183143e8540bf",
+    "mtime": "2026-10-18T03:55:21+08:00",
+    "bytes": 17341
+   },
+   "scripts/fbs_core/video.py": {
+    "sha256_16": "cb9db37d77096033",
+    "mtime": "2026-10-18T08:49:40+08:00",
+    "bytes": 33048
+   }
+  },
+  "note": "并行开发期代码可能变动；本报告结论以该 sha256 快照为准，冻结后需复跑"
+ },
+ "fixtures": {
+  "dir": "assets\\testcases",
+  "note": "manifest seed=20261018 count=22 schema=fbs-fixture/2",
+  "seed": 20261018,
+  "count": 22
+ },
+ "preflight": {
+  "document": "ok",
+  "render": "ok",
+  "onestroke": "ok",
+  "video": "ok",
+  "fourier": "ok",
+  "cli": "ok"
+ },
+ "summary": {
+  "passed": 12,
+  "failed": 0,
+  "blocked": 0,
+  "skipped": 0,
+  "broken": 0,
+  "not_implemented": 0,
+  "total": 12,
+  "must_total": 9,
+  "must_passed": 9,
+  "must_failed": 0,
+  "must_blocked": 0,
+  "complete": true,
+  "ok": true,
+  "by_group": {
+   "A": {
+    "PASS": 4,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "SKIP": 0,
+    "BROKEN": 0,
+    "NOT_IMPLEMENTED": 0,
+    "total": 4
+   },
+   "R": {
+    "PASS": 1,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "SKIP": 0,
+    "BROKEN": 0,
+    "NOT_IMPLEMENTED": 0,
+    "total": 1
+   },
+   "T": {
+    "PASS": 7,
+    "FAIL": 0,
+    "BLOCKED": 0,
+    "SKIP": 0,
+    "BROKEN": 0,
+    "NOT_IMPLEMENTED": 0,
+    "total": 7
+   }
+  },
+  "note": "ok = failed==0 且 blocked==0；SKIP/BROKEN/NOT_IMPLEMENTED 不算通过，也不让验收假失败"
+ },
+ "first_failure": null,
+ "items": [
+  {
+   "id": "A1",
+   "level": "MUST",
+   "desc": "线稿类 PSNR @R=1024 ≥ 30dB（T1）",
+   "status": "PASS",
+   "value": {
+    "psnr_db": 39.1332,
+    "R": 512,
+    "klass": "lineart"
+   },
+   "threshold": "≥ 30 dB @R=1024",
+   "note": "quick 代理 R=512（非 1024 全量口径）",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T1_signature.png\" -o assets/out/acceptance/cases/A1_T1 --resolution 1024 --no-svg",
+   "elapsed_s": 1.277
+  },
+  {
+   "id": "A2",
+   "level": "MUST",
+   "desc": "线稿类 SSIM @R=1024 ≥ 0.90（T1）",
+   "status": "PASS",
+   "value": {
+    "ssim": 0.998602,
+    "R": 512
+   },
+   "threshold": "≥ 0.90 @R=1024",
+   "note": "quick 代理 R=512",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T1_signature.png\" -o assets/out/acceptance/cases/A2_T1 --resolution 1024 --no-svg",
+   "elapsed_s": 0.0
+  },
+  {
+   "id": "A3",
+   "level": "MUST",
+   "desc": "N–R 契约：max_err·R≤ε 且 ≥0.5ε，N 随 R 单调增（T4）",
+   "status": "PASS",
+   "value": {
+    "stats": {
+     "256": {
+      "N_median": 31,
+      "err_max_x_R": 0.4971,
+      "eps": 0.5
+     },
+     "512": {
+      "N_median": 50,
+      "err_max_x_R": 0.4928,
+      "eps": 0.5
+     }
+    },
+    "contract": true,
+    "tightness": true,
+    "monotonic": true,
+    "diagnostic_N_ratio": 1.613,
+    "ratio_R_range": [
+     256,
+     512
+    ]
+   },
+   "threshold": "max_err·R ≤ ε；max_err·R ≥ 0.5ε；N 中位随 R 单调增（严格）",
+   "note": "判据按工程护栏 §3.2 修正：旧版「每档必 2×」依赖 d(N)≈C/N 单幂律前提，实测为假；现直接验契约+紧致+单调。诊断倍率仅供记录。",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T4_taper_thick_to_thin.png\" -o assets/out/acceptance/cases/A3_R512 --resolution 512 --no-svg",
+   "elapsed_s": 2.021
+  },
+  {
+   "id": "A5",
+   "level": "MUST",
+   "desc": "异常用例零崩溃且原因明确（照片/透明/损坏/过小/格式/纯色）",
+   "status": "PASS",
+   "value": {
+    "cases": [
+     {
+      "case": "T7_photo_like.png",
+      "result": "E_PHOTO_DEFERRED",
+      "expected": [
+       "E_PHOTO_DEFERRED"
+      ],
+      "ok": true,
+      "message": "检测为照片类输入，本 Skill 暂缓支持（D5）。\n  实测判定依据：唯一颜色数=99833（阈值 ≥4096）、颜色熵=6.34 bits（阈值 ≥6.0）、噪声水平=5.65（阈值 ≥1.5）、平坦区占比=0.001（阈值 <0.6）"
+     },
+     {
+      "case": "T8c_fully_transparent.png",
+      "result": "E_INPUT_TRANSPARENT",
+      "expected": [
+       "E_INPUT_TRANSPARENT"
+      ],
+      "ok": true,
+      "message": "图像无可见内容：所有像素 alpha 均不高于阈值 128（alpha 最大值 0）"
+     },
+     {
+      "case": "T10b_损坏文件.png",
+      "result": "E_INPUT_FORMAT",
+      "expected": [
+       "E_INPUT_CORRUPT",
+       "E_INPUT_FORMAT"
+      ],
+      "ok": true,
+      "message": "无法识别的图像格式：<workspace>\\fourier-brushstroke\\assets\\testcases\\T10b_损坏文件.png。受支持：.png, .jpg, .jpeg, .web"
+     },
+     {
+      "case": "T10c_太小_8x8.png",
+      "result": "E_INPUT_TOO_SMALL",
+      "expected": [
+       "E_INPUT_TOO_SMALL"
+      ],
+      "ok": true,
+      "message": "图像过小：8×8，最小支持 32×32"
+     },
+     {
+      "case": "T10d_不是图片.txt",
+      "result": "E_INPUT_FORMAT",
+      "expected": [
+       "E_INPUT_FORMAT",
+       "E_INPUT_MODE"
+      ],
+      "ok": true,
+      "message": "无法识别的图像格式：<workspace>\\fourier-brushstroke\\assets\\testcases\\T10d_不是图片.txt。受支持：.png, .jpg, .jpeg, .web"
+     },
+     {
+      "case": "不存在的文件_xyz.png",
+      "result": "E_INPUT_MISSING",
+      "expected": [
+       "E_INPUT_MISSING"
+      ],
+      "ok": true,
+      "message": "输入文件不存在：<workspace>\\fourier-brushstroke\\assets\\testcases\\不存在的文件_xyz.png"
+     },
+     {
+      "case": "T8a_solid_black.png",
+      "result": "built warnings=['W_SOLID_COLOR']",
+      "expected": [
+       "W_SOLID_COLOR (或明确拒绝)"
+      ],
+      "ok": true
+     },
+     {
+      "case": "T8b_solid_white.png",
+      "result": "built warnings=['W_SOLID_COLOR']",
+      "expected": [
+       "W_SOLID_COLOR (或明确拒绝)"
+      ],
+      "ok": true
+     }
+    ]
+   },
+   "threshold": "全部异常用例以 FBSError(code) 明确拒绝；纯色图走特殊路径+W_SOLID_COLOR，0 崩溃",
+   "note": "A5 = 设计文档 §6 异常矩阵的零崩溃代理；错误信息可读性见 T7 项（证据/建议非空）",
+   "cmd": "python scripts/run_acceptance.py --items A5",
+   "elapsed_s": 0.213
+  },
+  {
+   "id": "R2",
+   "level": "MUST",
+   "desc": "一笔画通道：仅 1 条 stroke + 单次 FFT + 路径偏差 ≤0.05px",
+   "status": "PASS",
+   "value": {
+    "mode": "one_stroke",
+    "stroke_count": 1,
+    "fft_passes": 1,
+    "path_deviation_px": 0.0012369240803786028,
+    "path_deviation_max_px": 0.05875128546123793,
+    "path_samples": 8192,
+    "N": 4094,
+    "travel_length": 0.9778641855542965,
+    "files": "tests\\_baseline\\acceptance\\cases\\onestroke\\R2_T1.onestroke.fbs.json"
+   },
+   "threshold": "mode=one_stroke；strokes 恰好 1 条；stats.fft_passes==1；path_deviation_px ≤ 0.05 且 path_deviation_max_px ≤ 0.5（@契约 R）",
+   "note": "本项在 R=512 下评估；两项偏差分别取 stroke.path_deviation_px（RMS/代表值）与 stats.path_deviation_max_px（最大值）（quick 代理）",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T1_signature.png\" -o assets/out/acceptance/cases/R2_T1 --resolution 512 --no-svg && \"<python>\" scripts/fbs.py onestroke --fbs assets/out/acceptance/cases/R2_T1/T1_signature.fbs.json",
+   "elapsed_s": 0.111
+  },
+  {
+   "id": "T1",
+   "level": "MUST",
+   "desc": "T1 签名线稿：最佳场景，build 成功且分类=lineart",
+   "status": "PASS",
+   "value": {
+    "klass": "lineart",
+    "stroke_count": 1,
+    "fill_count": 0,
+    "region_count": 1,
+    "psnr_db": 39.1332,
+    "ssim": 0.998602,
+    "warnings": [],
+    "R": 512
+   },
+   "threshold": "build 成功（该用例不设质量阈值，质量由对应 A 项考核）",
+   "note": "A1/A2 的载体",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T1_signature.png\" -o assets/out/acceptance/cases/T1 --resolution 512 --no-svg",
+   "elapsed_s": 0.0
+  },
+  {
+   "id": "T2",
+   "level": "SHOULD",
+   "desc": "T2 图标（直角+曲线）：build 成功、fill_count>0",
+   "status": "PASS",
+   "value": {
+    "klass": "flat_art",
+    "stroke_count": 7,
+    "fill_count": 4,
+    "region_count": 7,
+    "psnr_db": 31.8592,
+    "ssim": 0.986713,
+    "warnings": [],
+    "R": 512
+   },
+   "threshold": "build 成功（该用例不设质量阈值，质量由对应 A 项考核）",
+   "note": "尖角分支保留由 A8 的 T5 场景考核；T2 验区域填充",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T2_icon.png\" -o assets/out/acceptance/cases/T2 --resolution 512 --no-svg",
+   "elapsed_s": 2.293
+  },
+  {
+   "id": "T3",
+   "level": "SHOULD",
+   "desc": "T3 扁平插画（8 色）：build 成功、多区域 + 填充",
+   "status": "PASS",
+   "value": {
+    "klass": "flat_art",
+    "stroke_count": 14,
+    "fill_count": 8,
+    "region_count": 14,
+    "psnr_db": 35.2663,
+    "ssim": 0.987048,
+    "warnings": [],
+    "R": 512
+   },
+   "threshold": "build 成功（该用例不设质量阈值，质量由对应 A 项考核）",
+   "note": "A9/A11/R7 的载体",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T3_flat_illustration.png\" -o assets/out/acceptance/cases/T3 --resolution 512 --no-svg",
+   "elapsed_s": 2.542
+  },
+  {
+   "id": "T4",
+   "level": "MUST",
+   "desc": "T4 锥形笔画（已知 w(t)）：build 成功且有 medial_branch",
+   "status": "PASS",
+   "value": {
+    "klass": "lineart",
+    "stroke_count": 2,
+    "fill_count": 0,
+    "region_count": 1,
+    "psnr_db": 34.1534,
+    "ssim": 0.996758,
+    "warnings": [],
+    "R": 512
+   },
+   "threshold": "build 成功（该用例不设质量阈值，质量由对应 A 项考核）",
+   "note": "A3/A7/A10/A13 的载体",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T4_taper_thick_to_thin.png\" -o assets/out/acceptance/cases/T4 --resolution 512 --no-svg",
+   "elapsed_s": 0.0
+  },
+  {
+   "id": "T5",
+   "level": "MUST",
+   "desc": "T5 尖角形状：build 成功、fill_count>0",
+   "status": "PASS",
+   "value": {
+    "klass": "lineart",
+    "stroke_count": 7,
+    "fill_count": 1,
+    "region_count": 4,
+    "psnr_db": 22.8277,
+    "ssim": 0.967293,
+    "warnings": [
+     "W_GAP_BRIDGED"
+    ],
+    "R": 512
+   },
+   "threshold": "build 成功（该用例不设质量阈值，质量由对应 A 项考核）",
+   "note": "A6/A8 的载体",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T5_sharp_corners.png\" -o assets/out/acceptance/cases/T5 --resolution 512 --no-svg",
+   "elapsed_s": 1.965
+  },
+  {
+   "id": "T12",
+   "level": "SHOULD",
+   "desc": "T12 颜色渐变反演：恢复的 color 曲线与真值 stops 平均 ΔE ≤ 25",
+   "status": "PASS",
+   "value": {
+    "mean_delta_e": 17.159,
+    "max_delta_e": 51.46,
+    "direction": "reversed",
+    "color_interp": "linear",
+    "samples": 9,
+    "R": 512
+   },
+   "threshold": "恢复颜色曲线 vs 真值 stops 的平均 ΔE76 ≤ 25（SHOULD；颜色场近似允许偏差）",
+   "note": "颜色反演是「色调维度」的端到端载体；方向不唯一时取更优方向并记录",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T12_color_gradient.png\" -o assets/out/acceptance/cases/T12 --resolution 512 --no-svg",
+   "elapsed_s": 1.902
+  },
+  {
+   "id": "T13",
+   "level": "MUST",
+   "desc": "T13 step 区间：恢复宽度曲线保留 t=0.5 处 20→6px 区间语义（方向无关判据）",
+   "status": "PASS",
+   "value": {
+    "case": "T13",
+    "orientation": "reversed",
+    "oriented_err_fwd_pct": 152.045,
+    "oriented_err_rev_pct": 5.695,
+    "oriented_mean_rel_err_pct": 5.695,
+    "width_interp": "linear",
+    "interp_step_preferred": false,
+    "w_t0.25_px": 20.063,
+    "truth_t0.25_px": 20.0,
+    "w_t0.75_px": 5.983,
+    "truth_t0.75_px": 6.0,
+    "before_rel_err_pct": 0.32,
+    "after_rel_err_pct": 0.29,
+    "boundary_t": 0.52,
+    "boundary_expected": 0.5,
+    "note": "方向任意性已按 Lead 裁定修正：两种方向取优并记录 orientation；interp=step 仅偏好记录，不判 FAIL（attribute 层已硬验 step 语义）"
+   },
+   "threshold": "方向取优后：w(0.25)≈20px（±20%）、w(0.75)≈6px（±25%）、边界 t∈[0.4,0.6]；interp=step 仅偏好记录，不判 FAIL",
+   "note": "区间语义必须用 step 显式表达（格式规范 §4 硬性约束 2）；自动反演曲线用 linear 但数值区间正确时允许（interp=step 仅偏好记录）；本次反演 interp 非 step（已记录，不判 FAIL）",
+   "cmd": "\"<python>\" scripts/fbs.py build \"assets\\testcases\\T13_step_intervals.png\" -o assets/out/acceptance/cases/T13 --resolution 512 --no-svg",
+   "elapsed_s": 1.312
+  }
+ ],
+ "real_images": {},
+ "notes": [],
+ "timings_s": {
+  "build:T1_signature@R512": 1.254,
+  "item:A1": 1.277,
+  "item:A2": 0.0,
+  "build:T4_taper_thick_to_thin@R256": 0.566,
+  "build:T4_taper_thick_to_thin@R512": 1.417,
+  "item:A3": 2.021,
+  "item:A5": 0.213,
+  "onestroke:T1_signature@R512": 0.064,
+  "item:R2": 0.111,
+  "item:T1": 0.0,
+  "build:T2_icon@R512": 2.24,
+  "item:T2": 2.293,
+  "build:T3_flat_illustration@R512": 2.489,
+  "item:T3": 2.542,
+  "item:T4": 0.0,
+  "build:T5_sharp_corners@R512": 1.925,
+  "item:T5": 1.965,
+  "build:T12_color_gradient@R512": 1.857,
+  "item:T12": 1.902,
+  "build:T13_step_intervals@R512": 1.272,
+  "item:T13": 1.312
+ },
+ "total_elapsed_s": 14.2,
+ "repro": {
+  "quick": "\"<python>\" scripts/run_acceptance.py --quick",
+  "full": "\"<python>\" scripts/run_acceptance.py",
+  "items": "\"<python>\" scripts/run_acceptance.py --items A1,A7,R2",
+  "cli": "\"<python>\" scripts/fbs.py acceptance --quick"
+ }
+}

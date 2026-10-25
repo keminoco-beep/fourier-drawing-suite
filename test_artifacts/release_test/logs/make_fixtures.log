@@ -1,0 +1,10 @@
+$ <python> <workspace>\work\release_test\make_fixtures.py
+cwd=None
+rc=0 seconds=0.41
+--- stdout ---
+image: <workspace>\work\release_test\fixtures\input_shapes_320x256.png 2092
+alpha_doc: <workspace>\work\release_test\fixtures\alpha_doc.json
+synth_strokes: <workspace>\work\release_test\fixtures\synth_strokes.json
+
+--- stderr ---
+

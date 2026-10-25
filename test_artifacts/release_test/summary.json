@@ -1,0 +1,522 @@
+{
+ "meta": {
+  "generated": "2026-10-25T11:31:21+0800",
+  "total_seconds": 592.5,
+  "candidate": "<workspace>\\release\\fourier-drawing-suite-v1.0.0",
+  "candidate_found": true,
+  "comfy_python": "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+  "comfy_info": {
+   "version": "3.11.9",
+   "exe": "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+   "path": "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe"
+  },
+  "workbuddy_python": "<python>",
+  "workbuddy_info": {
+   "version": "3.13.14",
+   "exe": "<python>",
+   "path": "<python>"
+  },
+  "fast": false,
+  "only": null,
+  "counts": {
+   "PASS": 24,
+   "FAIL": 0,
+   "SKIP": 0
+  },
+  "notes": [
+   "F0 为候选目录原样（干净机器）默认套件：缺少 work/、training/ 下的 demo 图片时，依赖这些素材的测试类会 skip，计数低于 142 属预期。",
+   "F1–F3 在 tmp/test_candidate 临时副本中注入仓库的少量测试素材（work/input2 线稿、training/input 真实图、tiny .fdraw），仅改临时副本、候选目录保持只读，因此完整覆盖 142 用例。",
+   "F1（ComfyUI python 有 GL）比 F2 多 1 个 skip：test_no_gl_exit_code 在有 GL 的解释器下按设计跳过。"
+  ],
+  "artifacts_dir": "<workspace>\\work\\release_test\\artifacts",
+  "artifacts": [
+   "D1_layered_base__layered_base_R256.png",
+   "D1_layered_base__layered_base_report.json",
+   "D1_layered_base__layered_base_strokes.json",
+   "D2_fbs__doc.fbs",
+   "D3_fdrender_cpu_512__fdrender_cpu_512.png",
+   "D4_gpu_render__gpu_gl_512.png",
+   "D4_gpu_render__cpu_512.png",
+   "D4_gpu_render__gpu_512_timing.json",
+   "C_node_chain__fdraw_R512_gpu.png",
+   "C_node_chain__fdraw_R512_exact.png",
+   "C_node_chain__source.png",
+   "D5_video__fourier_2s.mp4",
+   "F3_gpu_subset_log__F3_gpu_subset.log"
+  ]
+ },
+ "results": [
+  {
+   "id": "A1",
+   "group": "A",
+   "scenario": "短英文路径 (65 chars)",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0.5,
+   "detail": "copy 501 files/25.0MB; checks={'check_env': {'rc': 0, 'attempts': 1}, 'layered_base': {'rc': 0, 'seconds': 1.0}, 'build_fbs': {'rc': 0, 'seconds': 1.37}, 'cpu_render': {'rc': 0, 'seconds': 1.87}}",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "A2",
+   "group": "A",
+   "scenario": "空格+中文路径 (32 chars)",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0.6,
+   "detail": "copy 501 files/25.0MB; checks={'check_env': {'rc': 0, 'attempts': 1}, 'layered_base': {'rc': 0, 'seconds': 0.97}, 'build_fbs': {'rc': 0, 'seconds': 1.37}, 'cpu_render': {'rc': 0, 'seconds': 1.81}}",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "A3",
+   "group": "A",
+   "scenario": "长路径≥120字符 (156 chars)",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0.6,
+   "detail": "copy 501 files/25.0MB; checks={'check_env': {'rc': 0, 'attempts': 1}, 'layered_base': {'rc': 0, 'seconds': 1.01}, 'build_fbs': {'rc': 0, 'seconds': 1.49}, 'cpu_render': {'rc': 0, 'seconds': 1.83}}",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "B1",
+   "group": "B",
+   "scenario": "仅 env FDP_WORKSPACE/FDP_PYTHON",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0,
+   "detail": "resolved={\"ok\": true, \"workspace\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace\", \"fbs\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/fourier-brushstroke/scripts/fbs.py\", \"prompt\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/fourier-prompt\", \"fdrender\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/fourier-prompt/fourier_prompt/fdrender_cli.py\", \"video\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/poc/t2i/fdraw_fourier_video.py\",",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "B2",
+   "group": "B",
+   "scenario": "仅 fdp_config.json（installer 写）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0,
+   "detail": "install_rc_ok=True config=True resolved={\"ok\": true, \"workspace\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace\", \"fbs\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/fourier-brushstroke/scripts/fbs.py\", \"prompt\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/fourier-prompt\", \"fdrender\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/fourier-prompt/fourier_prompt/fdrender_cli.py\", \"video\": \"<workspace>/release/fourier-drawing-suite-v1.0.0/workspace/poc/t2i/fdraw_fourier_video.py\",",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "B3",
+   "group": "B",
+   "scenario": "无 env 无 config → 可操作报错",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0,
+   "detail": "error=RuntimeError: 找不到 FDP workspace（应包含 skills/fourier-multistroke-training/scripts/layered_base.py）。\n解析顺序：FDP_WORKSPACE 环境变量 → 节点目录 fdp_config.json 的 workspace → 发布包自动探测。\n已尝试：\n  - <workspace>\\work\\release_test\\tmp\\bare_node\\ComfyUI-FDP-T2I\n  - <workspace>\\work\\release_test\\tmp\\bare_node\\ComfyUI-FDP-T2I\\workspace\n  - <workspace>\\work\\release_test\\tmp\\bare_node\n  - <workspace>\\work\\release_test\\tmp\\bare_node\\workspace\n  - <workspace>\\work\\release_test\\tmp\n  - <workspace>\\work\\rele",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "C1",
+   "group": "C",
+   "scenario": "install.py 安装到 fake ComfyUI",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0.2,
+   "detail": "node_copied=True config=True dry_run_ok=True config={\"workspace\": \"<path> skill\\\\release\\\\fourier-drawing-suite-v1.0.0\\\\workspace\", \"python\": \"<path>\"}",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "C2",
+   "group": "C",
+   "scenario": "check_env.py（安装后 fake ComfyUI）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0,
+   "detail": "attempts=[([], 0)]",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "C3",
+   "group": "C",
+   "scenario": "node BuildV136→Pack→Render（GPU）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 28.68,
+   "detail": "{\"ok\": true, \"version\": \"3.1.0\", \"mode\": \"gpu\", \"artifacts\": [\"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_exact.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_gpu.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\source.png\"], \"build\": {\"seconds\": 23.5, \"return_len\": 3, \"elements\": 2011}, \"pack\": {\"seconds\": 2.3, \"fdraw\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw.fdraw\", \"elements\": 2011}, \"render\": {\"seconds\": 2.0, \"shape\": [1, 410, 512, 3], \"finite\": true}, \"log\": \"[FDP-T2I] GPU render ok res=512 2.0s -> fdraw_R512_gpu.png\\n[FDP-T2I] gpu timing: {\\\"ok\\\": true, \\\"out\\\": \\\"<path> skill\\\\\\\\work\\\\\\\\release_test\\\\\\",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\work\\release_test\\_node_chain.py",
+    "<workspace>\\work\\release_test\\tmp\\fake_comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py",
+    "<workspace>\\work\\release_test\\fixtures\\input_shapes_320x256.png",
+    "<workspace>\\work\\release_test\\tmp\\node_chain",
+    "256",
+    "512",
+    "gpu"
+   ],
+   "stdout_tail": " \"version\": \"3.1.0\", \"mode\": \"gpu\", \"artifacts\": [\"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_exact.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_gpu.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\source.png\"], \"build\": {\"seconds\": 23.5, \"return_len\": 3, \"elements\": 2011}, \"pack\": {\"seconds\": 2.3, \"fdraw\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw.fdraw\", \"elements\": 2011}, \"render\": {\"seconds\": 2.0, \"shape\": [1, 410, 512, 3], \"finite\": true}, \"log\": \"[FDP-T2I] GPU render ok res=512 2.0s -> fdraw_R512_gpu.png\\n[FDP-T2I] gpu timing: {\\\"ok\\\": true, \\\"out\\\": \\\"<path> skill\\\\\\\\work\\\\\\\\release_test\\\\\\\\tmp\\\\\\\\node_chain\\\\\\\\fdraw_R512_gpu.png\\\", \\\"timing\\\": {\\\"device\\\": \\\"gl\\\", \\\"float_fbo\\\": true, \\\"geometry_s\\\": 0.031, \\\"gl_init_s\\\": 0.252, \\\"gpu_s\\\": 0.011, \\\"input\\\": \\\"fdraw\\\", \\\"load_s\\\": 0.081, \\\"non_round_shapes\\\": [], \\\"out_size\\\": [512, 410], \\\"readback_s\\\": 0.078, \\\"resolution\\\": [512, 410], \\\"sample_s\\\": 0.682, \\\"segments\\\": 129405, \\\"strokes\\\": 2011, \\\"supersample\\\": 2, \\\"total_s\\\": 1.473}}\\n\"}\n",
+   "stderr_tail": "",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\node_chain\\fdraw_R512_exact.png",
+    "<workspace>\\work\\release_test\\tmp\\node_chain\\fdraw_R512_gpu.png",
+    "<workspace>\\work\\release_test\\tmp\\node_chain\\source.png"
+   ]
+  },
+  {
+   "id": "C4",
+   "group": "C",
+   "scenario": "node RenderFdraw CPU fallback（FDP_GPU_RENDER=0）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 44.72,
+   "detail": "{\"ok\": true, \"version\": \"3.1.0\", \"mode\": \"cpu\", \"artifacts\": [\"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_exact.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_gpu.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\source.png\"], \"build\": {\"seconds\": 24.0, \"return_len\": 3, \"elements\": 2011}, \"pack\": {\"seconds\": 2.2, \"fdraw\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw.fdraw\", \"elements\": 2011}, \"render\": {\"seconds\": 17.6, \"shape\": [1, 410, 512, 3], \"finite\": true}, \"log\": \"[FDP-T2I] GPU render 未启用/脚本缺失，使用 CPU exact\\n\"}",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\work\\release_test\\_node_chain.py",
+    "<workspace>\\work\\release_test\\tmp\\fake_comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py",
+    "<workspace>\\work\\release_test\\fixtures\\input_shapes_320x256.png",
+    "<workspace>\\work\\release_test\\tmp\\node_chain",
+    "256",
+    "512",
+    "cpu"
+   ],
+   "stdout_tail": "{\"ok\": true, \"version\": \"3.1.0\", \"mode\": \"cpu\", \"artifacts\": [\"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_exact.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw_R512_gpu.png\", \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\source.png\"], \"build\": {\"seconds\": 24.0, \"return_len\": 3, \"elements\": 2011}, \"pack\": {\"seconds\": 2.2, \"fdraw\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\node_chain\\\\fdraw.fdraw\", \"elements\": 2011}, \"render\": {\"seconds\": 17.6, \"shape\": [1, 410, 512, 3], \"finite\": true}, \"log\": \"[FDP-T2I] GPU render 未启用/脚本缺失，使用 CPU exact\\n\"}\n",
+   "stderr_tail": "",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\node_chain\\fdraw_R512_exact.png",
+    "<workspace>\\work\\release_test\\tmp\\node_chain\\fdraw_R512_gpu.png",
+    "<workspace>\\work\\release_test\\tmp\\node_chain\\source.png"
+   ]
+  },
+  {
+   "id": "D1",
+   "group": "D",
+   "scenario": "layered_base 256（候选）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 1.02,
+   "detail": "strokes=115 silhouette_on=True psnr=17.3338",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\scripts\\layered_base.py",
+    "--input",
+    "<workspace>\\work\\release_test\\fixtures\\input_shapes_320x256.png",
+    "--outdir",
+    "<workspace>\\work\\release_test\\tmp\\chain\\human",
+    "--work-res",
+    "256"
+   ],
+   "stdout_tail": "3\": {\n      \"candidates\": 0,\n      \"accepted\": 0,\n      \"rejected_delta\": 0,\n      \"rejected_edge\": 0,\n      \"rejected_edge_color\": 0,\n      \"rejected_edge_grad\": 0,\n      \"rejected_oob\": 0,\n      \"mean_delta\": 0.0,\n      \"max_delta\": 0.0,\n      \"mean_step\": 0.0,\n      \"max_step\": 0.0,\n      \"accepted_mean_delta\": 0.0,\n      \"rejected_delta_frac\": 0.0,\n      \"rejected_edge_frac\": 0.0,\n      \"rejected_oob_frac\": 0.0\n    },\n    \"base_pass4\": {\n      \"candidates\": 0,\n      \"accepted\": 0,\n      \"rejected_delta\": 0,\n      \"rejected_edge\": 0,\n      \"rejected_edge_color\": 0,\n      \"rejected_edge_grad\": 0,\n      \"rejected_oob\": 0,\n      \"mean_delta\": 0.0,\n      \"max_delta\": 0.0,\n      \"mean_step\": 0.0,\n      \"max_step\": 0.0,\n      \"accepted_mean_delta\": 0.0,\n      \"rejected_delta_frac\": 0.0,\n      \"rejected_edge_frac\": 0.0,\n      \"rejected_oob_frac\": 0.0\n    }\n  },\n  \"stray_color_px\": 2839,\n  \"stray_color_frac\": 0.275738,\n  \"stray_color_thr\": 0.25,\n  \"png\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\chain\\\\human\\\\layered_base_R256.png\",\n  \"strokes\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\chain\\\\human\\\\layered_base_strokes.json\",\n  \"seconds\": 0.3\n}\n",
+   "stderr_tail": "",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\chain\\human\\layered_base_report.json"
+   ]
+  },
+  {
+   "id": "D2",
+   "group": "D",
+   "scenario": "build_strokes_fbs 512（候选）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 1.98,
+   "detail": "fbs=True size=595213",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\scripts\\build_strokes_fbs.py",
+    "--strokes",
+    "<workspace>\\work\\release_test\\tmp\\chain\\human\\layered_base_strokes.json",
+    "--input",
+    "<workspace>\\work\\release_test\\fixtures\\input_shapes_320x256.png",
+    "--out",
+    "<workspace>\\work\\release_test\\tmp\\chain\\doc.fbs",
+    "--resolution",
+    "512"
+   ],
+   "stdout_tail": "[build] <workspace>\\work\\release_test\\tmp\\chain\\doc.fbs strokes=115 bytes=595213 fills=0 contract={'target_resolution': 512, 'epsilon_px': 0.08}\n",
+   "stderr_tail": "",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\chain\\doc.fbs"
+   ]
+  },
+  {
+   "id": "D3",
+   "group": "D",
+   "scenario": "pack_fdraw + fdrender CPU exact 512",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 4.33,
+   "detail": "fdraw=True png=True pack_seconds=0.3 render_seconds=4.33",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "-m",
+    "fourier_prompt.fdrender_cli",
+    "render",
+    "--fdraw",
+    "<workspace>\\work\\release_test\\tmp\\chain\\doc.fdraw",
+    "--out",
+    "<workspace>\\work\\release_test\\tmp\\chain\\fdrender_cpu_512.png",
+    "--resolution",
+    "512",
+    "--quality",
+    "exact"
+   ],
+   "stdout_tail": "rendered <workspace>\\work\\release_test\\tmp\\chain\\fdrender_cpu_512.png 512x410 quality=exact 3.80s (16266 bytes)\n",
+   "stderr_tail": "",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\chain\\fdrender_cpu_512.png"
+   ]
+  },
+  {
+   "id": "D4",
+   "group": "D",
+   "scenario": "gpu_render GL 512 + CPU 512",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 1.51,
+   "detail": "gpu_seconds=1.51 cpu_seconds=4.07 timing_total=1.018 device=gl",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\scripts\\gpu_render.py",
+    "--fbs",
+    "<workspace>\\work\\release_test\\tmp\\chain\\doc.fbs",
+    "--out",
+    "<workspace>\\work\\release_test\\tmp\\chain\\gpu_gl_512.png",
+    "--resolution",
+    "512",
+    "--device",
+    "gl",
+    "--timing-json",
+    "<workspace>\\work\\release_test\\tmp\\chain\\gpu_512_timing.json"
+   ],
+   "stdout_tail": "{\"ok\": true, \"out\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\chain\\\\gpu_gl_512.png\", \"timing\": {\"device\": \"gl\", \"float_fbo\": true, \"geometry_s\": 0.006, \"gl_init_s\": 0.253, \"gpu_s\": 0.01, \"input\": \"fbs\", \"load_s\": 0.007, \"non_round_shapes\": [], \"out_size\": [512, 410], \"readback_s\": 0.08, \"resolution\": [512, 410], \"sample_s\": 0.36, \"segments\": 27092, \"strokes\": 115, \"supersample\": 2, \"total_s\": 1.018}}\n",
+   "stderr_tail": "",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\chain\\gpu_gl_512.png",
+    "<workspace>\\work\\release_test\\tmp\\chain\\cpu_512.png",
+    "<workspace>\\work\\release_test\\tmp\\chain\\gpu_512_timing.json"
+   ]
+  },
+  {
+   "id": "D5",
+   "group": "D",
+   "scenario": "node video 2s/512（FDPT2IFourierVideo）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 63.28,
+   "detail": "{\"ok\": true, \"version\": \"3.1.0\", \"seconds\": 62.5, \"mp4\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\video\\\\fourier_2s.mp4\", \"poster_shape\": [1, 1638, 2048, 3], \"log\": \"\"}",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\work\\release_test\\_node_video.py",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py",
+    "<workspace>\\work\\release_test\\tmp\\chain\\doc.fdraw",
+    "<workspace>\\work\\release_test\\tmp\\video",
+    "512x512",
+    "512",
+    "2"
+   ],
+   "stdout_tail": "{\"ok\": true, \"version\": \"3.1.0\", \"seconds\": 62.5, \"mp4\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\video\\\\fourier_2s.mp4\", \"poster_shape\": [1, 1638, 2048, 3], \"log\": \"\"}\n",
+   "stderr_tail": "",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\video\\fourier_2s.mp4"
+   ]
+  },
+  {
+   "id": "D6",
+   "group": "D",
+   "scenario": "工作流 JSON 结构校验（3 个 v136）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0.39,
+   "detail": "[\n {\n  \"file\": \"FDP_v136_Local_NoAI_UI.json\",\n  \"status\": \"PASS\",\n  \"problems\": [],\n  \"node_count\": 9,\n  \"link_count\": 12,\n  \"render_widgets\": 1\n },\n {\n  \"file\": \"FDP_v136_T2I_Krea2_API_UI.json\",\n  \"status\": \"PASS\",\n  \"problems\": [],\n  \"node_count\": 9,\n  \"link_count\": 12,\n  \"render_widgets\": 1\n },\n {\n  \"file\": \"FDP_v136_T2I_Krea2_Local_UI.json\",\n  \"status\": \"PASS\",\n  \"problems\": [],\n  \"node_count\": 21,\n  \"link_count\": 23,\n  \"render_widgets\": 1\n }\n]\n",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\work\\release_test\\validate_workflows.py",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I\\nodes.py",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\comfyui\\workflows\\FDP_v136_Local_NoAI_UI.json",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\comfyui\\workflows\\FDP_v136_T2I_Krea2_API_UI.json",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\comfyui\\workflows\\FDP_v136_T2I_Krea2_Local_UI.json"
+   ],
+   "stdout_tail": "[\n {\n  \"file\": \"FDP_v136_Local_NoAI_UI.json\",\n  \"status\": \"PASS\",\n  \"problems\": [],\n  \"node_count\": 9,\n  \"link_count\": 12,\n  \"render_widgets\": 1\n },\n {\n  \"file\": \"FDP_v136_T2I_Krea2_API_UI.json\",\n  \"status\": \"PASS\",\n  \"problems\": [],\n  \"node_count\": 9,\n  \"link_count\": 12,\n  \"render_widgets\": 1\n },\n {\n  \"file\": \"FDP_v136_T2I_Krea2_Local_UI.json\",\n  \"status\": \"PASS\",\n  \"problems\": [],\n  \"node_count\": 21,\n  \"link_count\": 23,\n  \"render_widgets\": 1\n }\n]\n",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "E1",
+   "group": "E",
+   "scenario": "缺依赖检测（空 venv）",
+   "env": "empty venv",
+   "status": "PASS",
+   "seconds": 0.32,
+   "detail": "rc=1 actionable_message=True t\\tmp\\empty_venv\\Scripts\\python.exe 缺少 ['numpy', 'scipy', 'PIL']\n        -> 运行 release/requirements-core.txt\n[WARN] python 可选依赖          缺少 ['imageio', 'imageio_ffmpeg']（视频/序列帧功能不可用）\n        -> pip install imageio imageio-ffmpeg\n[WARN] OpenGL 上下文（GPU 渲染）   IMPORT_FAIL:ModuleNotFoundError(\"No module named 'glfw'\")\n        -> GPU 渲染不可用，渲染将自动回退 CPU（或安装 requirements-gpu.txt）\n[PASS] workflow JSON        9 个可解析的 workflow 文件\n[PASS] 源码不含本机绝对路径           已扫描 skills / fourier-* / 节点包\n---------------------------------------------------------------------------------\n结果：FAIL —— 请按上面的 -> 修复后重跑 check_env.py\n",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\release\\check_env.py",
+    "--workspace",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace",
+    "--python",
+    "<workspace>\\work\\release_test\\tmp\\empty_venv\\Scripts\\python.exe"
+   ],
+   "stdout_tail": "         <workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace（--workspace）\n[PASS] v1.36 绘制脚本           2 个入口文件存在\n[PASS] fourier-brushstroke  2 个入口文件存在\n[PASS] fourier-prompt       2 个入口文件存在\n[PASS] ComfyUI 节点包          <workspace>\\release\\fourier-drawing-suite-v1.0.0\\comfyui\\custom_nodes\\ComfyUI-FDP-T2I（release 布局）\n[PASS] 节点版本                 PACKAGE_VERSION=3.1.0\n[WARN] fdp_config.json      节点目录没有 fdp_config.json\n        -> 运行 python release/install.py 生成（或设置 FDP_WORKSPACE）\n[FAIL] python 核心依赖          <workspace>\\work\\release_test\\tmp\\empty_venv\\Scripts\\python.exe 缺少 ['numpy', 'scipy', 'PIL']\n        -> 运行 release/requirements-core.txt\n[WARN] python 可选依赖          缺少 ['imageio', 'imageio_ffmpeg']（视频/序列帧功能不可用）\n        -> pip install imageio imageio-ffmpeg\n[WARN] OpenGL 上下文（GPU 渲染）   IMPORT_FAIL:ModuleNotFoundError(\"No module named 'glfw'\")\n        -> GPU 渲染不可用，渲染将自动回退 CPU（或安装 requirements-gpu.txt）\n[PASS] workflow JSON        9 个可解析的 workflow 文件\n[PASS] 源码不含本机绝对路径           已扫描 skills / fourier-* / 节点包\n---------------------------------------------------------------------------------\n结果：FAIL —— 请按上面的 -> 修复后重跑 check_env.py\n",
+   "stderr_tail": "",
+   "artifacts": []
+  },
+  {
+   "id": "E2",
+   "group": "E",
+   "scenario": "无 GL → gpu_render exit 3",
+   "env": "workbuddy python",
+   "status": "PASS",
+   "seconds": 0.31,
+   "detail": "rc=3",
+   "cmd": [
+    "<python>",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\scripts\\gpu_render.py",
+    "--strokes",
+    "<workspace>\\work\\release_test\\fixtures\\synth_strokes.json",
+    "--out",
+    "<workspace>\\work\\release_test\\tmp\\nogl.png",
+    "--resolution",
+    "256",
+    "--device",
+    "gl"
+   ],
+   "stdout_tail": "",
+   "stderr_tail": "[gpu_render] GPU 渲染不可用（PyOpenGL/glfw 缺失: No module named 'glfw'）；请用 --device cpu 或回退 CPU\n",
+   "artifacts": []
+  },
+  {
+   "id": "E3",
+   "group": "E",
+   "scenario": "alpha<1 → exit 5 / CPU 可用",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 0.68,
+   "detail": "gpu_rc=5 cpu_rc=0 cpu_png=True",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\scripts\\gpu_render.py",
+    "--strokes",
+    "<workspace>\\work\\release_test\\fixtures\\alpha_doc.json",
+    "--out",
+    "<workspace>\\work\\release_test\\tmp\\alpha_gpu.png",
+    "--resolution",
+    "256",
+    "--device",
+    "gl"
+   ],
+   "stdout_tail": "",
+   "stderr_tail": "[gpu_render] alpha<1 not supported by GPU renderer; use --device cpu\n",
+   "artifacts": [
+    "<workspace>\\work\\release_test\\tmp\\alpha_cpu.png"
+   ]
+  },
+  {
+   "id": "F0",
+   "group": "F",
+   "scenario": "干净候选默认套件（未注入测试图片）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 67.74,
+   "detail": "ran=139 skipped=16（发布包按规则不含 work/、training/ demo 图片，依赖它们的测试类按预期 skip；F1 起在临时副本注入这些图片以覆盖 142 用例）",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests"
+   ],
+   "stdout_tail": "0.120 step_diag=True gradients=633 clipped=0 max_d_end=0.1191 unsafe=0 rejected(delta/edge/oob)=89/26/0\n[gradient-safety] stray_color_px reported=1431 recomputed=1436 fg_px=12288 (float-vs-8bit tolerance 61)\n[human-paint] flow on: report flow=0.6298 axis=0.5573 self_flow=0.7519\n[human-paint] axis_aligned on=0.5573 off=0.7761\n[human-paint] region order: y_spearman=-0.1000 adjacent=14.14px region_run=0.8043 | scan: y_spearman=0.6367 adjacent=18.56px region_run=0.3551\n[human-paint] wash coverage=0.9960 overlap_fg=0.0431 max_count=2 report(cov=0.99598, ovl=0.04313)\n[human-paint] wash base axis_aligned=0.0000 entropy=0.0770 strokes=21\n[gate-unit] smooth-ramp candidates=25 accepted=0 max_delta=0.0000\n[silhouette] off: formal=66 overshoot>2px=36 max=9.87px outside_px=2279\n[silhouette] on: formal=31 overshoot>2px=0 max=-0.25px outside_px=0\n[silhouette] report overshoot 9.87px -> 0.00px clipped=12 dropped=35\n[silhouette] quality @256: off psnr=27.202 ssim=0.9546 | on psnr=29.208 ssim=0.9706\n[silhouette] fallback: on=True area_frac=1.0 fallback=True\n[texture-flat] unit flat-side ratio=1.0000 candidates=5828 flat_frac=0.4922\n[texture-flat] ref_std gate: strokes=200 textured-side ratio=1.0000\n",
+   "stderr_tail": "rier-multistroke-training\\scripts\\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>\n  json.dump(payload, open(path, \"w\", encoding=\"utf-8\"), ensure_ascii=False)\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\scripts\\layered_base.py:110: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>\n  for s in json.load(open(path, encoding=\"utf-8\")):\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n.<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\scripts\\layered_base.py:138: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='w' encoding='utf-8'>\n  json.dump(payload, open(path, \"w\", encoding=\"utf-8\"), ensure_ascii=False)\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n<workspace>\\release\\fourier-drawing-suite-v1.0.0\\workspace\\skills\\fourier-multistroke-training\\tests\\test_layered_base.py:88: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path>' mode='r' encoding='utf-8'>\n  payload = json.load(open(path, encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n....................sss.................\n----------------------------------------------------------------------\nRan 139 tests in 66.236s\n\nOK (skipped=16)\n",
+   "artifacts": []
+  },
+  {
+   "id": "F1",
+   "group": "F",
+   "scenario": "候选默认套件（ComfyUI python）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 71.62,
+   "detail": "ran=142 skipped=14 copy=501files/25.0MB",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+   ],
+   "stdout_tail": "t-safety] stray_color_px reported=1431 recomputed=1436 fg_px=12288 (float-vs-8bit tolerance 61)\n[human-paint] flow on: report flow=0.6298 axis=0.5573 self_flow=0.7519\n[human-paint] axis_aligned on=0.5573 off=0.7761\n[human-paint] region order: y_spearman=-0.1000 adjacent=14.14px region_run=0.8043 | scan: y_spearman=0.6367 adjacent=18.56px region_run=0.3551\n[human-paint] real image axis_aligned=0.2604 flow_orientation=0.9129 self_axis=0.2604 image=Sunflowers_user.jpg\n[human-paint] wash coverage=0.9960 overlap_fg=0.0431 max_count=2 report(cov=0.99598, ovl=0.04313)\n[human-paint] wash base axis_aligned=0.0000 entropy=0.0770 strokes=21\n[gate-unit] smooth-ramp candidates=25 accepted=0 max_delta=0.0000\n[silhouette] off: formal=66 overshoot>2px=36 max=9.87px outside_px=2279\n[silhouette] on: formal=31 overshoot>2px=0 max=-0.25px outside_px=0\n[silhouette] report overshoot 9.87px -> 0.00px clipped=12 dropped=35\n[silhouette] quality @256: off psnr=27.202 ssim=0.9546 | on psnr=29.208 ssim=0.9706\n[silhouette] fallback: on=True area_frac=1.0 fallback=True\n[texture-flat] unit flat-side ratio=1.0000 candidates=5828 flat_frac=0.4922\n[texture-flat] ref_std gate: strokes=200 textured-side ratio=1.0000\n",
+   "stderr_tail": "eometry_and_fields (test_texture_flat.TestTextureFlatCLIOn.test_texture_strokes_geometry_and_fields) ... ok\ntest_recipe_report (test_texture_flat.TestTextureFlatCLIRecipe.test_recipe_report) ... ok\ntest_frozen_texture_flat_defaults (test_texture_flat.TestTextureFlatInterface.test_frozen_texture_flat_defaults) ... ok\ntest_frozen_v134_base_defaults (test_texture_flat.TestTextureFlatInterface.test_frozen_v134_base_defaults) ... ok\ntest_help_lists_texture_flat_options (test_texture_flat.TestTextureFlatInterface.test_help_lists_texture_flat_options) ... ok\ntest_auto_count_scales_with_canvas_area (test_texture_flat.TestTextureFlatUnit.test_auto_count_scales_with_canvas_area) ... ok\ntest_deterministic_for_same_seed (test_texture_flat.TestTextureFlatUnit.test_deterministic_for_same_seed) ... ok\ntest_emits_requested_strokes_and_info (test_texture_flat.TestTextureFlatUnit.test_emits_requested_strokes_and_info) ... ok\ntest_hard_cap_is_enforced (test_texture_flat.TestTextureFlatUnit.test_hard_cap_is_enforced) ... ok\ntest_only_locally_flat_areas_are_painted (test_texture_flat.TestTextureFlatUnit.test_only_locally_flat_areas_are_painted)\nFlat left / noisy right render -> >=70% of strokes on the flat side. ... ok\ntest_ref_std_gate_restricts_to_textured_reference (test_texture_flat.TestTextureFlatUnit.test_ref_std_gate_restricts_to_textured_reference) ... ok\ntest_scaled_geometry_matches_defaults (test_texture_flat.TestTextureFlatUnit.test_scaled_geometry_matches_defaults) ... ok\ntest_stroke_fields (test_texture_flat.TestTextureFlatUnit.test_stroke_fields) ... ok\ntest_zero_budget_returns_nothing (test_texture_flat.TestTextureFlatUnit.test_zero_budget_returns_nothing) ... ok\n\n----------------------------------------------------------------------\nRan 142 tests in 69.924s\n\nOK (skipped=14)\n",
+   "artifacts": []
+  },
+  {
+   "id": "F2",
+   "group": "F",
+   "scenario": "候选默认套件（workbuddy python）",
+   "env": "workbuddy python",
+   "status": "PASS",
+   "seconds": 86.19,
+   "detail": "ran=142 skipped=13 copy=501files/25.0MB",
+   "cmd": [
+    "<python>",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests",
+    "-v"
+   ],
+   "stdout_tail": "t-safety] stray_color_px reported=1431 recomputed=1436 fg_px=12288 (float-vs-8bit tolerance 61)\n[human-paint] flow on: report flow=0.6298 axis=0.5573 self_flow=0.7519\n[human-paint] axis_aligned on=0.5573 off=0.7761\n[human-paint] region order: y_spearman=-0.0973 adjacent=14.14px region_run=0.8043 | scan: y_spearman=0.6370 adjacent=18.56px region_run=0.3551\n[human-paint] real image axis_aligned=0.2604 flow_orientation=0.9129 self_axis=0.2604 image=Sunflowers_user.jpg\n[human-paint] wash coverage=0.9960 overlap_fg=0.0431 max_count=2 report(cov=0.99598, ovl=0.04313)\n[human-paint] wash base axis_aligned=0.0000 entropy=0.0770 strokes=21\n[gate-unit] smooth-ramp candidates=25 accepted=0 max_delta=0.0000\n[silhouette] off: formal=66 overshoot>2px=36 max=9.87px outside_px=2279\n[silhouette] on: formal=31 overshoot>2px=0 max=-0.25px outside_px=0\n[silhouette] report overshoot 9.87px -> 0.00px clipped=12 dropped=35\n[silhouette] quality @256: off psnr=27.202 ssim=0.9546 | on psnr=29.208 ssim=0.9706\n[silhouette] fallback: on=True area_frac=1.0 fallback=True\n[texture-flat] unit flat-side ratio=1.0000 candidates=5828 flat_frac=0.4922\n[texture-flat] ref_std gate: strokes=200 textured-side ratio=1.0000\n",
+   "stderr_tail": "eometry_and_fields (test_texture_flat.TestTextureFlatCLIOn.test_texture_strokes_geometry_and_fields) ... ok\ntest_recipe_report (test_texture_flat.TestTextureFlatCLIRecipe.test_recipe_report) ... ok\ntest_frozen_texture_flat_defaults (test_texture_flat.TestTextureFlatInterface.test_frozen_texture_flat_defaults) ... ok\ntest_frozen_v134_base_defaults (test_texture_flat.TestTextureFlatInterface.test_frozen_v134_base_defaults) ... ok\ntest_help_lists_texture_flat_options (test_texture_flat.TestTextureFlatInterface.test_help_lists_texture_flat_options) ... ok\ntest_auto_count_scales_with_canvas_area (test_texture_flat.TestTextureFlatUnit.test_auto_count_scales_with_canvas_area) ... ok\ntest_deterministic_for_same_seed (test_texture_flat.TestTextureFlatUnit.test_deterministic_for_same_seed) ... ok\ntest_emits_requested_strokes_and_info (test_texture_flat.TestTextureFlatUnit.test_emits_requested_strokes_and_info) ... ok\ntest_hard_cap_is_enforced (test_texture_flat.TestTextureFlatUnit.test_hard_cap_is_enforced) ... ok\ntest_only_locally_flat_areas_are_painted (test_texture_flat.TestTextureFlatUnit.test_only_locally_flat_areas_are_painted)\nFlat left / noisy right render -> >=70% of strokes on the flat side. ... ok\ntest_ref_std_gate_restricts_to_textured_reference (test_texture_flat.TestTextureFlatUnit.test_ref_std_gate_restricts_to_textured_reference) ... ok\ntest_scaled_geometry_matches_defaults (test_texture_flat.TestTextureFlatUnit.test_scaled_geometry_matches_defaults) ... ok\ntest_stroke_fields (test_texture_flat.TestTextureFlatUnit.test_stroke_fields) ... ok\ntest_zero_budget_returns_nothing (test_texture_flat.TestTextureFlatUnit.test_zero_budget_returns_nothing) ... ok\n\n----------------------------------------------------------------------\nRan 142 tests in 84.241s\n\nOK (skipped=13)\n",
+   "artifacts": []
+  },
+  {
+   "id": "F3",
+   "group": "F",
+   "scenario": "候选 RUN_GPU 子集（19 用例）",
+   "env": "ComfyUI python",
+   "status": "PASS",
+   "seconds": 21.05,
+   "detail": "ran=19 skipped=1",
+   "cmd": [
+    "<comfyui>\\ComfyUI-aki-v1.7\\ComfyUI-aki-v1.7\\python\\python.exe",
+    "-m",
+    "unittest",
+    "tests.test_gpu_render",
+    "-v"
+   ],
+   "stdout_tail": "[gpu] synthetic 256px GPU vs CPU PSNR=62.29 SSIM=1.0000\n",
+   "stderr_tail": "8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n<workspace>\\work\\release_test\\tmp\\test_candidate\\workspace\\skills\\fourier-multistroke-training\\tests\\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\\\work\\\\release_test\\\\tmp\\\\test_candidate\\\\comfyui\\\\custom_nodes\\\\ComfyUI-FDP-T2I\\\\workflows\\\\FDP_T2I_Krea2_fdraw_UI.json' mode='r' encoding='utf-8'>\n  data = json.load(open(os.path.join(wfdir, name), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n<workspace>\\work\\release_test\\tmp\\test_candidate\\workspace\\skills\\fourier-multistroke-training\\tests\\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\\\work\\\\release_test\\\\tmp\\\\test_candidate\\\\comfyui\\\\custom_nodes\\\\ComfyUI-FDP-T2I\\\\workflows\\\\FDP_fdraw_to_fourier_video_API.json' mode='r' encoding='utf-8'>\n  data = json.load(open(os.path.join(wfdir, name), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\n<workspace>\\work\\release_test\\tmp\\test_candidate\\workspace\\skills\\fourier-multistroke-training\\tests\\test_gpu_render.py:558: ResourceWarning: unclosed file <_io.TextIOWrapper name='<path> skill\\\\work\\\\release_test\\\\tmp\\\\test_candidate\\\\comfyui\\\\custom_nodes\\\\ComfyUI-FDP-T2I\\\\workflows\\\\FDP_fdraw_to_fourier_video_UI.json' mode='r' encoding='utf-8'>\n  data = json.load(open(os.path.join(wfdir, name), encoding=\"utf-8\"))\nResourceWarning: Enable tracemalloc to get the object allocation traceback\nok\n\n----------------------------------------------------------------------\nRan 19 tests in 20.329s\n\nOK (skipped=1)\n",
+   "artifacts": []
+  },
+  {
+   "id": "F4",
+   "group": "F",
+   "scenario": "legacy v1.33/v1.34 逐字节",
+   "env": "workbuddy python",
+   "status": "PASS",
+   "seconds": 166.82,
+   "detail": "{\"v133\": {\"sha_match\": true, \"seconds\": 74.77, \"png\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\legacy\\\\v133\\\\layered_base_R1536.png\"}, \"v134\": {\"sha_match\": true, \"seconds\": 92.05, \"png\": \"<path> skill\\\\work\\\\release_test\\\\tmp\\\\legacy\\\\v134\\\\layered_base_R1536.png\"}}",
+   "cmd": null,
+   "stdout_tail": "",
+   "stderr_tail": "",
+   "artifacts": []
+  }
+ ]
+}

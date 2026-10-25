@@ -1,0 +1,2330 @@
+{
+ "schema": "brush-calib/1",
+ "generated_from": "poc/brushcalib/out/brush_calib_measured.json",
+ "generated_from_sha256": "257ef3da327f1830df07f413a960c8c8788a42044514ba7a045a6e2c224c942a",
+ "generated_by": "python -m fourier_prompt.brush._build --measured poc/brushcalib/out/brush_calib_measured.json --assets fourier-prompt/assets/brush",
+ "generated": "2026-10-20",
+ "source_schema": "brushcalib/1",
+ "source_target": "fourier-brushstroke fbs_core (read-only)",
+ "measurement": {
+  "canvas": {
+   "cell": [
+    320,
+    160
+   ],
+   "long_side_px": 320,
+   "supersample": 2,
+   "background": [
+    255,
+    255,
+    255
+   ],
+   "ink": [
+    20,
+    20,
+    22
+   ],
+   "render_mode": "sweep",
+   "shape_source": "brush_styles[].shape"
+  },
+  "engine": {
+   "mode": "sweep",
+   "supersample": 2
+  },
+  "pressure_axis": "p = plateau pressure of the stroke, 0..1",
+  "width_mapping": "width_px = base_size × preset.size_mult × (1 − preset.pressure × (1 − p)) × taper(t)",
+  "alpha_mapping": "alpha = preset.alpha_lo + (preset.alpha_hi − preset.alpha_lo) × p (design proposal; skill today samples alpha uniformly in the range and does not link it to pressure)",
+  "taper": "both ends 10% of arc length, sin(π/2·u/taper)^0.8 envelope",
+  "measurement_window": "arc length 25%..70% (plateau, outside taper)",
+  "width_area_px": "Σa over window / window columns / peak α (α-normalised geometric width)",
+  "peak_alpha": "99.5th percentile of a in window",
+  "ink_yield": "mass per column / nominal width (ink deposit per nominal area)"
+ },
+ "alpha_normalization": "峰值 α 是在把 style.color.stops[].a 归一到 1.0 后测得；默认 build_brush 会把 α 同时写进 color.a 与 style.alpha，渲染相乘 → 实测≈请求²（见 alpha_ladder）",
+ "presets": {
+  "basic_round_hard": {
+   "id": "basic_round_hard",
+   "name": "Basic Round Hard",
+   "category": "basic",
+   "shape": "round",
+   "size_mult": 1.0,
+   "alpha_range": [
+    0.92,
+    1.0
+   ],
+   "pressure_sensitivity": 0.55,
+   "width_eff": 0.9998,
+   "width_eff_source": "size_scaling_median",
+   "traits": [
+    "W+",
+    "A~"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.4125,
+    "alpha_gain_abs": 0.0597,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 6.5984,
+    "ink_yield": 0.9995,
+    "grain_cv": 0.0,
+    "grain_cv_edge": 0.2928,
+    "edge_soft_ratio": 0.0559,
+    "rim_ratio": 0.6781,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 7.05,
+      "0.5": 8.7,
+      "0.75": 10.35,
+      "1.0": 12.0
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 7.048,
+       "alpha": 0.9403,
+       "width_eff": 0.9997
+      },
+      "0.5": {
+       "width_px": 8.708,
+       "alpha": 0.9616,
+       "width_eff": 1.001
+      },
+      "0.75": {
+       "width_px": 10.332,
+       "alpha": 0.9787,
+       "width_eff": 0.9982
+      },
+      "1.0": {
+       "width_px": 11.994,
+       "alpha": 1.0,
+       "width_eff": 0.9995
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 44.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 44.105,
+       "alpha": 1.0,
+       "width_eff": 1.0024
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 48.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 96.142,
+       "alpha": 1.0,
+       "width_eff": 2.003
+      }
+     }
+    },
+    "4": {
+     "size_px": 4.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 4.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 3.998,
+       "alpha": 1.0,
+       "width_eff": 0.9994
+      }
+     }
+    },
+    "8": {
+     "size_px": 8.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 8.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 7.995,
+       "alpha": 1.0,
+       "width_eff": 0.9994
+      }
+     }
+    },
+    "16": {
+     "size_px": 16.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 16.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 15.991,
+       "alpha": 1.0,
+       "width_eff": 0.9995
+      }
+     }
+    },
+    "32": {
+     "size_px": 32.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 32.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 32.003,
+       "alpha": 1.0,
+       "width_eff": 1.0001
+      }
+     }
+    },
+    "64": {
+     "size_px": 64.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 64.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 64.085,
+       "alpha": 1.0,
+       "width_eff": 1.0013
+      }
+     }
+    },
+    "120": {
+     "size_px": 120.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 120.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 120.16,
+       "alpha": 1.0,
+       "width_eff": 1.0013
+      }
+     }
+    }
+   }
+  },
+  "basic_round_soft": {
+   "id": "basic_round_soft",
+   "name": "Basic Round Soft",
+   "category": "basic",
+   "shape": "soft",
+   "size_mult": 1.05,
+   "alpha_range": [
+    0.78,
+    0.95
+   ],
+   "pressure_sensitivity": 0.65,
+   "width_eff": 0.7492,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W+",
+    "A+",
+    "falloff",
+    "thin"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.4877,
+    "alpha_gain_abs": 0.1266,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 6.1456,
+    "ink_yield": 0.7115,
+    "grain_cv": 0.0133,
+    "grain_cv_edge": 0.6536,
+    "edge_soft_ratio": 0.2006,
+    "rim_ratio": 0.2795,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 6.458,
+      "0.5": 8.505,
+      "0.75": 10.553,
+      "1.0": 12.6
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 4.839,
+       "alpha": 0.8222,
+       "width_eff": 0.7494
+      },
+      "0.5": {
+       "width_px": 6.374,
+       "alpha": 0.8649,
+       "width_eff": 0.7495
+      },
+      "0.75": {
+       "width_px": 7.903,
+       "alpha": 0.9061,
+       "width_eff": 0.7489
+      },
+      "1.0": {
+       "width_px": 9.437,
+       "alpha": 0.9488,
+       "width_eff": 0.749
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 46.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 34.713,
+       "alpha": 0.9488,
+       "width_eff": 0.7514
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 50.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 87.277,
+       "alpha": 0.9957,
+       "width_eff": 1.7317
+      }
+     }
+    }
+   }
+  },
+  "basic_airbrush": {
+   "id": "basic_airbrush",
+   "name": "Airbrush Soft",
+   "category": "airbrush",
+   "shape": "airbrush",
+   "size_mult": 1.5,
+   "alpha_range": [
+    0.5,
+    0.8
+   ],
+   "pressure_sensitivity": 0.45,
+   "width_eff": 0.3332,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+",
+    "falloff",
+    "thin"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.3104,
+    "alpha_gain_abs": 0.229,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 2.6824,
+    "ink_yield": 0.2665,
+    "grain_cv": 0.3367,
+    "grain_cv_edge": 0.343,
+    "edge_soft_ratio": 0.727,
+    "rim_ratio": 0.0562,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 11.925,
+      "0.5": 13.95,
+      "0.75": 15.975,
+      "1.0": 18.0
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 3.973,
+       "alpha": 0.5107,
+       "width_eff": 0.3331
+      },
+      "0.5": {
+       "width_px": 4.648,
+       "alpha": 0.5875,
+       "width_eff": 0.3332
+      },
+      "0.75": {
+       "width_px": 5.324,
+       "alpha": 0.6643,
+       "width_eff": 0.3332
+      },
+      "1.0": {
+       "width_px": 5.997,
+       "alpha": 0.7397,
+       "width_eff": 0.3332
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 66.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 22.07,
+       "alpha": 0.7781,
+       "width_eff": 0.3344
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 72.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 64.492,
+       "alpha": 0.8179,
+       "width_eff": 0.8957
+      }
+     }
+    }
+   }
+  },
+  "pencil_2b": {
+   "id": "pencil_2b",
+   "name": "Pencil 2B",
+   "category": "pencil",
+   "shape": "pencil",
+   "size_mult": 0.55,
+   "alpha_range": [
+    0.7,
+    0.92
+   ],
+   "pressure_sensitivity": 0.35,
+   "width_eff": 0.9825,
+   "width_eff_source": "size_scaling_median",
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.264,
+    "alpha_gain_abs": 0.1693,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 2.2772,
+    "ink_yield": 0.8925,
+    "grain_cv": 0.0104,
+    "grain_cv_edge": 0.4322,
+    "edge_soft_ratio": 0.1708,
+    "rim_ratio": 0.5941,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 4.868,
+      "0.5": 5.445,
+      "0.75": 6.022,
+      "1.0": 6.6
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 4.674,
+       "alpha": 0.7411,
+       "width_eff": 0.9603
+      },
+      "0.5": {
+       "width_px": 5.257,
+       "alpha": 0.7994,
+       "width_eff": 0.9655
+      },
+      "0.75": {
+       "width_px": 5.827,
+       "alpha": 0.8549,
+       "width_eff": 0.9675
+      },
+      "1.0": {
+       "width_px": 6.403,
+       "alpha": 0.9104,
+       "width_eff": 0.9701
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 24.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 24.005,
+       "alpha": 0.9189,
+       "width_eff": 0.9919
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 26.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 74.365,
+       "alpha": 0.9915,
+       "width_eff": 2.8168
+      }
+     }
+    },
+    "4": {
+     "size_px": 4.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 2.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 2.03,
+       "alpha": 0.8037,
+       "width_eff": 0.9226
+      }
+     }
+    },
+    "8": {
+     "size_px": 8.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 4.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 4.211,
+       "alpha": 0.8976,
+       "width_eff": 0.9571
+      }
+     }
+    },
+    "16": {
+     "size_px": 16.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 8.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 8.598,
+       "alpha": 0.9118,
+       "width_eff": 0.977
+      }
+     }
+    },
+    "32": {
+     "size_px": 32.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 17.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 17.388,
+       "alpha": 0.9189,
+       "width_eff": 0.988
+      }
+     }
+    },
+    "64": {
+     "size_px": 64.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 35.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 35.016,
+       "alpha": 0.9189,
+       "width_eff": 0.9948
+      }
+     }
+    },
+    "120": {
+     "size_px": 120.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 66.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 65.912,
+       "alpha": 0.9189,
+       "width_eff": 0.9987
+      }
+     }
+    }
+   }
+  },
+  "pencil_hb": {
+   "id": "pencil_hb",
+   "name": "Pencil HB",
+   "category": "pencil",
+   "shape": "pencil",
+   "size_mult": 0.42,
+   "alpha_range": [
+    0.65,
+    0.88
+   ],
+   "pressure_sensitivity": 0.3,
+   "width_eff": 0.9581,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.2235,
+    "alpha_gain_abs": 0.1778,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 1.466,
+    "ink_yield": 0.8466,
+    "grain_cv": 0.0117,
+    "grain_cv_edge": 0.3585,
+    "edge_soft_ratio": 0.2179,
+    "rim_ratio": 0.6731,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 3.906,
+      "0.5": 4.284,
+      "0.75": 4.662,
+      "1.0": 5.04
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 3.723,
+       "alpha": 0.6899,
+       "width_eff": 0.9531
+      },
+      "0.5": {
+       "width_px": 4.1,
+       "alpha": 0.7496,
+       "width_eff": 0.957
+      },
+      "0.75": {
+       "width_px": 4.472,
+       "alpha": 0.808,
+       "width_eff": 0.9592
+      },
+      "1.0": {
+       "width_px": 4.849,
+       "alpha": 0.8677,
+       "width_eff": 0.962
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 18.48
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 18.277,
+       "alpha": 0.8777,
+       "width_eff": 0.989
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 20.16
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 59.869,
+       "alpha": 0.8777,
+       "width_eff": 2.9697
+      }
+     }
+    }
+   }
+  },
+  "ink_fineliner": {
+   "id": "ink_fineliner",
+   "name": "Ink Fineliner",
+   "category": "inking",
+   "shape": "round",
+   "size_mult": 0.48,
+   "alpha_range": [
+    0.85,
+    1.0
+   ],
+   "pressure_sensitivity": 0.25,
+   "width_eff": 0.9993,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W-",
+    "A+",
+    "falloff"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.1878,
+    "alpha_gain_abs": 0.111,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 1.4416,
+    "ink_yield": 0.9995,
+    "grain_cv": 0.0474,
+    "grain_cv_edge": 0.0,
+    "edge_soft_ratio": 0.1029,
+    "rim_ratio": 0.0,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 4.68,
+      "0.5": 5.04,
+      "0.75": 5.4,
+      "1.0": 5.76
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 4.684,
+       "alpha": 0.889,
+       "width_eff": 1.0009
+      },
+      "0.5": {
+       "width_px": 5.036,
+       "alpha": 0.9246,
+       "width_eff": 0.9992
+      },
+      "0.75": {
+       "width_px": 5.393,
+       "alpha": 0.9616,
+       "width_eff": 0.9988
+      },
+      "1.0": {
+       "width_px": 5.757,
+       "alpha": 1.0,
+       "width_eff": 0.9995
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 21.12
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 21.119,
+       "alpha": 1.0,
+       "width_eff": 1.0
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 23.04
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 69.127,
+       "alpha": 1.0,
+       "width_eff": 3.0003
+      }
+     }
+    }
+   }
+  },
+  "ink_gpen": {
+   "id": "ink_gpen",
+   "name": "Ink GPen",
+   "category": "inking",
+   "shape": "ink",
+   "size_mult": 0.5,
+   "alpha_range": [
+    0.95,
+    1.0
+   ],
+   "pressure_sensitivity": 0.3,
+   "width_eff": 1.001,
+   "width_eff_source": "size_scaling_median",
+   "traits": [
+    "W~",
+    "A-"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.2244,
+    "alpha_gain_abs": 0.0384,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 1.7984,
+    "ink_yield": 1.0011,
+    "grain_cv": 0.0273,
+    "grain_cv_edge": 0.3625,
+    "edge_soft_ratio": 0.1046,
+    "rim_ratio": 0.5032,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 4.65,
+      "0.5": 5.1,
+      "0.75": 5.55,
+      "1.0": 6.0
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 4.655,
+       "alpha": 0.9616,
+       "width_eff": 1.001
+      },
+      "0.5": {
+       "width_px": 5.103,
+       "alpha": 0.9744,
+       "width_eff": 1.0005
+      },
+      "0.75": {
+       "width_px": 5.556,
+       "alpha": 0.9872,
+       "width_eff": 1.0011
+      },
+      "1.0": {
+       "width_px": 6.007,
+       "alpha": 1.0,
+       "width_eff": 1.0011
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 22.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 22.01,
+       "alpha": 1.0,
+       "width_eff": 1.0005
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 24.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 71.858,
+       "alpha": 1.0,
+       "width_eff": 2.9941
+      }
+     }
+    },
+    "4": {
+     "size_px": 4.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 2.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 2.009,
+       "alpha": 0.8703,
+       "width_eff": 1.0043
+      }
+     }
+    },
+    "8": {
+     "size_px": 8.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 4.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 4.007,
+       "alpha": 1.0,
+       "width_eff": 1.0019
+      }
+     }
+    },
+    "16": {
+     "size_px": 16.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 8.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 8.005,
+       "alpha": 1.0,
+       "width_eff": 1.0006
+      }
+     }
+    },
+    "32": {
+     "size_px": 32.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 16.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 16.001,
+       "alpha": 1.0,
+       "width_eff": 1.0001
+      }
+     }
+    },
+    "64": {
+     "size_px": 64.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 32.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 32.013,
+       "alpha": 1.0,
+       "width_eff": 1.0004
+      }
+     }
+    },
+    "120": {
+     "size_px": 120.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 60.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 60.09,
+       "alpha": 1.0,
+       "width_eff": 1.0015
+      }
+     }
+    }
+   }
+  },
+  "ink_brush_rough": {
+   "id": "ink_brush_rough",
+   "name": "Ink Brush Rough",
+   "category": "inking",
+   "shape": "bristle",
+   "size_mult": 0.35,
+   "alpha_range": [
+    0.85,
+    1.0
+   ],
+   "pressure_sensitivity": 0.45,
+   "width_eff": 0.9622,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.3467,
+    "alpha_gain_abs": 0.118,
+    "width_linear_r2": 0.9999,
+    "width_slope_px_per_p": 1.8896,
+    "ink_yield": 0.9682,
+    "grain_cv": 0.0407,
+    "grain_cv_edge": 0.5142,
+    "edge_soft_ratio": 0.2095,
+    "rim_ratio": 0.5293,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 2.782,
+      "0.5": 3.255,
+      "0.75": 3.727,
+      "1.0": 4.2
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 2.639,
+       "alpha": 0.8777,
+       "width_eff": 0.9483
+      },
+      "0.5": {
+       "width_px": 3.124,
+       "alpha": 0.9172,
+       "width_eff": 0.9597
+      },
+      "0.75": {
+       "width_px": 3.595,
+       "alpha": 0.9545,
+       "width_eff": 0.9646
+      },
+      "1.0": {
+       "width_px": 4.066,
+       "alpha": 0.9957,
+       "width_eff": 0.9682
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 15.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 15.102,
+       "alpha": 1.0,
+       "width_eff": 0.9807
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 16.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 49.489,
+       "alpha": 1.0,
+       "width_eff": 2.9458
+      }
+     }
+    }
+   }
+  },
+  "sumi_e": {
+   "id": "sumi_e",
+   "name": "Sumi-e Brush",
+   "category": "inking",
+   "shape": "bristle",
+   "size_mult": 1.2,
+   "alpha_range": [
+    0.7,
+    0.95
+   ],
+   "pressure_sensitivity": 0.8,
+   "width_eff": 0.9774,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W+",
+    "A+"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.6032,
+    "alpha_gain_abs": 0.1878,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 11.3568,
+    "ink_yield": 0.9311,
+    "grain_cv": 0.0192,
+    "grain_cv_edge": 0.2709,
+    "edge_soft_ratio": 0.0629,
+    "rim_ratio": 0.698,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 5.76,
+      "0.5": 8.64,
+      "0.75": 11.52,
+      "1.0": 14.4
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 5.597,
+       "alpha": 0.761,
+       "width_eff": 0.9716
+      },
+      "0.5": {
+       "width_px": 8.437,
+       "alpha": 0.8222,
+       "width_eff": 0.9765
+      },
+      "0.75": {
+       "width_px": 11.27,
+       "alpha": 0.8862,
+       "width_eff": 0.9783
+      },
+      "1.0": {
+       "width_px": 14.113,
+       "alpha": 0.9488,
+       "width_eff": 0.9801
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 52.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 52.831,
+       "alpha": 0.9488,
+       "width_eff": 1.0006
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 57.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 108.491,
+       "alpha": 1.0,
+       "width_eff": 1.8835
+      }
+     }
+    }
+   }
+  },
+  "marker_chisel": {
+   "id": "marker_chisel",
+   "name": "Marker Chisel",
+   "category": "marker",
+   "shape": "marker",
+   "size_mult": 0.9,
+   "alpha_range": [
+    0.75,
+    0.92
+   ],
+   "pressure_sensitivity": 0.4,
+   "width_eff": 0.9993,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.3,
+    "alpha_gain_abs": 0.1266,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 4.3204,
+    "ink_yield": 0.9189,
+    "grain_cv": 0.0,
+    "grain_cv_edge": 0.2841,
+    "edge_soft_ratio": 0.1054,
+    "rim_ratio": 0.7902,
+    "anisotropy_ratio": 1.6
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 7.56,
+      "0.5": 8.64,
+      "0.75": 9.72,
+      "1.0": 10.8
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 7.558,
+       "alpha": 0.7923,
+       "width_eff": 0.9997
+      },
+      "0.5": {
+       "width_px": 8.64,
+       "alpha": 0.835,
+       "width_eff": 1.0
+      },
+      "0.75": {
+       "width_px": 9.707,
+       "alpha": 0.8762,
+       "width_eff": 0.9987
+      },
+      "1.0": {
+       "width_px": 10.788,
+       "alpha": 0.9189,
+       "width_eff": 0.9989
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 39.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 39.785,
+       "alpha": 0.9189,
+       "width_eff": 1.0047
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 43.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 94.538,
+       "alpha": 0.9929,
+       "width_eff": 2.1884
+      }
+     }
+    }
+   },
+   "anisotropy": {
+    "nominal_px": 10.8,
+    "horizontal_width_px": 10.788,
+    "vertical_width_px": 17.257,
+    "ratio": 1.6
+   }
+  },
+  "marker_alcohol": {
+   "id": "marker_alcohol",
+   "name": "Marker Alcohol",
+   "category": "marker",
+   "shape": "marker",
+   "size_mult": 1.1,
+   "alpha_range": [
+    0.55,
+    0.8
+   ],
+   "pressure_sensitivity": 0.35,
+   "width_eff": 1.0001,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.2626,
+    "alpha_gain_abs": 0.1863,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 4.6232,
+    "ink_yield": 0.7995,
+    "grain_cv": 0.0,
+    "grain_cv_edge": 0.259,
+    "edge_soft_ratio": 0.0779,
+    "rim_ratio": 0.8238,
+    "anisotropy_ratio": 1.599
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 9.735,
+      "0.5": 10.89,
+      "0.75": 12.045,
+      "1.0": 13.2
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 9.744,
+       "alpha": 0.6131,
+       "width_eff": 1.0009
+      },
+      "0.5": {
+       "width_px": 10.9,
+       "alpha": 0.6757,
+       "width_eff": 1.001
+      },
+      "0.75": {
+       "width_px": 12.036,
+       "alpha": 0.7368,
+       "width_eff": 0.9993
+      },
+      "1.0": {
+       "width_px": 13.192,
+       "alpha": 0.7994,
+       "width_eff": 0.9994
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 48.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 48.799,
+       "alpha": 0.7994,
+       "width_eff": 1.0083
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 52.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 112.236,
+       "alpha": 0.9915,
+       "width_eff": 2.1257
+      }
+     }
+    }
+   },
+   "anisotropy": {
+    "nominal_px": 13.2,
+    "horizontal_width_px": 13.192,
+    "vertical_width_px": 21.098,
+    "ratio": 1.599
+   }
+  },
+  "bristle_oil": {
+   "id": "bristle_oil",
+   "name": "Bristle Oil",
+   "category": "dry_painting",
+   "shape": "bristle",
+   "size_mult": 1.0,
+   "alpha_range": [
+    0.8,
+    0.97
+   ],
+   "pressure_sensitivity": 0.6,
+   "width_eff": 0.9765,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W+",
+    "A+"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.4506,
+    "alpha_gain_abs": 0.1308,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 7.0484,
+    "ink_yield": 0.9492,
+    "grain_cv": 0.0206,
+    "grain_cv_edge": 0.2952,
+    "edge_soft_ratio": 0.0586,
+    "rim_ratio": 0.6738,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 6.6,
+      "0.5": 8.4,
+      "0.75": 10.2,
+      "1.0": 12.0
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 6.426,
+       "alpha": 0.8393,
+       "width_eff": 0.9736
+      },
+      "0.5": {
+       "width_px": 8.195,
+       "alpha": 0.8819,
+       "width_eff": 0.9755
+      },
+      "0.75": {
+       "width_px": 9.97,
+       "alpha": 0.9275,
+       "width_eff": 0.9775
+      },
+      "1.0": {
+       "width_px": 11.743,
+       "alpha": 0.9701,
+       "width_eff": 0.9786
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 44.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 44.007,
+       "alpha": 0.9701,
+       "width_eff": 1.0002
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 48.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 97.539,
+       "alpha": 1.0,
+       "width_eff": 2.0321
+      }
+     }
+    }
+   }
+  },
+  "dry_flat": {
+   "id": "dry_flat",
+   "name": "Dry Flat Brush",
+   "category": "dry_painting",
+   "shape": "marker",
+   "size_mult": 1.15,
+   "alpha_range": [
+    0.82,
+    0.98
+   ],
+   "pressure_sensitivity": 0.5,
+   "width_eff": 0.9991,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.375,
+    "alpha_gain_abs": 0.1195,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 6.9008,
+    "ink_yield": 0.9789,
+    "grain_cv": 0.0,
+    "grain_cv_edge": 0.2017,
+    "edge_soft_ratio": 0.0604,
+    "rim_ratio": 0.883,
+    "anisotropy_ratio": 1.599
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 8.625,
+      "0.5": 10.35,
+      "0.75": 12.075,
+      "1.0": 13.8
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 8.618,
+       "alpha": 0.8592,
+       "width_eff": 0.9992
+      },
+      "0.5": {
+       "width_px": 10.341,
+       "alpha": 0.899,
+       "width_eff": 0.9991
+      },
+      "0.75": {
+       "width_px": 12.08,
+       "alpha": 0.9403,
+       "width_eff": 1.0004
+      },
+      "1.0": {
+       "width_px": 13.784,
+       "alpha": 0.9787,
+       "width_eff": 0.9989
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 50.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 51.017,
+       "alpha": 0.9787,
+       "width_eff": 1.0082
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 55.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 104.804,
+       "alpha": 1.0,
+       "width_eff": 1.8986
+      }
+     }
+    }
+   },
+   "anisotropy": {
+    "nominal_px": 13.8,
+    "horizontal_width_px": 13.784,
+    "vertical_width_px": 22.038,
+    "ratio": 1.599
+   }
+  },
+  "palette_knife": {
+   "id": "palette_knife",
+   "name": "Palette Knife",
+   "category": "dry_painting",
+   "shape": "marker",
+   "size_mult": 1.25,
+   "alpha_range": [
+    0.9,
+    1.0
+   ],
+   "pressure_sensitivity": 0.3,
+   "width_eff": 0.9998,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A~",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.2249,
+    "alpha_gain_abs": 0.0754,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 4.4996,
+    "ink_yield": 1.0003,
+    "grain_cv": 0.0,
+    "grain_cv_edge": 0.3262,
+    "edge_soft_ratio": 0.0575,
+    "rim_ratio": 0.7749,
+    "anisotropy_ratio": 1.599
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 11.625,
+      "0.5": 12.75,
+      "0.75": 13.875,
+      "1.0": 15.0
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 11.624,
+       "alpha": 0.9246,
+       "width_eff": 0.9999
+      },
+      "0.5": {
+       "width_px": 12.739,
+       "alpha": 0.9488,
+       "width_eff": 0.9991
+      },
+      "0.75": {
+       "width_px": 13.871,
+       "alpha": 0.9744,
+       "width_eff": 0.9997
+      },
+      "1.0": {
+       "width_px": 15.004,
+       "alpha": 1.0,
+       "width_eff": 1.0003
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 55.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 55.528,
+       "alpha": 1.0,
+       "width_eff": 1.0096
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 60.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 108.576,
+       "alpha": 1.0,
+       "width_eff": 1.8096
+      }
+     }
+    }
+   },
+   "anisotropy": {
+    "nominal_px": 15.0,
+    "horizontal_width_px": 15.004,
+    "vertical_width_px": 23.986,
+    "ratio": 1.599
+   }
+  },
+  "chalk": {
+   "id": "chalk",
+   "name": "Chalk",
+   "category": "chalk_pastel_charcoal",
+   "shape": "chalk",
+   "size_mult": 1.05,
+   "alpha_range": [
+    0.72,
+    0.95
+   ],
+   "pressure_sensitivity": 0.55,
+   "width_eff": 0.9741,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W+",
+    "A+"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.4171,
+    "alpha_gain_abs": 0.1749,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 6.9032,
+    "ink_yield": 0.9299,
+    "grain_cv": 0.0066,
+    "grain_cv_edge": 0.3436,
+    "edge_soft_ratio": 0.093,
+    "rim_ratio": 0.7389,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 7.402,
+      "0.5": 9.135,
+      "0.75": 10.868,
+      "1.0": 12.6
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 7.156,
+       "alpha": 0.7696,
+       "width_eff": 0.9667
+      },
+      "0.5": {
+       "width_px": 8.883,
+       "alpha": 0.8293,
+       "width_eff": 0.9724
+      },
+      "0.75": {
+       "width_px": 10.605,
+       "alpha": 0.8862,
+       "width_eff": 0.9758
+      },
+      "1.0": {
+       "width_px": 12.333,
+       "alpha": 0.9445,
+       "width_eff": 0.9788
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 46.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 46.066,
+       "alpha": 0.9488,
+       "width_eff": 0.9971
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 50.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 100.766,
+       "alpha": 1.0,
+       "width_eff": 1.9993
+      }
+     }
+    }
+   }
+  },
+  "charcoal": {
+   "id": "charcoal",
+   "name": "Charcoal",
+   "category": "chalk_pastel_charcoal",
+   "shape": "chalk",
+   "size_mult": 1.15,
+   "alpha_range": [
+    0.75,
+    0.98
+   ],
+   "pressure_sensitivity": 0.6,
+   "width_eff": 0.9751,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W+",
+    "A+",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.4558,
+    "alpha_gain_abs": 0.175,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 8.2816,
+    "ink_yield": 0.961,
+    "grain_cv": 0.0056,
+    "grain_cv_edge": 0.209,
+    "edge_soft_ratio": 0.0623,
+    "rim_ratio": 0.8695,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 7.59,
+      "0.5": 9.66,
+      "0.75": 11.73,
+      "1.0": 13.8
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 7.332,
+       "alpha": 0.7994,
+       "width_eff": 0.966
+      },
+      "0.5": {
+       "width_px": 9.395,
+       "alpha": 0.8592,
+       "width_eff": 0.9725
+      },
+      "0.75": {
+       "width_px": 11.47,
+       "alpha": 0.9161,
+       "width_eff": 0.9778
+      },
+      "1.0": {
+       "width_px": 13.532,
+       "alpha": 0.9744,
+       "width_eff": 0.9806
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 50.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 50.513,
+       "alpha": 0.9787,
+       "width_eff": 0.9983
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 55.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 104.278,
+       "alpha": 1.0,
+       "width_eff": 1.8891
+      }
+     }
+    }
+   }
+  },
+  "pastel": {
+   "id": "pastel",
+   "name": "Pastel",
+   "category": "chalk_pastel_charcoal",
+   "shape": "chalk",
+   "size_mult": 0.95,
+   "alpha_range": [
+    0.65,
+    0.9
+   ],
+   "pressure_sensitivity": 0.5,
+   "width_eff": 0.9713,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.3785,
+    "alpha_gain_abs": 0.1906,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 5.6572,
+    "ink_yield": 0.8787,
+    "grain_cv": 0.0075,
+    "grain_cv_edge": 0.231,
+    "edge_soft_ratio": 0.0644,
+    "rim_ratio": 0.8486,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 7.125,
+      "0.5": 8.55,
+      "0.75": 9.975,
+      "1.0": 11.4
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 6.873,
+       "alpha": 0.7027,
+       "width_eff": 0.9647
+      },
+      "0.5": {
+       "width_px": 8.287,
+       "alpha": 0.7667,
+       "width_eff": 0.9693
+      },
+      "0.75": {
+       "width_px": 9.708,
+       "alpha": 0.8307,
+       "width_eff": 0.9733
+      },
+      "1.0": {
+       "width_px": 11.13,
+       "alpha": 0.8933,
+       "width_eff": 0.9763
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 41.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 41.624,
+       "alpha": 0.8976,
+       "width_eff": 0.9958
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 45.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 97.709,
+       "alpha": 0.9915,
+       "width_eff": 2.1427
+      }
+     }
+    }
+   }
+  },
+  "wet_oil": {
+   "id": "wet_oil",
+   "name": "Wet Oil",
+   "category": "wet_painting",
+   "shape": "bristle",
+   "size_mult": 0.95,
+   "alpha_range": [
+    0.6,
+    0.85
+   ],
+   "pressure_sensitivity": 0.55,
+   "width_eff": 0.9762,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W+",
+    "A+",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.415,
+    "alpha_gain_abs": 0.1878,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 6.1876,
+    "ink_yield": 0.8319,
+    "grain_cv": 0.0208,
+    "grain_cv_edge": 0.224,
+    "edge_soft_ratio": 0.0679,
+    "rim_ratio": 0.859,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 6.697,
+      "0.5": 8.265,
+      "0.75": 9.832,
+      "1.0": 11.4
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 6.52,
+       "alpha": 0.66,
+       "width_eff": 0.9734
+      },
+      "0.5": {
+       "width_px": 8.062,
+       "alpha": 0.724,
+       "width_eff": 0.9754
+      },
+      "0.75": {
+       "width_px": 9.605,
+       "alpha": 0.7866,
+       "width_eff": 0.9769
+      },
+      "1.0": {
+       "width_px": 11.157,
+       "alpha": 0.8478,
+       "width_eff": 0.9787
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 41.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 41.797,
+       "alpha": 0.8506,
+       "width_eff": 0.9999
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 45.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 100.187,
+       "alpha": 0.9787,
+       "width_eff": 2.1971
+      }
+     }
+    }
+   }
+  },
+  "watercolor_wash": {
+   "id": "watercolor_wash",
+   "name": "Watercolor Wash",
+   "category": "watercolor",
+   "shape": "watercolor",
+   "size_mult": 1.35,
+   "alpha_range": [
+    0.45,
+    0.7
+   ],
+   "pressure_sensitivity": 0.45,
+   "width_eff": 0.9993,
+   "width_eff_source": "size_scaling_median",
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.3366,
+    "alpha_gain_abs": 0.1877,
+    "width_linear_r2": 1.0,
+    "width_slope_px_per_p": 7.2792,
+    "ink_yield": 0.6994,
+    "grain_cv": 0.0,
+    "grain_cv_edge": 0.2121,
+    "edge_soft_ratio": 0.0807,
+    "rim_ratio": 0.7694,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 10.733,
+      "0.5": 12.555,
+      "0.75": 14.378,
+      "1.0": 16.2
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 10.723,
+       "alpha": 0.5107,
+       "width_eff": 0.9991
+      },
+      "0.5": {
+       "width_px": 12.571,
+       "alpha": 0.5747,
+       "width_eff": 1.0013
+      },
+      "0.75": {
+       "width_px": 14.423,
+       "alpha": 0.6387,
+       "width_eff": 1.0032
+      },
+      "1.0": {
+       "width_px": 16.186,
+       "alpha": 0.6984,
+       "width_eff": 0.9991
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 59.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 59.493,
+       "alpha": 0.6984,
+       "width_eff": 1.0016
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 64.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 134.048,
+       "alpha": 0.9744,
+       "width_eff": 2.0686
+      }
+     }
+    },
+    "4": {
+     "size_px": 4.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 5.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 5.416,
+       "alpha": 0.6984,
+       "width_eff": 1.003
+      }
+     }
+    },
+    "8": {
+     "size_px": 8.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 10.8
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 10.794,
+       "alpha": 0.6984,
+       "width_eff": 0.9994
+      }
+     }
+    },
+    "16": {
+     "size_px": 16.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 21.6
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 21.573,
+       "alpha": 0.6984,
+       "width_eff": 0.9988
+      }
+     }
+    },
+    "32": {
+     "size_px": 32.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 43.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 43.169,
+       "alpha": 0.6984,
+       "width_eff": 0.9993
+      }
+     }
+    },
+    "64": {
+     "size_px": 64.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 86.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 86.354,
+       "alpha": 0.6984,
+       "width_eff": 0.9995
+      }
+     }
+    },
+    "120": {
+     "size_px": 120.0,
+     "source": "size_scaling（p=1.0 单点，仅测尺寸线性）",
+     "nominal": {
+      "1.0": 162.0
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 161.888,
+       "alpha": 0.6984,
+       "width_eff": 0.9993
+      }
+     }
+    }
+   }
+  },
+  "spatter_brush": {
+   "id": "spatter_brush",
+   "name": "Spatter Spray",
+   "category": "spray",
+   "shape": "spatter",
+   "size_mult": 1.05,
+   "alpha_range": [
+    0.5,
+    0.8
+   ],
+   "pressure_sensitivity": 0.4,
+   "width_eff": 0.9707,
+   "width_eff_source": "size_12_median",
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "traits_derived": {
+    "width_gain_pct": 0.3059,
+    "alpha_gain_abs": 0.2248,
+    "width_linear_r2": 0.9999,
+    "width_slope_px_per_p": 5.0276,
+    "ink_yield": 0.7798,
+    "grain_cv": 0.0076,
+    "grain_cv_edge": 0.3444,
+    "edge_soft_ratio": 0.1038,
+    "rim_ratio": 0.7363,
+    "anisotropy_ratio": 1.0
+   },
+   "sizes": {
+    "12": {
+     "size_px": 12.0,
+     "source": "size_12（4 个压力点）",
+     "nominal": {
+      "0.25": 8.82,
+      "0.5": 10.08,
+      "0.75": 11.34,
+      "1.0": 12.6
+     },
+     "pressure": {
+      "0.25": {
+       "width_px": 8.507,
+       "alpha": 0.5704,
+       "width_eff": 0.9646
+      },
+      "0.5": {
+       "width_px": 9.769,
+       "alpha": 0.643,
+       "width_eff": 0.9691
+      },
+      "0.75": {
+       "width_px": 11.025,
+       "alpha": 0.7198,
+       "width_eff": 0.9722
+      },
+      "1.0": {
+       "width_px": 12.282,
+       "alpha": 0.7952,
+       "width_eff": 0.9747
+      }
+     }
+    },
+    "44": {
+     "size_px": 44.0,
+     "source": "wide_44（p=1.0 宽笔）",
+     "nominal": {
+      "1.0": 46.2
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 46.005,
+       "alpha": 0.7994,
+       "width_eff": 0.9958
+      }
+     }
+    },
+    "48": {
+     "size_px": 48.0,
+     "source": "wash（3 笔 48px、间距 24px 叠加，测叠加后覆盖）",
+     "nominal": {
+      "1.0": 50.4
+     },
+     "pressure": {
+      "1.0": {
+       "width_px": 108.306,
+       "alpha": 0.9915,
+       "width_eff": 2.1489
+      }
+     }
+    }
+   }
+  }
+ },
+ "alpha_ladder": {
+  "preset": "basic_round_hard",
+  "levels": [
+   {
+    "alpha_requested": 0.3,
+    "peak_alpha_default": 0.0896,
+    "peak_alpha_color_normalized": 0.2987,
+    "pred_alpha_squared": 0.09,
+    "err_default_vs_square": -0.0004,
+    "err_normalized": -0.0013,
+    "mass_default": 1.075,
+    "mass_normalized": 3.585
+   },
+   {
+    "alpha_requested": 0.5,
+    "peak_alpha_default": 0.2504,
+    "peak_alpha_color_normalized": 0.4979,
+    "pred_alpha_squared": 0.25,
+    "err_default_vs_square": 0.0004,
+    "err_normalized": -0.0021,
+    "mass_default": 3.002,
+    "mass_normalized": 5.974
+   },
+   {
+    "alpha_requested": 0.7,
+    "peak_alpha_default": 0.4893,
+    "peak_alpha_color_normalized": 0.6984,
+    "pred_alpha_squared": 0.49,
+    "err_default_vs_square": -0.0007,
+    "err_normalized": -0.0016,
+    "mass_default": 5.87,
+    "mass_normalized": 8.378
+   },
+   {
+    "alpha_requested": 0.9,
+    "peak_alpha_default": 0.8094,
+    "peak_alpha_color_normalized": 0.899,
+    "pred_alpha_squared": 0.81,
+    "err_default_vs_square": -0.0006,
+    "err_normalized": -0.001,
+    "mass_default": 9.709,
+    "mass_normalized": 10.784
+   },
+   {
+    "alpha_requested": 1.0,
+    "peak_alpha_default": 1.0,
+    "peak_alpha_color_normalized": 1.0,
+    "pred_alpha_squared": 1.0,
+    "err_default_vs_square": 0.0,
+    "err_normalized": 0.0,
+    "mass_default": 11.994,
+    "mass_normalized": 11.994
+   }
+  ],
+  "max_abs_err_vs_square": 0.0007,
+  "max_abs_err_normalized": 0.0021
+ },
+ "roundtrip_fbs": {
+  "preset": "ink_gpen",
+  "fbs_bytes": 4003,
+  "max_abs_diff": 9,
+  "mean_abs_diff": 0.01544,
+  "px_diff_gt2": 236,
+  "px_total": 153600
+ },
+ "notes": [
+  "压力→宽度 1:1 线性（20 预设 R²=0.9999–1.0000），故预设在曲线域直接写 1-sens*(1-p)。",
+  "尺寸 4→120px 线性（斜率 0.999–1.002）：response() 用名义宽比例把 12px 档外推到任意尺寸。",
+  "纹理由 max(cov) 在笔触内部抹平（核心带 CV 0.006–0.041），颗粒主要在边缘。",
+  "marker 刀口方向固定世界 X 轴（竖笔 1.6 倍），anisotropy 段记录实测。"
+ ]
+}

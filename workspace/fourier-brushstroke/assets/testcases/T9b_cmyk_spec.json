@@ -1,0 +1,17 @@
+{
+ "case": "T9b_cmyk",
+ "checks": {
+  "A5": "build 成功或明确拒绝；不崩溃"
+ },
+ "class_expected": "any",
+ "expected": {
+  "convert": true
+ },
+ "file": "T9b_cmyk.jpg",
+ "purpose": "T9/A5：CMYK JPEG —— 自动转换为 RGB，不崩溃",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

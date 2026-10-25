@@ -1,0 +1,2737 @@
+{
+ "package": "fourier-drawing-suite",
+ "version": "1.0.0",
+ "built_at": "2026-10-25",
+ "components": {
+  "suite": "1.0.0",
+  "skill_fourier_multistroke_training": "v1.38-gpu-render",
+  "comfyui_node_FDP_T2I": "3.1.0",
+  "fourier_brushstroke_fbs": "2.0.0",
+  "fourier_prompt": "0.1.0",
+  "workflows": "v1.36 series + legacy fdraw + video"
+ },
+ "file_count": 544,
+ "total_bytes": 25555590,
+ "files": [
+  {
+   "path": "CHANGELOG.md",
+   "size": 6888,
+   "sha256": "79ccce75ff6f8d21c5b728975262ebf272c221324c6dfbf8ac51ae65a77ad248"
+  },
+  {
+   "path": "ENGINEERING.md",
+   "size": 25165,
+   "sha256": "9aa802abc48588c9de5995e4e28588f606a3c33b18bbf81de4759d83148010fe"
+  },
+  {
+   "path": "INSTALL.md",
+   "size": 8025,
+   "sha256": "31b13437999038a7176b8485a12dc1a563f509b07c1656686dc4b9c28f0cf0ba"
+  },
+  {
+   "path": "NOTICE.md",
+   "size": 5130,
+   "sha256": "932b1416568dea4ec804c651b6de152b94c2296d2c053d5cd2222741e2348157"
+  },
+  {
+   "path": "README.md",
+   "size": 7883,
+   "sha256": "c2fce5feadccf284880d96f23bbc103a890ea9d414bd30d7bf1b639cc8b01b5e"
+  },
+  {
+   "path": "USER_GUIDE.md",
+   "size": 15631,
+   "sha256": "662f62280aadd1bfe8013e6ce9e29718df217ee4d91a2f2123647a6e476e4110"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/README.md",
+   "size": 4906,
+   "sha256": "deb52f0a48b3d47bfb66fdb5459b4377ce4686117d8f82af529d81ea45afea1b"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/__init__.py",
+   "size": 1483,
+   "sha256": "3830a6c7271508759c33f1843d643a67b421958b999d560a3d531688d5f89da4"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/nodes.py",
+   "size": 40278,
+   "sha256": "5f9bce6f6c22fc001ec312cdf2606d3313ce05045a69ac17b4a441401389a26b"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/requirements.txt",
+   "size": 183,
+   "sha256": "73528dbc16ced4f32a671bc7b689b2a3b33f216f938da725d2574f38feaef5f9"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/workflows/FDP_T2I_Krea2_fdraw_API.json",
+   "size": 3403,
+   "sha256": "a6a47917ee1f92ecd8fe1d575a3bf078304f9d12675e55eed8bd010ff719a4bf"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/workflows/FDP_T2I_Krea2_fdraw_UI.json",
+   "size": 28945,
+   "sha256": "c507cb3884de49b82fdf7ee8dc5cbc6c84147f08ac93eda6020ce2690ba16ee6"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/workflows/FDP_T2I_Krea2_fdraw_preview.png",
+   "size": 120863,
+   "sha256": "685f8c18058e682206092695c6fda56a004c338afcd27a553869d2cb6afa5a8f"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/workflows/FDP_fdraw_to_fourier_video_API.json",
+   "size": 532,
+   "sha256": "a27f75ee9a664159b99829da702a670a390ecd940cce0013e30cd7723e31052e"
+  },
+  {
+   "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/workflows/FDP_fdraw_to_fourier_video_UI.json",
+   "size": 4150,
+   "sha256": "4206477899f3e583bfef875be9c2aec407f0fd820fbf86e01cffdf8470c9a238"
+  },
+  {
+   "path": "comfyui/workflows/FDP_T2I_Krea2_fdraw_UI.json",
+   "size": 28945,
+   "sha256": "c507cb3884de49b82fdf7ee8dc5cbc6c84147f08ac93eda6020ce2690ba16ee6"
+  },
+  {
+   "path": "comfyui/workflows/FDP_fdraw_to_fourier_video_UI.json",
+   "size": 4150,
+   "sha256": "4206477899f3e583bfef875be9c2aec407f0fd820fbf86e01cffdf8470c9a238"
+  },
+  {
+   "path": "comfyui/workflows/FDP_v136_Local_NoAI_UI.json",
+   "size": 13241,
+   "sha256": "29d520e79f68b6f4051d28846581a2db43e83827e9534a14205fdd75e2d49186"
+  },
+  {
+   "path": "comfyui/workflows/FDP_v136_T2I_Krea2_API_UI.json",
+   "size": 69300,
+   "sha256": "5ef0c98cab6c4c4c630e5ab6549a1f4dd180599a920c6871a31bd7b80a38d73f"
+  },
+  {
+   "path": "comfyui/workflows/FDP_v136_T2I_Krea2_Local_UI.json",
+   "size": 29923,
+   "sha256": "e02bc4ed80b54c372b990834ff8f78dc950e3ab3da7da262dc72d76ee046d180"
+  },
+  {
+   "path": "examples/chibi/chibi.fdraw",
+   "size": 3726736,
+   "sha256": "e3e2966d6388e343a8e88c07ebc1755e309aa01f64ed6bd5440c8fa0f010e7e4"
+  },
+  {
+   "path": "examples/chibi/commands.md",
+   "size": 2447,
+   "sha256": "d1d60f02fd8748eaad41e940221d85bb2c280f12d0f7f11f4e7a97c5d569b89d"
+  },
+  {
+   "path": "examples/chibi/layered_base_R512.png",
+   "size": 148562,
+   "sha256": "4be7a35aacd5bdd7481c6cf8a1ba88f6aff419aa25eb21ff29d4e1309c06ee45"
+  },
+  {
+   "path": "examples/chibi/render_R2048.png",
+   "size": 766587,
+   "sha256": "20ef423a3bdcc6b7b47cffccadae8d48e5c03fc550f0f9906638ac391d38a87c"
+  },
+  {
+   "path": "examples/chibi/report.json",
+   "size": 4779,
+   "sha256": "25e97506e53c5a97413afdcbc8b080fc2e1ff51329dba175b50d8b122c7b771c"
+  },
+  {
+   "path": "examples/chibi/source.png",
+   "size": 155161,
+   "sha256": "5b2e8ff593d077b25a44ef39d9288eee887137cea5f38c9fa0a004390950d85a"
+  },
+  {
+   "path": "examples/chibi/strokes.json",
+   "size": 1417940,
+   "sha256": "9a6c3b7083fc568706872cbd44431ea152330cb0079f5818f91535966bf29900"
+  },
+  {
+   "path": "release/check_env.py",
+   "size": 16050,
+   "sha256": "559ac927442eb057292b267aa72cd99af6ffe0a55f0adab2e6337b5952a78a29"
+  },
+  {
+   "path": "release/config.example.json",
+   "size": 247,
+   "sha256": "ec645d869a6b416b7f02eb5bf37b414c19fa9c34077adabeb1e3db7e0ddc58e0"
+  },
+  {
+   "path": "release/install.py",
+   "size": 8125,
+   "sha256": "0229a0c5181408af50d3e1533b9ef8b1c0149a35f83bf1d95e2e272a2756d51d"
+  },
+  {
+   "path": "release/requirements-comfyui.txt",
+   "size": 229,
+   "sha256": "fd3dc4f9563099bb47e20597214ab3629deacc307c7e57269e77dadf469864a4"
+  },
+  {
+   "path": "release/requirements-core.txt",
+   "size": 289,
+   "sha256": "b7afac03457a013659e6cc4ffba26d13b4fba85c2cff4c7accd715b2d0c59472"
+  },
+  {
+   "path": "release/requirements-gpu.txt",
+   "size": 259,
+   "sha256": "186f964c928341c2d05dc316dedef92917af1f456334514a882a5f152aa0ecd4"
+  },
+  {
+   "path": "release/uninstall.py",
+   "size": 1861,
+   "sha256": "9d37b5ef145e73aae1d8121f0c2d78d558837a4ef6fe5cb071cf8ec3d3721dd8"
+  },
+  {
+   "path": "test_artifacts/reproduce.md",
+   "size": 2268,
+   "sha256": "ae20972a27319f6dcc9dba4d857f6facbf4f232eb35ea68d30a75bae6ea1aab5"
+  },
+  {
+   "path": "test_artifacts/images/chibi_before_after_full.jpg",
+   "size": 163864,
+   "sha256": "b4aeb45347dfdd0426ceb55ed1cee303af04ea09307a326a8a65cfe8fa6eeac9"
+  },
+  {
+   "path": "test_artifacts/images/gpu_vs_cpu_4x_crops.jpg",
+   "size": 143256,
+   "sha256": "4fd63b2da1cd97b17779db88b39c6290914adf6737dfdddc87bf92eb31b50281"
+  },
+  {
+   "path": "test_artifacts/images/lineart_v135_compare.jpg",
+   "size": 170035,
+   "sha256": "6b92ff54ce135b831a3d38b5d20687e16bc644d4dcfbf36676ddb8dc2f418451"
+  },
+  {
+   "path": "test_artifacts/images/progress_compare_v136.jpg",
+   "size": 233590,
+   "sha256": "587206dc3d2bdc8955689c595b0ecb4761b72c09e228d541a23b365f4cde2b9a"
+  },
+  {
+   "path": "test_artifacts/images/silhouette_edge_before_after_4x.jpg",
+   "size": 173558,
+   "sha256": "37419c6b20f6d0a394110715a76406638358354cd98a5f265d0c7323b30156d5"
+  },
+  {
+   "path": "test_artifacts/images/sunflowers_compare_v136.jpg",
+   "size": 188239,
+   "sha256": "7a2215a06dc4b2b5af3f6427b421bedf7fd1145051a15f8b7c2f8ae7a130fa87"
+  },
+  {
+   "path": "test_artifacts/images/sunflowers_v135_fresh_compare.jpg",
+   "size": 347152,
+   "sha256": "be436f712c5c25a419b394e433d6d442073cec422d0a40b140c56da2573f34d1"
+  },
+  {
+   "path": "test_artifacts/metrics/gpu_R1024_timing.json",
+   "size": 374,
+   "sha256": "0972ba2fbe248f6e7334ff3696f88048363f9aabd4eae747f367e7ed300881ca"
+  },
+  {
+   "path": "test_artifacts/metrics/gpu_R2048_timing.json",
+   "size": 374,
+   "sha256": "fdd9cc1d1d8ad1bef89393c0a7bf45f5884d0aee28cea68d7fa687e9a14c65f7"
+  },
+  {
+   "path": "test_artifacts/metrics/gpu_R4096_timing.json",
+   "size": 377,
+   "sha256": "90e2ecf34fa0bbcd6fe8505fcd6cf9c077d918d2920c020358b01d2db16f949f"
+  },
+  {
+   "path": "test_artifacts/metrics/gpu_quality_v138.json",
+   "size": 3037,
+   "sha256": "a79b12d7ad4c20d6e270da7e884e7f201b3eba0d0d95fd7fc337b65f7319237d"
+  },
+  {
+   "path": "test_artifacts/metrics/humanpaint_v136_metrics.json",
+   "size": 1661,
+   "sha256": "32a78368cee9198737dc5f664611c43bd6c3967d80319aaae66c5471530178b3"
+  },
+  {
+   "path": "test_artifacts/metrics/silhouette_metrics_v137.json",
+   "size": 2592,
+   "sha256": "d7c465927ba878d2c2c69741b7ed4ba01e5cc87da5225b29dd7f7617fdc5af52"
+  },
+  {
+   "path": "test_artifacts/metrics/sunflowers_metrics_v135.json",
+   "size": 3397,
+   "sha256": "0f9443c295359bfbe31c7adaed55671735c1eb064812b6e03aa8778bc38d39f9"
+  },
+  {
+   "path": "test_artifacts/release_test/PLAN.md",
+   "size": 7109,
+   "sha256": "98bb54acc6687c430b88cd5abc4131520a752315ef5190baccdd43877b6116cf"
+  },
+  {
+   "path": "test_artifacts/release_test/REPORT.md",
+   "size": 8846,
+   "sha256": "2967c05a2ed2ed2765388b57f2c01fb112dfd1f63ce59f4b284eade66ddd5215"
+  },
+  {
+   "path": "test_artifacts/release_test/summary.json",
+   "size": 37599,
+   "sha256": "e2462acbd90966cc767d6f15a3901e7bf31b797d99f8346692b029425ff254ce"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/C_node_chain__fdraw_R512_exact.png",
+   "size": 44082,
+   "sha256": "ab15d3390dad264e7f38d22d4c49c065c4923802cb5a263342978a52c86ad9bf"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/C_node_chain__fdraw_R512_gpu.png",
+   "size": 42391,
+   "sha256": "560fec41497e4aa6d696b96950023732bd33c0e52277172c4c9d0b0e4a36038e"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/C_node_chain__source.png",
+   "size": 2075,
+   "sha256": "652e9f0f410695e389199b5a86599dc74dbb881f2d6626dd724f721261d69fd4"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D1_layered_base__layered_base_R256.png",
+   "size": 7103,
+   "sha256": "1c997103920495701fc335b5e60985dca6be73e8debb2ba1edb898ca82f1c901"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D1_layered_base__layered_base_report.json",
+   "size": 4184,
+   "sha256": "dac5664e770d3ff20921bec4b6d317459a7362fabfe0767898c948e1f4ab604b"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D1_layered_base__layered_base_strokes.json",
+   "size": 26302,
+   "sha256": "d84b495296872690009fa9e500c2bd6717c93a0e6ec0aef11c3bb66678cd50e1"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D2_fbs__doc.fbs",
+   "size": 595213,
+   "sha256": "7e02c81a93e31c0de25699f0d14d63d907054c59ec5cb99f45da12719ea91bee"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D3_fdrender_cpu_512__fdrender_cpu_512.png",
+   "size": 16266,
+   "sha256": "ace33775e747a7f6ca10ed560c4459391fa37360a3416a418a2a457e1f4b238d"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D4_gpu_render__cpu_512.png",
+   "size": 16266,
+   "sha256": "ace33775e747a7f6ca10ed560c4459391fa37360a3416a418a2a457e1f4b238d"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D4_gpu_render__gpu_512_timing.json",
+   "size": 362,
+   "sha256": "b355731792efe1e4a9255d6e0497fb272edc7ea0549439bb17568765f3643796"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D4_gpu_render__gpu_gl_512.png",
+   "size": 15353,
+   "sha256": "75b68f569be6e9046228878be7f4cf4b6aa3a740a4e36e2205d06ef7cdb7af09"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/D5_video__fourier_2s.mp4",
+   "size": 265023,
+   "sha256": "ab5973d135bb75a71497da90337ee03499471f0a78788d1756b2e453a39ab1c1"
+  },
+  {
+   "path": "test_artifacts/release_test/artifacts/F3_gpu_subset_log__F3_gpu_subset.log",
+   "size": 7559,
+   "sha256": "a14b756965736c1fe84a271551608dea0cfa31897974b7215f771e8ddde4c4cd"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/F0_clean_candidate_tests.log",
+   "size": 7672,
+   "sha256": "3c0a9dc05d169907f779c616faa766a32ce8b548757e8353146b67c3fd7ed4a3"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/F1_tests.log",
+   "size": 26711,
+   "sha256": "6e9393d42f98a98abb191e2ba20da968516542414e95454c37a5ea3b73330b0b"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/F2_tests.log",
+   "size": 26625,
+   "sha256": "13167a8ab8be3e7812d281e24f54cff1af737c02041b40b044a87ef139a7ccd3"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/F3_gpu_subset.log",
+   "size": 7559,
+   "sha256": "a14b756965736c1fe84a271551608dea0cfa31897974b7215f771e8ddde4c4cd"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/F4_legacy_v133.log",
+   "size": 5810,
+   "sha256": "47ea7310d552da45873363bc30454a4f88b15dcf08b4a0975e8acbadd0d6fa77"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/F4_legacy_v134.log",
+   "size": 6370,
+   "sha256": "2f6d404fbd9ced229ff723e0a59018f5497d9818fc432d9b9ca0bd33bb7afef3"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d1_layered.log",
+   "size": 5836,
+   "sha256": "a34da1dc686e441629c0b31e8ad027432feb123198327c4b06969b57c693008f"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d2_build.log",
+   "size": 715,
+   "sha256": "db4adff0f9d2578837da38b5241b3a94f7be09e42b0eaedf66759c66bf85159f"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d3_fdrender.log",
+   "size": 500,
+   "sha256": "0a010267c047d376f1271885246cc18cc7d996eee3cfb9f26c41f64f3606115c"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d3_pack.log",
+   "size": 745,
+   "sha256": "59ba7e90ff86c8089018699d31fb9cd27711fb8a20a8098ac7eae0c646e20e30"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d4_cpu.log",
+   "size": 660,
+   "sha256": "759e3fe2290d1170dbb1210e8ef5d1176bbc05192f31723d67078260718ea571"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d4_gpu.log",
+   "size": 959,
+   "sha256": "1989ff89935618d33bb8be8518587816077a11f497a0b7203ee58c30d1ce8a9b"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d5_video.log",
+   "size": 536,
+   "sha256": "f1358ce1be72e2a0efba7c73bcfad7645f62f537302987fd8dc2d3059813ed16"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/chain_d6_workflows.log",
+   "size": 1016,
+   "sha256": "1e1207addf7180105f14af2c299d0b38077e4e97c3f6503a4c1ae6900f4c784d"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/check_env_0.log",
+   "size": 1649,
+   "sha256": "6598289d7c1ec2f33e1b648f0d0a247d0b51d3f35cc1da1fe9a277beeaa07816"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/e1_check_env_empty_venv.log",
+   "size": 2006,
+   "sha256": "53da1203095cd5e5d9befdab3ce16d596acc5eb24ae374aae55ce41fa6d46ebd"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/e1_make_venv.log",
+   "size": 123,
+   "sha256": "acdcf6df14ae2c5a2e0d7819ed0f9da2cca1dbce1ef22e94262d04d9c7cb671b"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/e2_no_gl.log",
+   "size": 452,
+   "sha256": "84de6cbef04b1908a68e3d16678206ab286e913657b5dac0bfb833d4e1417f1c"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/e3_alpha_cpu.log",
+   "size": 565,
+   "sha256": "8786de1c6cee26aa8c7858bd27fe0c0c8da2088beac01b7493a3d7aec2250c6b"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/e3_alpha_gpu.log",
+   "size": 456,
+   "sha256": "f0e475a2099d00191cb564a8e31f933cce252b7d0ac1bb09fd79139dfa265b95"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/install_config_only.log",
+   "size": 1759,
+   "sha256": "fd97b80cfc8567d5eca84fbf223ce0fc0943b78da59ef43b9c4a91fbebaec285"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/install_dry.log",
+   "size": 936,
+   "sha256": "d9fcb183bd21be4ea1087e9c95eb4b54241b75b3c56363c3c70bd8c221d7cf36"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/install_real.log",
+   "size": 1762,
+   "sha256": "a094496f4a01e72a5545d2329a836acc00fea99b3adf67d28897e504e11fa878"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/make_fixtures.log",
+   "size": 331,
+   "sha256": "bae9c3c4183fd1fc5906a7b995f6477802cc8c8fe195edacd05d075d147591b4"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/node_chain_cpu.log",
+   "size": 980,
+   "sha256": "f8695a8a5c7fe2ec83ff446bdf198ad7864f89b15e0119efa50d99a506887094"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/node_chain_gpu.log",
+   "size": 1471,
+   "sha256": "be363000785afb043c242cf2c41310b4ca0fce8a977075f5065aa8cbdecb4509"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_65f61400_build.log",
+   "size": 929,
+   "sha256": "b58c6cedf0803b6245485c535b80a73b9d11f235d28cb63ba813a701f766174f"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_65f61400_cpu_render.log",
+   "size": 881,
+   "sha256": "85269a6e6f3c541e1bf9ecb90d1fdaee75e24a0c656a1fff20bd0f381337632d"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_65f61400_layered.log",
+   "size": 6047,
+   "sha256": "2b51426c170b3080d5ba81304625688d76ce355fc8c110796547e879dce404ca"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_72e5a2ad_build.log",
+   "size": 755,
+   "sha256": "207d8c7d3617c8924f261fbe6f2a5db66b60fa5d7cfe52e6088126153cecdad4"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_72e5a2ad_cpu_render.log",
+   "size": 707,
+   "sha256": "8ed271dd5e920419264393e440838bf85e138a2854dda10aa0f5bb37d50bd144"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_72e5a2ad_layered.log",
+   "size": 5873,
+   "sha256": "a35e0edd79da974dc3f48ff6b336f161ce4c290026af34710f907709d6bbed91"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_be3a5431_build.log",
+   "size": 747,
+   "sha256": "c1ff7b96f4485f0d5462d75803a4c6923a03334648fd736558c7d779a5411b74"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_be3a5431_cpu_render.log",
+   "size": 699,
+   "sha256": "aff19005c78ba4cfb0c92561f1cb8f0f13f343e83f93edbfb1122f5e87246fa9"
+  },
+  {
+   "path": "test_artifacts/release_test/logs/reloc_run_be3a5431_layered.log",
+   "size": 5864,
+   "sha256": "8d9b0a8b3bf0afaa42f54a79d62eb736c1dc09ce9009b211a8463e51c33499ac"
+  },
+  {
+   "path": "test_artifacts/unit/TEST_COMMANDS.md",
+   "size": 534,
+   "sha256": "b33c0719f0c4778dac6338a04fb629d1ee015573c63f099a75bc25c4171a551e"
+  },
+  {
+   "path": "test_artifacts/unit/baseline_v133.md",
+   "size": 9813,
+   "sha256": "fa7629ab60523a888be7a2e5d5da8f4ef855775b52c2844a5cb988d5282f7790"
+  },
+  {
+   "path": "test_artifacts/unit/baseline_v134_texture.md",
+   "size": 9921,
+   "sha256": "761db060e749a1eafc5bb4f89786ce070f1d6966aba9f5ff4a7024d930f2ee1a"
+  },
+  {
+   "path": "test_artifacts/unit/baseline_v135_underpaint.md",
+   "size": 9607,
+   "sha256": "3fb54422b81e05370991980d09ac2a501a2035f15ed514e32b7c9b03267f7e9a"
+  },
+  {
+   "path": "test_artifacts/unit/baseline_v136_humanpaint.md",
+   "size": 16089,
+   "sha256": "1082aebf22cce57903bb68927997e4a27b160d5d4285af720d60ea50d2bbda4b"
+  },
+  {
+   "path": "test_artifacts/unit/baseline_v137_silhouette.md",
+   "size": 14365,
+   "sha256": "047407107e7f88cf20bf228868e29f142ffbe29f07ce9e20d9218fb8a7a94b3c"
+  },
+  {
+   "path": "test_artifacts/unit/baseline_v138_gpu.md",
+   "size": 11222,
+   "sha256": "d2c11b7a41303d7d2eea20cba6fa3705a692bac52cfeb79be1b46bbc2e5e8a43"
+  },
+  {
+   "path": "test_artifacts/verdicts/VERDICT_v135.md",
+   "size": 14903,
+   "sha256": "5356c03c7f9260f223607754caa02139c2d3f05ab492e1cd1d017313545e960e"
+  },
+  {
+   "path": "test_artifacts/verdicts/VERDICT_v136.md",
+   "size": 13918,
+   "sha256": "299036cf3902b3c596e3b627ac64c649816e826b7b637a0f5a5f17e58d1a7038"
+  },
+  {
+   "path": "test_artifacts/verdicts/VERDICT_v137.md",
+   "size": 14547,
+   "sha256": "b5add9ca106a82916e0e00c1b49c7f27d318420db2d1d826825325f0361f3296"
+  },
+  {
+   "path": "test_artifacts/verdicts/VERDICT_v138.md",
+   "size": 15087,
+   "sha256": "c00811e6c3e95753960290e833a46aee523c78a9576d57e96c2a08f2d3ea6645"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/BACKUP_INFO.md",
+   "size": 1148,
+   "sha256": "d69d933bdb80be884e69f992ac140efe39c4cb537468d07688d67a99ff3b7e15"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/CONTRACT.md",
+   "size": 22498,
+   "sha256": "7a868a1a711449fe5465c5488375ea377cdd03bb5793a3f2d3da6bc0868dbfd2"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/LICENSE",
+   "size": 2258,
+   "sha256": "975e8a8597cdb31b623f90ee24feb48f657a0596f4a35d808bc1a4f74db2f2aa"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/README.md",
+   "size": 13625,
+   "sha256": "46c05b2425f5a611dca4ca76aebaa508dffc7f6773a1509eef9074f28951cd39"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/SKILL.md",
+   "size": 44247,
+   "sha256": "7bf7bd7b64d6b5d828796be1d2c06625701efc9e9c5231ed21d3318744060ba1"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/README.md",
+   "size": 2036,
+   "sha256": "d51862e2605f2419917f5bfad53aa69aefcd57ac14ad6014e2062cb15dd5ebbe"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10a_中文名_大图.png",
+   "size": 8908,
+   "sha256": "b95033a3dc5c9eb33df29b37061436c59d2c0f420fbb79b6277dc501c8ba0a79"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10a_中文名_大图_spec.json",
+   "size": 635,
+   "sha256": "46edb1895afa20c3a32e77f6cf25ff434167396deba45e85ec1d4e3c1c3b8612"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10b_损坏文件.png",
+   "size": 70,
+   "sha256": "ca427ef995f7453bee39d05e353175e9e3654207fa342147969b2b53d490b3ef"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10b_损坏文件_spec.json",
+   "size": 389,
+   "sha256": "afc07e07fe58ad7c82fb7a09d04bf0a8dc450b8b656e98afb3cb7cee4c06451f"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10c_太小_8x8.png",
+   "size": 97,
+   "sha256": "42b13b9e7838bb5e33ec86cfd1f7dc54c1b14bafba050684988002edf4306d3d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10c_太小_8x8_spec.json",
+   "size": 325,
+   "sha256": "eaabb214cc7f06713540ca775d63ccfced26842063ccb4b16c05c77da699be0e"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10d_不是图片.txt",
+   "size": 20,
+   "sha256": "53eb59628a98cbcd14ada836606b46dd7ac58a05251263ca8c9e11c3999510fe"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T10d_不是图片_spec.json",
+   "size": 367,
+   "sha256": "59f12112dd84e6a15d924723761f82216b14fd2563bac6f6a8d04db47f0e4303"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T11_taper_three_expressions.png",
+   "size": 7388,
+   "sha256": "562dc8d4b2e65c539ca441c95308eca7c10e25a77068a124791671477b466b29"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T11_taper_three_expressions_spec.json",
+   "size": 15454,
+   "sha256": "3769928ab0feb0dd148316cb9ae4cc37c5389376dfef68e7cea7f92f6b26705d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T12_color_gradient.png",
+   "size": 7071,
+   "sha256": "9d56dafeae4dcd9a3407b8df3b463318e1820a8f5da0b52717a634649b635105"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T12_color_gradient_spec.json",
+   "size": 12451,
+   "sha256": "079b538e566f7601270f23c1cf28a25606c728cf0084271967214852c49d8332"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T13_step_intervals.png",
+   "size": 4591,
+   "sha256": "a9cd2091768d498f1f7587dec9a0f229654d35ac56965c1dbaf46af3cd139b87"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T13_step_intervals_spec.json",
+   "size": 11076,
+   "sha256": "2592f6429d9aa91c9fdf94fb49bbde79e2ddddf608986101e05b26ba58683aa9"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T1_signature.png",
+   "size": 6784,
+   "sha256": "1bf97ff8eb5961a0c8a909ea722ed86ef0384cc344c011791ff2ff8537bde124"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T1_signature_spec.json",
+   "size": 628,
+   "sha256": "235620fdd6e54fb509f1b82cc4f1ed5dcb8f2007271c7aece2b298998de03c0b"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T2_icon.png",
+   "size": 5250,
+   "sha256": "46a179f548c2e83b381960fd2d48e9a60bfb17e852dc71fbaecf3c5925481592"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T2_icon_spec.json",
+   "size": 1197,
+   "sha256": "bf2abe83e29c5ddff6ed799d9ecfa2d5d5395ff8c2ff92d62654ff14af33881e"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T3_flat_illustration.png",
+   "size": 1652,
+   "sha256": "a81a646977a0efec442448440317721901e7b5b3e445bfc0622d8946cf85d3b0"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T3_flat_illustration_spec.json",
+   "size": 1060,
+   "sha256": "fe2d5aa2dbbba20907f44f72b8a028dc8a79e6432058fc6461290a5b3da07850"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T4_taper_thick_to_thin.png",
+   "size": 5622,
+   "sha256": "02086b70f7d439c656c110e3af69c4efd19b26b154982d6450679f58afa7df08"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T4_taper_thick_to_thin_spec.json",
+   "size": 12178,
+   "sha256": "cac2aa92e1a7babbd9bb6be77382b27edf2d2e5d5b750ca79ab4b72a476d318d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T5_sharp_corners.png",
+   "size": 4602,
+   "sha256": "fd0c66b528be8f29c01a6b4deccf2767031a53b8a0545683baf512a999119cc0"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T5_sharp_corners_spec.json",
+   "size": 859,
+   "sha256": "aecab1ff07ce1641991ef77f56d64d782e3af6b4aa650c596e9ce9bab9d3d1bd"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T5b_sharp_fold_stroke.png",
+   "size": 4453,
+   "sha256": "bbb90d1357c99d2833081f7e03004556d42ea7ebf96cb9bcbd92696ecdc60b33"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T5b_sharp_fold_stroke_spec.json",
+   "size": 1055,
+   "sha256": "df0dfb8e7cd1dc9fc1b1227c2417dadbd26103511a505c3d5da4911796689126"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T6_gradient.png",
+   "size": 15014,
+   "sha256": "e7bea9031f0115658ef7ca2135c3d6d5657644fd62254528939c317236192435"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T6_gradient_spec.json",
+   "size": 529,
+   "sha256": "cdb40aac92b08066e671504761e97d73e3b70492af5ddb807a48f0963b00470d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T7_photo_like.png",
+   "size": 289574,
+   "sha256": "c176695e05c2a85893384c1e33b82672c2093bdfbb01c0724a2fa1c8828f0747"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T7_photo_like_spec.json",
+   "size": 573,
+   "sha256": "ce21163be63686a6e83fb4351b5e6e792f13dd84c81a2999be8a0fd24637e203"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T8a_solid_black.png",
+   "size": 270,
+   "sha256": "a3684197d1fba631f63afa791d1505e6e412fc1c505d3136bf264b8a25fe7118"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T8a_solid_black_spec.json",
+   "size": 474,
+   "sha256": "5424400e58f0c8f99af75bf9631d047e94eb0018c112ffe5ee9a24abeb8cbf8b"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T8b_solid_white.png",
+   "size": 758,
+   "sha256": "73d7ed9877bc3b373ef42a3cec0d2e94ee1b2f32c7296c6067032d2b3b949d3e"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T8b_solid_white_spec.json",
+   "size": 438,
+   "sha256": "163e81342d9a42fc4580ce2228260d9dcd459e01e15cd02723a4faf540cabcfd"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T8c_fully_transparent.png",
+   "size": 334,
+   "sha256": "aebc86755d7beb8b01bcd992ab44e1133afcb473511b7832eb82228be275473f"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T8c_fully_transparent_spec.json",
+   "size": 361,
+   "sha256": "4f69393d40e95fd1636fc153c4fa8e942aaeec96fa8936d08705c6cd14f4b7d5"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9a_16bit.png",
+   "size": 5224,
+   "sha256": "a5d9c5c059635e8a3d11fed844583626b700cc7d41bc6b6530ff38bf34aa97f5"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9a_16bit_spec.json",
+   "size": 349,
+   "sha256": "582bf7fa74a9a45dd2aa6d2b306036bb5f4fc626220a2f974a1a5c18ea34bfee"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9b_cmyk.jpg",
+   "size": 20095,
+   "sha256": "9f9c18483ed14cf7b08b07dfdcd101956a5d82fae69af0e2b1544260b1c2e70d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9b_cmyk_spec.json",
+   "size": 307,
+   "sha256": "85a30b0863b2f0efbfdae22b88c2342933098fe331dcf6b80bdd98ce3ae95b66"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9c_alpha.png",
+   "size": 17750,
+   "sha256": "bcda43f431c1a20cabe338bb7f16ac091c008f4d00ae316618e95c129b5851c2"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9c_alpha_spec.json",
+   "size": 372,
+   "sha256": "fab8b33fd097d2460a83c45fa790236f256d80fdf99d54a5e1208e5e4d90a598"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9d_palette.png",
+   "size": 2280,
+   "sha256": "d83ccd0167d0b9cf83ba05eab7932a99348caa51cf99088b96404a75c9f51b24"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/T9d_palette_spec.json",
+   "size": 307,
+   "sha256": "92a1169ff2a8a06d90c811c1bd3bd34b8b4ed92788d6996330a29063cb8999f8"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/assets/testcases/manifest.json",
+   "size": 9592,
+   "sha256": "2e3b3f81b3e4684b70554244442e401333e12455f17b3913cb8aa5677dfe9dc9"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/brush_library.md",
+   "size": 6051,
+   "sha256": "09755b2f557f6ba8759965258c63577f117b07f02a9095ba3d48b4d5110464a5"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/brush_timeline_format.md",
+   "size": 2166,
+   "sha256": "f218cb9646f025e943da68995f1e642cea2a9bfcb4f60c865d191e9144ebd71a"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/capability_boundary.md",
+   "size": 17338,
+   "sha256": "96e2d2f24033866434005308707349171e12c040ae3b362a5fe98a2ede44d948"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/edge_blur_diagnosis.md",
+   "size": 5530,
+   "sha256": "1ed65b640dbe3a6ed7567570f5feaec62661495df87347105ddbf933b2a4fb78"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/engineering_guardrails.md",
+   "size": 16753,
+   "sha256": "07de5d300144f5cb39e91682b6b28e34ce98ce342f528c7b0b73b0189e23068e"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/fbs_format_spec.md",
+   "size": 12747,
+   "sha256": "a8b9b2261d3c2587a51126008d6cf972e876e1d0c1bdf7ca05cf02fd76b2f3f0"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/gap_analysis.md",
+   "size": 16560,
+   "sha256": "c26ce4f2f8ebcfbe9dff48f1f91e3620073418e92e055e452b880bca17e20355"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/improvement_eval_plan.md",
+   "size": 15357,
+   "sha256": "fd6230b9180de748b8b85b5e7bb32a8edeeceb52556472645b7c16e46c843a26"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/requirements_traceability.md",
+   "size": 63336,
+   "sha256": "a6b6340444257b0bf792f857cf3d3ebee1f3a45d573d36cda34011897f28c0c6"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/resolution_survey.md",
+   "size": 3412,
+   "sha256": "cf3c6f371d351229740a33af3579b27909acd0bd514e3ca145d104d7783c2bef"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/structpainting.md",
+   "size": 4632,
+   "sha256": "a5b8e5f448612e7105f7dc4d93612ed9d6ffdf07f7e0093f07a50cb204c6347d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/trace_edge_test.md",
+   "size": 2534,
+   "sha256": "6e75eed1694d97547f62ad182f2fb19dd7821499e88269cb862b9448598b78e7"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/training_loop.md",
+   "size": 3781,
+   "sha256": "7fff8fb2bbc1c484f2e9284dfd2083aec61cf51fa5fec665e7466e25a6fe649d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/training_rules.md",
+   "size": 4862,
+   "sha256": "a8bb517880ba965ed955a9acea679857330157725b35230ca413ad0b86e6fbff"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/troubleshooting.md",
+   "size": 22412,
+   "sha256": "73615de19e9449d491d53d462e8ed73a3cbc270c71599b78d1d2e370d817d18f"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/references/verification_report.md",
+   "size": 34185,
+   "sha256": "d895c5a459bc67b75b5272e09355f17948a848aa8e40df79df7bc77dda057300"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/append_static_tail.py",
+   "size": 3294,
+   "sha256": "0e3734570d9194292923916543a2d48313f98eb8b4faf3ab339ab3d93d61591d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/bench_gpu_eval.py",
+   "size": 3176,
+   "sha256": "62275265746d96088976d29065ae4eb183f42d114f838fc96a95cbdadd6381d0"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/check_hygiene.py",
+   "size": 14774,
+   "sha256": "ff98a1b1b34f12648c97dbd9c0c539cebd063c62b3e33e1a33f1f66692ef1c19"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/eval_variant.py",
+   "size": 7539,
+   "sha256": "a8a5256c436c9385c05d02f8f77b94632c33bf4d2db776860c1ce7a3448fc6ff"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs.py",
+   "size": 29590,
+   "sha256": "ee543af4d711b3effb87765ee6c9b9729d214440046373d429ba7dc6ebfdd52c"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/make_fourier_process_video.py",
+   "size": 11759,
+   "sha256": "0cca1f083adb3751a449b9844c6393ca6e6e6f0d84b69d9b5732eb4b8460dd68"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/make_onestroke_process_video.py",
+   "size": 8647,
+   "sha256": "14ef1158e47ef0255577db0b2d2c2a132a32f312da58ae5fb498f8904f1283cb"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/run_acceptance.py",
+   "size": 156644,
+   "sha256": "33f7fbf568d8b493dfb09df11ac5da5b399bb29c22576283733dea5433e7898d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/structpaint_demo.py",
+   "size": 12205,
+   "sha256": "4fe4b719a903a0401c0af2e7e21243b087debd1fbf9a42cae03e87da158bca06"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/survey_image.py",
+   "size": 2571,
+   "sha256": "6381dff87a03f97963548a89f92d51a0f33f3a1e787b708186ea4dcdb57d68d7"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/train_loop.py",
+   "size": 4683,
+   "sha256": "d2853e9e8fd7f085bce6a2e6172043404effe086b83c4dd9aa8cf031c1d10b48"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/__init__.py",
+   "size": 139,
+   "sha256": "269295436a9041c4a99f2b5c57fa08650843d9207d64db052dec7730022ac087"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/attribute.py",
+   "size": 7841,
+   "sha256": "98a55cb2c03353a8639af1d2baf7f7f0d616e6dbc2193ce404072babffd32247"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/brush.py",
+   "size": 25610,
+   "sha256": "2cc721c95b2188753cc5b6b0652f4efa810d449fa14cf5140884432eb1c267df"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/brushfit.py",
+   "size": 12807,
+   "sha256": "95ac6307baa6dcb2df7c61042c235fa8334b622615437d9a6f52375ad0cd273b"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/brushlib.py",
+   "size": 9846,
+   "sha256": "6c59d805bcc360dcfc4a3f7201ab0c1fd6173b22834c29c28b0751775b83ef98"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/config.py",
+   "size": 7159,
+   "sha256": "3c8e7e364f20d3c4b5b0e13b174edad7f3daa4b903102989705f43a97f4b5d5c"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/coverage.py",
+   "size": 48939,
+   "sha256": "b6caf01ca800f3243726f47f1dce2574d826e8d7de5f5d46a56c4c62e4718326"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/decompose.py",
+   "size": 95556,
+   "sha256": "c12f79da8e31ccb1c92731ac4ce41adee5ee0ab5deab0e9e2da90457da2f9d54"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/document.py",
+   "size": 19921,
+   "sha256": "affaa612655a21cb78e82e911f2839a320c805c8f5a07ba68ee12a59fc47830f"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/finelines.py",
+   "size": 9610,
+   "sha256": "2db3ecb8b7ddf8485cf930e659ce20d5a93a6d1934c9adbda8e938a5b91e494c"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/fourier.py",
+   "size": 24103,
+   "sha256": "c471aa726645f15626fa9687fd5c3b67e2266cec30e43c30cb02ed6713fee6c9"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/gpueval.py",
+   "size": 6038,
+   "sha256": "ed6858decbad9d87bc62aaddcc77c65acf0de625c00ae55719642f958252d97a"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/io_format.py",
+   "size": 20259,
+   "sha256": "fe70f23dd09f707d979dab230c58a4bffab3342c87605dc76c69ac8062a5c659"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/mesh.py",
+   "size": 11478,
+   "sha256": "5bf458228c320d6a1cef53fe97ba4888df3c15f5c57a43ad3b916597a71cc693"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/metrics.py",
+   "size": 34292,
+   "sha256": "f2aeba395c790c8a69354f5a99147361f5ea0ff7eee63269485263d59b144684"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/onestroke.py",
+   "size": 58045,
+   "sha256": "b961f24c624dbda1958af94b9cc429d6a7b4b5c74de024d1fb7e8243cc9044b0"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/parallel_eval.py",
+   "size": 3728,
+   "sha256": "38f60e1b6389b13af4bc11e1ea06d8e5c0373f2f837997d44adc3437ba65ccb7"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/preprocess.py",
+   "size": 20725,
+   "sha256": "10fe68d34ffd195b07a2e5a8eb73428c17802d475ff792e99c6853203c1cfd6d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/render.py",
+   "size": 63244,
+   "sha256": "7884d23661ca7c3ae4047dc1548895232087167661f2cb79cdb38058bc1ed918"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/shapelib.py",
+   "size": 1535,
+   "sha256": "07df4d94152fb555642a8b41e59e581eaf97ad4df34a761e8619ca0c71e690ed"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/stroke_rl.py",
+   "size": 10153,
+   "sha256": "f595d88f428ff3036c1e780e0357f0edcf13abf4256ce5dc97e3e86815020782"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/stroke_rl_render.py",
+   "size": 20114,
+   "sha256": "29931e76a683fedd7443f77ce9db46fff15e90c7ae97a9075e616b974f4a5af7"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/structdoc.py",
+   "size": 4704,
+   "sha256": "ca034367d22d7c6c930ede0a29bef19470a970741b5d828d0a25b45d8c808c37"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/structpaint.py",
+   "size": 48900,
+   "sha256": "3f780289895a2ff2171884c69e935a3d1d3c8dbdf4deb1d66bcea821d5095584"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/survey.py",
+   "size": 8191,
+   "sha256": "e4dd8cf60a2837f5a18454418d06d12aaf95b1396e99532627eb726d26f5a4d7"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/timeline.py",
+   "size": 5552,
+   "sha256": "03d3f967d7a4a6c1346e786a1f393157d948296958c58baa2f201eb198c290c1"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/trainloop.py",
+   "size": 32022,
+   "sha256": "46c38df53d3a8999fd1056d7e364ccec5cd3c852f1ab8b71039edb994ccdbb18"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/util.py",
+   "size": 17341,
+   "sha256": "015183143e8540bfef8856f96a44cbcee0848a23e0ac0195cb15df0e66135df5"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/scripts/fbs_core/video.py",
+   "size": 33048,
+   "sha256": "cb9db37d7709603390e1f2514e7921adad84f2eced923acbcdc542836734dac1"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/gen_fixtures.py",
+   "size": 40097,
+   "sha256": "7b3653007cea28e9ff198aa19976d6247c8b3b5c3ecda4e7ff512b0c66822faf"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_brush.py",
+   "size": 20503,
+   "sha256": "7b634f536243dae60a119f6168674eaeb911a1911d3e9d43a117e84cdb083438"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_brushfit.py",
+   "size": 5002,
+   "sha256": "b24a62e49feb51319360aa9145de9a091987853cca7ce62af7c2cbc8e9764f70"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_brushlib.py",
+   "size": 5262,
+   "sha256": "7cad37e06d025680b02a5e72ea241c23de4f4c29aa5101234adb4ef3a7b8c9aa"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_coverage.py",
+   "size": 12603,
+   "sha256": "fb6a083fbaaeaceb8fc6a839b61be59a6e98c7ed0ad5ed346a9b412f8a89d89a"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_decompose.py",
+   "size": 22802,
+   "sha256": "6de8ffc06a276de158c937005feaeb1c8b3ab76e753d369be6519cc44cabc0b3"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_document_assemble.py",
+   "size": 12138,
+   "sha256": "110cfaa201a263529d3a777ea9af057b542dde3dafb712cea59650bdc9ce4b6c"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_fourier.py",
+   "size": 14937,
+   "sha256": "ad3068a8f91d8df17eda010edc34b7a307a05d9ae46f0899741e1add68ee0e06"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_mesh.py",
+   "size": 6984,
+   "sha256": "0197fd618396f5aa6a54fcc01b2c4c9806fc3a2b2590e2597d38383cdff50466"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_metrics.py",
+   "size": 18197,
+   "sha256": "04259103a995c45601a4618949604a2054e60289a5f024fed75c8555c58f384f"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_onestroke.py",
+   "size": 18696,
+   "sha256": "092d43c7266463fda1b1a87bc13424cf2b07641c20a0281871153fc1c44e80b7"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_preprocess.py",
+   "size": 14859,
+   "sha256": "bb1b313b1300650fa46558ffd61924bf67246783ed2b58e75db86ef362ec1614"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_render.py",
+   "size": 43833,
+   "sha256": "840f148a4e23868fc5b3e99c3c0f9487f5dab01fa482bbda9496f056b89294c3"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_structpaint.py",
+   "size": 10718,
+   "sha256": "cba514a927672f96f7b2da27bfee795dd706daa8a12ff15ca15a790b207fe7c7"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_survey_rl.py",
+   "size": 4334,
+   "sha256": "605410107c472b85fd2781eebfa89a696794bb6c81612213ce4614a9b2259414"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_timeline.py",
+   "size": 3926,
+   "sha256": "bdc8fd27db5306df5227d4c96f3e69d80105f41888dbbc04341f912829162346"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_trainloop.py",
+   "size": 3328,
+   "sha256": "39f8c874f02dcde3a9ee6949acf755299093236d591ee2f2a6434fc8be48ffea"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/test_video.py",
+   "size": 9768,
+   "sha256": "0a6763f8995eaf8f42e7f5940d4de3f776fd92a4155b4c02921f6e198083a05c"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/WP-B-report.md",
+   "size": 10811,
+   "sha256": "f7b9c21da3c1d9d902e33b4f3f967364830c7ff8ef4afec2e7e1c56919946c7c"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/baseline.json",
+   "size": 8101,
+   "sha256": "08adbe3e8c2da0d323baceb66d44bebb6cf93d8d7821fd0b43e92c3f48721652"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/check_after.log",
+   "size": 2052,
+   "sha256": "e2af9f2c798c1ea28fd7d79f4697e57aaccb4be8567cfeca8d8adb2da9589e32"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/freeze.log",
+   "size": 2870,
+   "sha256": "ac8713047b458ace712fbf649279f2ad4ad79059f9f0403bb56c1842e28822ce"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/freeze_baseline.py",
+   "size": 10844,
+   "sha256": "b1d5887cdbde4aa2ee9833a24928690e89ce1574f20958fd0d20797d4a105121"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/unittest_after.log",
+   "size": 2886,
+   "sha256": "fd59fb1f0d6b3dcaf02a073b5016c38cae6aa33e3a6544d83cdc01a94c2b5bf5"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/unittest_final.log",
+   "size": 2916,
+   "sha256": "e73be19990cb5fe011214721ce40631ad1d1a3dcb833328d69abe3d42c900e44"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/report.json",
+   "size": 18287,
+   "sha256": "9bf61fac5777761cf72fe5ad9c306b06232dd9d0d7c6c20482256b825a2f2a92"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/report.md",
+   "size": 5559,
+   "sha256": "d461055eb3c857485dd6bd27db03efca0c15e4a388a9a8de4032f3630103a6cd"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T12_color_gradient_R512/T12_color_gradient.fbs.json",
+   "size": 117581,
+   "sha256": "70d093fd22a6806d2ce5333fc010c9bfea67db1cfe521f15e99bd2efd8ae3331"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T12_color_gradient_R512/T12_color_gradient.report.json",
+   "size": 15056,
+   "sha256": "b3f0a3639fdf62b8c03ae26bf6f4916a10f9268ea536e9034302da00d9a5d13d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T12_color_gradient_R512/T12_color_gradient_R512.png",
+   "size": 12646,
+   "sha256": "55684fe1ebe6a9ce959af4c1ae219dce5447abee783791508d131d44f18dde9b"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T13_step_intervals_R512/T13_step_intervals.fbs.json",
+   "size": 17156,
+   "sha256": "180d50d810e6b0a20b792331f6c0a9b43c8e401a7c79120184354e04ac2ce985"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T13_step_intervals_R512/T13_step_intervals.report.json",
+   "size": 15185,
+   "sha256": "4f1fc59a6ea98675842161c30bc8d339eb73c26622fc218ddf509df84aaa2b79"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T13_step_intervals_R512/T13_step_intervals_R512.png",
+   "size": 6806,
+   "sha256": "3dcb6ac77a6272a05a2b7551e16d10c10a3e45b1cfbd79537a121dc72ced5310"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T1_signature_R512/T1_signature.fbs.json",
+   "size": 15909,
+   "sha256": "0fb111bdd17aea5c8237eddec242dac5f3dda95ed99db870f8718cbb6fcebad8"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T1_signature_R512/T1_signature.report.json",
+   "size": 15039,
+   "sha256": "f7c9e194f3b6bd167067fdb2f4023c932498e3c649efae8104213253349803a6"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T1_signature_R512/T1_signature_R512.png",
+   "size": 9841,
+   "sha256": "ec29830632ead76d4a02c5010175645d8ec8099bbfbe18261880403b95611bb9"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T2_icon_R512/T2_icon.fbs.json",
+   "size": 284315,
+   "sha256": "8f7b9adfee461a5ef4ca0cd9c68ff571cfffb476806d382f9ab84ba8f9e31df1"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T2_icon_R512/T2_icon.report.json",
+   "size": 15907,
+   "sha256": "ba7cf0450e27c9ffca1c6ccd30f748282486ff3dba24c800ed08d5f12d8dc15b"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T2_icon_R512/T2_icon_R512.png",
+   "size": 17288,
+   "sha256": "eb18861402aeb7cb889b04308860e1e09397a64518d43b22cea0d8896d4a834d"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T3_flat_illustration_R512/T3_flat_illustration.fbs.json",
+   "size": 402408,
+   "sha256": "ccecf5f55c038dae62505d464b69d3516a47f7c79dc51948b1a5c6898adc4cde"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T3_flat_illustration_R512/T3_flat_illustration.report.json",
+   "size": 16295,
+   "sha256": "777151e7e1472e8852ae75809f6714863f150889a4357229cd1d67e087df6490"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T3_flat_illustration_R512/T3_flat_illustration_R512.png",
+   "size": 4243,
+   "sha256": "c7eada0cb5e08126bd65f310da6cc138794e3c06d563f9a5eebb727a44879da0"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T4_taper_thick_to_thin_R256/T4_taper_thick_to_thin.fbs.json",
+   "size": 18637,
+   "sha256": "619ac1fa3c724c4b6ee16362746b62cc143153f2fb4bac40aecf33338ad81a29"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T4_taper_thick_to_thin_R256/T4_taper_thick_to_thin.report.json",
+   "size": 15086,
+   "sha256": "acf8e1e5b3ef9b0fb9c9b306aee374bd07d1344608f543e56bcace9a4ffd44e9"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T4_taper_thick_to_thin_R256/T4_taper_thick_to_thin_R256.png",
+   "size": 3809,
+   "sha256": "846a20f65432765cd7e9ff646ede97e4530d4d000456eeb55b7fe176cbbc42e9"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T4_taper_thick_to_thin_R512/T4_taper_thick_to_thin.fbs.json",
+   "size": 22752,
+   "sha256": "f79eceec4d892176c03dcf82f3f144940560ec0e72c0c92016078b79f561524e"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T4_taper_thick_to_thin_R512/T4_taper_thick_to_thin.report.json",
+   "size": 15087,
+   "sha256": "8216fc35c84b671b5e730d51660567b8cf96d37896cab76668c93aea009e2fe8"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T4_taper_thick_to_thin_R512/T4_taper_thick_to_thin_R512.png",
+   "size": 8354,
+   "sha256": "48f3260e4adeb3256b30c2acefb49dcaa45af394f283c816764f898bf82d05d5"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T5_sharp_corners_R512/T5_sharp_corners.fbs.json",
+   "size": 172750,
+   "sha256": "67dcea226db244bf92190adef21d17e9ee28b6aaa3c427a0f87b76b4adc3a620"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T5_sharp_corners_R512/T5_sharp_corners.report.json",
+   "size": 15508,
+   "sha256": "175c6d3472d86aef25e529665efdc08269401fd1aa6a4ff8320a2308bddb7ada"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/T5_sharp_corners_R512/T5_sharp_corners_R512.png",
+   "size": 19073,
+   "sha256": "b9613b4c71aefae0aa85ff41a3f29be44103d57b2a6d438243349749ab3e46d0"
+  },
+  {
+   "path": "workspace/fourier-brushstroke/tests/_baseline/acceptance/cases/onestroke/R2_T1.onestroke.fbs.json",
+   "size": 406467,
+   "sha256": "77a6df2d6f76d7a0c7924c057018575763c7cc19fe3e405d5a50fcb264b9daba"
+  },
+  {
+   "path": "workspace/fourier-prompt/LICENSE",
+   "size": 2258,
+   "sha256": "975e8a8597cdb31b623f90ee24feb48f657a0596f4a35d808bc1a4f74db2f2aa"
+  },
+  {
+   "path": "workspace/fourier-prompt/README.md",
+   "size": 7213,
+   "sha256": "8a0adbb3cb2d99be293d036ed5d0e2ec3fa91b9d5c2d47f4b17d48f454ae8257"
+  },
+  {
+   "path": "workspace/fourier-prompt/pyproject.toml",
+   "size": 811,
+   "sha256": "19f084b232947d8768ec75054c98f4e58be480d9cc117a9147eb543b53a29790"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/LICENSES.md",
+   "size": 4048,
+   "sha256": "f7214e0f934680f0eb861ea1f272b6c7af3334f2e1b3d05ac17191319b59ef6f"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/brush_calib.json",
+   "size": 47908,
+   "sha256": "e97055e7c493bb31bf9f634f64c7bf7eb544dfc227f2d3591c7b00c9cc7e7b7a"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/brush_catalog.json",
+   "size": 50270,
+   "sha256": "0ee7ff581716585769f2577077f6c09a0ebf7557eabb005d555226a69345cb1b"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/style_packs.json",
+   "size": 5379,
+   "sha256": "42ecc50222a0376c404fc5e12f191e39ddf35630f61a7e376e1fa269f009f30b"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/airbrush_pressure.png",
+   "size": 3725,
+   "sha256": "49626afd53f303959259cafd7f0bed27137f3e84d5ec59c08593795fc2af90cc"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/basic_airbrush.png",
+   "size": 11531,
+   "sha256": "3160daf4476821e6fbe034e8c14fce0e29c634d1110f484eeac682dacb66c2c6"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/basic_round_hard.png",
+   "size": 5093,
+   "sha256": "ac3ce01703d6525adad12dd9f066e8fc895c6a04c821f83c73a9ecef566d9c75"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/basic_round_soft.png",
+   "size": 9393,
+   "sha256": "2556c0fcd5dd3d87a6bc863b6f08479810b9d3e3fffd13f4a086d191f46efad7"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/bristle_detail.png",
+   "size": 3562,
+   "sha256": "6ee0d1b819bfae8202ed3abbb9318b6c3b0cd51839b35fadc15ebcce349eace7"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/bristle_oil.png",
+   "size": 11231,
+   "sha256": "7a2e5ab963e6e409d7da858e3d993712bf957eb4430c0380d368432b481d24cd"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/chalk.png",
+   "size": 16797,
+   "sha256": "28783e60022b5f729f15af6aa4a392788b2b2d0b644a4c905f3e97a6f3571c82"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/chalk_grainy.png",
+   "size": 3711,
+   "sha256": "a19abe23f653fc58f95083c6a1717f6c312b90e2303607df8f795a803deb9b50"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/charcoal.png",
+   "size": 16464,
+   "sha256": "cdfadb31e0b89e6c420abb3cf9541620a3c0daa84616ef32b7d3dbab29302abc"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/dry_bristle.png",
+   "size": 3579,
+   "sha256": "602859d4988f2c1fdba2253fb87c9c10a844f2dcdd3a38ac5a34bd087d197ade"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/dry_flat.png",
+   "size": 5957,
+   "sha256": "d5a8d229c0fd0a54451fa93f423b7db2c91b7fc553ed619842046f0f4a2cb1e4"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/fill_round.png",
+   "size": 3395,
+   "sha256": "b9eab33e50d88de9f1dcd0d2b6b73652cc1243b3e2805d58f2ed2a14f81318c0"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/ink_ballpen.png",
+   "size": 3425,
+   "sha256": "89f75b5ea9886b2b1b27b57dfee92c8da28c310de4a2bea733271006bc8a2caa"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/ink_brush_rough.png",
+   "size": 8387,
+   "sha256": "797a4aa2465606ab9f6794a8739f7cccd386a76a4fd8df5b95b0dfbf7a7c5211"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/ink_fineliner.png",
+   "size": 4389,
+   "sha256": "ccdbba18f29f6aa5d7dc06a83e014579a093d4f7f5806eed067ba7ecc43c58c6"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/ink_gpen.png",
+   "size": 4328,
+   "sha256": "39529352995d1e3be077fd9f503ec9266dca60ea5b6d0e9777edf6065a35542b"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/marker_alcohol.png",
+   "size": 6363,
+   "sha256": "8236e999511b91c0531201509614c7457b64c00eb55a3249623eee38102f7167"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/marker_chisel.png",
+   "size": 5769,
+   "sha256": "07218cc816807c51ef9097cda8df1a41215be3208009448613585025f0e63811"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/marker_dry.png",
+   "size": 3490,
+   "sha256": "f4f7e731f67107bbc7bddc38a9f415d9138421a8e598e3f1404f903929da0d7f"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/palette_knife.png",
+   "size": 5132,
+   "sha256": "6d5bbbfda48d077d4c32f4680f1ec84c1f5b7ff7f9ed9ccd0cfb7b4bcc4eb528"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/pastel.png",
+   "size": 16976,
+   "sha256": "472e5a047954144816f956aeac2927aef455d736b71636f05f8784cb10b5796d"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/pencil_2b.png",
+   "size": 12501,
+   "sha256": "4f7ee9ec8941f57c948723232f9742c521d9ce2ded47decae3cf5ce4267ce5ab"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/pencil_4b.png",
+   "size": 3537,
+   "sha256": "8e29d19cd7379f15747bfb728d89b33dd1ae87397cc397b852c29e27155404ff"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/pencil_hb.png",
+   "size": 10832,
+   "sha256": "71ccd9abc6ccf567a580a235e650926416e1ecc8a7dfc45ec2c6a4c1513ce7cc"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/pencil_tilted.png",
+   "size": 3438,
+   "sha256": "c7e012dabcc49c3592a5f4fd36932dc3b3351bafb97d91f8c87593b98bfe8442"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/spatter_brush.png",
+   "size": 19210,
+   "sha256": "018c4e24efd272e19a972e5b62cfee076f735634e2c41a80434ee2e4f6113c7f"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/sumi_e.png",
+   "size": 11189,
+   "sha256": "bce7689f746ec554349fa5d14b284e3dfca9a7c172bb8c7e87ace6032ddb58f9"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/swatch.png",
+   "size": 263391,
+   "sha256": "8a79dee164a5b80c552bf741849cc5e2e518a64941a94c9a1809ab49e8eca488"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/watercolor_fringe.png",
+   "size": 3904,
+   "sha256": "5872cec08d786964e784d0f621f9fe19808b70b31a6ca4432c51493962dd9960"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/watercolor_wash.png",
+   "size": 7101,
+   "sha256": "4ed155303fafc675c5e5ec464fd7b684b337b58051cf03d5b0698c69282fb920"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/wet_oil.png",
+   "size": 14252,
+   "sha256": "451bab24087a4a5ac887299542b4a93e69fd8d91b1d960f40dc70838f57467fd"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/brush/previews/wet_paint.png",
+   "size": 3537,
+   "sha256": "d21ccca7c11e714e7f7698c52236709085a02f7c4f5ed2a8d43697e433f43ea1"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/eval/prompts_20.jsonl",
+   "size": 2277,
+   "sha256": "24c95cf2f0d5441e98667750f29db049eb0d60167ae6ba5814099d5eb4828ea5"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/eval/style_rubric.json",
+   "size": 16276,
+   "sha256": "941e17a9ff4b11731f2323dedb8189791336e51fb41999a31eabf0dd12ef39ca"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/fonts/LICENSES.md",
+   "size": 4363,
+   "sha256": "c310660b8c55deeb4f246afaf010e6f000745c763cd970542c044e8e64d4221a"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/fonts/NotoSansSC-VF.ttf",
+   "size": 1120384,
+   "sha256": "ce2c3985a41fa7164cca59d8578208140767bfa8788766af6d90b43da6a9a268"
+  },
+  {
+   "path": "workspace/fourier-prompt/assets/fonts/OFL.txt",
+   "size": 4463,
+   "sha256": "fcac737e761ec63dbfbdce11030a1780161920d80315edba9c8beff1c2bac5a2"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/README.md",
+   "size": 10012,
+   "sha256": "dfc29cd112eba99e9e32982539acd19efd744303196517bc2d435ed7b336e64e"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/__init__.py",
+   "size": 3289,
+   "sha256": "882fceec5650edbe60286eef9280e8804ba07c367929177398cfd58436b5c9b1"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/nodes.py",
+   "size": 41250,
+   "sha256": "78edfa76c70c80e86518b2f786c7820262388ed421affdb4a9fe15065c751463"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/requirements.txt",
+   "size": 328,
+   "sha256": "aa5915c09e6c9cfc2898bbdfe5001c84885108373de7a44b7686da6ddc7a20cf"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/workflows/batch_fdraw.json",
+   "size": 3054,
+   "sha256": "6275449d4d23778dbcebf33d2f708aace2805a5d76f228c59d38f94bcb97f6b9"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/workflows/fdraw_to_image.json",
+   "size": 2883,
+   "sha256": "3eaaf3eee3a34c0cec1b4fae2895d26d705cdee0a003cf102cf34a32d0e40bc1"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/workflows/fdraw_to_video.json",
+   "size": 3194,
+   "sha256": "dbee222e2203e6604de923f1905825f59f3b4389f9d7de2be4ebc85ed048cb33"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP/workflows/fdsl_to_fdraw.json",
+   "size": 3834,
+   "sha256": "6cdcbc525115e2838c8373641bccd92bb1869181465225771a2452025139f8a7"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/README.md",
+   "size": 4906,
+   "sha256": "deb52f0a48b3d47bfb66fdb5459b4377ce4686117d8f82af529d81ea45afea1b"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/__init__.py",
+   "size": 1483,
+   "sha256": "3830a6c7271508759c33f1843d643a67b421958b999d560a3d531688d5f89da4"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/nodes.py",
+   "size": 40278,
+   "sha256": "5f9bce6f6c22fc001ec312cdf2606d3313ce05045a69ac17b4a441401389a26b"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/requirements.txt",
+   "size": 183,
+   "sha256": "73528dbc16ced4f32a671bc7b689b2a3b33f216f938da725d2574f38feaef5f9"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/workflows/FDP_T2I_Krea2_fdraw_API.json",
+   "size": 3403,
+   "sha256": "a6a47917ee1f92ecd8fe1d575a3bf078304f9d12675e55eed8bd010ff719a4bf"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/workflows/FDP_T2I_Krea2_fdraw_UI.json",
+   "size": 28945,
+   "sha256": "c507cb3884de49b82fdf7ee8dc5cbc6c84147f08ac93eda6020ce2690ba16ee6"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/workflows/FDP_T2I_Krea2_fdraw_preview.png",
+   "size": 120863,
+   "sha256": "685f8c18058e682206092695c6fda56a004c338afcd27a553869d2cb6afa5a8f"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/workflows/FDP_fdraw_to_fourier_video_API.json",
+   "size": 532,
+   "sha256": "a27f75ee9a664159b99829da702a670a390ecd940cce0013e30cd7723e31052e"
+  },
+  {
+   "path": "workspace/fourier-prompt/comfyui/ComfyUI-FDP-T2I/workflows/FDP_fdraw_to_fourier_video_UI.json",
+   "size": 4150,
+   "sha256": "4206477899f3e583bfef875be9c2aec407f0fd820fbf86e01cffdf8470c9a238"
+  },
+  {
+   "path": "workspace/fourier-prompt/config/warnings.json",
+   "size": 370,
+   "sha256": "0e272086b7496ce7aaec66299810970102a85575eac0d8517d8474979a0ddde7"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/__init__.py",
+   "size": 938,
+   "sha256": "7d5c4d46af88302f153394a035cb9ac7eed8f2b2b8de16735f98f90f06a916c8"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/__main__.py",
+   "size": 132,
+   "sha256": "2d2bb34ba7438891821b4cf03b32375ff7190f0169a14da0fe87ccd84170ec75"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/cli.py",
+   "size": 18250,
+   "sha256": "1e841aa54708ed1ea490eec0defcdce4e6b21590c51bd58f11d7e8758f2ca363"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/compile.py",
+   "size": 36320,
+   "sha256": "4aa76ff79ea9bfcc4a82e2884c12db3aa18afab18aec1c697f37f66e7a8676ea"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/fdraw.py",
+   "size": 51854,
+   "sha256": "a2b07587d091dbfd9406aa4222336f848d88f8a023bc27da372d4c185b7ccebf"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/fdraw_cli.py",
+   "size": 6944,
+   "sha256": "5b431af0c66b8f1660a5be53f0ed53acf532f8080dd0c47d0481ad648ebd1bc8"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/fdrender_cli.py",
+   "size": 16129,
+   "sha256": "408c0549d938f5844294d240edfc7971b22c5da6c4210ae9581c76540a1358c3"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/fdvideo.py",
+   "size": 28779,
+   "sha256": "3b7fb505986991ef707f574ef513264142984c152944cc53e466b52549519261"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/fdvideo_cli.py",
+   "size": 9098,
+   "sha256": "b241667018d89ad40e19cfdcb14901d4a61e7446cedcbd8e29df4c293cf747cc"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/fonts.py",
+   "size": 21148,
+   "sha256": "d8f5261c163f896006c1ab11d17b838cd828a48d3af51972264cc10b78ea65ca"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/generate_cli.py",
+   "size": 14783,
+   "sha256": "e780f7cd8a3af3512dca9538f980248d492469075dc9b4aafc8160c3423f64a0"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/generators.py",
+   "size": 12548,
+   "sha256": "ad1e910553eaf2b88110545e6f8fbcadd88ce224a4be1761c9dfa177101afe67"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/kra.py",
+   "size": 13520,
+   "sha256": "cd807a9028b262004305ca87a23e78660b49cb1e8bd6b8522460f30f19b373e4"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/layer_cli.py",
+   "size": 10573,
+   "sha256": "8d67cb9cd46872261553b832fcd0d271488d48bd9be37eec2f383e31a842ed95"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/layers.py",
+   "size": 27048,
+   "sha256": "4fc13d21c99ccdd91386c532b208225998dcba2c9466dc94870b3fd258221d74"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/legacy.py",
+   "size": 22924,
+   "sha256": "fd6452bb5b975e04448f4f60d9baffe6ed294a4eeda8a0d0322ee9bfabf1d4dd"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/mcp_server.py",
+   "size": 9541,
+   "sha256": "19afd6884f2f24f0263dfee673e60318e9057a322b58ab1ef00f3d4ec150b056"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/planner.py",
+   "size": 40404,
+   "sha256": "3b9c601b09268b23a8b34ecb8f5c425751c0cc978fb010ae68640c7fbda5b930"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/prompts.py",
+   "size": 17138,
+   "sha256": "dc118f4f5706767c79032a37a12245511eca92021ccfec58cd026d9b91656cad"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/psd.py",
+   "size": 17196,
+   "sha256": "8e9dc771456c57425581d176168302c0e1886aa280ccd452817f00302d242d5d"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/render_fast.py",
+   "size": 29909,
+   "sha256": "18d30f078919a643c33a98dc97f6cbfdaae777168496eb2253b09316bee93502"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/repair.py",
+   "size": 37268,
+   "sha256": "12d3070b910630fd8918d52e7e5262e19e66da9c516241e02e865ce20ed9afa4"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/schema.py",
+   "size": 37516,
+   "sha256": "f9302f66a4edd0019d1e437506b4d0a3f891f76195a557a73c8fedc753735b6f"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/svg_import.py",
+   "size": 116430,
+   "sha256": "9224a35ccc1fe8096cd4f36662d0d9777e52cc8fce9d5a95364a1c553ae6470e"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/svg_quality.py",
+   "size": 25603,
+   "sha256": "d072bac31459a79e4c7004077ec313e22e92167b89c49944b413f460f9a6034e"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/text.py",
+   "size": 25884,
+   "sha256": "480743e05d561345bc19ed038180b82258b0aaddae5b89f08f712dadf2d975dc"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/brush/__init__.py",
+   "size": 2884,
+   "sha256": "b5967c867375f089db580b4893594a4f1002b1b8fdc7b303c94fbb1b0bb237fa"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/brush/_build.py",
+   "size": 30417,
+   "sha256": "36ecdf4f3aa50917d644c7b63ed47f3c1b8f70c9fdd1bd970a4986cd9be413f2"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/brush/calib.py",
+   "size": 12731,
+   "sha256": "f535776a0bdd45308bd6a0cea011cbf9052c504a1880dd9a2b6a05b364f7de58"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/brush/catalog.py",
+   "size": 15994,
+   "sha256": "4f2e255c312102a801e6c58e346678bfe8c66a1dbb8a5bb592789861c846cdf4"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/brush/policy.py",
+   "size": 20479,
+   "sha256": "1cb90224587922eb4edcf368b2a03ac392f5736027287a3e1a4a8b5eb106c8f0"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/brush/swatch.py",
+   "size": 22290,
+   "sha256": "7203029ec582fb748887935f64bf8e16b0e991b8b4dde6ce83907c866d0a90ed"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/compat/__init__.py",
+   "size": 386,
+   "sha256": "d00b20fa5d848586d985cb25c58f0fc7d33dbd12b97c91b5b77018aae45f9bc0"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/compat/skill_api.py",
+   "size": 10881,
+   "sha256": "4f68156fc0c7f07c5e12faf87a75b4b789b18f6219b4764d18a47d434c1de3dc"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/llm/__init__.py",
+   "size": 2138,
+   "sha256": "c7a2f2f98f44e89e717f60d28ae9645550f80546317132bbcb690da76b0c3a36"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/llm/dataset.py",
+   "size": 21923,
+   "sha256": "f709c09056317da47398d909e5ce373a2c5d2dfa9b84f53f6a0d11cf2172e64e"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/llm/formatting.py",
+   "size": 14275,
+   "sha256": "e9e8ba74c245b4ab3b54f1556d201737616a1efb5a3ea0ee5cb8062b37371891"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/llm/infer.py",
+   "size": 17928,
+   "sha256": "906940f89c21406b03cdc0314a7dc6b6d353a31c090cf37dd84423d105754c4b"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/llm/intent.py",
+   "size": 41109,
+   "sha256": "55cc75621c8e8864c54c6d1b7a209a2b59ae3b93e3367a605500e25f592a410c"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/__init__.py",
+   "size": 7803,
+   "sha256": "537e2a3b73c94e3e4bd3081b1b1de4da1d7af88809c68ac33578cf9029ca2030"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/common.py",
+   "size": 25248,
+   "sha256": "1274584f66443140bb4e268e9983f3a1ff61e3133c664684b0d771d11cf6bff8"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/compare.py",
+   "size": 7337,
+   "sha256": "0731afb370900a9842a98df3faff0962e91a2e3a7c4917155366881870801301"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/frame.py",
+   "size": 3909,
+   "sha256": "c5762eda0dcbbe269ba633c8d6eebd3e1ac5e6a68bbc971c9a9cb07f4523086e"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/inspect.py",
+   "size": 4459,
+   "sha256": "23a3645383d47a97ac03cec804e07dced2b22ed1faae6c8ee782c11987f8ba65"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/list_brushes.py",
+   "size": 4443,
+   "sha256": "274ee5a92ddd5b2231c736b0cb61a3c8597989d024e0d0b2c0537bb9d8242243"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/preview.py",
+   "size": 4324,
+   "sha256": "6d4a98daa1a2d05bf2804f9201e57701f8a28b8d79b3069087b88544ec4604a6"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/render.py",
+   "size": 3780,
+   "sha256": "4b2a89c72c72a23371e14af633aa178e19733e50bb78e53aee5afd8be8fcd5ae"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/status.py",
+   "size": 5545,
+   "sha256": "6deaaf55c99da0e3fcf74acc06a13b05028affb65c49868344c52c8ab41dd54c"
+  },
+  {
+   "path": "workspace/fourier-prompt/fourier_prompt/tools/validate.py",
+   "size": 5861,
+   "sha256": "6aac4b7b6d69e2c31fe9dc5197a4730d4a6b645c9343807a7c07325deedd8a03"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-C.md",
+   "size": 8863,
+   "sha256": "947a1c5ebdb0476fd64c1bbf520cd3299cb1de7a965a27559da9e18d5f0d7088"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-D.md",
+   "size": 12143,
+   "sha256": "4a3a9d5e4231b478d11d4b51a250c4f3926762a6f9bd1b4ae646f8cff2c29121"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-E.md",
+   "size": 13316,
+   "sha256": "cfc3c4f596f746beccdec374c0d9c75f4638879c1f0693f8b2621d420c4836cc"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-F.md",
+   "size": 10272,
+   "sha256": "3cf2184db26a2102aa368c507912519cb381f53829c46689284c4a07ff559138"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-H.md",
+   "size": 12046,
+   "sha256": "98b52553cf508f1c1a87eaed162372b84f8bfbc03644a486f507ec476bc22fef"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-I.md",
+   "size": 14809,
+   "sha256": "9d144dc52b86cd1467d40c74edb6c132aa0248ac861d3be78734e3c20332a839"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-J.md",
+   "size": 12450,
+   "sha256": "08cee37b1967be9ba2a2355ccf00979f6216d13777fafc10f1b18cff0a4fe749"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-K.md",
+   "size": 11235,
+   "sha256": "c5bf76350593dcc0472f9d01983e99ffb36d7a4b005f5010708bb9c5cdef77b5"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-L.md",
+   "size": 13984,
+   "sha256": "ff6e35c582d8f4795a9fee4b7d6bf74e48ceb28d54da0c60f6ded4a79d885602"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-M.md",
+   "size": 9254,
+   "sha256": "892f38b5ac2e60a0fb24be0e12888b6fae78464b73bacc9e279ecd06bcdc1d67"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-N.md",
+   "size": 14832,
+   "sha256": "ff719de23cc1bb08ce3600a2076fe3aa5c6be1225dff09b860e3519560a530f8"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-O.md",
+   "size": 9200,
+   "sha256": "ea6b861b3dea8e8e85425dbe1a55dbb20c32fcdf90f209add999798964760e6a"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-P.md",
+   "size": 8453,
+   "sha256": "3867879454af58585acc0cd4df9d284502326e16d88948a713f76b750204423e"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-Q.md",
+   "size": 12065,
+   "sha256": "955a482eee2ff849fbd73e12f9cab204eb767a5a61a4125fe453e6098fb4063a"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-R.md",
+   "size": 10077,
+   "sha256": "d8be931d4704fafa5fe02928f6f3079f7c71b3f52523b709564fd98006151a82"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-R2.md",
+   "size": 11795,
+   "sha256": "6107aed5cb7f7a03ef30b839a4d726eaa18505940c0cca979894f93374fdd2c6"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-S.md",
+   "size": 11695,
+   "sha256": "9a9384b5bfc1325fc2fa3aeb6ceee1bb2526b785dc4c957e5cc52b49fe9c0d30"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-T.md",
+   "size": 15008,
+   "sha256": "709aa6b2e42b21a5482d6fdc961d9830e2809cc799d56c2080a7b51c12fcd3dd"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-U.md",
+   "size": 15636,
+   "sha256": "98446d418d9e627c92719863ab22239f8d67797fc0626c8506971a8e01aef077"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-V.md",
+   "size": 18913,
+   "sha256": "aae6864bb5eda83668acfe1efb28f78dfb73296a8b18b10d02929b4f01187f18"
+  },
+  {
+   "path": "workspace/fourier-prompt/reports/WP-W.md",
+   "size": 15110,
+   "sha256": "4e3140711ffb19118cbcb41c1568817016dbbf83cfedf3f6e7f4db00ad8e86c7"
+  },
+  {
+   "path": "workspace/fourier-prompt/scripts/demo.py",
+   "size": 17681,
+   "sha256": "5f3c10ad2c5bad582497bc5d2ecbd05a4a72f46cfe211cdf6b5ca18dae7c3280"
+  },
+  {
+   "path": "workspace/fourier-prompt/scripts/eval_planner.py",
+   "size": 13634,
+   "sha256": "7404741d335f9f6b00504142d54a89c697792adcaddd94ce828a35929848c002"
+  },
+  {
+   "path": "workspace/fourier-prompt/scripts/train_lora.py",
+   "size": 22430,
+   "sha256": "898fd69719f296352fb05cb01d5bec2a04798201e7a1cba7bfb25c044728a391"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/README.md",
+   "size": 6231,
+   "sha256": "cf0b2e424d182f101d34b2c69cc57fa624c5cb17997e03de201e257cb70b0121"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/SKILL.md",
+   "size": 16909,
+   "sha256": "15e9e8540b3e1994ce9fc08d7a34fb73c719645e919f2d7b374961df95003283"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/examples/README.md",
+   "size": 3048,
+   "sha256": "e4d2226b023fb0a73f234385a081cdc481ea01e75d6101dc285b3435f46a27e0"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/examples/simple_plan.json",
+   "size": 1244,
+   "sha256": "20908615e6c4d9722a89ed1004e4bb90f81b236770b5f2a67098117fbae6d76a"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/examples/text_plan.json",
+   "size": 1930,
+   "sha256": "83a9082b8d63f9b9daece956e2195140bafa5a923596d8036d2331e0b5f82698"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/templates/edit_prompt.md",
+   "size": 3541,
+   "sha256": "d727b61baa8252785916fd37e4264fe4b82cab2d49fac86f2565530d787908f5"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/templates/svg_drawing.md",
+   "size": 10239,
+   "sha256": "5d3a0126061ef8bd62e04c9122f40e6c35c2b0db504b9111aaeaa366cf429a2d"
+  },
+  {
+   "path": "workspace/fourier-prompt/skill/templates/text_to_drawing.md",
+   "size": 6407,
+   "sha256": "8e0dd4fa5235076132fef2b4692ac9fefe58b72bfb812d424df3432ce6f73a5b"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/brush/test_calib.py",
+   "size": 7585,
+   "sha256": "c94b7c88805409125b7623a43b787ce1527ee7c4abb313733670a4380cb049bf"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/brush/test_catalog.py",
+   "size": 7477,
+   "sha256": "07f58bbef876d1bb279d96cb25100027e233354f966ef9c32c738ac1ca546e33"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/brush/test_policy.py",
+   "size": 10130,
+   "sha256": "d914ec49a0ad6fa18583f19a4a66d5b000cd203d5b944c48316f1a442eaa7a43"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/brush/test_swatch.py",
+   "size": 4933,
+   "sha256": "81eba1b386dbd5c8d3a8fd9e13ab2679bf9cdf0b114735b675e0f4182ba85c1f"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/comfyui/_fixtures.py",
+   "size": 6179,
+   "sha256": "5affa2c816db7838c8872f093e9d13d9fb36b010c62c39ba158ed4e0cfc41a1e"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/comfyui/test_nodes.py",
+   "size": 11367,
+   "sha256": "e7a0584a778a04482a02b598e8331adbc946636e0ead4c8c60c3bb087877b0a3"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/comfyui/test_package.py",
+   "size": 7489,
+   "sha256": "bac33fb821851ba0b72cc528899e1b2046760d7f4a456e68f082554021f6ab3f"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/comfyui/test_workflows.py",
+   "size": 7717,
+   "sha256": "d158ec306d7d388e68f189d8456359a220b5d52f5161ca9b7090e00194c43233"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/core/_fixtures.py",
+   "size": 2314,
+   "sha256": "be5ac9ea3b5f92e25ed1045fa3bedfa73bf231c4536c82483a2b86e9edc63c4f"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/core/test_cli.py",
+   "size": 6522,
+   "sha256": "9559ca57e2ee5c89885f50c7ca82336ede96fcedbe26dfe4657d48eb4e702b38"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/core/test_repair.py",
+   "size": 9786,
+   "sha256": "d3f88b43dd0e3f4f42cd995eac69c8eb222fe38b74ad8f283093e2dec63df8a1"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/core/test_schema.py",
+   "size": 10007,
+   "sha256": "76168261875ec13e79a88dc65a32de15ecbe510a79e36c92dceb17ec4b2d4a91"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/fdraw/_fixtures.py",
+   "size": 4492,
+   "sha256": "1102acd2cea0a8f99cb25c2425c5bf1e7d956de1ef48a00d8e9d2c5cb3160aa7"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/fdraw/test_cli.py",
+   "size": 4964,
+   "sha256": "608bdad95b76192b7f822574901606429d39c6ef3e46a1fe310f856abc229620"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/fdraw/test_container.py",
+   "size": 12853,
+   "sha256": "21355835d9ae919a9f86eefac9d329e5021da8a59ae879da3476bd3cbd7bb809"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/fdraw/test_render.py",
+   "size": 1965,
+   "sha256": "ce998e344daee297b8232cf6986d2e8e9675983df3b051bcff5a0246e563271e"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/fdraw/test_security.py",
+   "size": 10571,
+   "sha256": "23630210f2f610cb459b2a840a013da7949c552b92a5ebe66f087a82dd95b8ae"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/integration/_fixtures.py",
+   "size": 5141,
+   "sha256": "6ff404913556c258f1fa68ac4ecbcbbe4effee25c9dfab3adb485a950f3ee9ff"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/integration/test_cli.py",
+   "size": 6951,
+   "sha256": "7df587f89b6f9912cefa0acdc6d45ae6de90369ee91283c474fe4538ee5cfff4"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/integration/test_compile.py",
+   "size": 7857,
+   "sha256": "89bc1c8d4880f817ebf6c0458215c146a5a6b93c2e4c9554085d1355827b4cc5"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/integration/test_e2e.py",
+   "size": 5218,
+   "sha256": "ca07d3abe04231f23583e62cdec1916361e53c2b94b29ed3e3af1c63c3316bba"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/integration/test_generators.py",
+   "size": 5835,
+   "sha256": "88744c71e714c9dadfa50aef522a504dda344b0cbc37d22f35f86f4d802d9fcf"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/integration/test_legacy.py",
+   "size": 6656,
+   "sha256": "e5c1f3b18a977dbe0e24c7f582b17c7e946dc47626405463e11e8a33596cbfe3"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/layers/_fixtures.py",
+   "size": 6418,
+   "sha256": "6f00142bab86dbf38afd6060bc6921b4e29252ebd453247f92b5307273735651"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/layers/test_cli.py",
+   "size": 4855,
+   "sha256": "fbdfdb7966ff071b50de1f5c9592f491d4aaf3b4488a0fbb4b1c9535853a7288"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/layers/test_kra.py",
+   "size": 7865,
+   "sha256": "b9924bf91bda1635b20d79e3427a4d3ff4a14daeb0546cca1c659f28bc3dd064"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/layers/test_layers.py",
+   "size": 8742,
+   "sha256": "7175195b1605d8e7c7b0910ddbdd282a500dad03200a5d1f897b08d5d6db2ffe"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/layers/test_psd.py",
+   "size": 7331,
+   "sha256": "f5fef0491cd4b4f9c38505994bed324df02b2c9b101e37b9c56fc43e20afc2f9"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/llm/llm_fixtures.py",
+   "size": 4428,
+   "sha256": "1c80e0fe48c5338e509cd1a34714766ef61399c5a44b43a3f8a16b05a524f8a1"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/llm/test_dataset.py",
+   "size": 7429,
+   "sha256": "e7d74d9a63be73ef0930a64f5f294b85dab64623073f5f91b7e0895174b16e6c"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/llm/test_eval_planner.py",
+   "size": 4194,
+   "sha256": "4d03ecef6def746c196f57714aaf074413e72734d3727e2d197e1aa61a25749f"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/llm/test_formatting.py",
+   "size": 6292,
+   "sha256": "1c1c75647ff1f790992beca47ffea3776288a548a9a42ce40f49f4f10d1fc8b2"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/llm/test_infer.py",
+   "size": 6146,
+   "sha256": "d86a71a5e0a3a498a53e0fa578c3c629dd701ffd530e60ad4622ddd148164ba4"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/llm/test_intent.py",
+   "size": 20005,
+   "sha256": "be70629aabdf23e69c9ae34c586a17c885c483607c04798c90b63c10d0f8c55c"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/llm/test_train_script.py",
+   "size": 5139,
+   "sha256": "9f4cc5464780d32a0e5415ecf7caf9df8e6d3901174a235c31b1cd4f36a9d219"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/planner/test_generate_cli.py",
+   "size": 5899,
+   "sha256": "2796013e492c92a5910b917ba1267534669a280af22cfb7dcece73a1ae0f2929"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/planner/test_planner.py",
+   "size": 13572,
+   "sha256": "8cd977a490c278236b68be68530b805ce8eaae81d05fbac4c1e3227ce2187912"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/render/_fixtures.py",
+   "size": 3084,
+   "sha256": "e6bd3ad7efe7a9c993048d543685f1248b26164d9e544503122beb0ed379aa90"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/render/parity_bench.py",
+   "size": 3771,
+   "sha256": "976b0e8c43adf505af54f78eb6203465caeac1f8807acc3dbf6fdd33837d9ef6"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/render/test_cli.py",
+   "size": 7183,
+   "sha256": "2311a549d4f3d497007789736e13157f7d6b2dd705539866e942c7240c6a6a02"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/render/test_render_fast.py",
+   "size": 10750,
+   "sha256": "e86dba8aedfa03c35a5fc5ca7236e26111bfc7c66c7c5c720b0c20a967620e8e"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/render/fixtures/hand_rings.plan.json",
+   "size": 1021,
+   "sha256": "1ce4092cfaad51e32b3395906b4ef3e9c2bf7276caf19f53a714a5eaa4cc8659"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/render/fixtures/hand_waves.plan.json",
+   "size": 1001,
+   "sha256": "0cbd9b37542039581d28139f45d227ec458d060352865ff6282830c9ec68be65"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/skill/_support.py",
+   "size": 1490,
+   "sha256": "f373e7a96b29c1efe7530c217717565663c79baaee519a638cdf0909e39a98f9"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/skill/test_demo.py",
+   "size": 6000,
+   "sha256": "ac71b003d3a2d4473d984db4e3f90178daff9be17f32773f70d527fb75e58187"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/skill/test_examples.py",
+   "size": 2933,
+   "sha256": "4b5656032ef49c0e938b9345837632dd3ab17a8a00138cb2960fd9d799bbdbe5"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/skill/test_skill_docs.py",
+   "size": 4885,
+   "sha256": "1346780d90cfdeac41523c09d276e9dbbde001b7352d6e326a99075f8e1a0b59"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/_fixtures.py",
+   "size": 1980,
+   "sha256": "cf148875537812377561f8c9c17ced30060206208b277ca61394c16e2a3eb612"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_colors.py",
+   "size": 4045,
+   "sha256": "c49b7f199620f6e0094ce1f6daf93e7c81d10aa7380fe78953417fe31ad9c707"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_degrade.py",
+   "size": 7228,
+   "sha256": "2246fd43b093daa2969d9f99da523e8d25e809813d95545d5f4d8673baa6a476"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_determinism.py",
+   "size": 2329,
+   "sha256": "ed9acc0c4420d296ba289fbd08238fd17563f6796366949174cbc41d23b1a99a"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_fill_holes.py",
+   "size": 3616,
+   "sha256": "a9c729bb32a5193df98b981b140967c52e2c003d8b3821664c599fd9e151eca4"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_limits.py",
+   "size": 4739,
+   "sha256": "77c359e3735cec4712cea8e3065c892a6aeb45a04d97178cc3fc0f6d5509a315"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_paths.py",
+   "size": 3242,
+   "sha256": "3875a51e397a9998c74ffe688ceaf72c4859c2f7ea7fdf2b4676255ebf5d73a0"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_quality.py",
+   "size": 8644,
+   "sha256": "ace10ef7aa5f3d024278b4241b63fadb3b32aff2b1a30fc38fcbbb8293398b6e"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_quality_gate.py",
+   "size": 12090,
+   "sha256": "71358fea775e5c66604fd0781df768e0be19c532e5ff6c3fd534c59da85943f3"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_real.py",
+   "size": 2588,
+   "sha256": "7492b286097a8769d09001bf21a6e5be92f0ba6b29d9a15dc5ed4cabcbf288a7"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_render.py",
+   "size": 4351,
+   "sha256": "3dd0bf6f25818c4bcf5c74bc8933b5f36d169da12c1df09e02a10c2b7a334cf2"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_shapes.py",
+   "size": 3623,
+   "sha256": "de3ce4ddafb6b2b9d909ed60904bd2f0c5877198f6ac25d74a2ab86c02669f87"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_stroke.py",
+   "size": 3262,
+   "sha256": "25ad43e6fa9648c3fd4c2052425f691d1711380708c59d1d2e121ca5f20fde26"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/svg/test_transforms.py",
+   "size": 3898,
+   "sha256": "2d1c160441a10e0bd7d3f0b1ffab0adf902358b23a92a185337a29d7c0bca1c0"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/_fixtures.py",
+   "size": 2931,
+   "sha256": "2e900367d816644733c07a65841f2527228108628dee85ef9f776005084e3862"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/test_bake.py",
+   "size": 4114,
+   "sha256": "d5f3726d2e5e401cb1d9d1fc2fd453e9645f81032fdbe65fec8db42c29e9ba8d"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/test_compile_text.py",
+   "size": 6190,
+   "sha256": "c416386c50e385aab963e1142b1c94fc498bda35d05adc46c11b2cf2674914fa"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/test_contours.py",
+   "size": 3226,
+   "sha256": "c26c6379b70247e743dd5691c2ce42c38f263c72e609d26a84ca8274dfd99f82"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/test_fonts.py",
+   "size": 5631,
+   "sha256": "16b816e9cdd1587dbc111363e046765b43755bec03f4566013d59c05134bc129"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/test_layout.py",
+   "size": 3827,
+   "sha256": "ae44ac6cba3c2db711474223d50c547daa9116d814fd1627f5d46da019d61f41"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/test_render_text.py",
+   "size": 6224,
+   "sha256": "40ac609f61efaebaca758eef288d890775a39f1a3dd9cd4ae24986fb7184c899"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/fixtures/text_plan.json",
+   "size": 1377,
+   "sha256": "cbd45dcbd1ec29196c777a3452bbd015b0bca035b6348c40600e261f9fd9bfe1"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/fixtures/text_sample_256.png",
+   "size": 2338,
+   "sha256": "e610a50f0e0d1ecfedc71bffee279bf10ca9c8bc50644ed5c7a020ff4d35cf16"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/text/fixtures/text_sample_512.png",
+   "size": 5042,
+   "sha256": "d6b988be362a9d33f188581985414ca5d37cc8c42adb60a955d4bbccb997dee5"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/tools/_fixtures.py",
+   "size": 4120,
+   "sha256": "5f9137db8d8938ee109008c2d85b5d2b86e85148f052c61cc51c1cd62bbbf1c7"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/tools/test_mcp.py",
+   "size": 9787,
+   "sha256": "8b92758913402253fecdb57bcf9f7274e7cc38da6367b5fea70f944b769effde"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/tools/test_tools.py",
+   "size": 17297,
+   "sha256": "81f533900e017368b2aa8349d02b570070d43cbbf88a351942ac27bbef01c932"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/video/_fixtures.py",
+   "size": 3949,
+   "sha256": "055ececc648c7b86d348004df2903b063c43e1df2211ea0c8c55ab4a8c97fc0e"
+  },
+  {
+   "path": "workspace/fourier-prompt/tests/video/test_fdvideo.py",
+   "size": 20123,
+   "sha256": "368a2d4011a2c8786cd16906f15fd3cb89f2c344d8134853be01167a6607253a"
+  },
+  {
+   "path": "workspace/poc/t2i/fdraw_fourier_video.py",
+   "size": 13437,
+   "sha256": "0a98a0efca9cf0856db39f711f5201cefc2d3ed395e6b2333513d035228d6bf8"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/SKILL.md",
+   "size": 98157,
+   "sha256": "5762d949f28ac94b0142fe9373d5fb78b22b2264ff82832435f0f5f79fc1c30a"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/assets/compare_sheet.png",
+   "size": 5089704,
+   "sha256": "b4f1ade841ba8eb713e6041f505c4e97178878ac4eecc06ab952087c7fa95ae7"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/assets/preview_lean_fix_R2048.png",
+   "size": 2629477,
+   "sha256": "808c3c8f0dce8e3e3143075f73215d637718555711c058fe6e428a662d1f2957"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/references/ALGORITHM.md",
+   "size": 30739,
+   "sha256": "e652fce3dfe33773390fcaa35875e4e4766770a40364e6dd2e300e5606bea1ad"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/references/METRICS.md",
+   "size": 1700,
+   "sha256": "eab96eeac295837810aea8061ec73f20fc9466910032bf8ca4cb07d4cd189598"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/references/PIPELINE.md",
+   "size": 42326,
+   "sha256": "e83d151a7f70442c51b3a57032264526721676ee2161357b480a374c5bd14b1e"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/references/RESULTS.md",
+   "size": 5016,
+   "sha256": "fc91662e9511f7c670b231e474a2b86db3108c9697bf60f9de2c167e69f7203f"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/references/ROUNDS_AUDIT.md",
+   "size": 567,
+   "sha256": "82079079f70a2ab997a295eaab45893e644a6201bc1e619f62a0906384700ddb"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/references/SINGLE_CURVE_TRIAL.md",
+   "size": 1624,
+   "sha256": "7efe2cf4b3ee779f6dfdc2846f9e950d49d8b217b7237a2aba0bd8f5c53f8a2b"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/references/VERIFICATION.md",
+   "size": 2538,
+   "sha256": "2b7af4c36c24a59968ceeb99f16529d1c78a1ea350ab76a970bddb95a6e767b9"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/analyze_input.py",
+   "size": 3854,
+   "sha256": "da7c5e83b088bdf75bed036a28e1b6e72366d6cd893882dc4a9c8ee1c9de2469"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/audit_rounds.py",
+   "size": 4838,
+   "sha256": "31b9a3eba1e93afdc498a33e6389623681802e44e4a62794c0c2a05909b6da51"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/base_orientation_fix.py",
+   "size": 6846,
+   "sha256": "7bb30c3e49a04d499e0f4b749de2b7b10d56e1c5d8782fa11d2691102e88a301"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/build_strokes_fbs.py",
+   "size": 3199,
+   "sha256": "ef03f95c7833604bb982350b402777354ae9995e2587a18ff025a40d1ded1f13"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/calibrate_color.py",
+   "size": 6543,
+   "sha256": "ba590867586f1e4ddfc0bc31c3de1d2e79a10a6a93871556f6a9f7a2bceae7a3"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/clean_strokes.py",
+   "size": 5447,
+   "sha256": "7cb2a7f057e7139896e3a19a2ce0090c8488483cd2bb582dc763705239cc2265"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/coarse_to_fine.py",
+   "size": 7549,
+   "sha256": "9e3857bd74fa3bc5ee570049379f107e177cd9945ba6f0db4788826a9ccc8d05"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/compile_best.py",
+   "size": 9725,
+   "sha256": "5995e62f2dd15d457d42366efabd4f2d4e69b8d6e62eb089e8bde88889076777"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/detail_aware_flow.py",
+   "size": 10384,
+   "sha256": "15c242ce5e24311b6d2dcdc39134fed7a88ed53aaee9d2d65a0c86ccf391f267"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/fdraw_to_video.py",
+   "size": 3983,
+   "sha256": "735acf71d8fd94b42bb9052f49279ae6351be8d42925777da7ff4fe12a572633"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/flow_tile_base.py",
+   "size": 7047,
+   "sha256": "fbd45cef5271c6b0d4d66487c77e6abc12ae162a7ddaff6e66e4d58e0b978a3f"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/gpu_render.py",
+   "size": 27850,
+   "sha256": "b55a1b790c864b268d514e7b9430983e5c56bae82dbaa251ed4fbb9b5d0c5f6e"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/gradient_swath.py",
+   "size": 21184,
+   "sha256": "051e9b0b78621c8972dfac5c42ed84548c23c400e72bf5b321074818ef460153"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/hatch_gen.py",
+   "size": 23786,
+   "sha256": "b68e04a54bd45567eada6a5635577fd4fa753ffca5e6df7fed1a9e51b36e788c"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/human_workflow.py",
+   "size": 8468,
+   "sha256": "c2f1c5ee54ed5ca856508b7ae07c6a10e3c682202223a8e23ea3aa3065c4a552"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/hybrid_gen.py",
+   "size": 16773,
+   "sha256": "0802cb9e84951fb3449a1d943431b8c19987cd60689214dc11e36a7b753baf76"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/layered_base.py",
+   "size": 111440,
+   "sha256": "da9c368eb36e8e7ad4758d6fac5d6b8637405fb81c4ed3ee67ee9baef6664e35"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/make_progress.py",
+   "size": 3018,
+   "sha256": "05e79364c67d93c0f20413c6219174ff609e3f963d5753bd2a0f4b93c784871e"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/make_video_circles.py",
+   "size": 2509,
+   "sha256": "f440b250de4924c923006d7c718e310c495fc0c8d3ece7b569bb48b0ea1b87b9"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/opaque_base.py",
+   "size": 9634,
+   "sha256": "2131c36a6fb9bb07e822d6f233b7f9bcdbacc63c1f644581316e6fb7af5948fa"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/pack_fdraw.py",
+   "size": 2499,
+   "sha256": "a3bf102679af1a782d513251c9ee301d7339811602de3a85244a8784000edd41"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/pipeline.py",
+   "size": 7995,
+   "sha256": "45420200e98f5974d64b68d37aede62a41d881dcc91bc31d7935f68ed97bbb75"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/prune_strokes.py",
+   "size": 4685,
+   "sha256": "d479b906da52f3a006f978c1f8a61e3b84f4596ff14c28f9ad64a01726be1123"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/refine_best.py",
+   "size": 6565,
+   "sha256": "eeb01227745a13807ceb38f796410d384148cbc8b056a8dff6a6cef74ba38bc2"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/refine_detail.py",
+   "size": 22170,
+   "sha256": "f6231f42657e317869bc222494bafe27c2dceaab2d02015903eaa69cc53913e9"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/refine_visual.py",
+   "size": 7200,
+   "sha256": "d381bea617fe83fd31ce6efe83f4f2c1cf81cdeffeff47c8e0e95113187f0452"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/run_train.py",
+   "size": 20517,
+   "sha256": "3748a6289ce031c8eddbe84ef1aeaa459817ba579e7494ac61747dbfb5bf17af"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/soft_atmosphere.py",
+   "size": 5714,
+   "sha256": "797cf94da87f98098cb047ac8f9f75d35c93c2d9454c73df4cd7e159ef6fd940"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/soft_glaze.py",
+   "size": 5292,
+   "sha256": "bd8a32630d23199faaa3ee495d95c9067359c280e1742a833c151dd57a2ee045"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/sparse_precision.py",
+   "size": 7627,
+   "sha256": "215ee8fcb90db3cf5daac1211cd861cb19cdd44082ee18becedd1897d5deb3af"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/thick_dabs.py",
+   "size": 6008,
+   "sha256": "231c38b29316aeb96eb1c069d013fd6d5db836924821603967595cc2c743d452"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/scripts/verify_delivery.py",
+   "size": 6776,
+   "sha256": "f8d27e128f747cd932b4a8daacfefe28f0ac7ba0668afbe93bdbafe5e105d29d"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/README.md",
+   "size": 31677,
+   "sha256": "bf3601fcc02fc2b5dca79a5adf4ca595d8a8a786f2185e1af3d2bcf0732e1643"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/__init__.py",
+   "size": 79,
+   "sha256": "569c6152003d5163e932289f897b7ba330023cdbec079e9356759583de408a7d"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/_support.py",
+   "size": 25587,
+   "sha256": "ed38fefcab2caa16a49a0337eb124ddce6fd75ff3ad0bfa35db2cf64b66c50de"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_base_coat.py",
+   "size": 20115,
+   "sha256": "a7209e5784b15783539b0a33e83ddfbb7e7d67e2c7c1cf1e21cd38fc3d95a1f0"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_contracts.py",
+   "size": 32462,
+   "sha256": "ce7b6e4acb52c5e4619d38c945c54e6adb191013a32693cdcc2a17a1c727bc74"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_gpu_render.py",
+   "size": 28855,
+   "sha256": "627ad25f74706f96f4572bdfc1a1cfc31ced5e8974bb4ec9fbe2cdc2160b806b"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_gradient_safety.py",
+   "size": 25817,
+   "sha256": "fd8fac9c52d03d468f2d660946ffdad08f3a36a318c7ceba1309cd07910c1635"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_human_paint.py",
+   "size": 20659,
+   "sha256": "be3bbc024eafa30153f1d448f059a3218017ca177282c89d0cc3ca80ac37bee8"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_layered_base.py",
+   "size": 27220,
+   "sha256": "812a982ca8a2723b5edc8b0e8cb556a5bd1af3b8c2905daf5a9eda5e8449a08b"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_silhouette.py",
+   "size": 20204,
+   "sha256": "68965317c9c1e05997416e5a8c92abac25d8f2d89a97708742d31e0207808fb1"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_slow_real_image.py",
+   "size": 9876,
+   "sha256": "0f2c0cf8e0b0dca8aa1697d383672678e3277e8041811bb90fd1d890f194a2f0"
+  },
+  {
+   "path": "workspace/skills/fourier-multistroke-training/tests/test_texture_flat.py",
+   "size": 19650,
+   "sha256": "02952f658e6b23a87c28a7904cb79a78f1e694bf03dd5e9d12904d9e7aa02157"
+  }
+ ]
+}

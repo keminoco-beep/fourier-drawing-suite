@@ -1,0 +1,187 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\layered_base.py --input <workspace>\work\release_test\fixtures\input_shapes_320x256.png --outdir <workspace>\work\release_test\tmp\chain\human --work-res 256
+cwd=<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts
+rc=0 seconds=1.02
+--- stdout ---
+[stage] region maps / config resolved  t=0.1s
+[layered] human-paint: flow=on paint_order=region regions=12 base=toned/wash
+[layered] pass1 base coat (toned/wash): 36 strokes color=[1.0, 1.0, 1.0] coverage=0.99029 overlap=0.04594
+[stage] pass1 ground done  t=0.1s
+[layered] pass2 local cover: 31 mask=4971
+[stage] pass2 done  t=0.2s
+[layered] pass3 local cover: 170 mask=7975
+[stage] pass3 done  t=0.2s
+[stage] pass4 done  t=0.2s
+[stage] thick dabs done  t=0.2s
+[stage] detail + texture-flat done  t=0.2s
+[layered] silhouette: on area_frac=0.8704 fallback=False clipped=28 trimmed=21 dropped=122 overshoot 9.717px -> 0.0px
+[stage] silhouette clipping done  t=0.3s
+[stage] hard cap done  t=0.3s
+[layered] paint order region: y_spearman=-0.2982 adjacent_median=16.16px region_run_frac=0.6579
+[layered] flow_orientation_frac=0.7595 axis_aligned_frac=0.2405
+[stage] paint order + final render done  t=0.3s
+{
+  "input": "<path> skill\\work\\release_test\\fixtures\\input_shapes_320x256.png",
+  "work_res": 256,
+  "size": [
+    256,
+    205
+  ],
+  "strokes_out": 115,
+  "max_curves": 100000,
+  "capped_100k": false,
+  "cap_adjustments": null,
+  "pre_cap_strokes": 115,
+  "pass1_full": 36,
+  "pass2_local": 31,
+  "pass3_local": 170,
+  "pass4_local": 0,
+  "detail": 0,
+  "white_px_in_fg": 4076,
+  "base_color_mode": "toned",
+  "base_blur": 4.0,
+  "base_gradient": false,
+  "base_width_factor": 1.5,
+  "base_length_factor": 2.0,
+  "base_coat_pattern": "wash",
+  "base_metrics_mode": "raster",
+  "base_metrics_scale": 1.0,
+  "base_color": [
+    1.0,
+    1.0,
+    1.0
+  ],
+  "base_coat_angle": -22.0,
+  "base_coat_spacing": null,
+  "base_coat_width": 8.0,
+  "base_coat_width_factor": null,
+  "base_coat_width_factor_requested": 1.04,
+  "base_coat_jitter": 0.5,
+  "base_coverage": 0.99029,
+  "base_overlap_frac": 0.04594,
+  "base_overlap_canvas_frac": 0.011071,
+  "base_coverage_analytic": null,
+  "base_overlap_analytic": null,
+  "base_overlap_px_over2": 0,
+  "base_max_count": 2,
+  "base_color_std": 0.0,
+  "base_gradient_strokes": 0,
+  "base_strokes": 36,
+  "wash_angle": -22.0,
+  "flow_strokes": true,
+  "flow_orientation_frac": 0.7595,
+  "axis_aligned_frac": 0.2405,
+  "direction_strokes": 79,
+  "paint_order": "region",
+  "paint_order_effective": "region",
+  "order_y_spearman": -0.2982,
+  "order_adjacent_median_px": 16.16,
+  "order_region_run_frac": 0.6579,
+  "region_count_used": 12,
+  "clip_to_fg": true,
+  "silhouette_mode": "auto",
+  "silhouette_on": true,
+  "silhouette_area_frac": 0.87044,
+  "silhouette_fallback": false,
+  "silhouette_shrink_px": 1.0,
+  "silhouette_margin_px": 0.25,
+  "silhouette_min_width_px": 0.6,
+  "silhouette_feather_px": 0.8,
+  "silhouette_clipped_strokes": 28,
+  "silhouette_points_trimmed": 21,
+  "silhouette_dropped_strokes": 122,
+  "silhouette_overshoot_before_max_px": 9.717,
+  "silhouette_overshoot_after_max_px": 0.0,
+  "white_background_frac": 0.80381,
+  "fill_count": 0,
+  "thick_dabs": 0,
+  "thick_dab_strokes": 0,
+  "texture_flat_strokes": 0,
+  "texture_flat_candidates": null,
+  "texture_flat_params": null,
+  "psnr": 17.3338,
+  "ssim": 0.86095,
+  "gradient_gate_params": {
+    "gate": "on",
+    "max_delta": 0.12,
+    "edge_delta": 0.1,
+    "edge_pct": 100.0
+  },
+  "gradient_candidates": 0,
+  "gradient_strokes": 0,
+  "gradient_rejected_delta": 0,
+  "gradient_rejected_edge": 0,
+  "gradient_rejected_edge_color": 0,
+  "gradient_rejected_edge_grad": 0,
+  "gradient_rejected_oob": 0,
+  "gradient_edge_frac": 0.0,
+  "gradient_mean_delta": 0.0,
+  "gradient_max_delta": 0.0,
+  "gradient_mean_step": 0.0,
+  "gradient_max_step": 0.0,
+  "gradient_accepted_mean_delta": 0.0,
+  "gradient_rejected_delta_frac": 0.0,
+  "gradient_rejected_edge_frac": 0.0,
+  "gradient_rejected_oob_frac": 0.0,
+  "gradient_by_pass": {
+    "base_pass2": {
+      "candidates": 0,
+      "accepted": 0,
+      "rejected_delta": 0,
+      "rejected_edge": 0,
+      "rejected_edge_color": 0,
+      "rejected_edge_grad": 0,
+      "rejected_oob": 0,
+      "mean_delta": 0.0,
+      "max_delta": 0.0,
+      "mean_step": 0.0,
+      "max_step": 0.0,
+      "accepted_mean_delta": 0.0,
+      "rejected_delta_frac": 0.0,
+      "rejected_edge_frac": 0.0,
+      "rejected_oob_frac": 0.0
+    },
+    "base_pass3": {
+      "candidates": 0,
+      "accepted": 0,
+      "rejected_delta": 0,
+      "rejected_edge": 0,
+      "rejected_edge_color": 0,
+      "rejected_edge_grad": 0,
+      "rejected_oob": 0,
+      "mean_delta": 0.0,
+      "max_delta": 0.0,
+      "mean_step": 0.0,
+      "max_step": 0.0,
+      "accepted_mean_delta": 0.0,
+      "rejected_delta_frac": 0.0,
+      "rejected_edge_frac": 0.0,
+      "rejected_oob_frac": 0.0
+    },
+    "base_pass4": {
+      "candidates": 0,
+      "accepted": 0,
+      "rejected_delta": 0,
+      "rejected_edge": 0,
+      "rejected_edge_color": 0,
+      "rejected_edge_grad": 0,
+      "rejected_oob": 0,
+      "mean_delta": 0.0,
+      "max_delta": 0.0,
+      "mean_step": 0.0,
+      "max_step": 0.0,
+      "accepted_mean_delta": 0.0,
+      "rejected_delta_frac": 0.0,
+      "rejected_edge_frac": 0.0,
+      "rejected_oob_frac": 0.0
+    }
+  },
+  "stray_color_px": 2839,
+  "stray_color_frac": 0.275738,
+  "stray_color_thr": 0.25,
+  "png": "<path> skill\\work\\release_test\\tmp\\chain\\human\\layered_base_R256.png",
+  "strokes": "<path> skill\\work\\release_test\\tmp\\chain\\human\\layered_base_strokes.json",
+  "seconds": 0.3
+}
+
+--- stderr ---
+

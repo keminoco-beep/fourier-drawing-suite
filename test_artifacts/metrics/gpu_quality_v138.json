@@ -1,0 +1,145 @@
+{
+ "quality": {
+  "1024": {
+   "gpu_png": "<workspace>\\work\\gpu_render\\gpu_R1024.png",
+   "refs": [
+    {
+     "ref": "<workspace>\\work\\gpu_render\\cpu_exact_R1024.png",
+     "psnr": 40.219,
+     "ssim": 0.99566,
+     "mean_abs": 0.00231,
+     "max_abs": 0.298,
+     "pct_gt_2_255": 8.8389,
+     "pct_gt_8_255": 2.0219
+    },
+    {
+     "ref": "<workspace>\\work\\verify7\\ref\\cpu_exact_R1024.png",
+     "psnr": 40.219,
+     "ssim": 0.99566,
+     "mean_abs": 0.00231,
+     "max_abs": 0.298,
+     "pct_gt_2_255": 8.8389,
+     "pct_gt_8_255": 2.0219
+    },
+    {
+     "ref": "<workspace>\\work\\gpu_render_eval\\cpu_fdrender_R1024_self.png",
+     "psnr": 40.219,
+     "ssim": 0.99566,
+     "mean_abs": 0.00231,
+     "max_abs": 0.298,
+     "pct_gt_2_255": 8.8389,
+     "pct_gt_8_255": 2.0219
+    }
+   ]
+  },
+  "2048": {
+   "gpu_png": "<workspace>\\work\\gpu_render\\gpu_R2048.png",
+   "refs": [
+    {
+     "ref": "<workspace>\\work\\gpu_render_eval\\cpu_proxy_R2048_from4096.png",
+     "psnr": 40.542,
+     "ssim": 0.99458,
+     "mean_abs": 0.00231,
+     "max_abs": 0.4157,
+     "pct_gt_2_255": 9.0909,
+     "pct_gt_8_255": 1.6579
+    }
+   ]
+  },
+  "4096": {
+   "gpu_png": "<workspace>\\work\\gpu_render\\gpu_R4096.png",
+   "refs": [
+    {
+     "ref": "<comfyui>\\output\\fdp_t2i_runs\\20261024_211629_i2i_06ac1c\\fdraw_R4096_exact.png",
+     "psnr": 44.109,
+     "ssim": 0.99724,
+     "mean_abs": 0.0008,
+     "max_abs": 0.3569,
+     "pct_gt_2_255": 2.8113,
+     "pct_gt_8_255": 0.7512
+    }
+   ]
+  }
+ },
+ "crops": [],
+ "timing": {
+  "1024": {
+   "load_s": 4.333,
+   "input": "fdraw",
+   "sample_s": 10.436,
+   "strokes": 38737,
+   "resolution": [
+    1024,
+    1002
+   ],
+   "non_round_shapes": [],
+   "segments": 1957551,
+   "geometry_s": 0.697,
+   "gl_init_s": 0.358,
+   "gpu_s": 0.118,
+   "float_fbo": true,
+   "readback_s": 0.411,
+   "out_size": [
+    1024,
+    1002
+   ],
+   "supersample": 2,
+   "device": "gl",
+   "total_s": 16.759
+  },
+  "2048": {
+   "load_s": 4.214,
+   "input": "fdraw",
+   "sample_s": 11.147,
+   "strokes": 38737,
+   "resolution": [
+    2048,
+    2004
+   ],
+   "non_round_shapes": [],
+   "segments": 3934433,
+   "geometry_s": 1.327,
+   "gl_init_s": 0.37,
+   "gpu_s": 0.373,
+   "float_fbo": true,
+   "readback_s": 1.561,
+   "out_size": [
+    2048,
+    2004
+   ],
+   "supersample": 2,
+   "device": "gl",
+   "total_s": 19.395
+  },
+  "4096": {
+   "load_s": 4.178,
+   "input": "fdraw",
+   "sample_s": 12.467,
+   "strokes": 38737,
+   "resolution": [
+    4096,
+    4008
+   ],
+   "non_round_shapes": [],
+   "segments": 7888181,
+   "geometry_s": 2.543,
+   "gl_init_s": 0.447,
+   "gpu_s": 1.372,
+   "float_fbo": true,
+   "readback_s": 6.21,
+   "out_size": [
+    4096,
+    4008
+   ],
+   "supersample": 2,
+   "device": "gl",
+   "total_s": 27.643
+  }
+ },
+ "crops_png": "<workspace>\\work\\gpu_render\\gpu_vs_cpu_4x_crops.png",
+ "gpu_png": {
+  "1024": "<workspace>\\work\\gpu_render\\gpu_R1024.png",
+  "2048": "<workspace>\\work\\gpu_render\\gpu_R2048.png",
+  "4096": "<workspace>\\work\\gpu_render\\gpu_R4096.png"
+ }
+}

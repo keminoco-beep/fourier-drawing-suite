@@ -1,0 +1,2 @@
+# 无新增 pip 依赖：本节点包只使用 ComfyUI 自带的 numpy / Pillow / torch，
+# 工程侧（fourier-brushstroke / fourier-prompt）通过外部 Python 子进程调用。

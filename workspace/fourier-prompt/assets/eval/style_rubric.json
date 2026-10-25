@@ -1,0 +1,274 @@
+{
+  "schema": "fourier-prompt/eval/style-rubric/1",
+  "version": "1.0.0",
+  "generated": "2026-10-20",
+  "owner": "WP-P",
+  "language": "zh-CN",
+  "status": "active",
+  "purpose": "Machine-readable evaluation rubric for rule-planner / LLM-planner generation, and executable mono_ink style targets derived from read-only aggregate reference statistics.",
+  "compliance": {
+    "reference_material": "third-party copyrighted monochrome/grayscale illustrations (some adult-themed), local only",
+    "allowed_use": "local read-only aggregate measurement to define a generic monochrome line-art style pack and rubric thresholds",
+    "forbidden_use": [
+      "training or fine-tuning on reference images",
+      "copying, cropping, thumbnailing or redistributing reference images",
+      "embedding reference images or crops in docs, reports, tests or product assets",
+      "using adult-themed content in product, documentation or evaluation prompts",
+      "prompt-to-image similarity / memorization scoring against reference images"
+    ],
+    "evidence": {
+      "stats": "poc/style_stats/style_stats.json",
+      "stats_report": "poc/style_stats/style_stats_report.md",
+      "stats_charts": "poc/style_stats/style_stats_hist.png",
+      "analysis": "analysis/14_参考图风格画像与生成评测.md"
+    },
+    "notes": "Thresholds are population-level targets, not per-artwork reproductions. Evaluation compares generated images to scalar ranges only."
+  },
+  "reference_profile": {
+    "analyzed_images": 111,
+    "still_images_on_disk": 117,
+    "webp_images": 107,
+    "png_images": 7,
+    "jpg_images": 3,
+    "gif_previews_skipped": 4,
+    "packaging_excluded": 6,
+    "metadata_files_skipped": 121,
+    "total_megapixels": 278.65,
+    "median_size": [1280, 2134],
+    "aspect_median_h_over_w": 1.667,
+    "portrait_ratio": 0.901,
+    "monochrome_ratio": 0.928,
+    "fingerprint_sha256_16": "c5c5f76bbe36cea1",
+    "key_ranges": {
+      "mean_luma": [0.753, 0.945],
+      "rms_contrast": [0.156, 0.317],
+      "p05_luma": [0.0, 0.641],
+      "paper_ratio": [0.422, 0.892],
+      "dark_ratio": [0.011, 0.118],
+      "saturation_mean": [0.0, 0.02],
+      "gray_pixel_ratio": [0.966, 1.0],
+      "edge_density": [0.090, 0.148],
+      "ink_pixel_ratio": [0.026, 0.170],
+      "stroke_run_p50_px_at_512": 2.0,
+      "stroke_run_p90_px_at_512": 15.0
+    }
+  },
+  "mono_ink": {
+    "style_id": "mono_ink",
+    "name_zh": "黑白墨线",
+    "name_en": "Monochrome ink",
+    "derivation": "All colours/ratios below come from k-means/tone/edge aggregates of the 111-image reference set; no individual artwork is copied.",
+    "canvas": {
+      "background": "#FEFDFD",
+      "background_alt": "#FFFFFF",
+      "default_aspect": "3:5",
+      "supported_aspects": ["3:5", "2:3", "1:1", "4:5", "9:16"],
+      "default_sizes": {
+        "256": [154, 256],
+        "512": [307, 512],
+        "768": [461, 768],
+        "1024": [614, 1024]
+      },
+      "margin_ratio": [0.06, 0.12],
+      "note": "Portrait 90.1% of references; 3:5 is the measured mode (1280x2134)."
+    },
+    "palette": {
+      "paper": "#FEFDFD",
+      "haze": "#D0CECE",
+      "mid": "#A4A2A2",
+      "shadow": "#686566",
+      "ink": "#060505",
+      "role_map": {
+        "background": "paper",
+        "paper_shadow": "haze",
+        "mid_tone_fill": "mid",
+        "occlusion_shadow": "shadow",
+        "line_and_solid_accent": "ink"
+      },
+      "max_stops": 5,
+      "ordering": "paper -> haze -> mid -> shadow -> ink",
+      "weights_measured": {"paper": 0.674, "haze": 0.139, "mid": 0.086, "shadow": 0.036, "ink": 0.065},
+      "hue_policy": "neutral to slightly warm; max channel spread <= 6/255; no chromatic accent"
+    },
+    "brushes": {
+      "contour": {"preset": "ink_gpen", "alpha": [0.95, 1.0], "pressure": [0.55, 0.85], "role": "main outline, tapering"},
+      "hairline": {"preset": "ink_fineliner", "alpha": [0.85, 1.0], "pressure": [0.45, 0.75], "role": "detail, hatching, small features"},
+      "dry_accent": {"preset": "ink_brush_rough", "alpha": [0.80, 0.95], "pressure": [0.4, 0.9], "role": "hair masses, dry-brush accents, limited area"},
+      "flat_fill": {"preset": "basic_round_hard", "alpha": [0.85, 1.0], "pressure": [0.7, 1.0], "role": "flat gray blocks and paper masks"},
+      "soft_wash": {"preset": "marker_alcohol", "alpha": [0.45, 0.65], "optional": true, "role": "optional soft gray wash; max 2 layers"},
+      "screentone": {"preset": "spatter_brush", "alpha": [0.35, 0.55], "optional": true, "role": "optional tone texture; <=2% canvas area"},
+      "forbidden": ["bristle_oil", "wet_oil", "watercolor_wash", "chalk", "charcoal", "pastel", "palette_knife"]
+    },
+    "line_width_px": {
+      "formula": {
+        "hairline": "max(1, round(0.0025 * S))",
+        "contour": "max(1.5, round(0.005 * S * 2) / 2)",
+        "accent": "max(2, round(0.010 * S))"
+      },
+      "S_is": "min(canvas.width, canvas.height)",
+      "by_resolution": {
+        "256": {"hairline": 1, "contour": 1.5, "accent": 3},
+        "512": {"hairline": 1, "contour": 2.5, "accent": 5},
+        "768": {"hairline": 2, "contour": 4, "accent": 8},
+        "1024": {"hairline": 3, "contour": 5, "accent": 10}
+      },
+      "measured_proxy_at_512": {"p50": 2.0, "p75": 5.0, "p90": 15.0},
+      "note": "p90 includes hair/fill runs, so contour targets sit near p50-p75, not p90."
+    },
+    "fill_policy": {
+      "order": ["paper_background", "haze_mass", "mid_tone", "shadow", "ink_lines", "ink_accents"],
+      "paper_first": true,
+      "flat_area_only": true,
+      "max_gray_layers": 3,
+      "ink_area_target": [0.03, 0.17],
+      "paper_area_target": [0.50, 0.85],
+      "dark_mass_target": [0.02, 0.10],
+      "gradients": "forbidden; use at most 6 discrete gray steps",
+      "outline_policy": "every closed fill gets a contour in ink; no unclosed fills",
+      "overlap_policy": "line layer always above fills; no multiply/overlay blending"
+    },
+    "tone_targets": {
+      "mean_luma": [0.76, 0.94],
+      "rms_contrast": [0.16, 0.30],
+      "p05_luma_max": 0.35,
+      "p50_luma": [0.85, 0.97],
+      "paper_ratio": [0.50, 0.85],
+      "dark_ratio": [0.02, 0.10],
+      "saturation_mean_max": 0.03,
+      "gray_pixel_ratio_min": 0.97,
+      "edge_density": [0.08, 0.16],
+      "ink_ratio": [0.03, 0.17]
+    },
+    "composition_policy": {
+      "subject_center_tolerance": 0.15,
+      "subject_fill_ratio": [0.35, 0.80],
+      "min_margin_ratio": 0.05,
+      "max_elements": 120,
+      "layer_count": [3, 8],
+      "balanced_background": "keep >=30% empty paper on at least two sides"
+    },
+    "planner_binding": {
+      "style_tokens": ["mono_ink", "黑白", "线稿", "漫画", "墨线", "monochrome", "lineart", "ink"],
+      "default_when": "prompt mentions 黑白/线稿/漫画/monochrome/lineart without a conflicting colour style",
+      "fdsl_defaults": {
+        "canvas.background": "#FEFDFD",
+        "palette": {"paper": "#FEFDFD", "haze": "#D0CECE", "mid": "#A4A2A2", "shadow": "#686566", "ink": "#060505"},
+        "layer_order": ["paper", "tone_haze", "tone_mid", "tone_shadow", "line", "accent"]
+      }
+    }
+  },
+  "rubric": {
+    "scale": {"min": 0, "max": 100, "pass": 75, "excellent": 85},
+    "normalization": "Each check scores 0..1 from pass/fail or linear interpolation between fail and pass thresholds; dimension score = weighted mean of its checks * 100; overall = weighted mean of dimension scores.",
+    "dimensions": [
+      {
+        "id": "structure",
+        "name_zh": "结构",
+        "name_en": "Structure",
+        "weight": 0.25,
+        "pass_threshold": 70,
+        "checks": [
+          {"id": "subject_match", "weight": 0.25, "method": "mixed", "metric": "parsed subject tag equals gold subject tag", "pass": ">=0.90 of prompts", "severity": "major"},
+          {"id": "count_position", "weight": 0.15, "method": "auto:plan", "metric": "element count and placement flags match prompt slots", "pass": "count exact; position within one allowed slot", "severity": "major"},
+          {"id": "aspect", "weight": 0.10, "method": "auto:plan", "metric": "canvas width/height vs requested ratio", "pass": "<=2% relative error", "severity": "minor"},
+          {"id": "composition_balance", "weight": 0.15, "method": "auto:render", "metric": "ink bounding-box fill ratio and centroid offset", "pass": "fill 0.35..0.80; centroid offset <=0.15*min(W,H)", "severity": "major"},
+          {"id": "layer_order", "weight": 0.10, "method": "auto:plan", "metric": "line/accent layers above fill layers; background layer first", "pass": "no violation", "severity": "major"},
+          {"id": "element_budget", "weight": 0.10, "method": "auto:plan", "metric": "element count, layer count, plan bytes", "pass": "4..120 elements, 2..8 layers, <=20KB", "severity": "minor"},
+          {"id": "no_overflow", "weight": 0.15, "method": "auto:render", "metric": "clipped ink pixels / total ink pixels", "pass": "<=0.02", "severity": "major"}
+        ]
+      },
+      {
+        "id": "style",
+        "name_zh": "风格",
+        "name_en": "Style",
+        "weight": 0.30,
+        "pass_threshold": 70,
+        "checks": [
+          {"id": "monochrome", "weight": 0.20, "method": "auto:metrics", "metric": "HSV-saturation pixel ratio and mean", "pass": "gray_ratio>=0.97 and sat_mean<=0.03; no pixel with S>0.20 over 0.1% area", "severity": "fatal_style"},
+          {"id": "palette_fidelity", "weight": 0.15, "method": "auto:metrics", "metric": "non-paper pixels within 16 gray levels of one of 4 ink stops", "pass": ">=0.85", "severity": "major"},
+          {"id": "paper_background", "weight": 0.10, "method": "auto:metrics", "metric": "border median luma/chroma", "pass": "bg_luma>=0.93 and bg_sat<=0.03", "severity": "major"},
+          {"id": "ink_coverage", "weight": 0.15, "method": "auto:metrics", "metric": "pixel ratio with luma<0.45", "pass": "0.03..0.17", "severity": "major"},
+          {"id": "edge_density", "weight": 0.15, "method": "auto:metrics", "metric": "Sobel>0.10 pixel ratio at max side 512", "pass": "0.08..0.16", "severity": "major"},
+          {"id": "line_weight", "weight": 0.10, "method": "auto:metrics", "metric": "median ink run length at 512, contour width from plan", "pass": "median run 1.5..4.0 px; contour within 0.004..0.007*S; hairline <=0.003*S", "severity": "minor"},
+          {"id": "tone_contrast", "weight": 0.10, "method": "auto:metrics", "metric": "RMS contrast, p05/p50 luma", "pass": "RMS 0.16..0.30; p05<=0.35; p50 0.85..0.97", "severity": "major"},
+          {"id": "no_unintended_color", "weight": 0.05, "method": "auto:metrics", "metric": "chromatic pixel area", "pass": "S>0.20 area <=0.1%", "severity": "fatal_style"}
+        ]
+      },
+      {
+        "id": "text",
+        "name_zh": "文字",
+        "name_en": "Text",
+        "weight": 0.15,
+        "pass_threshold": 60,
+        "applies_when": "prompt contains a quoted or prefixed text slot",
+        "checks": [
+          {"id": "text_exact", "weight": 0.40, "method": "auto:plan", "metric": "normalised text equality (NFKC, trim, case-sensitive CJK)", "pass": "100% exact", "severity": "major"},
+          {"id": "glyph_integrity", "weight": 0.20, "method": "mixed", "metric": "no tofu/blank glyph; per-glyph ink fill ratio", "pass": "0 missing glyphs; fill 0.02..0.45", "severity": "fatal_text"},
+          {"id": "text_placement", "weight": 0.15, "method": "auto:render", "metric": "text bbox vs canvas/requested box", "pass": "inside canvas; <=2% box error; overlap with subject <=10%", "severity": "major"},
+          {"id": "text_contrast", "weight": 0.10, "method": "auto:metrics", "metric": "|luma(text)-luma(local bg)|", "pass": ">=0.35", "severity": "major"},
+          {"id": "typography", "weight": 0.15, "method": "mixed", "metric": "font size, line gap, alignment", "pass": "size 0.04..0.18*S; line gap 1.1..1.5; alignment honoured", "severity": "minor"}
+        ]
+      },
+      {
+        "id": "technical",
+        "name_zh": "技术",
+        "name_en": "Technical",
+        "weight": 0.20,
+        "pass_threshold": 85,
+        "checks": [
+          {"id": "compile_success", "weight": 0.30, "method": "auto:compile", "metric": "compile_plan() exit status", "pass": "1.00", "severity": "fatal"},
+          {"id": "render_success", "weight": 0.25, "method": "auto:render", "metric": "PNG written and decodable", "pass": "1.00", "severity": "fatal"},
+          {"id": "determinism", "weight": 0.15, "method": "auto:plan", "metric": "normalized plan hash for repeated prompt+seed", "pass": "identical for all prompts; >=95% differ across seeds", "severity": "major"},
+          {"id": "performance", "weight": 0.10, "method": "auto:bench", "metric": "median plan+compile+render seconds at R256", "pass": "median<=3.0s and p95<=5.0s", "severity": "minor"},
+          {"id": "file_integrity", "weight": 0.10, "method": "auto:render", "metric": "PNG size equals canvas; luminance std", "pass": "exact dimensions; std>=0.02; no NaN", "severity": "major"},
+          {"id": "warnings", "weight": 0.10, "method": "auto:bench", "metric": "error/warning counts", "pass": "0 errors; warnings attached to degraded prompts", "severity": "minor"}
+        ]
+      },
+      {
+        "id": "diversity",
+        "name_zh": "多样性",
+        "name_en": "Diversity",
+        "weight": 0.10,
+        "pass_threshold": 70,
+        "scope": "20-prompt benchmark set",
+        "checks": [
+          {"id": "plan_uniqueness", "weight": 0.30, "method": "auto:plan", "metric": "distinct normalized plan hashes", "pass": ">=18/20", "severity": "major"},
+          {"id": "subject_coverage", "weight": 0.25, "method": "auto:bench", "metric": "distinct gold subjects and prompt categories", "pass": ">=8 subjects and >=6 categories", "severity": "major"},
+          {"id": "composition_variety", "weight": 0.20, "method": "auto:plan", "metric": "share of plans in the most common layout signature", "pass": "<=0.30", "severity": "minor"},
+          {"id": "parameter_variety", "weight": 0.15, "method": "auto:plan", "metric": "distinct aspect/composition/scale combinations", "pass": ">=3 patterns", "severity": "minor"},
+          {"id": "text_variety", "weight": 0.10, "method": "auto:bench", "metric": "prompts with text; languages", "pass": ">=3 text prompts; >=2 languages", "severity": "minor"}
+        ]
+      }
+    ],
+    "fatal_gates": [
+      "any compile_success or render_success failure",
+      "any uncaught exception / non-zero CLI exit",
+      "non-monochrome output for mono_ink (S>0.20 area >1%)",
+      "missing glyph / tofu in requested text",
+      "output PNG containing source-reference pixels (copy detection)"
+    ],
+    "overall_rule": "overall = sum(dimension_score * dimension_weight). PASS if overall>=75, all fatal gates pass, technical>=85, structure>=70, style>=70, diversity>=70, and text>=60 when applicable. Below any dimension floor => FAIL with the lowest dimension as primary reason.",
+    "reporting": {
+      "per_prompt_fields": ["prompt_id", "prompt", "style", "seed", "plan_hash", "compile_ok", "render_ok", "seconds", "warnings", "dimension_scores", "overall"],
+      "aggregate_fields": ["count", "compile_rate", "render_rate", "style_pass_rate", "mean_overall", "median_seconds", "p95_seconds", "unique_plan_ratio", "dimension_means"],
+      "artifacts": ["fourier-prompt/out/planner/benchmark.json", "fourier-prompt/out/planner/report.md"],
+      "human_review": "Optional 5-point Likert for style fidelity and text legibility on a 10% stratified sample; never show reference images next to outputs."
+    },
+    "benchmark": {
+      "prompt_set": "fourier-prompt/assets/eval/prompts_20.jsonl",
+      "expected_count": 20,
+      "coverage": ["subject", "count", "position", "colour", "text", "style", "aspect", "negation", "long_prompt", "unknown_subject"],
+      "targets": {
+        "compile_rate": 1.0,
+        "render_rate": 1.0,
+        "style_pass_rate": 0.80,
+        "plan_hash_uniqueness": 0.90,
+        "median_seconds_r256": 3.0
+      },
+      "reference_metrics": "Aggregate only; do not compare pixels with reference artworks."
+    }
+  },
+  "changelog": [
+    {"version": "1.0.0", "date": "2026-10-20", "change": "Initial rubric and mono_ink targets from 111-image aggregate profile."}
+  ]
+}

@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\gpu_render.py --strokes <workspace>\work\release_test\fixtures\alpha_doc.json --out <workspace>\work\release_test\tmp\alpha_gpu.png --resolution 256 --device gl
+cwd=None
+rc=5 seconds=0.68
+--- stdout ---
+
+--- stderr ---
+[gpu_render] alpha<1 not supported by GPU renderer; use --device cpu
+

@@ -1,0 +1,9 @@
+{
+  "schema": "fp-warnings/1",
+  "description": "Warning code whitelist for fourier-prompt. Codes not listed here are still emitted but may be treated as fatal by stricter callers; groups start empty by contract (KICKOFF v1 §2.1) and are filled once the compiler/renderer work packages land.",
+  "groups": {
+    "expected": [],
+    "degrade": [],
+    "fatal": []
+  }
+}

@@ -1,0 +1,24 @@
+{
+ "load_s": 3.537,
+ "input": "fdraw",
+ "sample_s": 7.88,
+ "strokes": 38737,
+ "resolution": [
+  2048,
+  2004
+ ],
+ "non_round_shapes": [],
+ "segments": 3934433,
+ "geometry_s": 0.903,
+ "gl_init_s": 0.313,
+ "gpu_s": 0.319,
+ "float_fbo": true,
+ "readback_s": 1.15,
+ "out_size": [
+  2048,
+  2004
+ ],
+ "supersample": 2,
+ "device": "gl",
+ "total_s": 14.363
+}

@@ -1,0 +1,19 @@
+{
+ "case": "T6_gradient",
+ "checks": {
+  "T6": "不崩溃；有降级 warning 或明确分类；metrics 四维照常输出"
+ },
+ "class_expected": "gradient",
+ "file": "T6_gradient.png",
+ "gradient": {
+  "note": "平滑色场，无硬边界；期望 W_COLOR_FIELD_OFF / W_SOLID_COLOR 等降级告警之一",
+  "u_axis": "x/(W-1)",
+  "v_axis": "y/(H-1)"
+ },
+ "purpose": "T6：渐变图（无硬边 → 中轴退化）—— 必须明确降级/告警而非崩溃或静默",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

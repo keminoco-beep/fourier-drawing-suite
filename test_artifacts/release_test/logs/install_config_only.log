@@ -1,0 +1,18 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\release\install.py --comfyui <workspace>\work\release_test\tmp\cfg_comfyui --workspace <workspace>\release\fourier-drawing-suite-v1.0.0\workspace --python <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe
+cwd=None
+rc=0 seconds=0.19
+--- stdout ---
+[install] 安装计划：
+  - 复制节点包：<workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\custom_nodes\ComfyUI-FDP-T2I -> <workspace>\work\release_test\tmp\cfg_comfyui\custom_nodes\ComfyUI-FDP-T2I
+  - 写入配置：<workspace>\work\release_test\tmp\cfg_comfyui\custom_nodes\ComfyUI-FDP-T2I\fdp_config.json = {"workspace": "<workspace>\release\fourier-drawing-suite-v1.0.0\workspace", "python": "<comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe"}
+[install] 完成。后续步骤：
+  1) 安装核心依赖（如果 ComfyUI python 还没有）：
+     "<comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe" -m pip install -r "<workspace>\release\fourier-drawing-suite-v1.0.0\release\requirements-core.txt"
+  2) 可选 GPU 渲染依赖（PyOpenGL/glfw；缺失会自动回退 CPU）：
+     "<comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe" -m pip install -r "<workspace>\release\fourier-drawing-suite-v1.0.0\release\requirements-gpu.txt"
+  3) 重启 ComfyUI，导入 comfyui/workflows/ 下的 workflow JSON（或在 ComfyUI 的 workflow 列表导入发布包里的文件）。
+  4) 自检：python "<workspace>\release\fourier-drawing-suite-v1.0.0\release\check_env.py" --comfyui "<workspace>\work\release_test\tmp\cfg_comfyui"
+  环境变量覆盖：FDP_WORKSPACE / FDP_PYTHON / FDP_GPU_RENDER=0（强制 CPU 渲染）
+
+--- stderr ---
+

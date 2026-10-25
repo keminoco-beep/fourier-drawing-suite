@@ -1,0 +1,21 @@
+{
+ "case": "T7_photo_like",
+ "checks": {
+  "A5": "拒绝码=E_PHOTO_DEFERRED，附证据与替代建议"
+ },
+ "class_expected": "photo",
+ "expected_error": "E_PHOTO_DEFERRED",
+ "file": "T7_photo_like.png",
+ "photo_evidence": {
+  "entropy_bits": 7.037,
+  "noise_sigma_8bit": 8.93,
+  "note": "低频色块+多倍频+暗角+颗粒，确定性 seed=7",
+  "unique_colors": 99833
+ },
+ "purpose": "A5/D5：合成高熵照片类输入 —— 必须明确拒绝（E_PHOTO_DEFERRED），错误信息可读且含实测依据",
+ "schema": "fbs-fixture/2",
+ "size": [
+  384,
+  384
+ ]
+}

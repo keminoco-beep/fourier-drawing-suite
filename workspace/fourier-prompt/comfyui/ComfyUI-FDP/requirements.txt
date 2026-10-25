@@ -1,0 +1,5 @@
+# ComfyUI-FDP deliberately declares no pip dependency.
+# ComfyUI already ships numpy / Pillow / torch; video encoding uses the
+# imageio-ffmpeg bundled with the ComfyUI distribution.
+# Keeping this file comment-only prevents ComfyUI-Manager from "fixing"
+# dependencies (e.g. upgrading numpy and breaking the host environment).

@@ -1,0 +1,17 @@
+{
+ "case": "T9d_palette",
+ "checks": {
+  "A5": "build 成功或明确拒绝；不崩溃"
+ },
+ "class_expected": "any",
+ "expected": {
+  "convert": true
+ },
+ "file": "T9d_palette.png",
+ "purpose": "T9/A5：调色板模式 PNG —— 自动转 RGBA8",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

@@ -1,0 +1,752 @@
+{
+ "schema": "fbs-report/2",
+ "image": {
+  "path": "<workspace>\\fourier-brushstroke\\assets\\testcases\\T1_signature.png",
+  "sha256": "1bf97ff8eb5961a0c8a909ea722ed86ef0384cc344c011791ff2ff8537bde124",
+  "width": 384,
+  "height": 384
+ },
+ "image_class": {
+  "klass": "lineart",
+  "evidence": {
+   "unique_colors": 340.0,
+   "entropy_bits": 0.168,
+   "edge_density": 0.00547,
+   "hard_edge_frac": 0.01339,
+   "mean_saturation": 0.0004,
+   "colorful_frac": 0.0,
+   "noise_level": 0.0,
+   "flat_frac": 0.9794,
+   "visible_frac": 1.0,
+   "klass_rules": {
+    "photo": [
+     4096,
+     6.0,
+     1.5,
+     0.6
+    ],
+    "lineart": [
+     0.12,
+     0.008,
+     0.03
+    ],
+    "gradient": [
+     2048.0,
+     0.8,
+     0.85,
+     0.02
+    ]
+   }
+  }
+ },
+ "contract": {
+  "target_resolution": 512,
+  "epsilon_px": 0.5
+ },
+ "fbs": {
+  "stroke_count": 1,
+  "coef_count": 57,
+  "fill_count": 0,
+  "region_count": 1,
+  "bytes": 15932
+ },
+ "warnings": [],
+ "quality": {
+  "psnr": 39.1332,
+  "ssim": 0.998602,
+  "rmse": 2.8176,
+  "mae": 0.2676,
+  "resolution": 512,
+  "structure": {
+   "ink_threshold": 0.5,
+   "ref_px": 4321.0,
+   "rec_px": 4201.0,
+   "missing_px": 135.0,
+   "extra_px": 15.0,
+   "recall": 0.968757,
+   "precision": 0.996429,
+   "iou": 0.965406,
+   "missing_pct": 3.1243,
+   "extra_pct": 0.3471,
+   "extra_pct_of_rec": 0.3571,
+   "missing_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 112,
+     "pixels": 135
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 12,
+     "pixels": 15
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ]
+  },
+  "thickness": {
+   "bins": [
+    0.0,
+    1.01,
+    1.76,
+    2.51,
+    5.01,
+    null
+   ],
+   "hist_ref": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 1,
+     "pixels": 4321
+    }
+   ],
+   "hist_rec": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 1,
+     "pixels": 4201
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "missing": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 112,
+     "pixels": 135
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 12,
+     "pixels": 15
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "ref_peak_median_px": 10.198,
+   "rec_peak_median_px": 10.0,
+   "note": "按连通域 EDT 峰值（最大内切半径）分箱；分箱单位=比较分辨率像素"
+  },
+  "tone": {
+   "mean_delta_e": 4.7836,
+   "p95_delta_e": 18.3801,
+   "extra_ink_delta_e": 7.0797,
+   "wrong_pct": 0.0385,
+   "wrong_ink_pct": 2.3293,
+   "confusion": [
+    [
+     258080,
+     57
+    ],
+    [
+     44,
+     3963
+    ]
+   ],
+   "refs": [
+    [
+     252,
+     252,
+     252
+    ],
+    [
+     20,
+     20,
+     28
+    ]
+   ],
+   "names": [
+    "T0(252,252,252)",
+    "T1(20,20,28)"
+   ],
+   "note": "confusion 行=原图色调, 列=重建色调；非对角元即色调错误（结构指标对其盲）"
+  },
+  "linewidth": {
+   "method": "component_EDT_peak_x2",
+   "ref_median_px": 10.198,
+   "rec_median_px": 10.0,
+   "ratio": 0.9806,
+   "ratio_abs_error_pct": 1.94,
+   "ref_p10_px": 10.198,
+   "ref_p90_px": 10.198,
+   "rec_p10_px": 10.0,
+   "rec_p90_px": 10.0,
+   "ref_components": 1.0,
+   "rec_components": 1.0,
+   "volume": {
+    "ref_ink_px": 4321,
+    "rec_ink_px": 4201,
+    "area_ratio": 0.9722,
+    "ref_ink_mass": 4186.89,
+    "rec_ink_mass": 4121.12,
+    "mass_ratio": 0.9843,
+    "note": "mass=墨距(0..1)之和，等价于墨量积分；比值需与面积比、线宽比一起看"
+   }
+  },
+  "contract": {
+   "target_resolution": 512.0,
+   "epsilon_px": 0.5,
+   "fingerprint": {
+    "image_sha256": "1bf97ff8eb5961a0c8a909ea722ed86ef0384cc344c011791ff2ff8537bde124",
+    "params_sha256": "abad5090bb6a15454bd1e573ec2d6fd2375d169d35cb3fb05d47700b051ca7cc",
+    "codegen": "fbs-v2",
+    "contract_sha256": "dd109eb5e6163852870df0f499f7791f8521500856effc2d57fa62db4bb48cef"
+   },
+   "codegen": "fbs-v2",
+   "resolution": [
+    512,
+    512
+   ],
+   "resolution_matches_target": true,
+   "comparable": true,
+   "errors": []
+  }
+ },
+ "metrics": {
+  "metrics_version": "2.0",
+  "resolution": [
+   512,
+   512
+  ],
+  "psnr": 39.1332,
+  "psnr_capped": false,
+  "ssim": 0.998602,
+  "rmse": 2.8176,
+  "mae": 0.2676,
+  "structure": {
+   "ink_threshold": 0.5,
+   "ref_px": 4321,
+   "rec_px": 4201,
+   "missing_px": 135,
+   "extra_px": 15,
+   "recall": 0.968757,
+   "precision": 0.996429,
+   "iou": 0.965406,
+   "missing_pct": 3.1243,
+   "extra_pct": 0.3471,
+   "extra_pct_of_rec": 0.3571,
+   "missing_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 112,
+     "pixels": 135
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 12,
+     "pixels": 15
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ]
+  },
+  "thickness": {
+   "bins": [
+    0.0,
+    1.01,
+    1.76,
+    2.51,
+    5.01,
+    null
+   ],
+   "hist_ref": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 1,
+     "pixels": 4321
+    }
+   ],
+   "hist_rec": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 1,
+     "pixels": 4201
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "missing": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 112,
+     "pixels": 135
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 12,
+     "pixels": 15
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "ref_peak_median_px": 10.198,
+   "rec_peak_median_px": 10.0,
+   "note": "按连通域 EDT 峰值（最大内切半径）分箱；分箱单位=比较分辨率像素"
+  },
+  "tone": {
+   "mean_delta_e": 4.7836,
+   "p95_delta_e": 18.3801,
+   "extra_ink_delta_e": 7.0797,
+   "wrong_pct": 0.0385,
+   "wrong_ink_pct": 2.3293,
+   "confusion": [
+    [
+     258080,
+     57
+    ],
+    [
+     44,
+     3963
+    ]
+   ],
+   "refs": [
+    [
+     252,
+     252,
+     252
+    ],
+    [
+     20,
+     20,
+     28
+    ]
+   ],
+   "names": [
+    "T0(252,252,252)",
+    "T1(20,20,28)"
+   ],
+   "note": "confusion 行=原图色调, 列=重建色调；非对角元即色调错误（结构指标对其盲）"
+  },
+  "linewidth": {
+   "method": "component_EDT_peak_x2",
+   "ref_median_px": 10.198,
+   "rec_median_px": 10.0,
+   "ratio": 0.9806,
+   "ratio_abs_error_pct": 1.94,
+   "ref_p10_px": 10.198,
+   "ref_p90_px": 10.198,
+   "rec_p10_px": 10.0,
+   "rec_p90_px": 10.0,
+   "ref_components": 1,
+   "rec_components": 1,
+   "volume": {
+    "ref_ink_px": 4321,
+    "rec_ink_px": 4201,
+    "area_ratio": 0.9722,
+    "ref_ink_mass": 4186.89,
+    "rec_ink_mass": 4121.12,
+    "mass_ratio": 0.9843,
+    "note": "mass=墨距(0..1)之和，等价于墨量积分；比值需与面积比、线宽比一起看"
+   }
+  },
+  "contract": {
+   "target_resolution": 512,
+   "epsilon_px": 0.5,
+   "fingerprint": {
+    "image_sha256": "1bf97ff8eb5961a0c8a909ea722ed86ef0384cc344c011791ff2ff8537bde124",
+    "params_sha256": "abad5090bb6a15454bd1e573ec2d6fd2375d169d35cb3fb05d47700b051ca7cc",
+    "codegen": "fbs-v2",
+    "contract_sha256": "dd109eb5e6163852870df0f499f7791f8521500856effc2d57fa62db4bb48cef"
+   },
+   "codegen": "fbs-v2",
+   "resolution": [
+    512,
+    512
+   ],
+   "resolution_matches_target": true,
+   "comparable": true,
+   "errors": []
+  },
+  "units": {
+   "psnr_dB": "dB @ data_range=1（相同图截断为 120）",
+   "ssim": "无量纲 [-1,1]",
+   "rmse_mae": "8-bit 灰度级（0..255）",
+   "distances_px": "像素（比较分辨率长边 R=512）"
+  }
+ },
+ "files": {
+  "fbs": "<workspace>\\fourier-brushstroke\\tests\\_baseline\\acceptance\\cases\\T1_signature_R512\\T1_signature.fbs.json",
+  "png": "<workspace>\\fourier-brushstroke\\tests\\_baseline\\acceptance\\cases\\T1_signature_R512\\T1_signature_R512.png"
+ },
+ "timings_s": {
+  "stage_build": 0.237,
+  "render": 0.234,
+  "metrics": 0.783
+ },
+ "decomposition_stats": {
+  "region_count": 1,
+  "fill_count": 0,
+  "branch_count": 1,
+  "point_disk_count": 0,
+  "pruned_branches": 0,
+  "merged_branches": 0,
+  "dropped_short": 0,
+  "rescued_short": 0,
+  "hole_regions": 0,
+  "bridged_gaps": 0,
+  "repair_branches": 0,
+  "degenerate_disks": 0,
+  "total_arc_length": 1.1021614762401564,
+  "klass": "lineart",
+  "hybrid": "on",
+  "texture_dot_count": 0,
+  "element_count": 1,
+  "elapsed_s": 0.088
+ }
+}

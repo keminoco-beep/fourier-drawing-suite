@@ -1,0 +1,15 @@
+{
+ "case": "T10b_损坏文件",
+ "checks": {
+  "A5": "拒绝码属于 {E_INPUT_CORRUPT,E_INPUT_FORMAT}"
+ },
+ "class_expected": "corrupt",
+ "expected_error": [
+  "E_INPUT_CORRUPT",
+  "E_INPUT_FORMAT"
+ ],
+ "file": "T10b_损坏文件.png",
+ "purpose": "T10/A5：损坏 PNG —— 必须拒绝且原因明确（E_INPUT_CORRUPT / E_INPUT_FORMAT）",
+ "schema": "fbs-fixture/2",
+ "size": null
+}

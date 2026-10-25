@@ -1,0 +1,274 @@
+{
+ "id": "9b4fc293-6119-4bd8-85a5-40f4df21c1b4",
+ "revision": 0,
+ "last_node_id": 5,
+ "last_link_id": 3,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "FDPT2IRunDir",
+   "pos": [
+    -420,
+    120
+   ],
+   "size": [
+    320,
+    90
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [
+    {
+     "name": "run_dir",
+     "type": "RUN_DIR",
+     "slot_index": 0,
+     "links": [
+      1
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "FDPT2IRunDir"
+   },
+   "widgets_values": [],
+   "title": "新建任务目录",
+   "color": "#b58b2a",
+   "bgcolor": "#40320f"
+  },
+  {
+   "id": 2,
+   "type": "FDPT2IFdrawPath",
+   "pos": [
+    -420,
+    300
+   ],
+   "size": [
+    560,
+    110
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "fdraw_path",
+     "type": "STRING",
+     "widget": {
+      "name": "fdraw_path"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "name": "fdraw_path",
+     "type": "FDRAW_PATH",
+     "slot_index": 0,
+     "links": [
+      2
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "FDPT2IFdrawPath"
+   },
+   "widgets_values": [
+    "<workspace>\\poc\\t2i\\out_e2e_20261021\\C_krea2_s42\\C_krea2_s42_icon.fdraw"
+   ],
+   "title": "已有 .fdraw 路径",
+   "color": "#3f4a5e",
+   "bgcolor": "#2a3240"
+  },
+  {
+   "id": 3,
+   "type": "FDPT2IFourierVideo",
+   "pos": [
+    220,
+    120
+   ],
+   "size": [
+    480,
+    300
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "fdraw_path",
+     "type": "FDRAW_PATH",
+     "link": 2
+    },
+    {
+     "name": "run_dir",
+     "type": "RUN_DIR",
+     "link": 1
+    },
+    {
+     "name": "size",
+     "type": "STRING",
+     "widget": {
+      "name": "size"
+     },
+     "link": null
+    },
+    {
+     "name": "circles",
+     "type": "INT",
+     "widget": {
+      "name": "circles"
+     },
+     "link": null
+    },
+    {
+     "name": "duration_s",
+     "type": "FLOAT",
+     "widget": {
+      "name": "duration_s"
+     },
+     "link": null
+    }
+   ],
+   "outputs": [
+    {
+     "name": "video_path",
+     "type": "STRING",
+     "slot_index": 0,
+     "links": []
+    },
+    {
+     "name": "poster",
+     "type": "IMAGE",
+     "slot_index": 1,
+     "links": [
+      3
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "FDPT2IFourierVideo"
+   },
+   "widgets_values": [
+    "2160x2160",
+    16384,
+    30.0
+   ],
+   "title": "傅里叶一笔画视频（只读 .fdraw · 高精度档）",
+   "color": "#8a4a6a",
+   "bgcolor": "#3a1f2f"
+  },
+  {
+   "id": 4,
+   "type": "PreviewImage",
+   "pos": [
+    760,
+    120
+   ],
+   "size": [
+    340,
+    320
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "link": 3
+    }
+   ],
+   "outputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "slot_index": 0,
+     "links": []
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "PreviewImage"
+   },
+   "widgets_values": [],
+   "title": "作画视频海报",
+   "color": "#8a4a6a",
+   "bgcolor": "#3a1f2f"
+  },
+  {
+   "id": 5,
+   "type": "MarkdownNote",
+   "pos": [
+    -480,
+    540
+   ],
+   "size": [
+    1620,
+    170
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "properties": {},
+   "title": "使用说明",
+   "widgets_values": [
+    "# 傅里叶作画视频（仅读 `.fdraw`）\n\n输出：2160x2160 / 30fps / 16384 圆 / 30s；mp4 + poster + report 都在同一个任务目录。\n先填 .fdraw 路径 → Queue；复杂图可把 duration 改小、circles 降低做快速预览。"
+   ]
+  }
+ ],
+ "links": [
+  [
+   1,
+   1,
+   0,
+   3,
+   1,
+   "RUN_DIR"
+  ],
+  [
+   2,
+   2,
+   0,
+   3,
+   0,
+   "FDRAW_PATH"
+  ],
+  [
+   3,
+   3,
+   1,
+   4,
+   0,
+   "IMAGE"
+  ]
+ ],
+ "groups": [
+  {
+   "id": 1,
+   "title": "只读 .fdraw → 傅里叶一笔画视频（高精度档）",
+   "bounding": [
+    -480,
+    70,
+    1620,
+    420
+   ],
+   "color": "#8a4a6a",
+   "font_size": 26,
+   "flags": {}
+  }
+ ],
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 0.36,
+   "offset": [
+    1750,
+    720
+   ]
+  }
+ },
+ "version": 0.4
+}

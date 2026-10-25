@@ -1,0 +1,39 @@
+{
+ "case": "T10a_中文名_大图",
+ "checks": {
+  "A5": "中文名可读可写；不崩溃"
+ },
+ "class_expected": "lineart",
+ "expected": {
+  "handling": "build_ok",
+  "non_ascii_path": true
+ },
+ "file": "T10a_中文名_大图.png",
+ "purpose": "T10/A5：非 ASCII 文件名 + 512 大图 —— 路径必须支持中文；build 成功",
+ "schema": "fbs-fixture/2",
+ "size": [
+  512,
+  512
+ ],
+ "stroke": {
+  "color_rgb": [
+   18,
+   18,
+   24
+  ],
+  "note": "全宽（直径）；t=弧长归一化",
+  "width_px": {
+   "keys": [
+    [
+     0.0,
+     10.0
+    ],
+    [
+     1.0,
+     3.0
+    ]
+   ],
+   "mode": "linear_keys"
+  }
+ }
+}

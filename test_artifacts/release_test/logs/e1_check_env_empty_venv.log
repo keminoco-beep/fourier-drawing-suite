@@ -1,0 +1,28 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\release\check_env.py --workspace <workspace>\release\fourier-drawing-suite-v1.0.0\workspace --python <workspace>\work\release_test\tmp\empty_venv\Scripts\python.exe
+cwd=None
+rc=1 seconds=0.32
+--- stdout ---
+=================================================================================
+ComfyUI-FDP-T2I environment check  (PASS=8 WARN=3 FAIL=1)
+=================================================================================
+[PASS] workspace 解析         <workspace>\release\fourier-drawing-suite-v1.0.0\workspace（--workspace）
+[PASS] v1.36 绘制脚本           2 个入口文件存在
+[PASS] fourier-brushstroke  2 个入口文件存在
+[PASS] fourier-prompt       2 个入口文件存在
+[PASS] ComfyUI 节点包          <workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\custom_nodes\ComfyUI-FDP-T2I（release 布局）
+[PASS] 节点版本                 PACKAGE_VERSION=3.1.0
+[WARN] fdp_config.json      节点目录没有 fdp_config.json
+        -> 运行 python release/install.py 生成（或设置 FDP_WORKSPACE）
+[FAIL] python 核心依赖          <workspace>\work\release_test\tmp\empty_venv\Scripts\python.exe 缺少 ['numpy', 'scipy', 'PIL']
+        -> 运行 release/requirements-core.txt
+[WARN] python 可选依赖          缺少 ['imageio', 'imageio_ffmpeg']（视频/序列帧功能不可用）
+        -> pip install imageio imageio-ffmpeg
+[WARN] OpenGL 上下文（GPU 渲染）   IMPORT_FAIL:ModuleNotFoundError("No module named 'glfw'")
+        -> GPU 渲染不可用，渲染将自动回退 CPU（或安装 requirements-gpu.txt）
+[PASS] workflow JSON        9 个可解析的 workflow 文件
+[PASS] 源码不含本机绝对路径           已扫描 skills / fourier-* / 节点包
+---------------------------------------------------------------------------------
+结果：FAIL —— 请按上面的 -> 修复后重跑 check_env.py
+
+--- stderr ---
+

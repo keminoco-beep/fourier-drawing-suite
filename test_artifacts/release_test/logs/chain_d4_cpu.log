@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\gpu_render.py --fbs <workspace>\work\release_test\tmp\chain\doc.fbs --out <workspace>\work\release_test\tmp\chain\cpu_512.png --resolution 512 --device cpu
+cwd=<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts
+rc=0 seconds=4.07
+--- stdout ---
+{"ok": true, "out": "<path> skill\\work\\release_test\\tmp\\chain\\cpu_512.png", "timing": {"device": "cpu", "input": "fbs", "load_s": 0.008, "render_s": 3.684, "total_s": 3.692}}
+
+--- stderr ---
+

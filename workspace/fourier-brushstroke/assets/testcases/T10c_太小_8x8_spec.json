@@ -1,0 +1,15 @@
+{
+ "case": "T10c_太小_8x8",
+ "checks": {
+  "A5": "拒绝码=E_INPUT_TOO_SMALL"
+ },
+ "class_expected": "too_small",
+ "expected_error": "E_INPUT_TOO_SMALL",
+ "file": "T10c_太小_8x8.png",
+ "purpose": "A5：过小图像（<32×32）—— 必须拒绝 E_INPUT_TOO_SMALL",
+ "schema": "fbs-fixture/2",
+ "size": [
+  8,
+  8
+ ]
+}

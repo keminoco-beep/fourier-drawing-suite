@@ -1,0 +1,33 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\work\release_test\validate_workflows.py <workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\custom_nodes\ComfyUI-FDP-T2I\nodes.py <workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\workflows\FDP_v136_Local_NoAI_UI.json <workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\workflows\FDP_v136_T2I_Krea2_API_UI.json <workspace>\release\fourier-drawing-suite-v1.0.0\comfyui\workflows\FDP_v136_T2I_Krea2_Local_UI.json
+cwd=None
+rc=0 seconds=0.39
+--- stdout ---
+[
+ {
+  "file": "FDP_v136_Local_NoAI_UI.json",
+  "status": "PASS",
+  "problems": [],
+  "node_count": 9,
+  "link_count": 12,
+  "render_widgets": 1
+ },
+ {
+  "file": "FDP_v136_T2I_Krea2_API_UI.json",
+  "status": "PASS",
+  "problems": [],
+  "node_count": 9,
+  "link_count": 12,
+  "render_widgets": 1
+ },
+ {
+  "file": "FDP_v136_T2I_Krea2_Local_UI.json",
+  "status": "PASS",
+  "problems": [],
+  "node_count": 21,
+  "link_count": 23,
+  "render_widgets": 1
+ }
+]
+
+--- stderr ---
+

@@ -1,0 +1,18 @@
+{
+  "schema": "fdsl/2",
+  "name": "hand_waves",
+  "canvas": {"w": 512, "h": 320, "bg": "#10182a"},
+  "render_contract": {"resolution": 256, "epsilon_px": 0.5},
+  "palette": {"teal": "#5ad1c8", "deep": "#1f6f8b", "sand": "#f2d7a0"},
+  "layers": [
+    {"id": "bg", "name": "background"},
+    {"id": "waves", "name": "waves"},
+    {"id": "accent", "name": "accent"}
+  ],
+  "elements": [
+    {"type": "fill", "layer": "bg", "gen": "regular_polygon", "at": [256, 160], "r": 300, "n": 4, "rot": 45, "color": "deep"},
+    {"type": "gen", "gen": "wave", "layer": "waves", "at": [256, 96], "w": 430, "amp": 34, "cycles": 2, "width": 6, "color": "teal", "brush": "ink_gpen"},
+    {"type": "gen", "gen": "wave", "layer": "waves", "at": [256, 160], "w": 380, "amp": 22, "cycles": 3, "phase": 90, "width": 4, "color": "sand", "brush": "ink_fineliner"},
+    {"type": "gen", "gen": "arc", "layer": "accent", "at": [256, 320], "r": 120, "from": 180, "to": 360, "width": 7, "color": "sand", "brush": "ink_gpen"}
+  ]
+}

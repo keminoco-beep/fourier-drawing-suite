@@ -1,0 +1,2881 @@
+{
+ "schema": "brush-catalog/1",
+ "catalog_version": "brush-catalog/1",
+ "generated": "2026-10-20",
+ "generated_from": "poc/brushcalib/out/brush_calib_measured.json",
+ "generated_from_sha256": "257ef3da327f1830df07f413a960c8c8788a42044514ba7a045a6e2c224c942a",
+ "generated_by": "python -m fourier_prompt.brush._build --measured poc/brushcalib/out/brush_calib_measured.json --assets fourier-prompt/assets/brush",
+ "source_engine": "fourier-brushstroke/scripts/fbs_core (brushlib.py / shapelib.py，只读)",
+ "counts": {
+  "active": 20,
+  "planned": 11,
+  "total": 31
+ },
+ "engine_shapes": [
+  "round",
+  "soft",
+  "marker",
+  "bristle",
+  "chalk",
+  "spatter",
+  "airbrush",
+  "pencil",
+  "watercolor",
+  "ink"
+ ],
+ "roles": [
+  "bed",
+  "wash",
+  "line_hairline",
+  "line_taper",
+  "line_broad",
+  "detail",
+  "texture",
+  "effect",
+  "marker",
+  "sketch"
+ ],
+ "pressure_encoding": "pressure.width/alpha = [[p, value], ...]，p 升序；width 为 p=1.0 归一化因子，alpha 为实测峰值 α（color.a 归一到 1.0 口径）",
+ "notes": [
+  "active 20 条的 id 与 skill brushlib 完全一致（不改名，兼容既有 .fbs/黄金回归）。",
+  "planned 10 条没有 skill 渲染实现，renderable=false，policy 永不选中。",
+  "width_eff = 名义宽 → 实际沉积宽因子（round/ink/marker/watercolor≈1.0、soft=0.749、airbrush=0.333），来源为 size_scaling 中位数或 size12 中位数（见 width_eff_source）。",
+  "marker 家族 anisotropy≈1.6：平头刀口固定世界 X 轴，竖笔会粗 60%。"
+ ],
+ "presets": {
+  "basic_round_hard": {
+   "id": "basic_round_hard",
+   "name": "Basic Round Hard",
+   "name_en": "Basic Round Hard",
+   "name_zh": "基础硬圆笔",
+   "category": "basic",
+   "shape": "round",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9998,
+   "width_eff_source": "size_scaling_median",
+   "width_range_px": [
+    2,
+    160
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.55,
+    "width": [
+     [
+      0.25,
+      0.5876
+     ],
+     [
+      0.5,
+      0.726
+     ],
+     [
+      0.75,
+      0.8614
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.9403
+     ],
+     [
+      0.5,
+      0.9616
+     ],
+     [
+      0.75,
+      0.9787
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ]
+   },
+   "size_mult": 1.0,
+   "alpha_range": [
+    0.92,
+    1.0
+   ],
+   "width_jitter": 0.1,
+   "color_jitter": 0.006,
+   "length_mult": 1.0,
+   "roles": [
+    "bed",
+    "marker"
+   ],
+   "default_opacity": 0.95,
+   "recommended_layers": [
+    "F1",
+    "L26",
+    "L13"
+   ],
+   "preview": "previews/basic_round_hard.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W+",
+    "A~"
+   ],
+   "calib": "measured",
+   "notes": "硬边铺底/平涂；压力主要改宽度，靠叠笔加深；实测标签 W+ A~，宽度压力增益 41%，α 增益 0.06（p0.25→1.0）"
+  },
+  "basic_round_soft": {
+   "id": "basic_round_soft",
+   "name": "Basic Round Soft",
+   "name_en": "Basic Round Soft",
+   "name_zh": "基础柔边圆笔",
+   "category": "basic",
+   "shape": "soft",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.7492,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    3,
+    160
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.65,
+    "width": [
+     [
+      0.25,
+      0.5128
+     ],
+     [
+      0.5,
+      0.6754
+     ],
+     [
+      0.75,
+      0.8374
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.8222
+     ],
+     [
+      0.5,
+      0.8649
+     ],
+     [
+      0.75,
+      0.9061
+     ],
+     [
+      1.0,
+      0.9488
+     ]
+    ]
+   },
+   "size_mult": 1.05,
+   "alpha_range": [
+    0.78,
+    0.95
+   ],
+   "width_jitter": 0.12,
+   "color_jitter": 0.008,
+   "length_mult": 1.1,
+   "roles": [
+    "bed",
+    "wash",
+    "effect"
+   ],
+   "default_opacity": 0.9,
+   "recommended_layers": [
+    "F1",
+    "L52",
+    "L26"
+   ],
+   "preview": "previews/basic_round_soft.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W+",
+    "A+",
+    "falloff",
+    "thin"
+   ],
+   "calib": "measured",
+   "notes": "柔和过渡/大色块；有效宽 0.75，名义尺寸要放大 1.33 倍；实测标签 W+ A+ falloff thin，宽度压力增益 49%，α 增益 0.13（p0.25→1.0）"
+  },
+  "basic_airbrush": {
+   "id": "basic_airbrush",
+   "name": "Airbrush Soft",
+   "name_en": "Airbrush Soft",
+   "name_zh": "柔性喷枪",
+   "category": "airbrush",
+   "shape": "airbrush",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.3332,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    6,
+    200
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.45,
+    "width": [
+     [
+      0.25,
+      0.6625
+     ],
+     [
+      0.5,
+      0.7751
+     ],
+     [
+      0.75,
+      0.8878
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.5107
+     ],
+     [
+      0.5,
+      0.5875
+     ],
+     [
+      0.75,
+      0.6643
+     ],
+     [
+      1.0,
+      0.7397
+     ]
+    ]
+   },
+   "size_mult": 1.5,
+   "alpha_range": [
+    0.5,
+    0.8
+   ],
+   "width_jitter": 0.15,
+   "color_jitter": 0.01,
+   "length_mult": 1.3,
+   "roles": [
+    "effect",
+    "wash"
+   ],
+   "default_opacity": 0.75,
+   "recommended_layers": [
+    "L26",
+    "L13"
+   ],
+   "preview": "previews/basic_airbrush.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+",
+    "falloff",
+    "thin"
+   ],
+   "calib": "measured",
+   "notes": "雾化/氛围/柔光；有效宽仅 0.33，禁止当铺底笔用；实测标签 W~ A+ falloff thin，宽度压力增益 31%，α 增益 0.23（p0.25→1.0）"
+  },
+  "pencil_2b": {
+   "id": "pencil_2b",
+   "name": "Pencil 2B",
+   "name_en": "Pencil 2B",
+   "name_zh": "2B 铅笔",
+   "category": "pencil",
+   "shape": "pencil",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9825,
+   "width_eff_source": "size_scaling_median",
+   "width_range_px": [
+    1,
+    24
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.35,
+    "width": [
+     [
+      0.25,
+      0.73
+     ],
+     [
+      0.5,
+      0.821
+     ],
+     [
+      0.75,
+      0.91
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7411
+     ],
+     [
+      0.5,
+      0.7994
+     ],
+     [
+      0.75,
+      0.8549
+     ],
+     [
+      1.0,
+      0.9104
+     ]
+    ]
+   },
+   "size_mult": 0.55,
+   "alpha_range": [
+    0.7,
+    0.92
+   ],
+   "width_jitter": 0.22,
+   "color_jitter": 0.012,
+   "length_mult": 0.9,
+   "roles": [
+    "sketch",
+    "detail",
+    "texture"
+   ],
+   "default_opacity": 0.75,
+   "recommended_layers": [
+    "L5",
+    "L7",
+    "X1F"
+   ],
+   "preview": "previews/pencil_2b.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "calib": "measured",
+   "notes": "起形/细节/轻纹理；压力同时降宽降浓；实测标签 W~ A+，宽度压力增益 26%，α 增益 0.17（p0.25→1.0）"
+  },
+  "pencil_hb": {
+   "id": "pencil_hb",
+   "name": "Pencil HB",
+   "name_en": "Pencil HB",
+   "name_zh": "HB 硬铅笔",
+   "category": "pencil",
+   "shape": "pencil",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9581,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    1,
+    18
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.3,
+    "width": [
+     [
+      0.25,
+      0.7678
+     ],
+     [
+      0.5,
+      0.8455
+     ],
+     [
+      0.75,
+      0.9223
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.6899
+     ],
+     [
+      0.5,
+      0.7496
+     ],
+     [
+      0.75,
+      0.808
+     ],
+     [
+      1.0,
+      0.8677
+     ]
+    ]
+   },
+   "size_mult": 0.42,
+   "alpha_range": [
+    0.65,
+    0.88
+   ],
+   "width_jitter": 0.18,
+   "color_jitter": 0.01,
+   "length_mult": 0.8,
+   "roles": [
+    "sketch",
+    "detail"
+   ],
+   "default_opacity": 0.7,
+   "recommended_layers": [
+    "L5",
+    "X1F"
+   ],
+   "preview": "previews/pencil_hb.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "calib": "measured",
+   "notes": "精细起形；比 2B 更细更淡；实测标签 W~ A+，宽度压力增益 22%，α 增益 0.18（p0.25→1.0）"
+  },
+  "ink_fineliner": {
+   "id": "ink_fineliner",
+   "name": "Ink Fineliner",
+   "name_en": "Ink Fineliner",
+   "name_zh": "针管笔",
+   "category": "inking",
+   "shape": "round",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9993,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    1,
+    16
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.25,
+    "width": [
+     [
+      0.25,
+      0.8136
+     ],
+     [
+      0.5,
+      0.8748
+     ],
+     [
+      0.75,
+      0.9368
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.889
+     ],
+     [
+      0.5,
+      0.9246
+     ],
+     [
+      0.75,
+      0.9616
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ]
+   },
+   "size_mult": 0.48,
+   "alpha_range": [
+    0.85,
+    1.0
+   ],
+   "width_jitter": 0.06,
+   "color_jitter": 0.004,
+   "length_mult": 0.9,
+   "roles": [
+    "line_hairline",
+    "detail"
+   ],
+   "default_opacity": 1.0,
+   "recommended_layers": [
+    "L5",
+    "L7",
+    "X1F"
+   ],
+   "preview": "previews/ink_fineliner.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W-",
+    "A+",
+    "falloff"
+   ],
+   "calib": "measured",
+   "notes": "等宽细线/轮廓；压力响应最弱（W−），适合稳定线；实测标签 W- A+ falloff，宽度压力增益 19%，α 增益 0.11（p0.25→1.0）"
+  },
+  "ink_gpen": {
+   "id": "ink_gpen",
+   "name": "Ink GPen",
+   "name_en": "Ink GPen",
+   "name_zh": "漫画 G 笔",
+   "category": "inking",
+   "shape": "ink",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 1.001,
+   "width_eff_source": "size_scaling_median",
+   "width_range_px": [
+    1,
+    24
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.3,
+    "width": [
+     [
+      0.25,
+      0.7749
+     ],
+     [
+      0.5,
+      0.8495
+     ],
+     [
+      0.75,
+      0.9249
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.9616
+     ],
+     [
+      0.5,
+      0.9744
+     ],
+     [
+      0.75,
+      0.9872
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ]
+   },
+   "size_mult": 0.5,
+   "alpha_range": [
+    0.95,
+    1.0
+   ],
+   "width_jitter": 0.05,
+   "color_jitter": 0.004,
+   "length_mult": 1.0,
+   "roles": [
+    "line_taper",
+    "line_hairline",
+    "detail"
+   ],
+   "default_opacity": 1.0,
+   "recommended_layers": [
+    "L7",
+    "L13",
+    "X1F"
+   ],
+   "preview": "previews/ink_gpen.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A-"
+   ],
+   "calib": "measured",
+   "notes": "硬边墨线/提按；α 几乎不随压力（A−），别用它做浓淡；实测标签 W~ A-，宽度压力增益 22%，α 增益 0.04（p0.25→1.0）"
+  },
+  "ink_brush_rough": {
+   "id": "ink_brush_rough",
+   "name": "Ink Brush Rough",
+   "name_en": "Ink Brush Rough",
+   "name_zh": "毛笔勾线",
+   "category": "inking",
+   "shape": "bristle",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9622,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    2,
+    40
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.45,
+    "width": [
+     [
+      0.25,
+      0.649
+     ],
+     [
+      0.5,
+      0.7683
+     ],
+     [
+      0.75,
+      0.8842
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.8777
+     ],
+     [
+      0.5,
+      0.9172
+     ],
+     [
+      0.75,
+      0.9545
+     ],
+     [
+      1.0,
+      0.9957
+     ]
+    ]
+   },
+   "size_mult": 0.35,
+   "alpha_range": [
+    0.85,
+    1.0
+   ],
+   "width_jitter": 0.12,
+   "color_jitter": 0.006,
+   "length_mult": 1.0,
+   "roles": [
+    "line_taper",
+    "line_broad",
+    "texture"
+   ],
+   "default_opacity": 1.0,
+   "recommended_layers": [
+    "L7",
+    "L13",
+    "X1M"
+   ],
+   "preview": "previews/ink_brush_rough.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "calib": "measured",
+   "notes": "毛笔勾线/飞白；尺寸偏小（4.2px 级），宽笔请换 sumi_e；实测标签 W~ A+，宽度压力增益 35%，α 增益 0.12（p0.25→1.0）"
+  },
+  "sumi_e": {
+   "id": "sumi_e",
+   "name": "Sumi-e Brush",
+   "name_en": "Sumi-e Brush",
+   "name_zh": "写意水墨",
+   "category": "inking",
+   "shape": "bristle",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9774,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    4,
+    180
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.8,
+    "width": [
+     [
+      0.25,
+      0.3966
+     ],
+     [
+      0.5,
+      0.5978
+     ],
+     [
+      0.75,
+      0.7986
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.761
+     ],
+     [
+      0.5,
+      0.8222
+     ],
+     [
+      0.75,
+      0.8862
+     ],
+     [
+      1.0,
+      0.9488
+     ]
+    ]
+   },
+   "size_mult": 1.2,
+   "alpha_range": [
+    0.7,
+    0.95
+   ],
+   "width_jitter": 0.25,
+   "color_jitter": 0.01,
+   "length_mult": 1.6,
+   "roles": [
+    "line_broad",
+    "line_taper",
+    "wash",
+    "bed"
+   ],
+   "default_opacity": 0.95,
+   "recommended_layers": [
+    "L26",
+    "L52",
+    "X1C"
+   ],
+   "preview": "previews/sumi_e.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W+",
+    "A+"
+   ],
+   "calib": "measured",
+   "notes": "写意水墨/宽墨块；压力动态范围最大（W+ 60%），一笔出粗细；实测标签 W+ A+，宽度压力增益 60%，α 增益 0.19（p0.25→1.0）"
+  },
+  "marker_chisel": {
+   "id": "marker_chisel",
+   "name": "Marker Chisel",
+   "name_en": "Marker Chisel",
+   "name_zh": "方头马克笔",
+   "category": "marker",
+   "shape": "marker",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9993,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    4,
+    96
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.4,
+    "width": [
+     [
+      0.25,
+      0.7006
+     ],
+     [
+      0.5,
+      0.8009
+     ],
+     [
+      0.75,
+      0.8998
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7923
+     ],
+     [
+      0.5,
+      0.835
+     ],
+     [
+      0.75,
+      0.8762
+     ],
+     [
+      1.0,
+      0.9189
+     ]
+    ]
+   },
+   "size_mult": 0.9,
+   "alpha_range": [
+    0.75,
+    0.92
+   ],
+   "width_jitter": 0.1,
+   "color_jitter": 0.006,
+   "length_mult": 1.1,
+   "roles": [
+    "marker",
+    "bed"
+   ],
+   "default_opacity": 0.9,
+   "recommended_layers": [
+    "L13",
+    "L26",
+    "F1"
+   ],
+   "preview": "previews/marker_chisel.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "块面/平涂；刀口固定世界 X 轴 → 竖笔宽 1.6 倍，只做横/斜扫；实测标签 W~ A+ rim，宽度压力增益 30%，α 增益 0.13（p0.25→1.0）",
+   "anisotropy": 1.6
+  },
+  "marker_alcohol": {
+   "id": "marker_alcohol",
+   "name": "Marker Alcohol",
+   "name_en": "Marker Alcohol",
+   "name_zh": "酒精马克笔",
+   "category": "marker",
+   "shape": "marker",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 1.0001,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    4,
+    96
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.35,
+    "width": [
+     [
+      0.25,
+      0.7386
+     ],
+     [
+      0.5,
+      0.8263
+     ],
+     [
+      0.75,
+      0.9124
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.6131
+     ],
+     [
+      0.5,
+      0.6757
+     ],
+     [
+      0.75,
+      0.7368
+     ],
+     [
+      1.0,
+      0.7994
+     ]
+    ]
+   },
+   "size_mult": 1.1,
+   "alpha_range": [
+    0.55,
+    0.8
+   ],
+   "width_jitter": 0.12,
+   "color_jitter": 0.01,
+   "length_mult": 1.2,
+   "roles": [
+    "marker",
+    "bed",
+    "wash"
+   ],
+   "default_opacity": 0.8,
+   "recommended_layers": [
+    "L13",
+    "L26",
+    "F1"
+   ],
+   "preview": "previews/marker_alcohol.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "半透明叠色/块面；低 α 叠加出混色感，方向性同 chisel；实测标签 W~ A+ rim，宽度压力增益 26%，α 增益 0.19（p0.25→1.0）",
+   "anisotropy": 1.599
+  },
+  "bristle_oil": {
+   "id": "bristle_oil",
+   "name": "Bristle Oil",
+   "name_en": "Bristle Oil",
+   "name_zh": "油画鬃毛",
+   "category": "dry_painting",
+   "shape": "bristle",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9765,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    4,
+    160
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.6,
+    "width": [
+     [
+      0.25,
+      0.5472
+     ],
+     [
+      0.5,
+      0.6979
+     ],
+     [
+      0.75,
+      0.849
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.8393
+     ],
+     [
+      0.5,
+      0.8819
+     ],
+     [
+      0.75,
+      0.9275
+     ],
+     [
+      1.0,
+      0.9701
+     ]
+    ]
+   },
+   "size_mult": 1.0,
+   "alpha_range": [
+    0.8,
+    0.97
+   ],
+   "width_jitter": 0.18,
+   "color_jitter": 0.014,
+   "length_mult": 1.2,
+   "roles": [
+    "bed",
+    "wash",
+    "texture",
+    "line_broad"
+   ],
+   "default_opacity": 0.95,
+   "recommended_layers": [
+    "L26",
+    "L52",
+    "F1"
+   ],
+   "preview": "previews/bristle_oil.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W+",
+    "A+"
+   ],
+   "calib": "measured",
+   "notes": "厚涂/覆盖/条纹笔触；覆盖力强，可做宽笔写意；实测标签 W+ A+，宽度压力增益 45%，α 增益 0.13（p0.25→1.0）"
+  },
+  "dry_flat": {
+   "id": "dry_flat",
+   "name": "Dry Flat Brush",
+   "name_en": "Dry Flat Brush",
+   "name_zh": "干画平头刷",
+   "category": "dry_painting",
+   "shape": "marker",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9991,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    4,
+    120
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.5,
+    "width": [
+     [
+      0.25,
+      0.6252
+     ],
+     [
+      0.5,
+      0.7502
+     ],
+     [
+      0.75,
+      0.8764
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.8592
+     ],
+     [
+      0.5,
+      0.899
+     ],
+     [
+      0.75,
+      0.9403
+     ],
+     [
+      1.0,
+      0.9787
+     ]
+    ]
+   },
+   "size_mult": 1.15,
+   "alpha_range": [
+    0.82,
+    0.98
+   ],
+   "width_jitter": 0.14,
+   "color_jitter": 0.012,
+   "length_mult": 1.3,
+   "roles": [
+    "bed",
+    "texture",
+    "marker"
+   ],
+   "default_opacity": 0.95,
+   "recommended_layers": [
+    "L13",
+    "L26",
+    "F1"
+   ],
+   "preview": "previews/dry_flat.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "干笔铺色/边缘干涩；平头方向性敏感；实测标签 W~ A+ rim，宽度压力增益 38%，α 增益 0.12（p0.25→1.0）",
+   "anisotropy": 1.599
+  },
+  "palette_knife": {
+   "id": "palette_knife",
+   "name": "Palette Knife",
+   "name_en": "Palette Knife",
+   "name_zh": "刮刀",
+   "category": "dry_painting",
+   "shape": "marker",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9998,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    6,
+    160
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.3,
+    "width": [
+     [
+      0.25,
+      0.7747
+     ],
+     [
+      0.5,
+      0.849
+     ],
+     [
+      0.75,
+      0.9245
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.9246
+     ],
+     [
+      0.5,
+      0.9488
+     ],
+     [
+      0.75,
+      0.9744
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ]
+   },
+   "size_mult": 1.25,
+   "alpha_range": [
+    0.9,
+    1.0
+   ],
+   "width_jitter": 0.2,
+   "color_jitter": 0.01,
+   "length_mult": 1.5,
+   "roles": [
+    "texture",
+    "bed",
+    "marker"
+   ],
+   "default_opacity": 1.0,
+   "recommended_layers": [
+    "L7",
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/palette_knife.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A~",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "厚涂/长条肌理；硬边 + 高覆盖，压力只轻微改宽；实测标签 W~ A~ rim，宽度压力增益 22%，α 增益 0.08（p0.25→1.0）",
+   "anisotropy": 1.599
+  },
+  "chalk": {
+   "id": "chalk",
+   "name": "Chalk",
+   "name_en": "Chalk",
+   "name_zh": "粉笔",
+   "category": "chalk_pastel_charcoal",
+   "shape": "chalk",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9741,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    3,
+    120
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.55,
+    "width": [
+     [
+      0.25,
+      0.5802
+     ],
+     [
+      0.5,
+      0.7203
+     ],
+     [
+      0.75,
+      0.8599
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7696
+     ],
+     [
+      0.5,
+      0.8293
+     ],
+     [
+      0.75,
+      0.8862
+     ],
+     [
+      1.0,
+      0.9445
+     ]
+    ]
+   },
+   "size_mult": 1.05,
+   "alpha_range": [
+    0.72,
+    0.95
+   ],
+   "width_jitter": 0.28,
+   "color_jitter": 0.02,
+   "length_mult": 0.9,
+   "roles": [
+    "texture",
+    "sketch"
+   ],
+   "default_opacity": 0.9,
+   "recommended_layers": [
+    "L13",
+    "L26",
+    "L7"
+   ],
+   "preview": "previews/chalk.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W+",
+    "A+"
+   ],
+   "calib": "measured",
+   "notes": "颗粒/毛边；颗粒只在边缘（内部被 max(cov) 抹平），别承诺内部质感；实测标签 W+ A+，宽度压力增益 42%，α 增益 0.17（p0.25→1.0）"
+  },
+  "charcoal": {
+   "id": "charcoal",
+   "name": "Charcoal",
+   "name_en": "Charcoal",
+   "name_zh": "炭笔",
+   "category": "chalk_pastel_charcoal",
+   "shape": "chalk",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9751,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    3,
+    120
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.6,
+    "width": [
+     [
+      0.25,
+      0.5418
+     ],
+     [
+      0.5,
+      0.6943
+     ],
+     [
+      0.75,
+      0.8476
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7994
+     ],
+     [
+      0.5,
+      0.8592
+     ],
+     [
+      0.75,
+      0.9161
+     ],
+     [
+      1.0,
+      0.9744
+     ]
+    ]
+   },
+   "size_mult": 1.15,
+   "alpha_range": [
+    0.75,
+    0.98
+   ],
+   "width_jitter": 0.3,
+   "color_jitter": 0.022,
+   "length_mult": 1.0,
+   "roles": [
+    "texture",
+    "sketch",
+    "line_taper"
+   ],
+   "default_opacity": 0.95,
+   "recommended_layers": [
+    "L13",
+    "L26",
+    "L7"
+   ],
+   "preview": "previews/charcoal.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W+",
+    "A+",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "更黑更粗的炭条/飞白；提按强（W+）；实测标签 W+ A+ rim，宽度压力增益 46%，α 增益 0.17（p0.25→1.0）"
+  },
+  "pastel": {
+   "id": "pastel",
+   "name": "Pastel",
+   "name_en": "Pastel",
+   "name_zh": "粉彩",
+   "category": "chalk_pastel_charcoal",
+   "shape": "chalk",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9713,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    3,
+    120
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.5,
+    "width": [
+     [
+      0.25,
+      0.6175
+     ],
+     [
+      0.5,
+      0.7446
+     ],
+     [
+      0.75,
+      0.8722
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7027
+     ],
+     [
+      0.5,
+      0.7667
+     ],
+     [
+      0.75,
+      0.8307
+     ],
+     [
+      1.0,
+      0.8933
+     ]
+    ]
+   },
+   "size_mult": 0.95,
+   "alpha_range": [
+    0.65,
+    0.9
+   ],
+   "width_jitter": 0.24,
+   "color_jitter": 0.018,
+   "length_mult": 0.9,
+   "roles": [
+    "texture",
+    "sketch"
+   ],
+   "default_opacity": 0.85,
+   "recommended_layers": [
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/pastel.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "柔和颗粒/色彩轻微变化；低 α 适合叠加；实测标签 W~ A+ rim，宽度压力增益 38%，α 增益 0.19（p0.25→1.0）"
+  },
+  "wet_oil": {
+   "id": "wet_oil",
+   "name": "Wet Oil",
+   "name_en": "Wet Oil",
+   "name_zh": "湿画油彩",
+   "category": "wet_painting",
+   "shape": "bristle",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9762,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    3,
+    120
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.55,
+    "width": [
+     [
+      0.25,
+      0.5844
+     ],
+     [
+      0.5,
+      0.7226
+     ],
+     [
+      0.75,
+      0.8609
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.66
+     ],
+     [
+      0.5,
+      0.724
+     ],
+     [
+      0.75,
+      0.7866
+     ],
+     [
+      1.0,
+      0.8478
+     ]
+    ]
+   },
+   "size_mult": 0.95,
+   "alpha_range": [
+    0.6,
+    0.85
+   ],
+   "width_jitter": 0.16,
+   "color_jitter": 0.016,
+   "length_mult": 1.0,
+   "roles": [
+    "wash",
+    "texture",
+    "bed"
+   ],
+   "default_opacity": 0.85,
+   "recommended_layers": [
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/wet_oil.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W+",
+    "A+",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "半透明湿画/混色感（无真实 smudge）；低 α 叠扫；实测标签 W+ A+ rim，宽度压力增益 42%，α 增益 0.19（p0.25→1.0）"
+  },
+  "watercolor_wash": {
+   "id": "watercolor_wash",
+   "name": "Watercolor Wash",
+   "name_en": "Watercolor Wash",
+   "name_zh": "水彩淡彩",
+   "category": "watercolor",
+   "shape": "watercolor",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9993,
+   "width_eff_source": "size_scaling_median",
+   "width_range_px": [
+    4,
+    160
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.45,
+    "width": [
+     [
+      0.25,
+      0.6625
+     ],
+     [
+      0.5,
+      0.7767
+     ],
+     [
+      0.75,
+      0.8911
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.5107
+     ],
+     [
+      0.5,
+      0.5747
+     ],
+     [
+      0.75,
+      0.6387
+     ],
+     [
+      1.0,
+      0.6984
+     ]
+    ]
+   },
+   "size_mult": 1.35,
+   "alpha_range": [
+    0.45,
+    0.7
+   ],
+   "width_jitter": 0.18,
+   "color_jitter": 0.014,
+   "length_mult": 1.4,
+   "roles": [
+    "wash",
+    "effect",
+    "bed"
+   ],
+   "default_opacity": 0.9,
+   "recommended_layers": [
+    "L52",
+    "L26",
+    "F1"
+   ],
+   "preview": "previews/watercolor_wash.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+",
+    "rim"
+   ],
+   "calib": "measured",
+   "notes": "淡彩/水洗；峰值 α 仅 0.70，边缘沉积（rim）可见；实测标签 W~ A+ rim，宽度压力增益 34%，α 增益 0.19（p0.25→1.0）"
+  },
+  "spatter_brush": {
+   "id": "spatter_brush",
+   "name": "Spatter Spray",
+   "name_en": "Spatter Spray",
+   "name_zh": "喷点笔",
+   "category": "spray",
+   "shape": "spatter",
+   "status": "active",
+   "renderable": true,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9707,
+   "width_eff_source": "size_12_median",
+   "width_range_px": [
+    3,
+    120
+   ],
+   "pressure": {
+    "model": "width: 1 - sensitivity*(1-p)（skill 公式；实测 R²>=0.9999）；alpha: alpha_lo + (alpha_hi-alpha_lo)*p（实测峰值 α，color.a 已归一到 1.0）",
+    "sensitivity": 0.4,
+    "width": [
+     [
+      0.25,
+      0.6926
+     ],
+     [
+      0.5,
+      0.7954
+     ],
+     [
+      0.75,
+      0.8977
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.5704
+     ],
+     [
+      0.5,
+      0.643
+     ],
+     [
+      0.75,
+      0.7198
+     ],
+     [
+      1.0,
+      0.7952
+     ]
+    ]
+   },
+   "size_mult": 1.05,
+   "alpha_range": [
+    0.5,
+    0.8
+   ],
+   "width_jitter": 0.35,
+   "color_jitter": 0.02,
+   "length_mult": 0.7,
+   "roles": [
+    "effect",
+    "texture"
+   ],
+   "default_opacity": 0.7,
+   "recommended_layers": [
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/spatter_brush.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [
+    "W~",
+    "A+"
+   ],
+   "calib": "measured",
+   "notes": "稀疏喷点/肌理点缀；α 增益最高（A+ 0.23），低 α 多次叠加；实测标签 W~ A+，宽度压力增益 31%，α 增益 0.22（p0.25→1.0）"
+  },
+  "ink_ballpen": {
+   "id": "ink_ballpen",
+   "name": "Ballpoint Pen",
+   "name_en": "Ballpoint Pen",
+   "name_zh": "圆珠笔",
+   "category": "inking",
+   "shape": "round",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9993,
+   "width_eff_source": "estimated_from:ink_fineliner",
+   "width_range_px": [
+    1,
+    12
+   ],
+   "pressure": {
+    "model": "estimated: 继承 ink_fineliner 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.25,
+    "width": [
+     [
+      0.25,
+      0.8136
+     ],
+     [
+      0.5,
+      0.8748
+     ],
+     [
+      0.75,
+      0.9368
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.889
+     ],
+     [
+      0.5,
+      0.9246
+     ],
+     [
+      0.75,
+      0.9616
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ]
+   },
+   "size_mult": 0.48,
+   "alpha_range": [
+    0.85,
+    1.0
+   ],
+   "width_jitter": 0.06,
+   "color_jitter": 0.004,
+   "length_mult": 0.9,
+   "roles": [
+    "line_hairline",
+    "detail",
+    "sketch"
+   ],
+   "default_opacity": 1.0,
+   "recommended_layers": [
+    "L5",
+    "X1F"
+   ],
+   "preview": "previews/ink_ballpen.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "ink_fineliner",
+   "shape_registered": true,
+   "notes": "planned 条目：需要油墨断续/轻微积墨；现 round 内核过于干净（等宽实心）"
+  },
+  "pencil_4b": {
+   "id": "pencil_4b",
+   "name": "Pencil 4B",
+   "name_en": "Pencil 4B",
+   "name_zh": "4B 软铅笔",
+   "category": "pencil",
+   "shape": "pencil",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9825,
+   "width_eff_source": "estimated_from:pencil_2b",
+   "width_range_px": [
+    1,
+    26
+   ],
+   "pressure": {
+    "model": "estimated: 继承 pencil_2b 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.35,
+    "width": [
+     [
+      0.25,
+      0.73
+     ],
+     [
+      0.5,
+      0.821
+     ],
+     [
+      0.75,
+      0.91
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7411
+     ],
+     [
+      0.5,
+      0.7994
+     ],
+     [
+      0.75,
+      0.8549
+     ],
+     [
+      1.0,
+      0.9104
+     ]
+    ]
+   },
+   "size_mult": 0.62,
+   "alpha_range": [
+    0.62,
+    0.9
+   ],
+   "width_jitter": 0.26,
+   "color_jitter": 0.012,
+   "length_mult": 0.9,
+   "roles": [
+    "sketch",
+    "detail",
+    "texture"
+   ],
+   "default_opacity": 0.8,
+   "recommended_layers": [
+    "L5",
+    "L7",
+    "X1F"
+   ],
+   "preview": "previews/pencil_4b.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "pencil_2b",
+   "shape_registered": true,
+   "notes": "planned 条目：需要更黑更宽的软铅芯与磨损笔尖；现 pencil 参数固定（2B 黑度）"
+  },
+  "pencil_tilted": {
+   "id": "pencil_tilted",
+   "name": "Tilted Pencil",
+   "name_en": "Tilted Pencil",
+   "name_zh": "侧锋铅笔",
+   "category": "pencil",
+   "shape": "pencil_tilt",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9825,
+   "width_eff_source": "estimated_from:pencil_2b",
+   "width_range_px": [
+    3,
+    60
+   ],
+   "pressure": {
+    "model": "estimated: 继承 pencil_2b 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.35,
+    "width": [
+     [
+      0.25,
+      0.73
+     ],
+     [
+      0.5,
+      0.821
+     ],
+     [
+      0.75,
+      0.91
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7411
+     ],
+     [
+      0.5,
+      0.7994
+     ],
+     [
+      0.75,
+      0.8549
+     ],
+     [
+      1.0,
+      0.9104
+     ]
+    ]
+   },
+   "size_mult": 0.55,
+   "alpha_range": [
+    0.7,
+    0.92
+   ],
+   "width_jitter": 0.22,
+   "color_jitter": 0.012,
+   "length_mult": 0.9,
+   "roles": [
+    "texture",
+    "sketch",
+    "bed"
+   ],
+   "default_opacity": 0.7,
+   "recommended_layers": [
+    "L7",
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/pencil_tilted.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "pencil_2b",
+   "shape_registered": false,
+   "notes": "planned 条目：需要笔尖倾斜 → 宽扁椭圆截面；现 marker 刀口是固定 1.6 的近似"
+  },
+  "chalk_grainy": {
+   "id": "chalk_grainy",
+   "name": "Grainy Chalk",
+   "name_en": "Grainy Chalk",
+   "name_zh": "颗粒粉笔",
+   "category": "chalk_pastel_charcoal",
+   "shape": "chalk_grain",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9741,
+   "width_eff_source": "estimated_from:chalk",
+   "width_range_px": [
+    3,
+    120
+   ],
+   "pressure": {
+    "model": "estimated: 继承 chalk 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.55,
+    "width": [
+     [
+      0.25,
+      0.5802
+     ],
+     [
+      0.5,
+      0.7203
+     ],
+     [
+      0.75,
+      0.8599
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.7696
+     ],
+     [
+      0.5,
+      0.8293
+     ],
+     [
+      0.75,
+      0.8862
+     ],
+     [
+      1.0,
+      0.9445
+     ]
+    ]
+   },
+   "size_mult": 1.05,
+   "alpha_range": [
+    0.72,
+    0.95
+   ],
+   "width_jitter": 0.28,
+   "color_jitter": 0.02,
+   "length_mult": 0.9,
+   "roles": [
+    "texture",
+    "effect"
+   ],
+   "default_opacity": 0.85,
+   "recommended_layers": [
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/chalk_grainy.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "chalk",
+   "shape_registered": false,
+   "notes": "planned 条目：需要 per-stamp 颗粒累积；现纹理被 max(cov) 抹平（13a §2.5），内部无颗粒"
+  },
+  "marker_dry": {
+   "id": "marker_dry",
+   "name": "Dry Marker",
+   "name_en": "Dry Marker",
+   "name_zh": "干涩马克笔",
+   "category": "marker",
+   "shape": "marker",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 1.0001,
+   "width_eff_source": "estimated_from:marker_alcohol",
+   "width_range_px": [
+    4,
+    96
+   ],
+   "pressure": {
+    "model": "estimated: 继承 marker_alcohol 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.35,
+    "width": [
+     [
+      0.25,
+      0.7386
+     ],
+     [
+      0.5,
+      0.8263
+     ],
+     [
+      0.75,
+      0.9124
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.6131
+     ],
+     [
+      0.5,
+      0.6757
+     ],
+     [
+      0.75,
+      0.7368
+     ],
+     [
+      1.0,
+      0.7994
+     ]
+    ]
+   },
+   "size_mult": 1.1,
+   "alpha_range": [
+    0.55,
+    0.8
+   ],
+   "width_jitter": 0.12,
+   "color_jitter": 0.01,
+   "length_mult": 1.2,
+   "roles": [
+    "marker",
+    "texture"
+   ],
+   "default_opacity": 0.88,
+   "recommended_layers": [
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/marker_dry.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "marker_alcohol",
+   "shape_registered": true,
+   "notes": "planned 条目：需要边缘断续/干笔尾迹；现 marker 内核为硬边均匀"
+  },
+  "bristle_detail": {
+   "id": "bristle_detail",
+   "name": "Detail Bristle",
+   "name_en": "Detail Bristle",
+   "name_zh": "细鬃毛",
+   "category": "dry_painting",
+   "shape": "bristle",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9765,
+   "width_eff_source": "estimated_from:bristle_oil",
+   "width_range_px": [
+    2,
+    32
+   ],
+   "pressure": {
+    "model": "estimated: 继承 bristle_oil 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.6,
+    "width": [
+     [
+      0.25,
+      0.5472
+     ],
+     [
+      0.5,
+      0.6979
+     ],
+     [
+      0.75,
+      0.849
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.8393
+     ],
+     [
+      0.5,
+      0.8819
+     ],
+     [
+      0.75,
+      0.9275
+     ],
+     [
+      1.0,
+      0.9701
+     ]
+    ]
+   },
+   "size_mult": 0.55,
+   "alpha_range": [
+    0.72,
+    0.95
+   ],
+   "width_jitter": 0.18,
+   "color_jitter": 0.014,
+   "length_mult": 1.2,
+   "roles": [
+    "texture",
+    "detail",
+    "line_taper"
+   ],
+   "default_opacity": 0.9,
+   "recommended_layers": [
+    "L7",
+    "L13"
+   ],
+   "preview": "previews/bristle_detail.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "bristle_oil",
+   "shape_registered": true,
+   "notes": "planned 条目：需要小尺寸仍保留鬃毛纹理；现 bristle_oil 尺寸偏大（≥4px 才有条纹）"
+  },
+  "wet_paint": {
+   "id": "wet_paint",
+   "name": "Wet Paint",
+   "name_en": "Wet Paint",
+   "name_zh": "湿颜料",
+   "category": "wet_painting",
+   "shape": "wet_paint",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9762,
+   "width_eff_source": "estimated_from:wet_oil",
+   "width_range_px": [
+    4,
+    140
+   ],
+   "pressure": {
+    "model": "estimated: 继承 wet_oil 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.55,
+    "width": [
+     [
+      0.25,
+      0.5844
+     ],
+     [
+      0.5,
+      0.7226
+     ],
+     [
+      0.75,
+      0.8609
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.66
+     ],
+     [
+      0.5,
+      0.724
+     ],
+     [
+      0.75,
+      0.7866
+     ],
+     [
+      1.0,
+      0.8478
+     ]
+    ]
+   },
+   "size_mult": 0.95,
+   "alpha_range": [
+    0.6,
+    0.85
+   ],
+   "width_jitter": 0.16,
+   "color_jitter": 0.016,
+   "length_mult": 1.0,
+   "roles": [
+    "wash",
+    "bed",
+    "texture"
+   ],
+   "default_opacity": 0.85,
+   "recommended_layers": [
+    "L13",
+    "L26",
+    "L52"
+   ],
+   "preview": "previews/wet_paint.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "wet_oil",
+   "shape_registered": false,
+   "notes": "planned 条目：需要湿边混色/颜料堆积；现渲染无 smudge（只有半透明叠加）"
+  },
+  "watercolor_fringe": {
+   "id": "watercolor_fringe",
+   "name": "Watercolor Fringe",
+   "name_en": "Watercolor Fringe",
+   "name_zh": "水彩晕边",
+   "category": "watercolor",
+   "shape": "watercolor_fringe",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9993,
+   "width_eff_source": "estimated_from:watercolor_wash",
+   "width_range_px": [
+    6,
+    160
+   ],
+   "pressure": {
+    "model": "estimated: 继承 watercolor_wash 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.45,
+    "width": [
+     [
+      0.25,
+      0.6625
+     ],
+     [
+      0.5,
+      0.7767
+     ],
+     [
+      0.75,
+      0.8911
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.5107
+     ],
+     [
+      0.5,
+      0.5747
+     ],
+     [
+      0.75,
+      0.6387
+     ],
+     [
+      1.0,
+      0.6984
+     ]
+    ]
+   },
+   "size_mult": 1.35,
+   "alpha_range": [
+    0.45,
+    0.7
+   ],
+   "width_jitter": 0.18,
+   "color_jitter": 0.014,
+   "length_mult": 1.4,
+   "roles": [
+    "wash",
+    "effect"
+   ],
+   "default_opacity": 0.9,
+   "recommended_layers": [
+    "L26",
+    "L52"
+   ],
+   "preview": "previews/watercolor_fringe.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "watercolor_wash",
+   "shape_registered": false,
+   "notes": "planned 条目：需要真实边缘沉积（rim 增强）与二次晕染；现 watercolor 只有 rim_ratio 0.7 级"
+  },
+  "dry_bristle": {
+   "id": "dry_bristle",
+   "name": "Dry Bristle",
+   "name_en": "Dry Bristle",
+   "name_zh": "干鬃毛",
+   "category": "dry_painting",
+   "shape": "bristle",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9765,
+   "width_eff_source": "estimated_from:bristle_oil",
+   "width_range_px": [
+    4,
+    120
+   ],
+   "pressure": {
+    "model": "estimated: 继承 bristle_oil 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.6,
+    "width": [
+     [
+      0.25,
+      0.5472
+     ],
+     [
+      0.5,
+      0.6979
+     ],
+     [
+      0.75,
+      0.849
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.8393
+     ],
+     [
+      0.5,
+      0.8819
+     ],
+     [
+      0.75,
+      0.9275
+     ],
+     [
+      1.0,
+      0.9701
+     ]
+    ]
+   },
+   "size_mult": 1.0,
+   "alpha_range": [
+    0.55,
+    0.85
+   ],
+   "width_jitter": 0.26,
+   "color_jitter": 0.014,
+   "length_mult": 1.2,
+   "roles": [
+    "texture",
+    "bed",
+    "line_broad"
+   ],
+   "default_opacity": 0.9,
+   "recommended_layers": [
+    "L13",
+    "L26"
+   ],
+   "preview": "previews/dry_bristle.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "bristle_oil",
+   "shape_registered": true,
+   "notes": "planned 条目：需要沿笔触方向的鬃毛间隙（飞白）；现 bristle 横向条纹不沿笔画断开"
+  },
+  "fill_round": {
+   "id": "fill_round",
+   "name": "Fill Round",
+   "name_en": "Fill Round",
+   "name_zh": "填色圆头",
+   "category": "basic",
+   "shape": "round",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.9998,
+   "width_eff_source": "estimated_from:basic_round_hard",
+   "width_range_px": [
+    8,
+    220
+   ],
+   "pressure": {
+    "model": "estimated: 继承 basic_round_hard 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.55,
+    "width": [
+     [
+      0.25,
+      0.5876
+     ],
+     [
+      0.5,
+      0.726
+     ],
+     [
+      0.75,
+      0.8614
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.9403
+     ],
+     [
+      0.5,
+      0.9616
+     ],
+     [
+      0.75,
+      0.9787
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ]
+   },
+   "size_mult": 1.0,
+   "alpha_range": [
+    0.92,
+    1.0
+   ],
+   "width_jitter": 0.1,
+   "color_jitter": 0.006,
+   "length_mult": 1.0,
+   "roles": [
+    "bed",
+    "marker"
+   ],
+   "default_opacity": 1.0,
+   "recommended_layers": [
+    "F1",
+    "L26"
+   ],
+   "preview": "previews/fill_round.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "basic_round_hard",
+   "shape_registered": true,
+   "notes": "planned 条目：大尺寸铺底专用：需要 ≥180px 稳定覆盖与低抖动（现宽度抖动 0.10 在大尺寸可见）"
+  },
+  "airbrush_pressure": {
+   "id": "airbrush_pressure",
+   "name": "Pressure Airbrush",
+   "name_en": "Pressure Airbrush",
+   "name_zh": "压感喷枪",
+   "category": "airbrush",
+   "shape": "airbrush",
+   "status": "planned",
+   "renderable": false,
+   "sizes_px": [
+    4,
+    8,
+    16,
+    32,
+    64,
+    120
+   ],
+   "width_eff": 0.3332,
+   "width_eff_source": "estimated_from:basic_airbrush",
+   "width_range_px": [
+    6,
+    200
+   ],
+   "pressure": {
+    "model": "estimated: 继承 basic_airbrush 的实测压力曲线（本笔尚未实现/未实测）",
+    "sensitivity": 0.45,
+    "width": [
+     [
+      0.25,
+      0.6625
+     ],
+     [
+      0.5,
+      0.7751
+     ],
+     [
+      0.75,
+      0.8878
+     ],
+     [
+      1.0,
+      1.0
+     ]
+    ],
+    "alpha": [
+     [
+      0.25,
+      0.5107
+     ],
+     [
+      0.5,
+      0.5875
+     ],
+     [
+      0.75,
+      0.6643
+     ],
+     [
+      1.0,
+      0.7397
+     ]
+    ]
+   },
+   "size_mult": 1.5,
+   "alpha_range": [
+    0.5,
+    0.8
+   ],
+   "width_jitter": 0.15,
+   "color_jitter": 0.01,
+   "length_mult": 1.3,
+   "roles": [
+    "effect",
+    "wash"
+   ],
+   "default_opacity": 0.8,
+   "recommended_layers": [
+    "L26",
+    "L13"
+   ],
+   "preview": "previews/airbrush_pressure.png",
+   "license": "proprietary",
+   "version": 1,
+   "traits": [],
+   "calib": "estimated",
+   "implements_base": "basic_airbrush",
+   "shape_registered": true,
+   "notes": "planned 条目：需要压力→流量（浓度）映射；现在压力只改宽，峰值 α 永不饱和（0.74 vs 请求 0.80）"
+  }
+ }
+}

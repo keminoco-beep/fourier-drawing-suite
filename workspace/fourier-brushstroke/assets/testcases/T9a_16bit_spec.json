@@ -1,0 +1,18 @@
+{
+ "case": "T9a_16bit",
+ "checks": {
+  "A5": "build 成功或明确拒绝；不崩溃"
+ },
+ "class_expected": "any",
+ "expected": {
+  "convert": true,
+  "source_mode_recorded": true
+ },
+ "file": "T9a_16bit.png",
+ "purpose": "T9/A5：16bit 灰度 PNG —— 自动转换为 8bit，不崩溃",
+ "schema": "fbs-fixture/2",
+ "size": [
+  256,
+  256
+ ]
+}

@@ -1,0 +1,81 @@
+{
+  "schema": "fdsl/2.1",
+  "name": "demo_text_to_drawing",
+  "description": "Text-to-drawing demo: outline text, a rough brush underline and a star accent.",
+  "canvas": {"width": 384, "height": 256, "background": [250, 248, 242]},
+  "palette": {
+    "ink": "#1e2430",
+    "accent": "#c04030",
+    "gold": "#e8c37a",
+    "paper": "#faf8f2"
+  },
+  "layers": [
+    {"id": 0, "name": "paper", "order": 0},
+    {"id": 1, "name": "type", "order": 1},
+    {"id": 2, "name": "accent", "order": 2}
+  ],
+  "elements": [
+    {
+      "kind": "fill",
+      "id": "e1",
+      "layer": 0,
+      "color": "paper",
+      "poly": [[0, 0], [384, 0], [384, 256], [0, 256]]
+    },
+    {
+      "kind": "text",
+      "id": "e2",
+      "layer": 1,
+      "as": "outline",
+      "text": "你好，Fourier!",
+      "font": {
+        "id": "source_han_sans_sc",
+        "size_px": 46,
+        "color": "ink",
+        "align": "center",
+        "line_gap": 1.15
+      },
+      "box": [24, 32, 336, 88]
+    },
+    {
+      "kind": "text",
+      "id": "e3",
+      "layer": 1,
+      "as": "outline",
+      "text": "傅里叶笔触 2026",
+      "font": {
+        "id": "source_han_sans_sc",
+        "size_px": 30,
+        "color": "accent",
+        "align": "center"
+      },
+      "box": [24, 132, 336, 52]
+    },
+    {
+      "kind": "stroke",
+      "id": "e4",
+      "layer": 2,
+      "points": [[56, 206], [128, 198], [220, 212], [328, 200]],
+      "brush": {
+        "preset": "ink_brush_rough",
+        "width": [[0, 1.5], [0.45, 7.0], [1, 2.0]],
+        "color": "gold",
+        "alpha": 0.9
+      }
+    },
+    {
+      "kind": "fourier_gen",
+      "id": "e5",
+      "gen": "star",
+      "layer": 2,
+      "params": {"at": [344, 226], "r": 16, "ri": 6, "n": 5, "rot": -90},
+      "brush": {
+        "preset": "ink_fineliner",
+        "width": 2.0,
+        "color": "accent",
+        "alpha": 0.95
+      }
+    }
+  ],
+  "constraints": {"max_elements": 400}
+}

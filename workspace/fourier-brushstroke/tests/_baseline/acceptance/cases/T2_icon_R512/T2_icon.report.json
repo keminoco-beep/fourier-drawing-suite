@@ -1,0 +1,843 @@
+{
+ "schema": "fbs-report/2",
+ "image": {
+  "path": "<workspace>\\fourier-brushstroke\\assets\\testcases\\T2_icon.png",
+  "sha256": "46a179f548c2e83b381960fd2d48e9a60bfb17e852dc71fbaecf3c5925481592",
+  "width": 384,
+  "height": 384
+ },
+ "image_class": {
+  "klass": "flat_art",
+  "evidence": {
+   "unique_colors": 184.0,
+   "entropy_bits": 1.694,
+   "edge_density": 0.01096,
+   "hard_edge_frac": 0.03264,
+   "mean_saturation": 0.0936,
+   "colorful_frac": 0.2234,
+   "noise_level": 0.0,
+   "flat_frac": 0.9535,
+   "visible_frac": 1.0,
+   "klass_rules": {
+    "photo": [
+     4096,
+     6.0,
+     1.5,
+     0.6
+    ],
+    "lineart": [
+     0.12,
+     0.008,
+     0.03
+    ],
+    "gradient": [
+     2048.0,
+     0.8,
+     0.85,
+     0.02
+    ]
+   }
+  }
+ },
+ "contract": {
+  "target_resolution": 512,
+  "epsilon_px": 0.5
+ },
+ "fbs": {
+  "stroke_count": 7,
+  "coef_count": 1431,
+  "fill_count": 4,
+  "region_count": 7,
+  "bytes": 284338
+ },
+ "warnings": [],
+ "quality": {
+  "psnr": 31.8592,
+  "ssim": 0.986713,
+  "rmse": 6.51,
+  "mae": 1.0076,
+  "resolution": 512,
+  "structure": {
+   "ink_threshold": 0.5,
+   "ref_px": 86254.0,
+   "rec_px": 86680.0,
+   "missing_px": 433.0,
+   "extra_px": 859.0,
+   "recall": 0.99498,
+   "precision": 0.99009,
+   "iou": 0.985169,
+   "missing_pct": 0.502,
+   "extra_pct": 0.9959,
+   "extra_pct_of_rec": 0.991,
+   "missing_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 92,
+     "pixels": 433
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 162,
+     "pixels": 859
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ]
+  },
+  "thickness": {
+   "bins": [
+    0.0,
+    1.01,
+    1.76,
+    2.51,
+    5.01,
+    null
+   ],
+   "hist_ref": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 1,
+     "pixels": 1695
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 4,
+     "pixels": 84559
+    }
+   ],
+   "hist_rec": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 1,
+     "pixels": 1263
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 4,
+     "pixels": 85417
+    }
+   ],
+   "missing": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 92,
+     "pixels": 433
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 162,
+     "pixels": 859
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "ref_peak_median_px": 158.7577,
+   "rec_peak_median_px": 159.7623,
+   "note": "按连通域 EDT 峰值（最大内切半径）分箱；分箱单位=比较分辨率像素"
+  },
+  "tone": {
+   "mean_delta_e": 1.0184,
+   "p95_delta_e": 6.4754,
+   "extra_ink_delta_e": 27.6285,
+   "wrong_pct": 0.732,
+   "wrong_ink_pct": 2.2029,
+   "confusion": [
+    [
+     175305,
+     0,
+     0,
+     817,
+     190
+    ],
+    [
+     0,
+     25600,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     25899,
+     25,
+     0
+    ],
+    [
+     407,
+     0,
+     480,
+     20562,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12859
+    ]
+   ],
+   "refs": [
+    [
+     252,
+     252,
+     252
+    ],
+    [
+     28,
+     28,
+     28
+    ],
+    [
+     28,
+     60,
+     124
+    ],
+    [
+     44,
+     140,
+     92
+    ],
+    [
+     204,
+     60,
+     52
+    ]
+   ],
+   "names": [
+    "T0(252,252,252)",
+    "T1(28,28,28)",
+    "T2(28,60,124)",
+    "T3(44,140,92)",
+    "T4(204,60,52)"
+   ],
+   "note": "confusion 行=原图色调, 列=重建色调；非对角元即色调错误（结构指标对其盲）"
+  },
+  "linewidth": {
+   "method": "component_EDT_peak_x2",
+   "ref_median_px": 158.7577,
+   "rec_median_px": 159.7623,
+   "ratio": 1.0063,
+   "ratio_abs_error_pct": 0.63,
+   "ref_p10_px": 43.319,
+   "ref_p90_px": 161.2,
+   "rec_p10_px": 42.1271,
+   "rec_p90_px": 162.0,
+   "ref_components": 5.0,
+   "rec_components": 5.0,
+   "volume": {
+    "ref_ink_px": 86254,
+    "rec_ink_px": 86680,
+    "area_ratio": 1.0049,
+    "ref_ink_mass": 85802.94,
+    "rec_ink_mass": 86291.84,
+    "mass_ratio": 1.0057,
+    "note": "mass=墨距(0..1)之和，等价于墨量积分；比值需与面积比、线宽比一起看"
+   }
+  },
+  "contract": {
+   "target_resolution": 512.0,
+   "epsilon_px": 0.5,
+   "fingerprint": {
+    "image_sha256": "46a179f548c2e83b381960fd2d48e9a60bfb17e852dc71fbaecf3c5925481592",
+    "params_sha256": "abad5090bb6a15454bd1e573ec2d6fd2375d169d35cb3fb05d47700b051ca7cc",
+    "codegen": "fbs-v2",
+    "contract_sha256": "dd109eb5e6163852870df0f499f7791f8521500856effc2d57fa62db4bb48cef"
+   },
+   "codegen": "fbs-v2",
+   "resolution": [
+    512,
+    512
+   ],
+   "resolution_matches_target": true,
+   "comparable": true,
+   "errors": []
+  }
+ },
+ "metrics": {
+  "metrics_version": "2.0",
+  "resolution": [
+   512,
+   512
+  ],
+  "psnr": 31.8592,
+  "psnr_capped": false,
+  "ssim": 0.986713,
+  "rmse": 6.51,
+  "mae": 1.0076,
+  "structure": {
+   "ink_threshold": 0.5,
+   "ref_px": 86254,
+   "rec_px": 86680,
+   "missing_px": 433,
+   "extra_px": 859,
+   "recall": 0.99498,
+   "precision": 0.99009,
+   "iou": 0.985169,
+   "missing_pct": 0.502,
+   "extra_pct": 0.9959,
+   "extra_pct_of_rec": 0.991,
+   "missing_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 92,
+     "pixels": 433
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra_thickness": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 162,
+     "pixels": 859
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ]
+  },
+  "thickness": {
+   "bins": [
+    0.0,
+    1.01,
+    1.76,
+    2.51,
+    5.01,
+    null
+   ],
+   "hist_ref": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 1,
+     "pixels": 1695
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 4,
+     "pixels": 84559
+    }
+   ],
+   "hist_rec": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 1,
+     "pixels": 1263
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 4,
+     "pixels": 85417
+    }
+   ],
+   "missing": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 92,
+     "pixels": 433
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "extra": [
+    {
+     "bin": "<1.0px（极细）",
+     "radius_lo_px": 0.0,
+     "radius_hi_px": 1.01,
+     "count": 162,
+     "pixels": 859
+    },
+    {
+     "bin": "1.0-1.75px（细）",
+     "radius_lo_px": 1.01,
+     "radius_hi_px": 1.76,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "1.75-2.5px（中）",
+     "radius_lo_px": 1.76,
+     "radius_hi_px": 2.51,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": "2.5-5px（粗）",
+     "radius_lo_px": 2.51,
+     "radius_hi_px": 5.01,
+     "count": 0,
+     "pixels": 0
+    },
+    {
+     "bin": ">5px（块面）",
+     "radius_lo_px": 5.01,
+     "radius_hi_px": null,
+     "count": 0,
+     "pixels": 0
+    }
+   ],
+   "ref_peak_median_px": 158.7577,
+   "rec_peak_median_px": 159.7623,
+   "note": "按连通域 EDT 峰值（最大内切半径）分箱；分箱单位=比较分辨率像素"
+  },
+  "tone": {
+   "mean_delta_e": 1.0184,
+   "p95_delta_e": 6.4754,
+   "extra_ink_delta_e": 27.6285,
+   "wrong_pct": 0.732,
+   "wrong_ink_pct": 2.2029,
+   "confusion": [
+    [
+     175305,
+     0,
+     0,
+     817,
+     190
+    ],
+    [
+     0,
+     25600,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     25899,
+     25,
+     0
+    ],
+    [
+     407,
+     0,
+     480,
+     20562,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     12859
+    ]
+   ],
+   "refs": [
+    [
+     252,
+     252,
+     252
+    ],
+    [
+     28,
+     28,
+     28
+    ],
+    [
+     28,
+     60,
+     124
+    ],
+    [
+     44,
+     140,
+     92
+    ],
+    [
+     204,
+     60,
+     52
+    ]
+   ],
+   "names": [
+    "T0(252,252,252)",
+    "T1(28,28,28)",
+    "T2(28,60,124)",
+    "T3(44,140,92)",
+    "T4(204,60,52)"
+   ],
+   "note": "confusion 行=原图色调, 列=重建色调；非对角元即色调错误（结构指标对其盲）"
+  },
+  "linewidth": {
+   "method": "component_EDT_peak_x2",
+   "ref_median_px": 158.7577,
+   "rec_median_px": 159.7623,
+   "ratio": 1.0063,
+   "ratio_abs_error_pct": 0.63,
+   "ref_p10_px": 43.319,
+   "ref_p90_px": 161.2,
+   "rec_p10_px": 42.1271,
+   "rec_p90_px": 162.0,
+   "ref_components": 5,
+   "rec_components": 5,
+   "volume": {
+    "ref_ink_px": 86254,
+    "rec_ink_px": 86680,
+    "area_ratio": 1.0049,
+    "ref_ink_mass": 85802.94,
+    "rec_ink_mass": 86291.84,
+    "mass_ratio": 1.0057,
+    "note": "mass=墨距(0..1)之和，等价于墨量积分；比值需与面积比、线宽比一起看"
+   }
+  },
+  "contract": {
+   "target_resolution": 512,
+   "epsilon_px": 0.5,
+   "fingerprint": {
+    "image_sha256": "46a179f548c2e83b381960fd2d48e9a60bfb17e852dc71fbaecf3c5925481592",
+    "params_sha256": "abad5090bb6a15454bd1e573ec2d6fd2375d169d35cb3fb05d47700b051ca7cc",
+    "codegen": "fbs-v2",
+    "contract_sha256": "dd109eb5e6163852870df0f499f7791f8521500856effc2d57fa62db4bb48cef"
+   },
+   "codegen": "fbs-v2",
+   "resolution": [
+    512,
+    512
+   ],
+   "resolution_matches_target": true,
+   "comparable": true,
+   "errors": []
+  },
+  "units": {
+   "psnr_dB": "dB @ data_range=1（相同图截断为 120）",
+   "ssim": "无量纲 [-1,1]",
+   "rmse_mae": "8-bit 灰度级（0..255）",
+   "distances_px": "像素（比较分辨率长边 R=512）"
+  }
+ },
+ "files": {
+  "fbs": "<workspace>\\fourier-brushstroke\\tests\\_baseline\\acceptance\\cases\\T2_icon_R512\\T2_icon.fbs.json",
+  "png": "<workspace>\\fourier-brushstroke\\tests\\_baseline\\acceptance\\cases\\T2_icon_R512\\T2_icon_R512.png"
+ },
+ "timings_s": {
+  "stage_build": 0.417,
+  "render": 0.762,
+  "metrics": 1.061
+ },
+ "decomposition_stats": {
+  "region_count": 7,
+  "fill_count": 4,
+  "branch_count": 3,
+  "point_disk_count": 0,
+  "pruned_branches": 0,
+  "merged_branches": 0,
+  "dropped_short": 0,
+  "rescued_short": 0,
+  "hole_regions": 0,
+  "bridged_gaps": 0,
+  "repair_branches": 0,
+  "degenerate_disks": 0,
+  "total_arc_length": 2.0472764276655897,
+  "klass": "flat_art",
+  "hybrid": "on",
+  "color_fields": 4,
+  "texture_dot_count": 0,
+  "element_count": 7,
+  "elapsed_s": 0.162
+ }
+}

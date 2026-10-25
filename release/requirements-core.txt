@@ -1,0 +1,8 @@
+# ComfyUI-FDP-T2I core dependencies (skill scripts / fourier-prompt / fourier-brushstroke)
+# ComfyUI 自带 python 通常已包含全部依赖；缺失时用：
+#   "<python>" -m pip install -r requirements-core.txt
+numpy>=1.24
+scipy>=1.10
+Pillow>=10.0
+imageio>=2.31
+imageio-ffmpeg>=0.4.9

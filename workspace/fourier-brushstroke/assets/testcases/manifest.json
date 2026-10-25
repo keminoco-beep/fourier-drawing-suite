@@ -1,0 +1,313 @@
+{
+ "schema": "fbs-fixture/2",
+ "generator": "tests/gen_fixtures.py",
+ "seed": 20261018,
+ "root": "assets/testcases",
+ "cases": [
+  {
+   "case": "T10a_中文名_大图",
+   "file": "T10a_中文名_大图.png",
+   "spec": "T10a_中文名_大图_spec.json",
+   "class_expected": "lineart",
+   "purpose": "T10/A5：非 ASCII 文件名 + 512 大图 —— 路径必须支持中文；build 成功",
+   "size": [
+    512,
+    512
+   ],
+   "sha256": "b95033a3dc5c9eb33df29b37061436c59d2c0f420fbb79b6277dc501c8ba0a79"
+  },
+  {
+   "case": "T10b_损坏文件",
+   "file": "T10b_损坏文件.png",
+   "spec": "T10b_损坏文件_spec.json",
+   "class_expected": "corrupt",
+   "purpose": "T10/A5：损坏 PNG —— 必须拒绝且原因明确（E_INPUT_CORRUPT / E_INPUT_FORMAT）",
+   "size": null,
+   "sha256": "ca427ef995f7453bee39d05e353175e9e3654207fa342147969b2b53d490b3ef"
+  },
+  {
+   "case": "T10c_太小_8x8",
+   "file": "T10c_太小_8x8.png",
+   "spec": "T10c_太小_8x8_spec.json",
+   "class_expected": "too_small",
+   "purpose": "A5：过小图像（<32×32）—— 必须拒绝 E_INPUT_TOO_SMALL",
+   "size": [
+    8,
+    8
+   ],
+   "sha256": "42b13b9e7838bb5e33ec86cfd1f7dc54c1b14bafba050684988002edf4306d3d"
+  },
+  {
+   "case": "T10d_不是图片",
+   "file": "T10d_不是图片.txt",
+   "spec": "T10d_不是图片_spec.json",
+   "class_expected": "invalid_format",
+   "purpose": "A5：不支持的格式 —— 必须拒绝 E_INPUT_FORMAT/E_INPUT_MODE 并列出支持格式",
+   "size": null,
+   "sha256": "53eb59628a98cbcd14ada836606b46dd7ac58a05251263ca8c9e11c3999510fe"
+  },
+  {
+   "case": "T11_taper_three_expressions",
+   "file": "T11_taper_three_expressions.png",
+   "spec": "T11_taper_three_expressions_spec.json",
+   "class_expected": "lineart",
+   "purpose": "A14：同一 taper（20→3px 线性）的 linear / spline / preset 三种表达必须渲染一致（两两差异<1%）",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "562dc8d4b2e65c539ca441c95308eca7c10e25a77068a124791671477b466b29"
+  },
+  {
+   "case": "T12_color_gradient",
+   "file": "T12_color_gradient.png",
+   "spec": "T12_color_gradient_spec.json",
+   "class_expected": "lineart",
+   "purpose": "T12：颜色沿笔画渐变（已知 stops）—— 验颜色曲线反演（色调维度），能抓到单调变暗/变淡",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "9d56dafeae4dcd9a3407b8df3b463318e1820a8f5da0b52717a634649b635105"
+  },
+  {
+   "case": "T13_step_intervals",
+   "file": "T13_step_intervals.png",
+   "spec": "T13_step_intervals_spec.json",
+   "class_expected": "lineart",
+   "purpose": "A15：分段区间笔触（step）—— 宽度在 t=0.5 处从 20px 切到 6px，不得被常量/线性近似掉",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "a9cd2091768d498f1f7587dec9a0f229654d35ac56965c1dbaf46af3cd139b87"
+  },
+  {
+   "case": "T1_signature",
+   "file": "T1_signature.png",
+   "spec": "T1_signature_spec.json",
+   "class_expected": "lineart",
+   "purpose": "A1/A2：线稿类 PSNR≥30dB、SSIM≥0.90 的最佳场景",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "1bf97ff8eb5961a0c8a909ea722ed86ef0384cc344c011791ff2ff8537bde124"
+  },
+  {
+   "case": "T2_icon",
+   "file": "T2_icon.png",
+   "spec": "T2_icon_spec.json",
+   "class_expected": "flat_art",
+   "purpose": "T2：图标（直角+曲线）—— 尖角分支保留、区域填充；A8 尖角形状误差的载体之一",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "46a179f548c2e83b381960fd2d48e9a60bfb17e852dc71fbaecf3c5925481592"
+  },
+  {
+   "case": "T3_flat_illustration",
+   "file": "T3_flat_illustration.png",
+   "spec": "T3_flat_illustration_spec.json",
+   "class_expected": "illustration",
+   "purpose": "A9/A11/A10：扁平插画（8 色块）多区域中轴 + 分层顺序 + 体积比",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "a81a646977a0efec442448440317721901e7b5b3e445bfc0622d8946cf85d3b0"
+  },
+  {
+   "case": "T4_taper_thick_to_thin",
+   "file": "T4_taper_thick_to_thin.png",
+   "spec": "T4_taper_thick_to_thin_spec.json",
+   "class_expected": "lineart",
+   "purpose": "A7/A13（宽度反演精度）、A3（N–R 契约）、A10（分支数）：已知 w(t) 的锥形笔画",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "02086b70f7d439c656c110e3af69c4efd19b26b154982d6450679f58afa7df08"
+  },
+  {
+   "case": "T5_sharp_corners",
+   "file": "T5_sharp_corners.png",
+   "spec": "T5_sharp_corners_spec.json",
+   "class_expected": "flat_art",
+   "purpose": "A8：stamp 渲染 vs 变宽线段渲染的形状误差（尖角必须保持）；尖角多边形真值",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "fd0c66b528be8f29c01a6b4deccf2767031a53b8a0545683baf512a999119cc0"
+  },
+  {
+   "case": "T5b_sharp_fold_stroke",
+   "file": "T5b_sharp_fold_stroke.png",
+   "spec": "T5b_sharp_fold_stroke_spec.json",
+   "class_expected": "lineart",
+   "purpose": "A8（修正判据）载体：带尖锐折返的变宽笔画真值 → 同一 doc 比较 stamp vs line 的形状误差等价性（差比∈[0.85,1.15] 且各自绝对边界偏差≤1px@R1024）",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "bbb90d1357c99d2833081f7e03004556d42ea7ebf96cb9bcbd92696ecdc60b33"
+  },
+  {
+   "case": "T6_gradient",
+   "file": "T6_gradient.png",
+   "spec": "T6_gradient_spec.json",
+   "class_expected": "gradient",
+   "purpose": "T6：渐变图（无硬边 → 中轴退化）—— 必须明确降级/告警而非崩溃或静默",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "e7bea9031f0115658ef7ca2135c3d6d5657644fd62254528939c317236192435"
+  },
+  {
+   "case": "T7_photo_like",
+   "file": "T7_photo_like.png",
+   "spec": "T7_photo_like_spec.json",
+   "class_expected": "photo",
+   "purpose": "A5/D5：合成高熵照片类输入 —— 必须明确拒绝（E_PHOTO_DEFERRED），错误信息可读且含实测依据",
+   "size": [
+    384,
+    384
+   ],
+   "sha256": "c176695e05c2a85893384c1e33b82672c2093bdfbb01c0724a2fa1c8828f0747"
+  },
+  {
+   "case": "T8a_solid_black",
+   "file": "T8a_solid_black.png",
+   "spec": "T8a_solid_black_spec.json",
+   "class_expected": "solid",
+   "purpose": "T8/A5：纯黑图（纯色/无中轴）—— 必须走专门路径 + W_SOLID_COLOR 告警，不崩溃",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "a3684197d1fba631f63afa791d1505e6e412fc1c505d3136bf264b8a25fe7118"
+  },
+  {
+   "case": "T8b_solid_white",
+   "file": "T8b_solid_white.png",
+   "spec": "T8b_solid_white_spec.json",
+   "class_expected": "solid",
+   "purpose": "T8/A5：纯白图（无墨迹）—— 必须输出空笔画 + W_SOLID_COLOR 告警，不崩溃",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "73d7ed9877bc3b373ef42a3cec0d2e94ee1b2f32c7296c6067032d2b3b949d3e"
+  },
+  {
+   "case": "T8c_fully_transparent",
+   "file": "T8c_fully_transparent.png",
+   "spec": "T8c_fully_transparent_spec.json",
+   "class_expected": "empty",
+   "purpose": "T8/A5：全透明图 —— 必须拒绝 E_INPUT_TRANSPARENT（图像无可见内容）",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "aebc86755d7beb8b01bcd992ab44e1133afcb473511b7832eb82228be275473f"
+  },
+  {
+   "case": "T9a_16bit",
+   "file": "T9a_16bit.png",
+   "spec": "T9a_16bit_spec.json",
+   "class_expected": "any",
+   "purpose": "T9/A5：16bit 灰度 PNG —— 自动转换为 8bit，不崩溃",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "a5d9c5c059635e8a3d11fed844583626b700cc7d41bc6b6530ff38bf34aa97f5"
+  },
+  {
+   "case": "T9b_cmyk",
+   "file": "T9b_cmyk.jpg",
+   "spec": "T9b_cmyk_spec.json",
+   "class_expected": "any",
+   "purpose": "T9/A5：CMYK JPEG —— 自动转换为 RGB，不崩溃",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "9f9c18483ed14cf7b08b07dfdcd101956a5d82fae69af0e2b1544260b1c2e70d"
+  },
+  {
+   "case": "T9c_alpha",
+   "file": "T9c_alpha.png",
+   "spec": "T9c_alpha_spec.json",
+   "class_expected": "any",
+   "purpose": "T9/A5：带 alpha 的 PNG —— 按 alpha 阈值合成，不崩溃；source.mode 记录 RGBA",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "bcda43f431c1a20cabe338bb7f16ac091c008f4d00ae316618e95c129b5851c2"
+  },
+  {
+   "case": "T9d_palette",
+   "file": "T9d_palette.png",
+   "spec": "T9d_palette_spec.json",
+   "class_expected": "any",
+   "purpose": "T9/A5：调色板模式 PNG —— 自动转 RGBA8",
+   "size": [
+    256,
+    256
+   ],
+   "sha256": "d83ccd0167d0b9cf83ba05eab7932a99348caa51cf99088b96404a75c9f51b24"
+  }
+ ],
+ "count": 22,
+ "files": [
+  "<path>",
+  "<path>",
+  "<path>",
+  "<path>",
+  "<path>",
+  "T10a_中文名_大图.png",
+  "T10a_中文名_大图_spec.json",
+  "T10b_损坏文件.png",
+  "T10b_损坏文件_spec.json",
+  "T10c_太小_8x8_spec.json",
+  "T10d_不是图片.txt",
+  "T10d_不是图片_spec.json",
+  "T11_taper_three_expressions.png",
+  "T11_taper_three_expressions_spec.json",
+  "T12_color_gradient.png",
+  "T12_color_gradient_spec.json",
+  "T13_step_intervals.png",
+  "T13_step_intervals_spec.json",
+  "T1_signature.png",
+  "T1_signature_spec.json",
+  "T2_icon.png",
+  "T2_icon_spec.json",
+  "T3_flat_illustration.png",
+  "T3_flat_illustration_spec.json",
+  "T4_taper_thick_to_thin.png",
+  "T4_taper_thick_to_thin_spec.json",
+  "T5_sharp_corners.png",
+  "T5_sharp_corners_spec.json",
+  "T5b_sharp_fold_stroke.png",
+  "T5b_sharp_fold_stroke_spec.json",
+  "T6_gradient.png",
+  "T6_gradient_spec.json",
+  "T7_photo_like.png",
+  "T7_photo_like_spec.json",
+  "T8a_solid_black_spec.json",
+  "T8b_solid_white_spec.json",
+  "T8c_fully_transparent_spec.json",
+  "T9a_16bit.png",
+  "T9a_16bit_spec.json",
+  "T9b_cmyk.jpg",
+  "T9b_cmyk_spec.json",
+  "T9c_alpha_spec.json",
+  "T9d_palette.png",
+  "T9d_palette_spec.json"
+ ]
+}

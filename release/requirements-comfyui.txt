@@ -1,0 +1,3 @@
+# ComfyUI-FDP-T2I node package dependencies.
+# 节点本身只依赖 ComfyUI 自带的 torch / numpy / Pillow，无需额外安装。
+# （skill 脚本的依赖见 requirements-core.txt；GPU 渲染见 requirements-gpu.txt。）

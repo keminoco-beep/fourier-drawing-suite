@@ -1,0 +1,150 @@
+{
+ "schema": "brush-style-packs/1",
+ "generated": "2026-10-20",
+ "notes": [
+  "风格包 = 「画风 → 每角色候选笔池 + 属性倾向」；池内顺序即默认优先级。",
+  "policy.choose_brush(role, style=...) 先用本包该 role 的池，池为空则回退 ROLE_POOLS。",
+  "只允许引用 brush_catalog.json 里 status=active 的 id（validate_policy 会查；planned 永不入池）。",
+  "属性倾向是给上层（编译器/LLM）的默认值提示，不强制；不透明度区间引用 catalog 的 default_opacity 语义。"
+ ],
+ "packs": {
+  "ink_wash": {
+   "name_zh": "水墨",
+   "name_en": "Ink wash",
+   "aliases": ["水墨", "sumi", "ink", "写意"],
+   "pools": {
+    "line_broad": ["sumi_e", "ink_brush_rough"],
+    "line_taper": ["sumi_e", "ink_gpen"],
+    "wash": ["watercolor_wash", "wet_oil", "sumi_e"],
+    "bed": ["sumi_e", "bristle_oil"],
+    "texture": ["ink_brush_rough", "charcoal"],
+    "detail": ["ink_gpen", "ink_fineliner"],
+    "effect": ["basic_airbrush", "watercolor_wash"],
+    "sketch": ["charcoal", "pencil_2b"],
+    "marker": ["marker_alcohol"]
+   },
+   "attribute_bias": {
+    "opacity": [0.7, 0.95],
+    "pressure_band": [0.4, 1.0],
+    "width_gain": "high",
+    "edge": "wet",
+    "palette": "monochrome",
+    "note": "用 sumi_e 的 60% 宽度动态范围做提按；淡墨层靠 watercolor_wash 叠加"
+   }
+  },
+  "pencil": {
+   "name_zh": "铅笔",
+   "name_en": "Pencil",
+   "aliases": ["铅笔", "sketch", "素描", "graphite"],
+   "pools": {
+    "sketch": ["pencil_hb", "pencil_2b", "charcoal"],
+    "detail": ["pencil_hb", "ink_fineliner", "pencil_2b"],
+    "texture": ["chalk", "charcoal", "pastel", "pencil_2b"],
+    "bed": ["dry_flat", "basic_round_soft"],
+    "line_hairline": ["pencil_hb", "ink_fineliner"],
+    "line_taper": ["charcoal", "pencil_2b"],
+    "line_broad": ["charcoal", "chalk"],
+    "effect": ["basic_airbrush"],
+    "marker": ["dry_flat"]
+   },
+   "attribute_bias": {
+    "opacity": [0.45, 0.8],
+    "pressure_band": [0.2, 0.7],
+    "width_gain": "low",
+    "texture": "grainy",
+    "note": "低不透明度 + 压力降宽降浓；先修 α² 再标定压力→浓淡"
+   }
+  },
+  "marker": {
+   "name_zh": "马克笔",
+   "name_en": "Marker",
+   "aliases": ["马克笔", "马克", "copic", "alcohol"],
+   "pools": {
+    "marker": ["marker_chisel", "marker_alcohol", "dry_flat"],
+    "bed": ["marker_chisel", "marker_alcohol", "basic_round_hard"],
+    "wash": ["marker_alcohol", "watercolor_wash"],
+    "line_hairline": ["ink_fineliner"],
+    "detail": ["ink_fineliner", "ink_gpen"],
+    "effect": ["basic_airbrush"],
+    "texture": ["dry_flat", "palette_knife"],
+    "sketch": ["pencil_hb"]
+   },
+   "attribute_bias": {
+    "opacity": [0.7, 0.92],
+    "pressure_band": [0.6, 0.95],
+    "aniso": true,
+    "layering": "transparent",
+    "note": "平头刀口固定世界 X 轴：块面横/斜扫，竖勾换 ink；半透明靠叠加出混色"
+   }
+  },
+  "oil": {
+   "name_zh": "油画",
+   "name_en": "Oil",
+   "aliases": ["油画", "厚涂", "painterly", "bristle"],
+   "pools": {
+    "bed": ["bristle_oil", "palette_knife", "dry_flat"],
+    "texture": ["bristle_oil", "palette_knife", "wet_oil", "charcoal"],
+    "wash": ["wet_oil", "bristle_oil"],
+    "line_broad": ["bristle_oil", "sumi_e"],
+    "line_taper": ["ink_brush_rough", "sumi_e"],
+    "detail": ["ink_gpen", "pencil_2b"],
+    "sketch": ["charcoal", "pencil_2b"],
+    "marker": ["palette_knife", "dry_flat"],
+    "effect": ["basic_airbrush"]
+   },
+   "attribute_bias": {
+    "opacity": [0.8, 1.0],
+    "pressure_band": [0.5, 1.0],
+    "width_gain": "high",
+    "texture": "bristle",
+    "note": "宽笔 + 高覆盖；湿画法只有半透明叠加（无真实 smudge）"
+   }
+  },
+  "manga": {
+   "name_zh": "漫画",
+   "name_en": "Manga",
+   "aliases": ["漫画", "comic", "lineart", "线稿"],
+   "pools": {
+    "line_hairline": ["ink_fineliner", "ink_gpen"],
+    "line_taper": ["ink_gpen", "ink_brush_rough"],
+    "line_broad": ["ink_brush_rough", "sumi_e"],
+    "bed": ["basic_round_hard", "marker_chisel"],
+    "marker": ["marker_alcohol", "marker_chisel"],
+    "detail": ["ink_fineliner", "ink_gpen"],
+    "effect": ["basic_airbrush", "spatter_brush"],
+    "sketch": ["pencil_hb", "pencil_2b"],
+    "texture": ["dry_flat", "spatter_brush"]
+   },
+   "attribute_bias": {
+    "opacity": [0.85, 1.0],
+    "pressure_band": [0.55, 0.85],
+    "width_gain": "low",
+    "line": "clean",
+    "note": "线稿只用 width 曲线、α=1；平涂用 basic_round_hard，网点感用 spatter"
+   }
+  },
+  "watercolor": {
+   "name_zh": "水彩",
+   "name_en": "Watercolor",
+   "aliases": ["水彩", "wash", "aquarelle"],
+   "pools": {
+    "wash": ["watercolor_wash", "wet_oil", "basic_round_soft"],
+    "bed": ["watercolor_wash", "basic_round_soft"],
+    "effect": ["basic_airbrush", "watercolor_wash", "spatter_brush"],
+    "texture": ["wet_oil", "chalk", "spatter_brush"],
+    "detail": ["ink_fineliner", "ink_gpen"],
+    "line_taper": ["ink_gpen", "sumi_e"],
+    "sketch": ["pencil_2b", "pencil_hb"],
+    "marker": ["marker_alcohol"]
+   },
+   "attribute_bias": {
+    "opacity": [0.4, 0.75],
+    "pressure_band": [0.35, 0.85],
+    "width_gain": "mid",
+    "texture": "rim",
+    "alpha_ceiling": 0.72,
+    "note": "低 α 叠扫出层次；watercolor_wash 峰值 α 只有 0.70，晕边增强在 planned watercolor_fringe"
+   }
+  }
+ }
+}

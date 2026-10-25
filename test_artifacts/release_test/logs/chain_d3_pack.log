@@ -1,0 +1,18 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\pack_fdraw.py --fbs <workspace>\work\release_test\tmp\chain\doc.fbs --out <workspace>\work\release_test\tmp\chain\doc.fdraw
+cwd=<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts
+rc=0 seconds=0.3
+--- stdout ---
+{
+ "fbs": "<path> skill\\work\\release_test\\tmp\\chain\\doc.fbs",
+ "fdraw": "<path> skill\\work\\release_test\\tmp\\chain\\doc.fdraw",
+ "packed_bytes": 72137,
+ "validate_errors": [],
+ "zip_bytes": 72137,
+ "uncompressed_bytes": 278038,
+ "entry_count": 2,
+ "root_sha256_ok": true,
+ "seconds": 0.1
+}
+
+--- stderr ---
+

@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <path> 发布 测试\有空格 中文路径\suite\workspace\skills\fourier-multistroke-training\scripts\build_strokes_fbs.py --strokes <workspace>\work\release_test\tmp\reloc_run_72e5a2ad\human\layered_base_strokes.json --input <workspace>\work\release_test\fixtures\input_shapes_320x256.png --out <workspace>\work\release_test\tmp\reloc_run_72e5a2ad\doc.fbs --resolution 256
+cwd=<path> 发布 测试\有空格 中文路径\suite\workspace\skills\fourier-multistroke-training\scripts
+rc=0 seconds=1.37
+--- stdout ---
+[build] <workspace>\work\release_test\tmp\reloc_run_72e5a2ad\doc.fbs strokes=89 bytes=296036 fills=0 contract={'target_resolution': 256, 'epsilon_px': 0.08}
+
+--- stderr ---
+

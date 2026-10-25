@@ -1,0 +1,45 @@
+{
+ "case": "T1_signature",
+ "checks": {
+  "A1": "psnr>=30@R1024",
+  "A2": "ssim>=0.90@R1024"
+ },
+ "class_expected": "lineart",
+ "file": "T1_signature.png",
+ "purpose": "A1/A2：线稿类 PSNR≥30dB、SSIM≥0.90 的最佳场景",
+ "schema": "fbs-fixture/2",
+ "size": [
+  384,
+  384
+ ],
+ "stroke": {
+  "arc_length_px": 423.94,
+  "color_rgb": [
+   20,
+   20,
+   26
+  ],
+  "width_px": {
+   "keys": [
+    [
+     0.0,
+     3.5
+    ],
+    [
+     0.3,
+     6.5
+    ],
+    [
+     0.65,
+     4.0
+    ],
+    [
+     1.0,
+     7.0
+    ]
+   ],
+   "mode": "linear_keys",
+   "note": "全宽（直径，像素）；t=弧长归一化"
+  }
+ }
+}

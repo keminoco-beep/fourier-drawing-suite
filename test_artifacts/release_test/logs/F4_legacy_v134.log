@@ -1,0 +1,206 @@
+$ <python> <workspace>\skills\fourier-multistroke-training\scripts\layered_base.py --input <workspace>\training\input\Sunflowers_square.png --detail <workspace>\training\sunflowers\clean_r1\cleaned_strokes.json --work-res 1536 --coarse 12 --mid 9 --fine 4.5 --mid-err-pct 85 --fine-err-pct 78 --fine-grad-pct 55 --base-color-mode source --base-blur 4 --base-k 8 --base-jitter 0.006 --mid-jitter 0.006 --fine-jitter 0.008 --upper-color-mode source --upper-blur 2.5 --upper-gradient --texture-flat --texture-flat-count 37000 --texture-flat-ref-std 0.015 --texture-flat-layer 19 --outdir <workspace>\work\release_test\tmp\legacy\v134
+cwd=None
+rc=0 seconds=92.05
+--- stdout ---
+[stage] region maps / config resolved  t=0.6s
+[layered] human-paint: flow=off paint_order=legacy regions=0 base=source/wash
+[layered] pass1 full cover (legacy source): 12544
+[stage] pass1 ground done  t=6.2s
+[layered] pass2 local cover: 4501 mask=377994
+[stage] pass2 done  t=13.1s
+[layered] pass3 local cover: 26588 mask=544990
+[stage] pass3 done  t=18.0s
+[stage] pass4 done  t=18.0s
+[stage] thick dabs done  t=18.0s
+[layered] texture-flat: 37000 strokes (candidates 91210, flat_frac 0.5998)
+[stage] detail + texture-flat done  t=84.3s
+[stage] hard cap done  t=84.3s
+[layered] flow_orientation_frac=0.9504 axis_aligned_frac=0.2672
+[stage] paint order + final render done  t=85.0s
+{
+  "input": "<path> skill\\training\\input\\Sunflowers_square.png",
+  "work_res": 1536,
+  "size": [
+    1536,
+    1536
+  ],
+  "strokes_out": 99929,
+  "max_curves": 100000,
+  "capped_100k": false,
+  "cap_adjustments": null,
+  "pre_cap_strokes": 99929,
+  "pass1_full": 12544,
+  "pass2_local": 4501,
+  "pass3_local": 26588,
+  "pass4_local": 0,
+  "detail": 19296,
+  "white_px_in_fg": 0,
+  "base_color_mode": "source",
+  "base_blur": 4.0,
+  "base_gradient": false,
+  "base_width_factor": 1.5,
+  "base_length_factor": 2.0,
+  "base_coat_pattern": null,
+  "base_metrics_mode": null,
+  "base_metrics_scale": null,
+  "base_color": null,
+  "base_coat_angle": null,
+  "base_coat_spacing": null,
+  "base_coat_width": null,
+  "base_coat_width_factor": null,
+  "base_coat_width_factor_requested": null,
+  "base_coat_jitter": null,
+  "base_coverage": null,
+  "base_overlap_frac": null,
+  "base_overlap_canvas_frac": null,
+  "base_coverage_analytic": null,
+  "base_overlap_analytic": null,
+  "base_overlap_px_over2": null,
+  "base_max_count": null,
+  "base_color_std": 0.16790712,
+  "base_gradient_strokes": 0,
+  "base_strokes": 12544,
+  "wash_angle": -22.0,
+  "flow_strokes": false,
+  "flow_orientation_frac": 0.9504,
+  "axis_aligned_frac": 0.2672,
+  "direction_strokes": 31089,
+  "paint_order": "region",
+  "paint_order_effective": "legacy",
+  "order_y_spearman": null,
+  "order_adjacent_median_px": null,
+  "order_region_run_frac": null,
+  "region_count_used": 0,
+  "clip_to_fg": false,
+  "silhouette_mode": "auto",
+  "silhouette_on": false,
+  "silhouette_area_frac": null,
+  "silhouette_fallback": false,
+  "silhouette_shrink_px": 1.0,
+  "silhouette_margin_px": 0.25,
+  "silhouette_min_width_px": 0.6,
+  "silhouette_feather_px": 0.8,
+  "silhouette_clipped_strokes": 0,
+  "silhouette_points_trimmed": 0,
+  "silhouette_dropped_strokes": 0,
+  "silhouette_overshoot_before_max_px": 0.0,
+  "silhouette_overshoot_after_max_px": 0.0,
+  "white_background_frac": 0.24089,
+  "fill_count": 0,
+  "thick_dabs": 0,
+  "thick_dab_strokes": 0,
+  "texture_flat_strokes": 37000,
+  "texture_flat_candidates": 91210,
+  "texture_flat_params": {
+    "count": 37000,
+    "spacing": 2.5,
+    "lstd": 0.01,
+    "ref_std": 0.015,
+    "len_px": [
+      5.0,
+      9.0
+    ],
+    "width_px": [
+      2.5,
+      3.5
+    ],
+    "layer": 19,
+    "jitter": 0.01,
+    "requested": 37000,
+    "auto": false,
+    "planned": 37000,
+    "candidates": 91210,
+    "budget": 37071,
+    "emitted": 37000,
+    "capped_100k": false,
+    "spacing_px": 3.0,
+    "ref_std_thr": 0.015,
+    "flat_frac_fg": 0.5998
+  },
+  "psnr": 24.3628,
+  "ssim": 0.62545,
+  "gradient_gate_params": {
+    "gate": "on",
+    "max_delta": 0.12,
+    "edge_delta": 0.1,
+    "edge_pct": 100.0
+  },
+  "gradient_candidates": 31089,
+  "gradient_strokes": 27378,
+  "gradient_rejected_delta": 3406,
+  "gradient_rejected_edge": 303,
+  "gradient_rejected_edge_color": 303,
+  "gradient_rejected_edge_grad": 0,
+  "gradient_rejected_oob": 2,
+  "gradient_edge_frac": 0.0,
+  "gradient_mean_delta": 0.05609,
+  "gradient_max_delta": 0.61145,
+  "gradient_mean_step": 0.03205,
+  "gradient_max_step": 0.50683,
+  "gradient_accepted_mean_delta": 0.04033,
+  "gradient_rejected_delta_frac": 0.10956,
+  "gradient_rejected_edge_frac": 0.00975,
+  "gradient_rejected_oob_frac": 6e-05,
+  "gradient_by_pass": {
+    "base_pass2": {
+      "candidates": 4501,
+      "accepted": 3025,
+      "rejected_delta": 1447,
+      "rejected_edge": 27,
+      "rejected_edge_color": 27,
+      "rejected_edge_grad": 0,
+      "rejected_oob": 2,
+      "mean_delta": 0.10273,
+      "max_delta": 0.61145,
+      "mean_step": 0.04622,
+      "max_step": 0.28706,
+      "accepted_mean_delta": 0.05485,
+      "rejected_delta_frac": 0.32148,
+      "rejected_edge_frac": 0.006,
+      "rejected_oob_frac": 0.00044
+    },
+    "base_pass3": {
+      "candidates": 26588,
+      "accepted": 24353,
+      "rejected_delta": 1959,
+      "rejected_edge": 276,
+      "rejected_edge_color": 276,
+      "rejected_edge_grad": 0,
+      "rejected_oob": 0,
+      "mean_delta": 0.04819,
+      "max_delta": 0.53094,
+      "mean_step": 0.02965,
+      "max_step": 0.21977,
+      "accepted_mean_delta": 0.03853,
+      "rejected_delta_frac": 0.07368,
+      "rejected_edge_frac": 0.01038,
+      "rejected_oob_frac": 0.0
+    },
+    "base_pass4": {
+      "candidates": 0,
+      "accepted": 0,
+      "rejected_delta": 0,
+      "rejected_edge": 0,
+      "rejected_edge_color": 0,
+      "rejected_edge_grad": 0,
+      "rejected_oob": 0,
+      "mean_delta": 0.0,
+      "max_delta": 0.0,
+      "mean_step": 0.0,
+      "max_step": 0.0,
+      "accepted_mean_delta": 0.0,
+      "rejected_delta_frac": 0.0,
+      "rejected_edge_frac": 0.0,
+      "rejected_oob_frac": 0.0
+    }
+  },
+  "stray_color_px": 22093,
+  "stray_color_frac": 0.012336,
+  "stray_color_thr": 0.25,
+  "png": "<path> skill\\work\\release_test\\tmp\\legacy\\v134\\layered_base_R1536.png",
+  "strokes": "<path> skill\\work\\release_test\\tmp\\legacy\\v134\\layered_base_strokes.json",
+  "seconds": 91.0
+}
+
+--- stderr ---
+

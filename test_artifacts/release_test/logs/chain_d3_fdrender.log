@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe -m fourier_prompt.fdrender_cli render --fdraw <workspace>\work\release_test\tmp\chain\doc.fdraw --out <workspace>\work\release_test\tmp\chain\fdrender_cpu_512.png --resolution 512 --quality exact
+cwd=<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\fourier-prompt
+rc=0 seconds=4.33
+--- stdout ---
+rendered <workspace>\work\release_test\tmp\chain\fdrender_cpu_512.png 512x410 quality=exact 3.80s (16266 bytes)
+
+--- stderr ---
+

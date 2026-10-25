@@ -1,0 +1,1415 @@
+{
+  "id": "ff3efae3-97ae-45f2-8f61-64d0bb908aaf",
+  "revision": 0,
+  "last_node_id": 30,
+  "last_link_id": 23,
+  "nodes": [
+    {
+      "id": 30,
+      "type": "FDPT2IWorkflowStart",
+      "pos": [
+        -1770,
+        140
+      ],
+      "size": [
+        460,
+        320
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_mode",
+          "type": "COMBO",
+          "widget": {
+            "name": "source_mode"
+          },
+          "link": null
+        },
+        {
+          "name": "krea2_image",
+          "type": "IMAGE",
+          "link": 11
+        },
+        {
+          "name": "manual_image",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "source_mode",
+          "type": "SOURCE_MODE",
+          "slot_index": 0,
+          "links": [
+            16
+          ]
+        },
+        {
+          "name": "run_dir",
+          "type": "RUN_DIR",
+          "slot_index": 1,
+          "links": [
+            14,
+            17,
+            19,
+            22
+          ]
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 2,
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPT2IWorkflowStart"
+      },
+      "widgets_values": [
+        "文生图（Krea2）"
+      ],
+      "title": "⓪ 模式选择：文生图 / 图生图",
+      "color": "#b58b2a",
+      "bgcolor": "#40320f"
+    },
+    {
+      "id": 20,
+      "type": "LoadImage",
+      "pos": [
+        -1770,
+        800
+      ],
+      "size": [
+        460,
+        520
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            12
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "fdp_quality_chibi.png",
+        "image"
+      ],
+      "title": "手动导入图片（仅在「图生图」模式执行）",
+      "color": "#6a5a7a",
+      "bgcolor": "#2a2335"
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        -1170,
+        140
+      ],
+      "size": [
+        420,
+        82
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "unet_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name"
+          },
+          "link": null
+        },
+        {
+          "name": "weight_dtype",
+          "type": "COMBO",
+          "widget": {
+            "name": "weight_dtype"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "UNETLoader"
+      },
+      "widgets_values": [
+        "redcraftHybridH3Krea2dual_30Krea2_fp8.safetensors",
+        "default"
+      ],
+      "title": "UNET · redcraftHybridH3Krea2dual",
+      "color": "#3f4a5e",
+      "bgcolor": "#2a3240"
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        -1170,
+        280
+      ],
+      "size": [
+        420,
+        106
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "clip_name"
+          },
+          "link": null
+        },
+        {
+          "name": "type",
+          "type": "COMBO",
+          "widget": {
+            "name": "type"
+          },
+          "link": null
+        },
+        {
+          "name": "device",
+          "type": "COMBO",
+          "widget": {
+            "name": "device"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 0,
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "qwen3VL4BAbliteratedComfyui_v10_full_bf16.safetensors",
+        "krea2",
+        "default"
+      ],
+      "title": "CLIP · qwen3VL4B（type=krea2）",
+      "color": "#3f4a5e",
+      "bgcolor": "#2a3240"
+    },
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        -1170,
+        450
+      ],
+      "size": [
+        420,
+        58
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "vae_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "vae_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "slot_index": 0,
+          "links": [
+            6
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAELoader"
+      },
+      "widgets_values": [
+        "qwen_image_vae.safetensors"
+      ],
+      "title": "VAE · qwen_image_vae",
+      "color": "#3f4a5e",
+      "bgcolor": "#2a3240"
+    },
+    {
+      "id": 19,
+      "type": "LoraLoader",
+      "pos": [
+        -1170,
+        560
+      ],
+      "size": [
+        420,
+        130
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        },
+        {
+          "name": "lora_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        },
+        {
+          "name": "strength_model",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_model"
+          },
+          "link": null
+        },
+        {
+          "name": "strength_clip",
+          "type": "FLOAT",
+          "widget": {
+            "name": "strength_clip"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "slot_index": 0,
+          "links": [
+            3
+          ]
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "slot_index": 1,
+          "links": [
+            4,
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoader"
+      },
+      "widgets_values": [
+        "Krea2_色彩增强.safetensors",
+        0.8,
+        0.8
+      ],
+      "title": "LoRA · Krea2 色彩增强（可换/可关）",
+      "color": "#3f4a5e",
+      "bgcolor": "#2a3240"
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -600,
+        140
+      ],
+      "size": [
+        440,
+        180
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 4
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a simple cat sitting on a branch, bold black ink icon on pure white background, thick clean outlines, no hatching, no cross-hatching, no shading, no gradient, minimalist sticker design, centered composition, clean edges"
+      ],
+      "title": "正面提示词（线稿/扁平风）",
+      "color": "#3f789e",
+      "bgcolor": "#1f3a4d"
+    },
+    {
+      "id": 5,
+      "type": "CLIPTextEncode",
+      "pos": [
+        -600,
+        370
+      ],
+      "size": [
+        440,
+        150
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 5
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "slot_index": 0,
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "photo, photorealistic, 3d render, blurry, gradient, shading, soft shadow, noise, texture, watermark, text, frame, border"
+      ],
+      "title": "负面提示词",
+      "color": "#7a3f3f",
+      "bgcolor": "#3d1f1f"
+    },
+    {
+      "id": 6,
+      "type": "EmptyLatentImage",
+      "pos": [
+        -600,
+        580
+      ],
+      "size": [
+        330,
+        106
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": null
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "widget": {
+            "name": "batch_size"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        1
+      ],
+      "title": "空 latent · 1024×1024",
+      "color": "#6c4a8a",
+      "bgcolor": "#2f2340"
+    },
+    {
+      "id": 7,
+      "type": "KSampler",
+      "pos": [
+        -110,
+        140
+      ],
+      "size": [
+        330,
+        360
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 3
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 7
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 8
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 9
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "name": "steps",
+          "type": "INT",
+          "widget": {
+            "name": "steps"
+          },
+          "link": null
+        },
+        {
+          "name": "cfg",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg"
+          },
+          "link": null
+        },
+        {
+          "name": "sampler_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "sampler_name"
+          },
+          "link": null
+        },
+        {
+          "name": "scheduler",
+          "type": "COMBO",
+          "widget": {
+            "name": "scheduler"
+          },
+          "link": null
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "widget": {
+            "name": "denoise"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "slot_index": 0,
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        8,
+        1.0,
+        "euler",
+        "normal",
+        1.0
+      ],
+      "title": "Krea2 采样 · 8 步 / cfg 1 / euler",
+      "color": "#8a5a9e",
+      "bgcolor": "#3a2340"
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        300,
+        140
+      ],
+      "size": [
+        220,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 10
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": [],
+      "title": "VAE 解码",
+      "color": "#4a6a7a",
+      "bgcolor": "#22303a"
+    },
+    {
+      "id": 10,
+      "type": "FDPT2IBuildFromImage",
+      "pos": [
+        670,
+        140
+      ],
+      "size": [
+        460,
+        300
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 13
+        },
+        {
+          "name": "run_dir",
+          "type": "RUN_DIR",
+          "link": 14
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        },
+        {
+          "name": "quality",
+          "type": "COMBO",
+          "widget": {
+            "name": "quality"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fbs_path",
+          "type": "FBS_PATH",
+          "slot_index": 0,
+          "links": [
+            15
+          ]
+        },
+        {
+          "name": "elements",
+          "type": "INT",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "name": "summary",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPT2IBuildFromImage"
+      },
+      "widgets_values": [
+        1536,
+        "极高"
+      ],
+      "title": "②a 位图 → 傅里叶笔触（质量预设）",
+      "color": "#8a6a2a",
+      "bgcolor": "#3d2f12"
+    },
+    {
+      "id": 11,
+      "type": "FDPT2IPackFdraw",
+      "pos": [
+        1170,
+        140
+      ],
+      "size": [
+        420,
+        180
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fbs_path",
+          "type": "FBS_PATH",
+          "link": 15
+        },
+        {
+          "name": "source_mode",
+          "type": "SOURCE_MODE",
+          "link": 16
+        },
+        {
+          "name": "run_dir",
+          "type": "RUN_DIR",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fdraw_path",
+          "type": "FDRAW_PATH",
+          "slot_index": 0,
+          "links": [
+            18,
+            21
+          ]
+        },
+        {
+          "name": "elements",
+          "type": "INT",
+          "slot_index": 1,
+          "links": []
+        },
+        {
+          "name": "summary",
+          "type": "STRING",
+          "slot_index": 2,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPT2IPackFdraw"
+      },
+      "widgets_values": [],
+      "title": "②b 打包 .fdraw（图生图不写自定义 meta）",
+      "color": "#4a7a4a",
+      "bgcolor": "#1f3a1f"
+    },
+    {
+      "id": 12,
+      "type": "FDPT2IRenderFdraw",
+      "pos": [
+        1720,
+        140
+      ],
+      "size": [
+        340,
+        180
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "fdraw_path",
+          "type": "FDRAW_PATH",
+          "link": 18
+        },
+        {
+          "name": "run_dir",
+          "type": "RUN_DIR",
+          "link": 19
+        },
+        {
+          "name": "resolution",
+          "type": "INT",
+          "widget": {
+            "name": "resolution"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPT2IRenderFdraw"
+      },
+      "widgets_values": [
+        4096
+      ],
+      "title": "③ 渲染 .fdraw（exact）",
+      "color": "#b58b2a",
+      "bgcolor": "#40320f"
+    },
+    {
+      "id": 13,
+      "type": "PreviewImage",
+      "pos": [
+        1720,
+        360
+      ],
+      "size": [
+        340,
+        340
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 20
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "title": "渲染结果预览（已保存到任务目录）",
+      "color": "#b58b2a",
+      "bgcolor": "#40320f"
+    },
+    {
+      "id": 14,
+      "type": "FDPT2IFourierVideo",
+      "pos": [
+        670,
+        930
+      ],
+      "size": [
+        460,
+        300
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "fdraw_path",
+          "type": "FDRAW_PATH",
+          "link": 21
+        },
+        {
+          "name": "run_dir",
+          "type": "RUN_DIR",
+          "link": 22
+        },
+        {
+          "name": "size",
+          "type": "STRING",
+          "widget": {
+            "name": "size"
+          },
+          "link": null
+        },
+        {
+          "name": "circles",
+          "type": "INT",
+          "widget": {
+            "name": "circles"
+          },
+          "link": null
+        },
+        {
+          "name": "duration_s",
+          "type": "FLOAT",
+          "widget": {
+            "name": "duration_s"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video_path",
+          "type": "STRING",
+          "slot_index": 0,
+          "links": []
+        },
+        {
+          "name": "poster",
+          "type": "IMAGE",
+          "slot_index": 1,
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "FDPT2IFourierVideo"
+      },
+      "widgets_values": [
+        "2160x2160",
+        16384,
+        30.0
+      ],
+      "title": "④ 傅里叶作画视频（可选 · 默认静音）",
+      "color": "#8a4a6a",
+      "bgcolor": "#3a1f2f"
+    },
+    {
+      "id": 15,
+      "type": "PreviewImage",
+      "pos": [
+        1170,
+        930
+      ],
+      "size": [
+        420,
+        300
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": [],
+      "title": "视频海报（可选 · 默认静音）",
+      "color": "#8a4a6a",
+      "bgcolor": "#3a1f2f"
+    },
+    {
+      "id": 16,
+      "type": "MarkdownNote",
+      "pos": [
+        -1830,
+        -480
+      ],
+      "size": [
+        4020,
+        420
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "title": "使用说明 · 先读我",
+      "widgets_values": [
+        "# FDP T2I · 入口模式选择 → 傅里叶笔触 → .fdraw（高精度档）\n\n**流程**：⓪ 先选「文生图（Krea2）」或「图生图（手动导入）」→ ① 傅里叶笔触 → ② 打包 .fdraw → ③ exact 渲染；④ 视频可选。\n\n| 项 | 值 |\n|---|---|\n| 模式 | 文生图=Krea2 扩散；图生图=LoadImage（Krea2 分支 lazy 跳过） |\n| 模型 | `redcraftHybridH3Krea2dual_30Krea2_fp8.safetensors` + `qwen3VL4BAbliteratedComfyui_v10_full_bf16.safetensors` + `qwen_image_vae.safetensors` + LoRA `Krea2_色彩增强` 0.8 |\n| 图生图精度 | **R=1536 / 质量预设=极高（ε=0.08, N_max=16384, curve_tol=0.002）** |\n| 渲染 | **exact 4096** |\n| 视频（可选） | **2160x2160 / 16384 圆 / 30s** |\n| 输出 | **单次任务全部文件在同一个目录**：`ComfyUI/output/fdp_t2i_runs/<时间戳>_<t2i/i2i>_<id>/` |\n\n**图生图专属规则**：打包 .fdraw 时不写自定义 provenance meta（容器自带最小 meta 保留）。\n**用法**：入口选模式 → 文生图改 ① 提示词；图生图在 LoadImage 点 choose file to upload → Queue。"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "MarkdownNote",
+      "pos": [
+        670,
+        500
+      ],
+      "size": [
+        920,
+        250
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "title": "质量与体积",
+      "widgets_values": [
+        "**质量预设（build 节点）**\n- 高：ε=0.15 / N_max=8192 / curve_tol=0.005 / supersample=2 / max_curves=20000\n- 极高（默认）：ε=0.08 / N_max=16384 / curve_tol=0.002 / supersample=2 / max_curves=40000\n- 极限：ε=0.04 / N_max=32768 / curve_tol=0.001 / supersample=3 / max_curves=80000\n\n- 采样分辨率默认 **R=1536**，可手调 2048/4096（时间与体积约线性/平方增长）。\n- `.fdraw` 容器限制已按高质量档上调（render.json ≤1GiB，解压总量 ≤2GiB）。"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "MarkdownNote",
+      "pos": [
+        -1830,
+        1380
+      ],
+      "size": [
+        540,
+        230
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "title": "手动导入说明",
+      "widgets_values": [
+        "**手动导入（图生图）**\n1) 入口模式必须选「图生图（手动导入）」；\n2) 在左侧 LoadImage 点 **choose file to upload**（或从下拉选 input 里的图）；\n3) Queue 后 Krea2 分支不会执行，只走 LoadImage→build→pack→render；\n4) 图生图 .fdraw 不写自定义 provenance meta。"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "MarkdownNote",
+      "pos": [
+        670,
+        1260
+      ],
+      "size": [
+        920,
+        160
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "title": "视频（可选）",
+      "widgets_values": [
+        "**可选：傅里叶作画视频**\n1) 右键节点 ④ 与右侧 PreviewImage → Mode → Always（默认静音）；\n2) 默认 2160x2160 / 30fps / **16384 圆** / 30s；\n3) 文件写入同一任务目录（mp4 + poster + report）。\n复杂 .fdraw 会明显更慢；可先降到 5s 试渲染。"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      19,
+      0,
+      "MODEL"
+    ],
+    [
+      2,
+      2,
+      0,
+      19,
+      1,
+      "CLIP"
+    ],
+    [
+      3,
+      19,
+      0,
+      7,
+      0,
+      "MODEL"
+    ],
+    [
+      4,
+      19,
+      1,
+      4,
+      0,
+      "CLIP"
+    ],
+    [
+      5,
+      19,
+      1,
+      5,
+      0,
+      "CLIP"
+    ],
+    [
+      6,
+      3,
+      0,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      7,
+      4,
+      0,
+      7,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      8,
+      5,
+      0,
+      7,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      9,
+      6,
+      0,
+      7,
+      3,
+      "LATENT"
+    ],
+    [
+      10,
+      7,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      11,
+      8,
+      0,
+      30,
+      1,
+      "IMAGE"
+    ],
+    [
+      12,
+      20,
+      0,
+      30,
+      2,
+      "IMAGE"
+    ],
+    [
+      13,
+      30,
+      2,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      30,
+      1,
+      10,
+      1,
+      "RUN_DIR"
+    ],
+    [
+      15,
+      10,
+      0,
+      11,
+      0,
+      "FBS_PATH"
+    ],
+    [
+      16,
+      30,
+      0,
+      11,
+      1,
+      "SOURCE_MODE"
+    ],
+    [
+      17,
+      30,
+      1,
+      11,
+      2,
+      "RUN_DIR"
+    ],
+    [
+      18,
+      11,
+      0,
+      12,
+      0,
+      "FDRAW_PATH"
+    ],
+    [
+      19,
+      30,
+      1,
+      12,
+      1,
+      "RUN_DIR"
+    ],
+    [
+      20,
+      12,
+      0,
+      13,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      11,
+      0,
+      14,
+      0,
+      "FDRAW_PATH"
+    ],
+    [
+      22,
+      30,
+      1,
+      14,
+      1,
+      "RUN_DIR"
+    ],
+    [
+      23,
+      14,
+      1,
+      15,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "⓪ 入口：模式选择（最早设定）",
+      "bounding": [
+        -1830,
+        70,
+        540,
+        620
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "模型（Krea2 + LoRA）",
+      "bounding": [
+        -1230,
+        70,
+        540,
+        700
+      ],
+      "color": "#3f4a5e",
+      "font_size": 22,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "① Krea2 文生图（扩散前端）",
+      "bounding": [
+        -660,
+        70,
+        1240,
+        760
+      ],
+      "color": "#3f789e",
+      "font_size": 26,
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "手动导入图片（仅图生图模式执行）",
+      "bounding": [
+        -1830,
+        740,
+        540,
+        620
+      ],
+      "color": "#6a5a7a",
+      "font_size": 22,
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "② 傅里叶笔触 / .fdraw",
+      "bounding": [
+        620,
+        70,
+        1040,
+        780
+      ],
+      "color": "#4a7a4a",
+      "font_size": 26,
+      "flags": {}
+    },
+    {
+      "id": 6,
+      "title": "③ 渲染与输出（文件已写入任务目录）",
+      "bounding": [
+        1680,
+        70,
+        420,
+        780
+      ],
+      "color": "#b58b2a",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 7,
+      "title": "④ 可选：傅里叶作画视频（默认静音）",
+      "bounding": [
+        620,
+        880,
+        1040,
+        460
+      ],
+      "color": "#8a4a6a",
+      "font_size": 22,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.36,
+      "offset": [
+        1750,
+        720
+      ]
+    }
+  },
+  "version": 0.4
+}

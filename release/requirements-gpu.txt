@@ -1,0 +1,5 @@
+# Optional GPU rendering dependencies (OpenGL fragment-shader rasteriser).
+# 缺少这些依赖时 gpu_render.py 以 exit code 3 退出，节点自动回退 CPU exact 渲染。
+#   "<python>" -m pip install -r requirements-gpu.txt
+PyOpenGL>=3.1.0
+glfw>=2.6.0

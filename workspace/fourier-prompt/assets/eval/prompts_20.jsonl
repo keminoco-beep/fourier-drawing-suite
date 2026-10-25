@@ -1,0 +1,20 @@
+{"id":"p01","prompt":"画一只黑色的猫，线稿风格，居中","tags":["subject","color","style","position"]}
+{"id":"p02","prompt":"一个红色的爱心，水彩风格","tags":["subject","color","style"]}
+{"id":"p03","prompt":"紫色的星星，网格排列，9个，方形","tags":["subject","color","layout","count","ratio"]}
+{"id":"p04","prompt":"蓝色的波浪，横幅","tags":["subject","color","ratio"]}
+{"id":"p05","prompt":"金色的太阳，居中，极简风格","tags":["subject","color","position","style"]}
+{"id":"p06","prompt":"月亮和山，竖版，水墨","tags":["multi_subject","ratio","style"]}
+{"id":"p07","prompt":"画一朵花，文字：\"春天\"","tags":["subject","text"]}
+{"id":"p08","prompt":"一棵树，绿色，铅笔画，左边","tags":["subject","color","style","position"]}
+{"id":"p09","prompt":"一座房子，右边，漫画风格","tags":["subject","position","style"]}
+{"id":"p10","prompt":"雪花，蓝白，赛博朋克，方形","tags":["subject","color","style","ratio"]}
+{"id":"p11","prompt":"画一只眼睛，水墨风格，文字: EYE","tags":["subject","style","text"]}
+{"id":"p12","prompt":"几何图形组合，红蓝金，网格，6个","tags":["subject","color","layout","count"]}
+{"id":"p13","prompt":"云朵，三朵，上方，水彩","tags":["subject","count","position","style"]}
+{"id":"p14","prompt":"a black cat, manga style, centered","tags":["subject","color","style","position","english"]}
+{"id":"p15","prompt":"draw a golden star with text \"STAR\", minimal style","tags":["subject","color","text","style","english"]}
+{"id":"p16","prompt":"画三颗心，红粉，重复排列，横版","tags":["subject","count","color","layout","ratio"]}
+{"id":"p17","prompt":"雪山，黑白，横版，不要文字","tags":["subject","style","ratio","negation"]}
+{"id":"p18","prompt":"五颗星星，紫色，深色背景，方形","style":"cyber","tags":["subject","count","color","ratio","negation"]}
+{"id":"p19","prompt":"一条龙，线稿风格，居中","tags":["unknown_subject","style","degradation"]}
+{"id":"p20","prompt":"画一幅极简风格的海报：金色的太阳与蓝色的波浪，居中，文字：\"夏日 2026\"，竖版","tags":["long_prompt","multi_subject","color","text","style","ratio"]}

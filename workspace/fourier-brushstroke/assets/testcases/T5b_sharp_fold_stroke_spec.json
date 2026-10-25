@@ -1,0 +1,68 @@
+{
+ "case": "T5b_sharp_fold_stroke",
+ "checks": {
+  "A8": "stamp/line 形状误差等价（差比∈[0.85,1.15]）且各自边界偏差 p99≤1.0px"
+ },
+ "class_expected": "lineart",
+ "file": "T5b_sharp_fold_stroke.png",
+ "purpose": "A8（修正判据）载体：带尖锐折返的变宽笔画真值 → 同一 doc 比较 stamp vs line 的形状误差等价性（差比∈[0.85,1.15] 且各自绝对边界偏差≤1px@R1024）",
+ "schema": "fbs-fixture/2",
+ "size": [
+  384,
+  384
+ ],
+ "stroke": {
+  "arc_length_px": 810.39,
+  "centerline_px": [
+   [
+    60.0,
+    80.0
+   ],
+   [
+    150.0,
+    300.0
+   ],
+   [
+    240.0,
+    80.0
+   ],
+   [
+    300.0,
+    80.0
+   ],
+   [
+    300.0,
+    300.0
+   ],
+   [
+    355.0,
+    300.0
+   ]
+  ],
+  "color_rgb": [
+   30,
+   30,
+   38
+  ],
+  "corners_px": [
+   [
+    150.0,
+    300.0
+   ],
+   [
+    240.0,
+    80.0
+   ],
+   [
+    300.0,
+    80.0
+   ]
+  ],
+  "sharp_angle_deg": 60.0,
+  "width_px": {
+   "mode": "constant",
+   "note": "全宽（直径，像素）恒定；t=弧长归一化",
+   "value": 26.0
+  }
+ }
+}

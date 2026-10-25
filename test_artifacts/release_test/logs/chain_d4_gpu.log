@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts\gpu_render.py --fbs <workspace>\work\release_test\tmp\chain\doc.fbs --out <workspace>\work\release_test\tmp\chain\gpu_gl_512.png --resolution 512 --device gl --timing-json <workspace>\work\release_test\tmp\chain\gpu_512_timing.json
+cwd=<workspace>\release\fourier-drawing-suite-v1.0.0\workspace\skills\fourier-multistroke-training\scripts
+rc=0 seconds=1.51
+--- stdout ---
+{"ok": true, "out": "<path> skill\\work\\release_test\\tmp\\chain\\gpu_gl_512.png", "timing": {"device": "gl", "float_fbo": true, "geometry_s": 0.006, "gl_init_s": 0.253, "gpu_s": 0.01, "input": "fbs", "load_s": 0.007, "non_round_shapes": [], "out_size": [512, 410], "readback_s": 0.08, "resolution": [512, 410], "sample_s": 0.36, "segments": 27092, "strokes": 115, "supersample": 2, "total_s": 1.018}}
+
+--- stderr ---
+

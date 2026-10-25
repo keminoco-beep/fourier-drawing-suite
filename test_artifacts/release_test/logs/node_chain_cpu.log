@@ -1,0 +1,8 @@
+$ <comfyui>\ComfyUI-aki-v1.7\ComfyUI-aki-v1.7\python\python.exe <workspace>\work\release_test\_node_chain.py <workspace>\work\release_test\tmp\fake_comfyui\custom_nodes\ComfyUI-FDP-T2I\nodes.py <workspace>\work\release_test\fixtures\input_shapes_320x256.png <workspace>\work\release_test\tmp\node_chain 256 512 cpu
+cwd=None
+rc=0 seconds=44.72
+--- stdout ---
+{"ok": true, "version": "3.1.0", "mode": "cpu", "artifacts": ["<path> skill\\work\\release_test\\tmp\\node_chain\\fdraw_R512_exact.png", "<path> skill\\work\\release_test\\tmp\\node_chain\\fdraw_R512_gpu.png", "<path> skill\\work\\release_test\\tmp\\node_chain\\source.png"], "build": {"seconds": 24.0, "return_len": 3, "elements": 2011}, "pack": {"seconds": 2.2, "fdraw": "<path> skill\\work\\release_test\\tmp\\node_chain\\fdraw.fdraw", "elements": 2011}, "render": {"seconds": 17.6, "shape": [1, 410, 512, 3], "finite": true}, "log": "[FDP-T2I] GPU render 未启用/脚本缺失，使用 CPU exact\n"}
+
+--- stderr ---
+
