@@ -1,4 +1,6 @@
 # Fourier Drawing Suite v1.0.0
+本项目需要赞助，若有意愿可以联系keminoco@outlook.com
+以下是AI写的说明文档：
 
 把**图片或文字**变成「**纯笔画绘制的傅里叶画**」，并输出 PNG / 作画视频的完整套件：
 一个 ComfyUI 自定义节点包 + 三个可独立使用的傅里叶绘制工作区 + 安装/自检脚本。
@@ -6,7 +8,6 @@
 > 版本：**suite v1.0.0**（2026-10-25）｜skill `v1.38-gpu-render`｜ComfyUI 节点 **v3.1.0**（可移植安装）
 > 支持平台：**Windows + ComfyUI**（Python 3.10–3.13；以 ComfyUI 自带 python 为准）
 > 授权：**Proprietary / All Rights Reserved**（见 `NOTICE.md`；第三方库/字体/笔刷资源各自授权）
-
 ---
 
 ## 它是什么（30 秒）
