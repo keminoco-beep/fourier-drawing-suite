@@ -82,13 +82,13 @@ fourier-multistroke-training/
 │   ├── VERIFICATION.md         交付合规校验
 │   └── ROUNDS_AUDIT.md         每轮产物审计样例
 ├── tests/
-│   # unittest 自动化测试（v1.38 起；142 用例，运行方式见「测试」一节）
+│   # unittest 自动化测试（v1.38.1 起；146 用例，运行方式见「测试」一节）
 │   ├── README.md               测试说明/覆盖矩阵/慢测试开关
 │   ├── __init__.py             测试包标记
 │   ├── _support.py             公共工具（路径/CLI/合成场景/渐变 Δ 重建）
 │   ├── test_base_coat.py       v1.35 底色：纯色/单次薄涂/无底色（19 用例）
 │   ├── test_contracts.py       CLI/文档/编码/接口契约（26 用例）
-│   ├── test_gpu_render.py      **v1.38 GPU 渲染**（19 用例，10 条 GPU 用例默认 skip / RUN_GPU=1）
+│   ├── test_gpu_render.py      **v1.38/v1.38.1 GPU 渲染**（23 用例，含 PYOPENGL_PLATFORM=egl 回归；默认 13 条 skip / RUN_GPU=1）
 │   ├── test_gradient_safety.py 渐变安全门缺陷回归（7 用例）
 │   ├── test_human_paint.py     v1.36 人类画法：wash/flow/区域顺序（18 用例）
 │   ├── test_layered_base.py    单元不变量 + 渐变门单元（18 用例）
@@ -896,7 +896,7 @@ chibi/白底插画可显式 `--silhouette on`；`clip_to_fg` 仍保留用于白�
 - **耗时 +14s**（49.5→63.4s）：34k 笔 Python 级几何裁剪 + EDT，直接开销约 2–3s，余为同机波动。
 - 剪影几何裁剪不影响纯笔画风格/`fill_count=0`；legacy 模式自动 off，v1.33/v1.34 逐字节不变。
 
-## GPU 渲染（v1.38）
+## GPU 渲染（v1.38 / v1.38.1 环境修复）
 
 **用户痛点**：“渲染/输出太慢”。CPU `fdrender --quality exact` 实测：chibi `.fdraw`（38,737 笔）
 **1024 = 219 s**、**4096 ≈ 21 min**；视频/高分辨率更慢，训练/评估的渲染也占大头。要求 **GPU 加速**。
@@ -922,6 +922,15 @@ chibi/白底插画可显式 `--silhouette on`；`clip_to_fg` 仍保留用于白�
 | `--background` | 白 | 背景色 |
 | `--device {gl,cpu}` | **gl** | `cpu` = CPU 参考路径；无 GL/PyOpenGL 时 `gl` 退出码 **3**（供 fallback） |
 | `--width-scale FLOAT` | 1.0 | 笔宽缩放 |
+
+**v1.38.1 修复（PYOPENGL_PLATFORM=egl 导致静默回退 CPU，P0）**：ComfyUI 宿主环境可能由其它节点设置
+`PYOPENGL_PLATFORM=egl`，子进程继承后 PyOpenGL 在 Windows 上加载 EGL 失败 → `gpu_render.py` 按契约
+exit 3 → 节点**静默回退 CPU exact**（实测一张 100k 笔图 4096 需 **3159s ≈ 52.6min**）。
+修复：①Windows 下 `gpu_render.py` 在 import OpenGL/glfw 前清除 `PYOPENGL_PLATFORM`（改用桌面 WGL）；
+②`main()` 的 GL 探测改为防御重试（首次失败且存在该 env → pop 后重试一次，仍失败才 exit 3，且 stderr
+保留两次异常）；③**不改 `nodes.py`**——节点每次 Queue 都拉起新的 `gpu_render.py` 子进程，**用户无需重启
+ComfyUI** 即生效；Linux/macOS 不强制清除（防御重试兜底）。修复后真实节点 4096 实测 **56.4s wall/
+50.2s 渲染**（vs 故障 3159s，约 56×），输出 `fdraw_R4096_gpu.png` + timing，**无 `_exact.png`** 回退。
 
 **ComfyUI 节点（RenderFdraw）**：默认**自动 GPU**（用节点进程的 `sys.executable` 调 `gpu_render.py`），
 失败/无 GL/异常 → **自动回退 CPU fdrender exact**；`FDP_GPU_RENDER=0` 强制 CPU；
@@ -1052,7 +1061,7 @@ v1.36 画法 / v1.37 剪影感知 / v1.38 GPU 渲染 缺陷回归、真实图慢
 
 ```powershell
 Set-Location skills/fourier-multistroke-training
-python -m unittest discover -s tests -v     # 142 用例，约 80–100 s；慢测试/GPU 用例默认 skip
+python -m unittest discover -s tests -v     # 146 用例，约 80–100 s；慢测试/GPU 用例默认 skip
 # 连慢测试一起跑（真实图 256px，3 个用例）：
 $env:RUN_SLOW = "1"; python -m unittest discover -s tests -v; Remove-Item Env:RUN_SLOW
 # GPU 子集（需 ComfyUI python，10 条 GPU 用例；workbuddy python 无 PyOpenGL 会 skip）：
@@ -1062,8 +1071,8 @@ $env:RUN_GPU = "1"; & "<ComfyUI-python>" -m unittest tests.test_gpu_render -v; R
 - 模块与用例数：`test_layered_base.py` 18 / `test_contracts.py` 26 /
   `test_gradient_safety.py` 7 / `test_texture_flat.py` 17（v1.34 新增）/
   `test_base_coat.py` 19（v1.35 新增）/ `test_human_paint.py` 18（v1.36 新增）/
-  `test_silhouette.py` 15（v1.37 新增）/ `test_gpu_render.py` 19（v1.38 新增；10 条 GPU 用例
-  默认 skip）/ `test_slow_real_image.py` 3（仅 `RUN_SLOW=1`）；详见 `tests/README.md`。
+  `test_silhouette.py` 15（v1.37 新增）/ `test_gpu_render.py` 23（v1.38 新增、v1.38.1 扩充；
+  默认 13 条 GPU 用例 skip）/ `test_slow_real_image.py` 3（仅 `RUN_SLOW=1`）；详见 `tests/README.md`。
 - 覆盖：`save_strokes`/`load_strokes` 字段与精度、palette/tile 不变量、渐变门严格契约
   （含平滑 ramp 不允许绕过）、texture-flat 平坦区判定/ref-std 门控/预算截断/确定性、
   **v1.35 底色**（toned 纯色单次薄涂栅格门禁、none、颜色解析、angle、legacy、100k 硬上限）、
@@ -1079,14 +1088,24 @@ $env:RUN_GPU = "1"; & "<ComfyUI-python>" -m unittest tests.test_gpu_render -v; R
   见 `work/tests/baseline_result.md`；修复后全绿。v1.34 texture-flat / v1.35 底色 /
   v1.36 人类画法 / v1.37 剪影 / v1.38 GPU 用例基线分别见 `work/tests2/`、`work/tests3/`、
   `work/tests4/`、`work/tests5/`、`work/tests6/`。
-- 当前实现：**142 tests OK（skipped=13 = 3 个 `RUN_SLOW` 慢测试 + 10 条 GPU 用例）** / 80.0 s；
-  ComfyUI python（有 PyOpenGL/GL）下 `RUN_GPU=1` 的 GPU 子集 **19 tests / 0 failed / 1 skipped /
-  19.7 s**（合成 strokes GPU vs CPU：**PSNR 62.29 / SSIM 1.0000**）。
+- 当前实现：**146 tests OK**（workbuddy python：skipped=16 = 3 个 `RUN_SLOW` + 13 条 GPU 用例；
+  ComfyUI python：skipped=17，多 1 条 “无 PyOpenGL” 反向条件用例）/ 80–103 s；
+  ComfyUI python（有 PyOpenGL/GL）下 `RUN_GPU=1` 的 GPU 子集 **23 tests / 0 failed / 1 skipped /
+  30.7 s**（合成 strokes GPU vs CPU：**PSNR 62.29 / SSIM 1.0000**；含 `PYOPENGL_PLATFORM=egl`
+  回归：egl env 与 clean env 输出像素一致、真实节点 `--` 走 GPU 无 `_exact.png` 回退）。
 - 测试在 skill 根目录运行；路径全部由 `__file__` 推导，不写死机器绝对路径。
 
-## 已知问题与后续（v1.38）
+## 已知问题与后续（v1.38.1）
 
-**v1.38 GPU 渲染的残余（如实）**：
+**v1.38.1 GPU 环境修复的残余（如实）**：
+
+- **`PYOPENGL_PLATFORM` 仅 Windows 强制清除**：Linux/macOS 保留该变量（EGL 可能可用），仅靠防御重试兜底；
+- 修复只影响 GPU 子进程的环境选择；GPU 像素输出/质量/计时字段不变，CPU exact/legacy 路径不变；
+- 其它“GPU 静默回退”根因仍需看日志排查（无 PyOpenGL/glfw、无桌面 GL、显存不足、alpha<1 文档 exit 5、
+  region_fill exit 4 等）；节点日志会打印 `[FDP-T2I] GPU render ok ...` 或回退原因；
+- 节点包版本仍为 3.1.0（本次只修复 skill 侧 `gpu_render.py`，不改节点代码）。
+
+**v1.38 GPU 渲染的残余（历史记录，如实）**：
 
 - **需要 PyOpenGL + glfw + 桌面 GL 上下文**（ComfyUI python 自带 PyOpenGL 3.1.10/glfw 2.10.0、
   桌面 GL 4.6；workbuddy python 无 PyOpenGL）。headless/服务器/无 GL 环境：`gpu_render.py
@@ -1198,6 +1217,16 @@ SHOULD 未达、纹理判词“偏糊”（texture_ratio 0.615 vs 可接受线 0
 - 底层格式/渲染：`fourier-brushstroke` skill；`.fdraw` 打包：`fourier-prompt` skill
 
 ## 版本记录
+
+- **v1.38.1-gpu-envfix（2026-10-25）**：**P0 修复——ComfyUI 宿主 `PYOPENGL_PLATFORM=egl` 导致 GPU
+  渲染静默回退 CPU**。根因：宿主 env 被子进程继承 → PyOpenGL 在 Windows 选 EGL 失败 → `gpu_render.py`
+  exit 3 → 节点回退 CPU exact（100k 笔 4096 实测 **3159s ≈ 52.6min**）。修复：Windows 下 import 前清除
+  `PYOPENGL_PLATFORM` + 防御重试；不改 `nodes.py`，**无需重启 ComfyUI**（每次 Queue 用新脚本子进程）。
+  实测修复后真实节点 4096 **56.4s wall / 50.2s 渲染**（约 56×），无 `_exact.png` 回退、日志
+  `GPU render ok res=4096`。回归：`tests/test_gpu_render.py` 新增 4 用例（默认套件也断言脚本清除 env、
+  egl env 输出与 clean env 像素一致、节点 egl 下走 GPU），套件总 **146 tests**（GPU 子集 **23/1 skip**）。
+  限制：Linux/macOS 不强制清除（防御重试兜底）；其它回退根因仍需看日志。
+  交付包：`dist/fourier-multistroke-training-skill-v1.38.1-gpu-envfix.zip`。
 
 - **v1.38-gpu-render（2026-10-25）**：**GPU 渲染**——新增 `scripts/gpu_render.py`
   （PyOpenGL+glfw 离屏 FBO + GLSL 胶囊距离场光栅化；采样复用 `fbs_core.render.sample_stroke`；

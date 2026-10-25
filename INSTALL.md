@@ -1,4 +1,4 @@
-# INSTALL — 安装与部署（v1.0.1）
+# INSTALL — 安装与部署（v1.0.2）
 
 > 目标读者：第一次安装的人。安装完成后请先读 [`USER_GUIDE.md`](USER_GUIDE.md)。
 > 本文所有命令以 Windows PowerShell 为例；路径含空格/中文都可以，**请给路径加双引号**。
@@ -24,13 +24,13 @@
 
 ## 2. 解压
 
-把 `fourier-drawing-suite-v1.0.1.zip` 解压到任意目录，例如：
+把 `fourier-drawing-suite-v1.0.2.zip` 解压到任意目录，例如：
 
 ```
-D:\FDP\fourier-drawing-suite-v1.0.1\
+D:\FDP\fourier-drawing-suite-v1.0.2\
 ```
 
-解压后会有一个顶层目录 `fourier-drawing-suite-v1.0.1\`，**先进入该目录**（后续命令都在发布包根目录执行）。
+解压后会有一个顶层目录 `fourier-drawing-suite-v1.0.2\`，**先进入该目录**（后续命令都在发布包根目录执行）。
 目录内应能看到 `README.md`、`INSTALL.md`、`workspace\`、`comfyui\`、`release\`。
 **不要**只解压其中一部分，也不要把 `workspace\` 移走（安装器按相对位置找脚本）。
 
@@ -63,7 +63,7 @@ D:\FDP\fourier-drawing-suite-v1.0.1\
 > 手动安装（不想跑脚本）：把 `comfyui\custom_nodes\ComfyUI-FDP-T2I` 整个复制到
 > `<ComfyUI>\custom_nodes\`，再在节点目录放一个 `fdp_config.json`：
 > ```json
-> {"workspace": "D:\\FDP\\fourier-drawing-suite-v1.0.1\\workspace", "python": "D:\\ComfyUI_windows_portable\\python_embeded\\python.exe"}
+> {"workspace": "D:\\FDP\\fourier-drawing-suite-v1.0.2\\workspace", "python": "D:\\ComfyUI_windows_portable\\python_embeded\\python.exe"}
 > ```
 > 注意 Windows 路径里的 `\` 要写成 `\\`。
 
@@ -140,7 +140,7 @@ GPU 的 PyOpenGL/glfw 是纯 Python/预编译 wheel，一般不需要编译。
 **不想写 config**：设置环境变量即可（推荐在启动 ComfyUI 的脚本里设置，或系统环境变量）：
 
 ```powershell
-$env:FDP_WORKSPACE = "D:\FDP\fourier-drawing-suite-v1.0.1\workspace"
+$env:FDP_WORKSPACE = "D:\FDP\fourier-drawing-suite-v1.0.2\workspace"
 $env:FDP_PYTHON    = "D:\ComfyUI_windows_portable\python_embeded\python.exe"
 ```
 
@@ -158,12 +158,31 @@ $env:FDP_PYTHON    = "D:\ComfyUI_windows_portable\python_embeded\python.exe"
 | ComfyUI 启动变慢 | 节点包在自定义节点列表里 import | 正常；若超过 30s 看启动日志是否有异常 import |
 | 命令行输出里中文/符号显示成 `?` | GBK 控制台编码限制（脚本已按替换字符输出） | 不影响文件与功能；可 `chcp 65001` 切 UTF-8 控制台，或设 `PYTHONIOENCODING=utf-8` |
 
-## 11. 版本与兼容
+## 11. GPU 渲染未生效排查
+
+**先确认是否真的回退 CPU**：正常 GPU 渲染输出 `fdraw_R<分辨率>_gpu.png` 与
+`fdraw_R<分辨率>_gpu_timing.json`；若只有 `*_exact.png`，说明走了 CPU exact 回退。
+
+| 检查 | 方法 |
+|---|---|
+| 是否被强制 CPU | 环境变量 `FDP_GPU_RENDER` 不能是 `0` |
+| GPU 依赖 | `"<ComfyUI python>" -m pip install -r release\requirements-gpu.txt`（PyOpenGL/glfw） |
+| 桌面 GL | 普通 Windows 桌面应有 OpenGL 4.x；远程桌面/无显示服务可能没有 |
+| 宿主 env 污染 | **v1.0.2 已修复**：`PYOPENGL_PLATFORM=egl` 会被脚本自动清除；升级到 v1.0.2 即可，无需重启 ComfyUI |
+| 文档类型 | `alpha<1`（exit 5）或含 `region_fill`（exit 4）的文档按设计走 CPU exact |
+| 看日志 | ComfyUI 日志里 `[FDP-T2I] GPU render ok ...` 表示走了 GPU；回退会打印原因 |
+
+**v1.0.2 修复说明**：旧版在宿主 env `PYOPENGL_PLATFORM=egl` 下，子进程继承后 Windows 加载 EGL 失败 →
+`gpu_render.py` exit 3 → 节点静默回退 CPU（100k 笔 4096 实测 3159s）。v1.0.2 的 `gpu_render.py`
+在加载 OpenGL/glfw 前清除该变量并加防御重试；修复后同图 **56.4s**（≈56×），节点代码未改、无需重启。
+
+## 12. 版本与兼容
 
 - 节点包版本：`3.1.0`（可移植配置）；`PACKAGE_VERSION` 可用 `FDPT2IWorkflowStart` 节点的元数据查看。
-- skill 版本：`v1.38-gpu-render`（在 `workspace/skills/fourier-multistroke-training/SKILL.md` 顶部）。
+- skill 版本：`v1.38.1-gpu-envfix`（v1.0.2 起；修复宿主 `PYOPENGL_PLATFORM=egl` 导致的 GPU
+  静默回退 CPU；节点包仍为 3.1.0）。
 - 本发布包不保证兼容未列出的 ComfyUI 版本；实测环境为 ComfyUI（Windows）+ ComfyUI python 3.11。
-- 详细故障排查见 [`USER_GUIDE.md`](USER_GUIDE.md) 的 10 条 FAQ。
+- 详细故障排查见 [`USER_GUIDE.md`](USER_GUIDE.md) 的 FAQ（含 GPU 未生效排查）。
 
 ## 支持这个项目
 

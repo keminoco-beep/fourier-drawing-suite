@@ -30,6 +30,7 @@ $env:RUN_SLOW = "1"; & $PY -m unittest discover -s tests -v; Remove-Item Env:RUN
 ```powershell
 # GPU 子集（需要 ComfyUI python：PyOpenGL + glfw + 桌面 GL；默认套件里 GPU 用例 skip）
 $env:RUN_GPU = "1"; & "<ComfyUI-python.exe>" -m unittest tests.test_gpu_render -v; Remove-Item Env:RUN_GPU
+# v1.38.1：23 tests / 0 failed / 1 skipped（含 PYOPENGL_PLATFORM=egl 回归；默认 146 tests / 16 skip）
 # 无 PyOpenGL 的 python 跑整套：GPU 用例自动 skip，其余（含 --device cpu）照常
 ```
 
@@ -44,9 +45,9 @@ $env:RUN_GPU = "1"; & "<ComfyUI-python.exe>" -m unittest tests.test_gpu_render -
 | `test_base_coat.py` | 19 | ~13 s | v1.35/v1.36 底色：wash 默认栅格门禁（覆盖≥99%/overlap≤15%）/ rows 旧行为≤5% / none / 颜色解析 / angle / legacy / 100k 硬上限 / 线稿 smoke |
 | `test_human_paint.py` | 18 | ~18 s | **v1.36 人类画法**：wash 非行扫 + 单色无 gradient + 覆盖/重叠；flow on/off 轴对齐对比 + 真实图 axis<0.5；region vs scan 顺序指标（y-Spearman/相邻距离/region run）；legacy 自动回退；默认预算 + 100k 硬上限 |
 | `test_silhouette.py` | 15 | ~20 s | **v1.37 剪影感知笔触**：on 时逐笔栅格足迹不出 sil（越界像素≈0、overshoot_after≤1px）；off 时 >2px 越界计数>0（证明有区分力）；auto 语义（wash+region→on、quantized+legacy→off、非白底→off）；sil 面积 fallback；细长条不崩；336 质量/预算；report 字段齐全 | v1.37 轮廓溢出回归、生成期剪影契约 |
-| `test_gpu_render.py` | 19 | ~2 s（默认；10 条 GPU 用例 skip）/ RUN_GPU 子集 ~20 s | **v1.38 GPU 渲染**：合成 strokes GPU vs CPU 等价（PSNR/SSIM ≥32/0.98；实测 62.3/1.000）；`--device cpu`、`--supersample 1/2/3`、`--resolution`、`--strokes` 输入；无 GL **exit 3**；`alpha<1` 文档 **exit 5**（CPU 可渲染）；计时 JSON 字段；节点 PACKAGE_VERSION 3.0.1 / RenderFdraw widget=1 / workflow 不变；GPU 环境 node GPU→CPU fallback；验收门：GPU/CPU 等价、GL 降级与节点契约回归 |
+| `test_gpu_render.py` | 23 | ~3 s（默认；13 条 GPU 用例 skip）/ RUN_GPU 子集 ~30 s | **v1.38/v1.38.1 GPU 渲染（含 PYOPENGL_PLATFORM=egl 回归）**：合成 strokes GPU vs CPU 等价（PSNR/SSIM ≥32/0.98；实测 62.3/1.000）；`--device cpu`、`--supersample 1/2/3`、`--resolution`、`--strokes` 输入；无 GL **exit 3**；`alpha<1` 文档 **exit 5**（CPU 可渲染）；计时 JSON 字段；节点 PACKAGE_VERSION 3.0.1 / RenderFdraw widget=1 / workflow 不变；GPU 环境 node GPU→CPU fallback；验收门：GPU/CPU 等价、GL 降级与节点契约回归 |
 | `test_slow_real_image.py` | 3 | 0 s（默认 skip） | `RUN_SLOW=1` 才跑：真实图 256px 渐变门两方向 + texture-flat |
-| **合计** | **142** | **~83–100 s** | 默认 13 skip（3 慢 + 10 GPU）；GPU 环境 `RUN_GPU=1` 子集另 ~20 s |
+| **合计** | **146** | **~83–103 s** | 默认 16 skip（3 慢 + 13 GPU；ComfyUI python 17）；GPU 环境 `RUN_GPU=1` 子集另 ~30 s（23 tests / 1 skip） |
 
 ## 测试文件与覆盖矩阵
 

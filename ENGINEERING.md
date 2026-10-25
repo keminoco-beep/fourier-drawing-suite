@@ -1,4 +1,4 @@
-# ENGINEERING — 工程构建思路 + 给接手的 AI 的完整说明（suite v1.0.1）
+# ENGINEERING — 工程构建思路 + 给接手的 AI 的完整说明（suite v1.0.2）
 
 > 读者：想改代码/继续开发的工程师，或**接手的 AI agent**。
 > 目标：读完这一份就能定位入口、理解不变量、跑通测试、安全地加功能。
@@ -264,6 +264,8 @@ WorkflowStart(source_mode, krea2_image←KSampler/VAEDecode lazy, manual_image�
 | GPU | 默认自动；`FDP_GPU_RENDER=0` 强制 CPU |
 | 依赖 | `release/requirements-{core,gpu,comfyui}.txt`；`release/check_env.py` 自检（不联网） |
 | 安装/卸载 | `release/install.py --comfyui <dir> [--workspace ...] [--python ...] [--dry-run]`；`uninstall.py` |
+| GPU 兼容（v1.38.1） | Windows 下子进程自动清除 `PYOPENGL_PLATFORM`；`FDP_GPU_RENDER=0` 强制 CPU；
+  输出 `*_gpu.png`/`*_gpu_timing.json` 表示 GPU 成功，`*_exact.png` 表示回退 |
 
 **退出码约定（gpu_render.py，节点据此 fallback）**：`0` 成功；`2` 输入错误；`3` 无 PyOpenGL/GL；
 `4` 不支持的文档（region_fill 填充）；`5` alpha<0.999 文档。
@@ -277,15 +279,15 @@ WorkflowStart(source_mode, krea2_image←KSampler/VAEDecode lazy, manual_image�
 ```powershell
 cd workspace\skills\fourier-multistroke-training
 python -m unittest discover -s tests
-# 完整仓库：Ran 142 tests, OK (skipped=13) —— 3 个 RUN_SLOW + 10 条 GPU 用例
-# 发布包干净环境：Ran 139 tests, OK (skipped=16) —— 另 3 个用例依赖 work/、training/ 演示图（包内不含）
+# 完整仓库：Ran 146 tests, OK（workbuddy skip=16 = 3 RUN_SLOW + 13 GPU；ComfyUI python skip=17）
+# 发布包干净环境：Ran 143 / skipped 18（workbuddy）/ 19（ComfyUI）——真实图测试类依赖 work/、training/（包内不含）
 $env:RUN_SLOW="1"; python -m unittest discover -s tests; Remove-Item Env:RUN_SLOW   # 慢测试 3/3
-# GPU 子集（ComfyUI python，有 PyOpenGL/GL）：19 tests / 0 failed / 1 skipped
+# GPU 子集（ComfyUI python，有 PyOpenGL/GL）：23 tests / 0 failed / 1 skipped（含 egl env 回归）
 $env:RUN_GPU="1"; & "<ComfyUI python>" -m unittest tests.test_gpu_render -v; Remove-Item Env:RUN_GPU
 ```
 
 模块：`test_layered_base` 18 / `test_contracts` 26 / `test_gradient_safety` 7 / `test_texture_flat` 17 /
-`test_base_coat` 19 / `test_human_paint` 18 / `test_silhouette` 15 / `test_gpu_render` 19 /
+`test_base_coat` 19 / `test_human_paint` 18 / `test_silhouette` 15 / `test_gpu_render` 23 /
 `test_slow_real_image` 3（仅 `RUN_SLOW`）。
 
 ### 8.2 legacy 逐字节回归
@@ -306,7 +308,7 @@ $env:RUN_GPU="1"; & "<ComfyUI python>" -m unittest tests.test_gpu_render -v; Rem
 | `reproduce.md` | 每个产物的复现命令 |
 
 验收口径：GPU vs CPU 质量 PSNR≥32/SSIM≥0.98（实测 40.2/42.0/44.1 dB）；剪影越界笔≈0；
-142 tests 全绿（发布包干净环境 139 ran/16 skip，属预期）；legacy SHA 不变；发布包 zip ≤120MB 且无绝对路径。
+146 tests 全绿（发布包干净环境 Ran 143 / skipped 18（workbuddy）/19（ComfyUI），属预期）；legacy SHA 不变；发布包 zip ≤120MB 且无绝对路径。
 
 ---
 
@@ -360,12 +362,14 @@ python release\check_env.py --comfyui <ComfyUI 目录>
 5. 重打 skill zip（`work/docs6` 模式：build_package.py + check_docs + verify_pkg），版本记录写清兼容性；
 6. 发布级改动再更新 `release/` 文档与 `MANIFEST/SHA256SUMS`。
 
-### 9.5 已知限制 / 待办（截至 v1.0.1）
+### 9.5 已知限制 / 待办（截至 v1.0.2）
 
 - **画质**：v1.36 人类画法 content −0.486 dB（CONDITIONAL）；剪影羽化 −0.46 dB 同参考口径；
   A 区 largest_flat 0.222→0.416；compactness 0.201<0.25（区域推进仍有前沿）。
 - **GPU**：非 bit-exact；依赖 PyOpenGL/glfw/桌面 GL；4096 显存 FBO≈525MB+实例≈347MB；
   alpha<1→exit 5、region_fill→exit 4 回退 CPU；2048 原生参考已补测（41.9643/0.99623）。
+  **v1.38.1**：Windows 下自动清除宿主 `PYOPENGL_PLATFORM=egl`（防静默回退 CPU）+ 防御重试；
+  Linux/macOS 保留该变量（重试兜底），其它回退根因仍需看日志。
 - **性能**：GPU 端到端瓶颈已转移到 CPU load+sample（~80%）；视频/训练渲染未 GPU 化。
 - **平台**：仅 Windows+ComfyUI 实测；mac/Linux 未验证；未做 CI。
 - **历史 QA 未修**：`work/qa/ISSUES.md` 的 QA-05/06/08/09/12–15/17–19（RGBA/竖幅/参数校验/
@@ -381,6 +385,7 @@ python release\check_env.py --comfyui <ComfyUI 目录>
 - 在 `layered_base` 里把裁剪/羽化放到渲染之后再处理 → 违反“生成期修复”原则（会被验收打回）。
 - 节点 README/工作流与 repo 副本不一致 → 发布包与部署不一致；改节点后两处副本都要同步。
 - 文档写本机盘符绝对路径（如 Windows 用户目录/工作区路径）→ 打包自检失败（check_docs 会扫）。
+- 改了 GPU 渲染/spawn 环境逻辑后，记得测 `PYOPENGL_PLATFORM=egl` 环境（宿主 env 污染是 v1.38.1 的 P0 根因）。
 - 把 `work/`、`dist/` 旧包、`training/`、LoRA 大文件打进发布包 → 超 120MB 上限。
 
 ---
@@ -479,6 +484,7 @@ python release\check_env.py --comfyui <ComfyUI 目录>
 | v1.38 | GPU 渲染（OpenGL） | `training/gpu_render/GPU_RENDER.md` |
 | v1.0.0 | 可移植组装 + v1.0.0 发布包 | `CHANGELOG.md` + `test_artifacts/release_test/` |
 | v1.0.1 | 文档与展示更新（例图/赞助/工业扩展 §10） | `CHANGELOG.md` + `README.md` 作品示例 |
+| v1.0.2 | GPU 渲染兼容性修复（`PYOPENGL_PLATFORM=egl` 静默回退 CPU） | `CHANGELOG.md` + `tests/test_gpu_render.py` |
 
 > 本文件与 skill 内文档冲突时：**画法/算法细节以 skill `references/` 为准**，跨组件/发布信息以
 > 本文件与 `INSTALL.md`/`USER_GUIDE.md` 为准；数字以 `test_artifacts/` 的实测记录为准。

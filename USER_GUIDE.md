@@ -1,4 +1,4 @@
-# USER GUIDE — 普通人完整使用说明（suite v1.0.1）
+# USER GUIDE — 普通人完整使用说明（suite v1.0.2）
 
 > 这份文档面向**第一次接触**的人：照着点就能做出「傅里叶笔画画」。
 > 不需要懂代码，不需要 API Key（除非你要用 Krea2 API 模式），也不需要 GPU（没有会自动用 CPU）。
@@ -60,10 +60,10 @@
 
 > 详细版与常见失败见 [`INSTALL.md`](INSTALL.md)。这里只列最短路径。
 
-1. **解压**发布包到任意目录，例如 `D:\FDP\fourier-drawing-suite-v1.0.1`（可以含空格/中文）。
+1. **解压**发布包到任意目录，例如 `D:\FDP\fourier-drawing-suite-v1.0.2`（可以含空格/中文）。
 2. 打开 **PowerShell**，进入发布包根目录：
    ```powershell
-   cd "D:\FDP\fourier-drawing-suite-v1.0.1"
+   cd "D:\FDP\fourier-drawing-suite-v1.0.2"
    ```
 3. 运行安装器（把 `--comfyui` 换成你的 ComfyUI 目录）：
    ```powershell
@@ -234,32 +234,50 @@ ComfyUI/output/fdp_t2i_runs/20261025_091500_i2i_ab12cd/
 | 1024 | **约 14–17 秒** | 219 秒 |
 | 2048 | **约 15–19 秒** | 581.6 秒 |
 | 4096 | **约 22–28 秒** | 约 21 分钟 |
+| 4096（100k 笔真实节点，v1.38.1 修复后） | **约 56 秒**（故障回退 CPU 时 3159 秒） | 不适用（走 CPU 会 52.6min） |
 
 画质：GPU 与 CPU 非常接近（PSNR 40.2–44.1 dB、SSIM ≥0.9957），差异集中在笔触边缘的
 抗锯齿；**要逐字节等同 CPU 的旧产物时用 CPU**（`FDP_GPU_RENDER=0`）。
 
+### 8.1 GPU 没生效 / 被静默回退 CPU？
+
+- **先看输出**：目录里有 `fdraw_R4096_gpu.png` + `fdraw_R4096_gpu_timing.json` = 走了 GPU；
+  只有 `*_exact.png` = 回退了 CPU。
+- **v1.0.2 修复的经典问题**：ComfyUI 宿主 env `PYOPENGL_PLATFORM=egl` 被子进程继承 → Windows 无 EGL →
+  `gpu_render.py` exit 3 → 自动回退 CPU（100k 笔 4096 曾需 3159s）。本版会自动清除该变量并重试，
+  **无需重启 ComfyUI**；修复后同图 **56.4s**（≈56×）。
+- **仍回退时**：确认 `FDP_GPU_RENDER` 没有设为 0；`release\requirements-gpu.txt` 已装；有桌面 OpenGL；
+  看 ComfyUI 日志 `[FDP-T2I] GPU render ...` 行；`alpha<1` 文档与含 `region_fill` 的文档按设计走 CPU。
+- 手动验证：`python workspace\skills\fourier-multistroke-training\scripts\gpu_render.py --fbs <x>.fbs --out test.png --resolution 512`
+  （输出 `"device": "gl"` 即 GPU 可用）。
+
+
+
 ---
 
-## 9. 10 条常见问题（FAQ）
+## 9. 常见问题（FAQ，含 GPU 未生效排查）
 
-1. **ComfyUI 里找不到 `FDPT2I` 节点**：节点没复制对/没重启。确认
+1. **GPU 渲染很慢/被静默回退 CPU**（输出只有 `*_exact.png`）：v1.0.2 已修复宿主
+   `PYOPENGL_PLATFORM=egl` 继承导致的回退，**升级后无需重启 ComfyUI**；仍回退时按 §8.1 排查，
+   或接受 CPU（慢但结果可用）。
+2. **ComfyUI 里找不到 `FDPT2I` 节点**：节点没复制对/没重启。确认
    `<ComfyUI>\custom_nodes\ComfyUI-FDP-T2I\nodes.py` 存在，然后完全重启 ComfyUI。
-2. **报 `ModuleNotFoundError: numpy/scipy/PIL`**：装依赖用错 python。要用 **ComfyUI 自带的
+3. **报 `ModuleNotFoundError: numpy/scipy/PIL`**：装依赖用错 python。要用 **ComfyUI 自带的
    python**：`"<ComfyUI python>" -m pip install -r release\requirements-core.txt`。
-3. **报找不到 skill 脚本 / `workspace not found`**：发布包被移动或只解压了一部分。
+4. **报找不到 skill 脚本 / `workspace not found`**：发布包被移动或只解压了一部分。
    重新解压完整包；或在节点目录手写 `fdp_config.json` 指向 `workspace`（见 INSTALL §9）。
-4. **GPU 渲染瞬间变成 CPU / 日志 exit 3**：环境没有 PyOpenGL/glfw 或桌面 OpenGL。
-   装 `release\requirements-gpu.txt`，或接受 CPU（慢但结果没问题）。
-5. **显卡显存不足/渲染报错**：输出分辨率降到 1024/2048；`FDP_GPU_RENDER=0` 用 CPU。
-6. **中文/空格路径报错**：本发布包已按含空格/中文路径测试过；若仍报错，先换纯英文短路径复现，
+5. **GPU 渲染瞬间变成 CPU / 日志 exit 3**：先升级 v1.0.2（修复 egl env）；仍有问题则是缺
+   PyOpenGL/glfw 或桌面 OpenGL，装 `release\requirements-gpu.txt` 或接受 CPU（见 §8.1）。
+6. **显卡显存不足/渲染报错**：输出分辨率降到 1024/2048；`FDP_GPU_RENDER=0` 用 CPU。
+7. **中文/空格路径报错**：本发布包已按含空格/中文路径测试过；若仍报错，先换纯英文短路径复现，
    并把错误信息发给维护者。
-7. **提示词模式一直没有图**：本地 Krea2 缺模型（ComfyUI 红框会显示缺哪个）；或 API Key 没填/
+8. **提示词模式一直没有图**：本地 Krea2 缺模型（ComfyUI 红框会显示缺哪个）；或 API Key 没填/
    网络不通。先跑模式 1（NoAI）确认基础链路正常。
-8. **画出来很“糊”/平色块明显**：提高 `work_res`（1280→1536）、提高 `texture_flat`、
+9. **画出来很“糊”/平色块明显**：提高 `work_res`（1280→1536）、提高 `texture_flat`、
    换更高 `quality`；白底插画确认 `clip_to_fg=True`。
-9. **画出来轮廓有毛刺/溢出**：v1.37 起已针对白底插画做剪影修复；若仍有，尝试提高 `work_res`、
+10. **画出来轮廓有毛刺/溢出**：v1.37 起已针对白底插画做剪影修复；若仍有，尝试提高 `work_res`、
    降低 `texture_flat`、或把 `clip_to_fg` 设为 True（自动剪影在 v1.36 画法下启用）。
-10. **作画视频太慢/太大**：先用 `duration_s=2`、`size=512x512`、`circles` 调小验证；视频渲染是
+11. **作画视频太慢/太大**：先用 `duration_s=2`、`size=512x512`、`circles` 调小验证；视频渲染是
     CPU 路径，4096 尺寸+60 秒会非常久。
 
 ---

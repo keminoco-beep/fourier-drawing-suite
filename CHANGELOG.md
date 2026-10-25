@@ -1,9 +1,41 @@
 # CHANGELOG — Fourier Drawing Suite
 
-> 本文件覆盖 **suite v1.0.0 / v1.0.1** 发布说明与组成组件的近版变更（v1.33 → v1.38）。
+> 本文件覆盖 **suite v1.0.0 / v1.0.1 / v1.0.2** 发布说明与组成组件的近版变更（v1.33 → v1.38）。
 > 每个版本的完整测试基线见 `test_artifacts/unit/`；验收结论见 `test_artifacts/verdicts/`。
 
+## v1.0.2 — GPU 渲染兼容性修复（2026-10-25，skill v1.38.1-gpu-envfix）
+
+**P0 根因**：ComfyUI 宿主环境里有其它节点设置 `PYOPENGL_PLATFORM=egl`；`RenderFdraw` 用
+`sys.executable` 拉起的 `gpu_render.py` 子进程**继承**该变量 → PyOpenGL 在 Windows 上尝试 EGL 失败 →
+`gpu_render.py` 按契约 **exit 3** → 节点**静默回退 CPU exact**（用户实测一张 100k 笔图 4096 需
+**3159 s ≈ 52.6 min**）。
+
+**修复（skill v1.38.1-gpu-envfix，`scripts/gpu_render.py`）**：①Windows 下在 import OpenGL/glfw 前
+`os.environ.pop("PYOPENGL_PLATFORM")`（改走桌面 WGL）；②GL 探测改为防御重试：首次失败且该 env 存在 →
+pop 后重试一次，仍失败才 exit 3（stderr 保留两次异常）；③**不改 `nodes.py`**——每次 Queue 都会用新的
+子进程，**用户无需重启 ComfyUI**；Linux/macOS 不强制清除（防御重试兜底）。
+
+**实测（同一 100k 笔 `.fdraw`，4096）**：
+- 修复前（egl env，回退 CPU exact）：**3159 s**
+- 修复后（真实部署节点）：**56.4 s wall / 53.8 s GPU 渲染**（timing：load 11.0 / sample 27.8 /
+  geometry 6.0 / gpu 1.7 / readback 4.6 s）；输出 `fdraw_R4096_gpu.png` + `fdraw_R4096_gpu_timing.json`，
+  **无 `_exact.png`**，tensor `(1, 4096, 2913, 3)` finite；日志 `[FDP-T2I] GPU render ok res=4096`。
+- egl 专项：`PYOPENGL_PLATFORM=egl` 下 gpu_render 256 **rc0 1.13 s**，PNG SHA 与 clean env **完全一致**
+  （maxdiff 0.0）；真无 GL 环境仍 exit 3（行为不变）。
+- 节点级复验：模拟 ComfyUI egl env → 只出 `fdraw_R512_gpu.png` + timing、无 `_exact.png`（5.42 s）；
+  `FDP_GPU_RENDER=0` → `_exact.png`（11.85 s，符合契约）；发布包 `chibi.fdraw` @1024 + egl → GPU 7.87 s。
+
+**测试**：三套件全绿——workbuddy 默认 **146 ran / 16 skip / 0 fail / 104.3 s**；ComfyUI python 默认
+**146 / 17 / 0 / 80.7 s**；`RUN_GPU=1` 子集 **23 ran / 1 skip / 0 fail / 29.5 s**（新增 4 项 egl/env 回归）。
+发布包干净环境（不含 work/training 演示图）：**Ran 143 / skipped 18（workbuddy）/ 19（ComfyUI）** 全绿。
+
+**注意（预期管理）**：GPU 只加速**最终渲染**；大图总耗时仍包含 CPU 的 `layered_base` 笔画生成（约 2.5 min）
++ `.fbs` 傅里叶编译（100k 笔 / 1536 约 11 min）+ `pack_fdraw` 等，不能只看渲染段。
+
+**其它不变**：节点版本 3.1.0、workflow JSON、画法与质量指标（负 −0.486dB CONDITIONAL 等结论）均不变。
+
 ## v1.0.1 — 文档与展示更新（2026-10-25）
+
 
 - 文档新增《向日葵》纯笔画示例图 `docs/images/sunflowers_v136_content_R2048.png`（README / USER_GUIDE / ENGINEERING）。
 - 新增赞助/合作联系方式 **keminoco@outlook.com**，置于 README/USER_GUIDE 醒目位置与 INSTALL/NOTICE。

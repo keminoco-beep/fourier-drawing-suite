@@ -1,47 +1,47 @@
 {
  "package": "fourier-drawing-suite",
- "version": "1.0.1",
+ "version": "1.0.2",
  "built_at": "2026-10-25",
  "components": {
-  "suite": "1.0.1",
+  "suite": "1.0.2",
   "skill_fourier_multistroke_training": "v1.38-gpu-render",
   "comfyui_node_FDP_T2I": "3.1.0",
   "fourier_brushstroke_fbs": "2.0.0",
   "fourier_prompt": "0.1.0",
   "workflows": "v1.36 series + legacy fdraw + video"
  },
- "file_count": 545,
- "total_bytes": 28803279,
+ "file_count": 546,
+ "total_bytes": 28822850,
  "files": [
   {
    "path": "CHANGELOG.md",
-   "size": 7464,
-   "sha256": "43a186b15d0343ab488cccb8c4389f870e5327cb140a4679d75dcd2072e5f918"
+   "size": 10010,
+   "sha256": "a3b7dbcbe7921a4e96aac0ef9ccb4c4f559ab39d35226f851b0eadbca25bb41a"
   },
   {
    "path": "ENGINEERING.md",
-   "size": 31877,
-   "sha256": "49df063eb2402582d6b00e611e7c89971f328b5f109d13b041f6117f9a9e1b26"
+   "size": 32637,
+   "sha256": "d2012a7589d0dd0155e707cbd121a8423d7a341bfb8aa99361891e15bdc938e7"
   },
   {
    "path": "INSTALL.md",
-   "size": 8645,
-   "sha256": "0dc87dd5fa1496632e70840bc3978c38ef4f4ff49593df18054af8d3f22e6210"
+   "size": 9969,
+   "sha256": "9f1d90148e0503525a8f24701be80d194f375e498ad0a803e6c26ab2cc1a527f"
   },
   {
    "path": "NOTICE.md",
    "size": 5413,
-   "sha256": "e662021f9d97b39bc9f54470ea9bae2ae503fe90f8cbaead1576784d4c7d988d"
+   "sha256": "39f3309b0f24eb38bbf86fab7497e576153ff78b2df984d5bcd2b25a35ced2fc"
   },
   {
    "path": "README.md",
-   "size": 9897,
-   "sha256": "2fbd5680b36a18dc5ddbf6a686b5347d7b2983414fc24093b24daca1fe9b3860"
+   "size": 12388,
+   "sha256": "9661df2f0ad608f67f013cda1e7a7aaae95b9d5ffede8e22633ecaeac112d6a7"
   },
   {
    "path": "USER_GUIDE.md",
-   "size": 16365,
-   "sha256": "5f2c515d6f93d1e1d496c9a844737fa38760f3a8b2d4fd127db1080ac8088154"
+   "size": 17773,
+   "sha256": "b30ab9a818146e45c70f351a27b9882a978e7ad8498ceb872ada99fc26d462ea"
   },
   {
    "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/README.md",
@@ -547,6 +547,11 @@
    "path": "test_artifacts/unit/baseline_v137_silhouette.md",
    "size": 14365,
    "sha256": "047407107e7f88cf20bf228868e29f142ffbe29f07ce9e20d9218fb8a7a94b3c"
+  },
+  {
+   "path": "test_artifacts/unit/baseline_v1381_gpu_envfix.md",
+   "size": 2049,
+   "sha256": "71453c72af5755ca117626dddebf51a101e7f680146b9af732620dd5599d87a0"
   },
   {
    "path": "test_artifacts/unit/baseline_v138_gpu.md",
@@ -2470,8 +2475,8 @@
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/SKILL.md",
-   "size": 98157,
-   "sha256": "5762d949f28ac94b0142fe9373d5fb78b22b2264ff82832435f0f5f79fc1c30a"
+   "size": 101156,
+   "sha256": "32e7f2d52da42807aa87c4d6088c9ba0185884dd6d15fa335588569c22b3ff7c"
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/assets/compare_sheet.png",
@@ -2575,8 +2580,8 @@
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/scripts/gpu_render.py",
-   "size": 27850,
-   "sha256": "b55a1b790c864b268d514e7b9430983e5c56bae82dbaa251ed4fbb9b5d0c5f6e"
+   "size": 29197,
+   "sha256": "70614437409eb93548ec3c4894ddbb5cd28c3bf5f8e9f6275e04f86539ce66d5"
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/scripts/gradient_swath.py",
@@ -2680,8 +2685,8 @@
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/tests/README.md",
-   "size": 31677,
-   "sha256": "bf3601fcc02fc2b5dca79a5adf4ca595d8a8a786f2185e1af3d2bcf0732e1643"
+   "size": 31542,
+   "sha256": "d54d74b7ee3ec40d7d019cfd72b97bd378e5262bad87cedb9c36be6e48e3da4f"
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/tests/__init__.py",
@@ -2705,8 +2710,8 @@
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/tests/test_gpu_render.py",
-   "size": 28855,
-   "sha256": "627ad25f74706f96f4572bdfc1a1cfc31ced5e8974bb4ec9fbe2cdc2160b806b"
+   "size": 33637,
+   "sha256": "2afe395eded918fdb8f318149d56237e2d52eb85cb7efcead1cf0132cad28c02"
   },
   {
    "path": "workspace/skills/fourier-multistroke-training/tests/test_gradient_safety.py",

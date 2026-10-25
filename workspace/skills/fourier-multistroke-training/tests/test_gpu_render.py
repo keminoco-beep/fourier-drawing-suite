@@ -271,6 +271,20 @@ def _timing_keys(data):
 
 
 class TestGPUInterface(unittest.TestCase):
+    def test_source_clears_hostile_pyopengl_platform(self):
+        """Host-exports PYOPENGL_PLATFORM=egl must be dropped before GL imports."""
+        text = open(GPU_RENDER, encoding="utf-8").read()
+        clean = text.find('os.environ.pop("PYOPENGL_PLATFORM"')
+        self.assertGreater(clean, 0,
+                           "gpu_render.py must clear PYOPENGL_PLATFORM "
+                           "(ComfyUI hosts export egl; Windows has no EGL)")
+        gl_uses = [pos for pos in (text.find("import glfw"),
+                                   text.find("from OpenGL")) if pos >= 0]
+        if gl_uses:
+            self.assertLess(clean, min(gl_uses),
+                            "PYOPENGL_PLATFORM cleaning must run before any "
+                            "OpenGL/glfw import")
+
     @classmethod
     def setUpClass(cls):
         if not os.path.isfile(GPU_RENDER):
@@ -443,6 +457,69 @@ class TestGPURenderQuality(unittest.TestCase):
         self.assertTrue(os.path.isfile(out))
         with Image.open(out) as im:
             self.assertEqual(max(im.size), 256)
+
+
+@unittest.skipIf(GPU_SKIP, GPU_SKIP_REASON)
+class TestPyOpenGLPlatformEnv(unittest.TestCase):
+    """ComfyUI hosts export PYOPENGL_PLATFORM=egl (no EGL runtime on Windows).
+
+    gpu_render.py must clean that env and still render on the desktop GL
+    context; otherwise the node would silently fall back to CPU exact
+    (the 52-minute regression this class guards).
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.tmp = tempfile.mkdtemp(prefix="gpu_egl_env_")
+        try:
+            cls.doc = _build_synthetic_fbs(cls.tmp)
+        except unittest.SkipTest:
+            raise
+        cls.fbs = cls.doc["fbs"]
+
+    @classmethod
+    def tearDownClass(cls):
+        import shutil
+        shutil.rmtree(cls.tmp, ignore_errors=True)
+
+    def _render(self, out_name, env_extra):
+        out = os.path.join(self.tmp, out_name)
+        if os.path.isfile(out):
+            os.remove(out)
+        env = dict(os.environ)
+        env.update(env_extra)
+        proc = subprocess.run(
+            [sys.executable, GPU_RENDER, "--fbs", self.fbs, "--out", out,
+             "--resolution", "256", "--supersample", "1"],
+            capture_output=True, text=True, timeout=600, env=env,
+            cwd=WORKSPACE_ROOT)
+        return proc, out
+
+    def test_egl_env_does_not_break_gpu(self):
+        proc, out = self._render("egl.png", {"PYOPENGL_PLATFORM": "egl"})
+        self.assertNotEqual(proc.returncode, 3,
+                            "hostile PYOPENGL_PLATFORM=egl must not be reported "
+                            f"as 'no GL' (exit 3): {proc.stderr[-1500:]}")
+        self.assertEqual(proc.returncode, 0,
+                         f"egl-env render failed: {proc.stderr[-1500:]}")
+        self.assertTrue(os.path.isfile(out), "PNG missing under egl env")
+        from PIL import Image as _Image
+        img = np.asarray(_Image.open(out).convert("RGB"), dtype=np.float64)
+        self.assertGreater(float(img.std()), 1.0, "render looks blank")
+
+    def test_egl_env_output_matches_clean_env(self):
+        clean_proc, clean_png = self._render("clean.png", {})
+        egl_proc, egl_png = self._render("egl2.png", {"PYOPENGL_PLATFORM": "egl"})
+        self.assertEqual(clean_proc.returncode, 0,
+                         f"clean render failed: {clean_proc.stderr[-1200:]}")
+        self.assertEqual(egl_proc.returncode, 0,
+                         f"egl render failed: {egl_proc.stderr[-1200:]}")
+        a, b = _image(clean_png), _image(egl_png)
+        self.assertEqual(a.shape, b.shape)
+        self.assertGreaterEqual(_psnr(a, b), 60.0,
+                                "egl-env output differs from clean-env output")
+        self.assertEqual(float(np.abs(a - b).max()), 0.0,
+                         "GPU render must be deterministic across env cleaning")
 
 
 @unittest.skipIf(GPU_SKIP, GPU_SKIP_REASON)
@@ -620,6 +697,28 @@ class TestNodeGpuFallback(unittest.TestCase):
                          f"translucent doc must not stay on GPU:\n{out[-1500:]}")
         self.assertTrue(re.search(r"回退|fallback|cpu", out.lower()),
                         f"fallback should be logged:\n{out[-1500:]}")
+
+    def test_hostile_pyopengl_platform_uses_gpu(self):
+        """Simulate the ComfyUI host env (PYOPENGL_PLATFORM=egl): node stays GPU."""
+        old = os.environ.get("PYOPENGL_PLATFORM")
+        os.environ["PYOPENGL_PLATFORM"] = "egl"
+        try:
+            with tempfile.TemporaryDirectory(prefix="gpu_node_egl_") as td:
+                result, out = self._run_captured(run_dir=td, resolution=256)
+                pngs = [n for n in os.listdir(td) if n.endswith("_gpu.png")]
+                exact = [n for n in os.listdir(td) if n.endswith("_exact.png")]
+        finally:
+            if old is None:
+                os.environ.pop("PYOPENGL_PLATFORM", None)
+            else:
+                os.environ["PYOPENGL_PLATFORM"] = old
+        (img,) = result
+        self.assertIn("gpu render ok", out.lower(),
+                      f"node fell back to CPU under hostile EGL env:\n"
+                      f"{out[-2000:]}")
+        self.assertTrue(pngs, f"no *_gpu.png produced: {out[-1500:]}")
+        self.assertFalse(exact, f"CPU exact fallback was used: {exact}")
+        self.assertEqual(tuple(img.shape), (1, 256, 256, 3))
 
     def test_forced_cpu_fallback(self):
         old = os.environ.get("FDP_GPU_RENDER")

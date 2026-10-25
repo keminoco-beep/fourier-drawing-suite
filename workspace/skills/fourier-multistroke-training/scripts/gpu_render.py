@@ -32,6 +32,13 @@ import zipfile
 
 import numpy as np
 
+# Windows has no EGL runtime.  Some hosts (e.g. ComfyUI node packs) export
+# PYOPENGL_PLATFORM=egl, which PyOpenGL would inherit and fail to import in our
+# subprocess ("Unable to load EGL library") -> exit 3 -> silent CPU fallback.
+# Force the default desktop platform (WGL) on Windows before any OpenGL import.
+if os.name == "nt":
+    os.environ.pop("PYOPENGL_PLATFORM", None)
+
 # --------------------------------------------------------------------------- paths
 _HERE = os.path.dirname(os.path.abspath(__file__))
 # <ws>/skills/fourier-multistroke-training/scripts/gpu_render.py
@@ -562,12 +569,33 @@ def main() -> int:
         return EXIT_OK
 
     # ---- GL availability -------------------------------------------------
-    try:
+    # Defensive retry: if the module-level cleaning did not apply (non-Windows
+    # host, or PYOPENGL_PLATFORM set after import), drop a hostile platform
+    # hint once and retry.  Only a real second failure yields exit 3.
+    def _import_gl():
         import glfw  # noqa: F401
         from OpenGL import GL  # noqa: F401
-    except Exception as exc:
-        _log(f"GPU 渲染不可用（PyOpenGL/glfw 缺失: {exc}）；请用 --device cpu 或回退 CPU")
-        return EXIT_NO_GL
+        return glfw, GL
+
+    try:
+        _import_gl()
+    except Exception as exc:  # noqa: BLE001
+        first_error = exc
+        platform_hint = os.environ.get("PYOPENGL_PLATFORM")
+        if platform_hint:
+            os.environ.pop("PYOPENGL_PLATFORM", None)
+            try:
+                _import_gl()
+            except Exception as exc2:  # noqa: BLE001
+                _log("GPU 渲染不可用（PyOpenGL/glfw 导入失败；已尝试清除 "
+                     f"PYOPENGL_PLATFORM={platform_hint!r}）："
+                     f"first={first_error!r}; retry={exc2!r}；"
+                     "请用 --device cpu 或回退 CPU")
+                return EXIT_NO_GL
+        else:
+            _log(f"GPU 渲染不可用（PyOpenGL/glfw 缺失: {first_error}）；"
+                 "请用 --device cpu 或回退 CPU")
+            return EXIT_NO_GL
 
     # ---- sample (reuse the CPU sampler) ----------------------------------
     try:
