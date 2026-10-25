@@ -1,13 +1,18 @@
-# Fourier Drawing Suite v1.0.0
-本项目需要赞助，若有意愿可以联系keminoco@outlook.com
-以下是AI写的说明文档：
+# Fourier Drawing Suite v1.0.1
 
 把**图片或文字**变成「**纯笔画绘制的傅里叶画**」，并输出 PNG / 作画视频的完整套件：
 一个 ComfyUI 自定义节点包 + 三个可独立使用的傅里叶绘制工作区 + 安装/自检脚本。
 
-> 版本：**suite v1.0.0**（2026-10-25）｜skill `v1.38-gpu-render`｜ComfyUI 节点 **v3.1.0**（可移植安装）
+> 版本：**suite v1.0.1**（2026-10-25，文档与展示更新；功能与 v1.0.0 相同）｜skill `v1.38-gpu-render`｜ComfyUI 节点 **v3.1.0**（可移植安装）
 > 支持平台：**Windows + ComfyUI**（Python 3.10–3.13；以 ComfyUI 自带 python 为准）
 > 授权：**Proprietary / All Rights Reserved**（见 `NOTICE.md`；第三方库/字体/笔刷资源各自授权）
+
+> ❤️ **赞助与支持 / Sponsor**
+>
+> 本项目由个人独立开发与维护。如果它对你的创作或工作有帮助，欢迎赞助支持
+> （用于 GPU 渲染、工业设备后处理、更多画法研究等后续开发）。
+> **赞助、合作或定制开发请联系：keminoco@outlook.com**
+
 ---
 
 ## 它是什么（30 秒）
@@ -21,18 +26,38 @@
 **它不做什么**（重要）：不做照片级保真复刻；不直接用文字生图（必须经 Krea2/API 出图再画）；
 不是手机 App；不保证在**没有 OpenGL 的服务器**上用 GPU（会自动回退 CPU，慢但可用）。
 
+### 作品示例
+
+![Sunflowers v1.36 人类画师式纯笔画](docs/images/sunflowers_v136_content_R2048.png)
+
+*《向日葵》纯笔画复刻（v1.36 人类画师式笔画，约 10 万笔，2048 像素长边；无区域填色，每一笔都是真实曲线）。*
+
+---
+
+## 从屏幕到工业设备：可扩展方向
+
+本项目的核心资产不是“一张 PNG”，而是**有序的笔画数据**：每一笔 = 路径点序列 + 宽度（覆盖/压强）+ 颜色/材料 + 时序。这套表示与具体执行器无关——今天它驱动屏幕上的像素笔刷，明天就可以驱动：
+
+- **数控铣床 / CNC**：笔画宽度 → 刀具半径与 Z 轴深度，路径 → G-code；先在木/亚克力上做 2.5D 浮雕刻画；
+- **刺绣机**：路径 → 平针/缎面/填针线迹，宽度 → 线迹密度，颜色 → 换色顺序，导出 DST/EXP/JEF；
+- **激光雕刻 / 绘图仪**：笔画宽度与速度 → 激光功率/进给，或笔压与落笔顺序；
+- **喷墨 / UV 打印**：笔画顺序 → 喷头 pass 规划，宽度 → 覆盖率；
+- **机械臂 / 协作机器人**：路径 + 方向 → TCP 轨迹与姿态。
+
+> 详细的设备映射、工具路径管线（展平→刀具半径补偿→速度规划→设备指令→数字孪生仿真）与分阶段路线图见 [`ENGINEERING.md` §10 工业设备扩展路线](ENGINEERING.md#10-工业设备扩展路线cnc--刺绣--激光--机器人)。
+
 ---
 
 ## 5 分钟快速开始
 
 > 完整步骤（含截图级说明与排错）见 [`USER_GUIDE.md`](USER_GUIDE.md)；安装细节见 [`INSTALL.md`](INSTALL.md)。
 
-1. **解压**整个发布包到任意目录（可以含空格/中文），例如 `<path>`。
+1. **解压**整个发布包到任意目录（可以含空格/中文），例如 `D:\FDP\fourier-drawing-suite-v1.0.1`。
 2. 确认 **ComfyUI 已安装**并可正常打开（Windows 版即可）。
 3. 打开 PowerShell，在**发布包根目录**运行安装器（把 ComfyUI 路径换成你的）：
    ```powershell
-   "<ComfyUI 自带的 python>" release\install.py --comfyui "<path>"
-   # 例： --comfyui "<path>"
+   "<ComfyUI 自带的 python>" release\install.py --comfyui "D:\ComfyUI"
+   # 例： --comfyui "D:\ComfyUI_windows_portable\ComfyUI"
    ```
    安装器会把节点包复制到 `ComfyUI\custom_nodes\ComfyUI-FDP-T2I` 并写入 `fdp_config.json`
    （记录发布包位置与 python 路径，之后不需要改任何代码）。
@@ -50,7 +75,7 @@
 6. 点 **Queue** 运行；结果在 `ComfyUI\output\fdp_t2i_runs\<时间戳>_<模式>\`（PNG/`.fdraw`/`strokes.json`/报告）。
 7. 自检（可选，不联网）：
    ```powershell
-   "<ComfyUI 自带的 python>" release\check_env.py --comfyui "<path>"
+   "<ComfyUI 自带的 python>" release\check_env.py --comfyui "D:\ComfyUI"
    ```
 
 **速度参考**（RTX 4070 Ti SUPER，chibi 38,737 笔）：GPU 渲染 **1024 约 14–17 s、2048 约 15–19 s、
@@ -62,12 +87,12 @@
 ## 目录地图
 
 ```
-fourier-drawing-suite-v1.0.0/
+fourier-drawing-suite-v1.0.1/
 ├── README.md               本文件（总览 + 快速开始 + 组件版本）
 ├── INSTALL.md              安装/依赖/卸载/离线/常见失败
 ├── USER_GUIDE.md           普通人完整使用说明（三种工作流、参数、输出、FAQ）
 ├── ENGINEERING.md          工程构建思路 + 算法 + 数据格式 + 给 AI 的接手指南
-├── CHANGELOG.md            v1.33→v1.38 变更摘要与 v1.0.0 发布说明
+├── CHANGELOG.md            v1.33→v1.38 变更摘要与 v1.0.0/v1.0.1 发布说明
 ├── NOTICE.md               授权与第三方许可证汇总
 ├── release/                安装/自检/卸载脚本 + requirements + config 模板
 ├── workspace/
@@ -79,6 +104,7 @@ fourier-drawing-suite-v1.0.0/
 │   ├── custom_nodes/ComfyUI-FDP-T2I/          ComfyUI 节点包 v3.1.0（可移植）
 │   └── workflows/                             5 个工作流 JSON（3 个 v1.36 + 旧 fdraw + 视频）
 ├── examples/                                  chibi 示例（源图/strokes/fdraw/渲染 PNG/命令）
+├── docs/images/                                文档示例图（《向日葵》纯笔画渲染）
 ├── test_artifacts/                            完整测试产物（单元测试基线/各版本 VERDICT/指标/对比图/
 │                                              发布兼容测试报告/复现命令）
 │                                              （证据日志中的本机路径已脱敏为 <workspace>/<python> 等占位符）
@@ -90,7 +116,7 @@ fourier-drawing-suite-v1.0.0/
 
 | 组件 | 版本 | 说明 |
 |---|---|---|
-| **suite** | **v1.0.0** | 本次整体发布（文档+组装） |
+| **suite** | **v1.0.1** | 文档与展示更新（v1.0.0 功能不变）：例图、赞助联系、工业扩展路线 |
 | skill `fourier-multistroke-training` | **v1.38-gpu-render** | 图片→多笔画傅里叶画；GPU 渲染；剪影感知；人类画师式画法 |
 | ComfyUI 节点 `ComfyUI-FDP-T2I` | **3.1.0** | 可移植：`FDP_WORKSPACE`/`FDP_PYTHON`/`fdp_config.json` 解析，无本机绝对路径 |
 | `fourier-brushstroke` | fbs 格式 **2.0.0** | 位图→中轴笔画→`.fbs`/`.fdraw`→静态图/一笔画/视频 |

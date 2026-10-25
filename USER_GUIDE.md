@@ -1,4 +1,4 @@
-# USER GUIDE — 普通人完整使用说明（suite v1.0.0）
+# USER GUIDE — 普通人完整使用说明（suite v1.0.1）
 
 > 这份文档面向**第一次接触**的人：照着点就能做出「傅里叶笔画画」。
 > 不需要懂代码，不需要 API Key（除非你要用 Krea2 API 模式），也不需要 GPU（没有会自动用 CPU）。
@@ -7,6 +7,10 @@
 ---
 
 ## 1. 这是什么？
+
+![Sunflowers v1.36 人类画师式纯笔画](docs/images/sunflowers_v136_content_R2048.png)
+
+*《向日葵》纯笔画复刻（v1.36 人类画师式笔画，约 10 万笔，2048 像素长边；无区域填色，每一笔都是真实曲线）。*
 
 这套工具把图片变成**一笔一笔画出来的画**（不是滤镜、不是贴图）：每一笔都是真实画出来的曲线，
 可以导出高清 PNG，也可以导出「傅里叶圆一笔一笔画出来」的过程视频。
@@ -26,6 +30,9 @@
 - ❌ 不支持手机端；只在 Windows + ComfyUI 上验证过。
 - ❌ 没有 NVIDIA GPU / OpenGL 也能用，但渲染慢（CPU），且不是逐字节等同 GPU。
 
+> ❤️ **赞助与支持**：本项目由个人独立开发维护，如果对你有帮助欢迎赞助支持。
+> **赞助、合作或定制开发请联系：keminoco@outlook.com**
+
 ---
 
 ## 2. 准备清单
@@ -43,7 +50,7 @@
 确认 ComfyUI python（PowerShell，把路径换成你的）：
 
 ```powershell
-"<path>" -c "import sys; print(sys.version)"
+"D:\ComfyUI_windows_portable\python_embeded\python.exe" -c "import sys; print(sys.version)"
 # 能打印 Python 3.10/3.11/3.12/3.13 即可
 ```
 
@@ -53,24 +60,24 @@
 
 > 详细版与常见失败见 [`INSTALL.md`](INSTALL.md)。这里只列最短路径。
 
-1. **解压**发布包到任意目录，例如 `<path>`（可以含空格/中文）。
+1. **解压**发布包到任意目录，例如 `D:\FDP\fourier-drawing-suite-v1.0.1`（可以含空格/中文）。
 2. 打开 **PowerShell**，进入发布包根目录：
    ```powershell
-   cd "<path>"
+   cd "D:\FDP\fourier-drawing-suite-v1.0.1"
    ```
 3. 运行安装器（把 `--comfyui` 换成你的 ComfyUI 目录）：
    ```powershell
-   "<path>" release\install.py --comfyui "<path>"
+   "D:\ComfyUI_windows_portable\python_embeded\python.exe" release\install.py --comfyui "D:\ComfyUI_windows_portable\ComfyUI"
    ```
    看到 `[install] 完成。后续步骤：…` 即成功；它已自动写好配置（`fdp_config.json`），**以后换机器才需要重跑**。
 4. 如提示缺依赖，按提示运行（通常 ComfyUI 自带的都有，可跳过）：
    ```powershell
-   "<path>" -m pip install -r release\requirements-core.txt
+   "D:\ComfyUI_windows_portable\python_embeded\python.exe" -m pip install -r release\requirements-core.txt
    ```
 5. **完全重启 ComfyUI**（关掉再开，不是刷新页面）。
 6. 可选自检：
    ```powershell
-   "<path>" release\check_env.py --comfyui "<path>"
+   "D:\ComfyUI_windows_portable\python_embeded\python.exe" release\check_env.py --comfyui "D:\ComfyUI_windows_portable\ComfyUI"
    ```
 
 ---

@@ -1,7 +1,14 @@
 # CHANGELOG — Fourier Drawing Suite
 
-> 本文件覆盖 **suite v1.0.0** 发布说明与组成组件的近版变更（v1.33 → v1.38）。
+> 本文件覆盖 **suite v1.0.0 / v1.0.1** 发布说明与组成组件的近版变更（v1.33 → v1.38）。
 > 每个版本的完整测试基线见 `test_artifacts/unit/`；验收结论见 `test_artifacts/verdicts/`。
+
+## v1.0.1 — 文档与展示更新（2026-10-25）
+
+- 文档新增《向日葵》纯笔画示例图 `docs/images/sunflowers_v136_content_R2048.png`（README / USER_GUIDE / ENGINEERING）。
+- 新增赞助/合作联系方式 **keminoco@outlook.com**，置于 README/USER_GUIDE 醒目位置与 INSTALL/NOTICE。
+- ENGINEERING 新增 §10「工业设备扩展路线（CNC / 刺绣 / 激光 / 机器人）」：设备映射、工具路径管线、物理量映射、路线图、风险。
+- 功能代码、节点版本、测试与验证结论不变（沿用 v1.0.0）。
 
 ## v1.0.0 — 整体发布（2026-10-25）
 

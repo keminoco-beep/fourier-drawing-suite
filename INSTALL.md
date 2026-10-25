@@ -1,4 +1,4 @@
-# INSTALL — 安装与部署（v1.0.0）
+# INSTALL — 安装与部署（v1.0.1）
 
 > 目标读者：第一次安装的人。安装完成后请先读 [`USER_GUIDE.md`](USER_GUIDE.md)。
 > 本文所有命令以 Windows PowerShell 为例；路径含空格/中文都可以，**请给路径加双引号**。
@@ -19,18 +19,18 @@
 
 ```powershell
 # ComfyUI portable 版通常在这里（按你的实际路径改）：
-"<path>" -c "import sys; print(sys.version)"
+"D:\ComfyUI_windows_portable\python_embeded\python.exe" -c "import sys; print(sys.version)"
 ```
 
 ## 2. 解压
 
-把 `fourier-drawing-suite-v1.0.0.zip` 解压到任意目录，例如：
+把 `fourier-drawing-suite-v1.0.1.zip` 解压到任意目录，例如：
 
 ```
-<path>
+D:\FDP\fourier-drawing-suite-v1.0.1\
 ```
 
-解压后会有一个顶层目录 `fourier-drawing-suite-v1.0.0\`，**先进入该目录**（后续命令都在发布包根目录执行）。
+解压后会有一个顶层目录 `fourier-drawing-suite-v1.0.1\`，**先进入该目录**（后续命令都在发布包根目录执行）。
 目录内应能看到 `README.md`、`INSTALL.md`、`workspace\`、`comfyui\`、`release\`。
 **不要**只解压其中一部分，也不要把 `workspace\` 移走（安装器按相对位置找脚本）。
 
@@ -41,9 +41,9 @@
 ```powershell
 "<ComfyUI python>" release\install.py --comfyui "<ComfyUI 目录>"
 # 例（portable）：
-"<path>" release\install.py --comfyui "<path>"
+"D:\ComfyUI_windows_portable\python_embeded\python.exe" release\install.py --comfyui "D:\ComfyUI_windows_portable\ComfyUI"
 # 例（手动安装）：
-"<path>" release\install.py --comfyui "<path>"
+"D:\ComfyUI_windows_portable\python_embeded\python.exe" release\install.py --comfyui "D:\ComfyUI_windows_portable\ComfyUI"
 ```
 
 安装器会：
@@ -63,7 +63,7 @@
 > 手动安装（不想跑脚本）：把 `comfyui\custom_nodes\ComfyUI-FDP-T2I` 整个复制到
 > `<ComfyUI>\custom_nodes\`，再在节点目录放一个 `fdp_config.json`：
 > ```json
-> {"workspace": "<path>", "python": "<path>"}
+> {"workspace": "D:\\FDP\\fourier-drawing-suite-v1.0.1\\workspace", "python": "D:\\ComfyUI_windows_portable\\python_embeded\\python.exe"}
 > ```
 > 注意 Windows 路径里的 `\` 要写成 `\\`。
 
@@ -140,8 +140,8 @@ GPU 的 PyOpenGL/glfw 是纯 Python/预编译 wheel，一般不需要编译。
 **不想写 config**：设置环境变量即可（推荐在启动 ComfyUI 的脚本里设置，或系统环境变量）：
 
 ```powershell
-$env:FDP_WORKSPACE = "<path>"
-$env:FDP_PYTHON    = "<path>"
+$env:FDP_WORKSPACE = "D:\FDP\fourier-drawing-suite-v1.0.1\workspace"
+$env:FDP_PYTHON    = "D:\ComfyUI_windows_portable\python_embeded\python.exe"
 ```
 
 ## 10. 常见安装失败
@@ -164,3 +164,9 @@ $env:FDP_PYTHON    = "<path>"
 - skill 版本：`v1.38-gpu-render`（在 `workspace/skills/fourier-multistroke-training/SKILL.md` 顶部）。
 - 本发布包不保证兼容未列出的 ComfyUI 版本；实测环境为 ComfyUI（Windows）+ ComfyUI python 3.11。
 - 详细故障排查见 [`USER_GUIDE.md`](USER_GUIDE.md) 的 10 条 FAQ。
+
+## 支持这个项目
+
+本项目由个人独立开发与维护；如果它对你的创作或工作有帮助，欢迎赞助支持后续开发。
+**赞助 / 合作 / 定制开发请联系：keminoco@outlook.com**
+

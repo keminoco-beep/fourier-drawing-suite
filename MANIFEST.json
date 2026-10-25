@@ -1,47 +1,47 @@
 {
  "package": "fourier-drawing-suite",
- "version": "1.0.0",
+ "version": "1.0.1",
  "built_at": "2026-10-25",
  "components": {
-  "suite": "1.0.0",
+  "suite": "1.0.1",
   "skill_fourier_multistroke_training": "v1.38-gpu-render",
   "comfyui_node_FDP_T2I": "3.1.0",
   "fourier_brushstroke_fbs": "2.0.0",
   "fourier_prompt": "0.1.0",
   "workflows": "v1.36 series + legacy fdraw + video"
  },
- "file_count": 544,
- "total_bytes": 25555590,
+ "file_count": 545,
+ "total_bytes": 28803279,
  "files": [
   {
    "path": "CHANGELOG.md",
-   "size": 6888,
-   "sha256": "79ccce75ff6f8d21c5b728975262ebf272c221324c6dfbf8ac51ae65a77ad248"
+   "size": 7464,
+   "sha256": "43a186b15d0343ab488cccb8c4389f870e5327cb140a4679d75dcd2072e5f918"
   },
   {
    "path": "ENGINEERING.md",
-   "size": 25165,
-   "sha256": "9aa802abc48588c9de5995e4e28588f606a3c33b18bbf81de4759d83148010fe"
+   "size": 31877,
+   "sha256": "49df063eb2402582d6b00e611e7c89971f328b5f109d13b041f6117f9a9e1b26"
   },
   {
    "path": "INSTALL.md",
-   "size": 8025,
-   "sha256": "31b13437999038a7176b8485a12dc1a563f509b07c1656686dc4b9c28f0cf0ba"
+   "size": 8645,
+   "sha256": "0dc87dd5fa1496632e70840bc3978c38ef4f4ff49593df18054af8d3f22e6210"
   },
   {
    "path": "NOTICE.md",
-   "size": 5130,
-   "sha256": "932b1416568dea4ec804c651b6de152b94c2296d2c053d5cd2222741e2348157"
+   "size": 5413,
+   "sha256": "e662021f9d97b39bc9f54470ea9bae2ae503fe90f8cbaead1576784d4c7d988d"
   },
   {
    "path": "README.md",
-   "size": 7883,
-   "sha256": "c2fce5feadccf284880d96f23bbc103a890ea9d414bd30d7bf1b639cc8b01b5e"
+   "size": 9897,
+   "sha256": "2fbd5680b36a18dc5ddbf6a686b5347d7b2983414fc24093b24daca1fe9b3860"
   },
   {
    "path": "USER_GUIDE.md",
-   "size": 15631,
-   "sha256": "662f62280aadd1bfe8013e6ce9e29718df217ee4d91a2f2123647a6e476e4110"
+   "size": 16365,
+   "sha256": "5f2c515d6f93d1e1d496c9a844737fa38760f3a8b2d4fd127db1080ac8088154"
   },
   {
    "path": "comfyui/custom_nodes/ComfyUI-FDP-T2I/README.md",
@@ -112,6 +112,11 @@
    "path": "comfyui/workflows/FDP_v136_T2I_Krea2_Local_UI.json",
    "size": 29923,
    "sha256": "e02bc4ed80b54c372b990834ff8f78dc950e3ab3da7da262dc72d76ee046d180"
+  },
+  {
+   "path": "docs/images/sunflowers_v136_content_R2048.png",
+   "size": 3236750,
+   "sha256": "0a766127ec14b4209e5e6e6a305742549bf8ccfc887f9458f4d45513d12b76a6"
   },
   {
    "path": "examples/chibi/chibi.fdraw",

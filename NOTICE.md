@@ -1,4 +1,4 @@
-# NOTICE — 授权与第三方许可证汇总（suite v1.0.0）
+# NOTICE — 授权与第三方许可证汇总（suite v1.0.1）
 
 > 本文件是发布包的授权声明汇总。**请以各组件目录内的 `LICENSE` / `LICENSES.md` 原文为准**；
 > 本文件只是导航与摘要，不改变任何原始许可证条款。
@@ -24,6 +24,7 @@
 | `fourier-prompt/assets/fonts/NotoSansSC-VF.ttf`（打包子集） | **SIL Open Font License 1.1（OFL-1.1）** | 完整许可证文本：`fourier-prompt/assets/fonts/OFL.txt`；来源：Noto Sans SC / Source Han Sans（OFL-1.1 设计） |
 | `fourier-prompt/assets/brush/*`（brush_catalog/calib/style_packs/previews） | **Proprietary**（自测/自生成） | 见 `fourier-prompt/assets/brush/LICENSES.md`：全部数据由本仓库自测/自生成，不含任何第三方笔刷资产、纹理或 bitmap tip |
 | `fourier-prompt/assets/fonts/LICENSES.md`、`assets/brush/LICENSES.md` | 说明文档 | 含来源、SHA-256 与生成/复现命令 |
+| `docs/images/sunflowers_v136_content_R2048.png` | **Proprietary**（本项目 v1.36 渲染产物） | 文档示例图；由本套流水线生成 |
 
 > 字体仅用于**离线编译文字轮廓**（`compile_plan` 会把字形烘焙成填充多边形），
 > 生成的 `.fbs` / `.fdraw` **不依赖**字体文件；分发字体子集需遵守 OFL-1.1（保留版权与许可声明、不得单独售卖字体）。
@@ -74,3 +75,8 @@
 
 > 如果本文件与任何原始 `LICENSE`/`LICENSES.md` 文本冲突，以原始许可文本为准。
 > 本项目不提供任何明示或暗示的担保；使用风险由使用者承担。
+
+## 赞助与联系
+
+本项目由个人独立开发与维护；赞助、合作或定制开发请联系：**keminoco@outlook.com**。
+
